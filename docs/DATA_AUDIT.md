@@ -37,3 +37,20 @@
 官方记录：https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9
 核查路径：内置浏览器页面 Information / History / 顶部许可；下载区已打开，但尚未显示具体文件行。
 元数据接口直连出现 TLS 握手失败；Kimi 扩展未连接，未绕过证书或改变代理设置。
+
+## 主声音文件级证据（V5）
+
+已在官方浏览器下载树展开 Data/01，确认以下文件与页面所列 MD5。大小为页面舍入值，不是精确字节。
+
+| 文件 | 大小 | 官方 MD5 |
+|---|---|---|
+| 01_HR.csv | 1018.76 KB | b5e4c41273e159e441ee2186ebb4c7b9 |
+| 01_SpO2.csv | 1023.72 KB | eaa9af6b108c4f02858da143f600fd05 |
+| 01_annotation.json | 15.43 KB | 2ff0521469e10aa660ace085b9e9ca45 |
+| 01_phone.wav | 339.63 MB | 54c8f003a98e905ee9301e0043198a4d |
+| 01_recorder_1.wav | 179.77 MB | edf6c571d75561be24701d47abc0314b |
+| 01_recorder_2.wav | 241.76 MB | b7fb87a294ea82634452386103df2197 |
+| 01_sleep_stage.csv | 23.65 KB | 92933af44f7aa5d48b5b1b12ccb43b76 |
+
+Data 下可见 01 至 50 目录，未逐一展开。根目录另有 osa_data_eng.py（18.92 KB，MD5 6ce9dfabe650f2fcb8d58eff654e3878）。未执行作者代码。
+JSON 预览已点击但未取得正文，不把预览操作当作解析验证。候选手机单夜约 340 MB，仍应优先找更小样本；当前未下载这些文件。MD5 是源站提供的完整性参考，后续额外计算本地 SHA-256，不能把 MD5 冒称 SHA-256。

@@ -13,3 +13,5 @@
 
 环境已确认：Windows、Python 3.12.10、Node 24.22.1、Git。尚未安装项目依赖或检查 CUDA。
 目前只需阅读文档，无应用启动命令。后续逐阶段补充运行、测试、真实结果与截图。
+
+需求完善与研究决策见 [DECISIONS](docs/DECISIONS.md)，可穿戴文件级证据见 [WEARABLE_AUDIT](docs/WEARABLE_AUDIT.md)。
