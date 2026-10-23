@@ -10,3 +10,5 @@
 | BIDSleep | https://physionet.org/content/bidsleep-dataset/1.0.1/ ; https://doi.org/10.13026/rees-1092 | 可选扩展，默认不下载 |
 
 主声音论文页面标注 CC BY-NC-ND 4.0，这是文章许可，不是已核实的数据许可。项目软件许可待确定，不将第三方数据纳入软件许可。
+
+更新：官方主声音记录经内置浏览器实查为 **V5 / CC BY 4.0 / 381 files / 52.87 GB**，2025-06-20 更新。这取代上表主声音许可与版本待确认状态。文件级核查仍未完成；文章 CC BY-NC-ND 与数据 CC BY 4.0 分别适用。
