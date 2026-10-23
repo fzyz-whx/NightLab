@@ -28,3 +28,5 @@ python -B -m unittest discover -s tests -p "test_*.py" -v
 ```
 
 原始文件未取得时 verify 应失败；这不是模型验证。当前仅支持离线审计、计划、完整性检查，下载与数据准备尚未实现。详见 [工具说明](scripts/datasets/README.md) 与 [研究方案](docs/RESEARCH_PLAN.md)。
+
+已取得并校验一人的心率和标签小样本；加速度尚不完整。可用样本结构检查命令见工具说明，标签语义见 [证据记录](docs/LABEL_MAPPING_EVIDENCE.md)。尚无模型结果。
