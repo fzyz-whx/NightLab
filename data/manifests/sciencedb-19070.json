@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "id": "sciencedb-19070",
+  "version": "5",
+  "license": {
+    "name": "CC BY 4.0",
+    "status": "official record displayed"
+  },
+  "sources": [
+    "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9",
+    "https://doi.org/10.57760/sciencedb.19070"
+  ],
+  "reported_size": "52.87 GB (rounded website display; 381 files)",
+  "inventory_complete": false,
+  "evidence_date": "2026-10-23",
+  "files": [
+    {
+      "path": "data/raw/sciencedb-19070/v5/Data/01/01_HR.csv",
+      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_HR.csv)",
+      "source_status": "official directory listed",
+      "reported_size": "1018.76 KB",
+      "exact_bytes": null,
+      "official_checksums": {
+        "md5": "b5e4c41273e159e441ee2186ebb4c7b9"
+      }
+    },
+    {
+      "path": "data/raw/sciencedb-19070/v5/Data/01/01_SpO2.csv",
+      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_SpO2.csv)",
+      "source_status": "official directory listed",
+      "reported_size": "1023.72 KB",
+      "exact_bytes": null,
+      "official_checksums": {
+        "md5": "eaa9af6b108c4f02858da143f600fd05"
+      }
+    },
+    {
+      "path": "data/raw/sciencedb-19070/v5/Data/01/01_annotation.json",
+      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_annotation.json)",
+      "source_status": "official directory listed",
+      "reported_size": "15.43 KB",
+      "exact_bytes": null,
+      "official_checksums": {
+        "md5": "2ff0521469e10aa660ace085b9e9ca45"
+      }
+    },
+    {
+      "path": "data/raw/sciencedb-19070/v5/Data/01/01_phone.wav",
+      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_phone.wav)",
+      "source_status": "official directory listed",
+      "reported_size": "339.63 MB",
+      "exact_bytes": null,
+      "official_checksums": {
+        "md5": "54c8f003a98e905ee9301e0043198a4d"
+      }
+    },
+    {
+      "path": "data/raw/sciencedb-19070/v5/Data/01/01_recorder_1.wav",
+      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_recorder_1.wav)",
+      "source_status": "official directory listed",
+      "reported_size": "179.77 MB",
+      "exact_bytes": null,
+      "official_checksums": {
+        "md5": "edf6c571d75561be24701d47abc0314b"
+      }
+    },
+    {
+      "path": "data/raw/sciencedb-19070/v5/Data/01/01_recorder_2.wav",
+      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_recorder_2.wav)",
+      "source_status": "official directory listed",
+      "reported_size": "241.76 MB",
+      "exact_bytes": null,
+      "official_checksums": {
+        "md5": "b7fb87a294ea82634452386103df2197"
+      }
+    },
+    {
+      "path": "data/raw/sciencedb-19070/v5/Data/01/01_sleep_stage.csv",
+      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_sleep_stage.csv)",
+      "source_status": "official directory listed",
+      "reported_size": "23.65 KB",
+      "exact_bytes": null,
+      "official_checksums": {
+        "md5": "92933af44f7aa5d48b5b1b12ccb43b76"
+      }
+    }
+  ],
+  "notes": [
+    "Partial subject 01 inventory only; exact bytes and official SHA-256 unknown.",
+    "MD5 values transcribed from official download tree; computed SHA-256 is local unless an official reference is supplied.",
+    "File-level downloadable URLs and JSON schema remain unverified."
+  ]
+}

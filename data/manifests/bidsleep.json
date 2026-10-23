@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "id": "bidsleep",
+  "version": "1.0.1",
+  "license": {
+    "name": "ODC-By 1.0",
+    "status": "official page confirmed"
+  },
+  "sources": [
+    "https://physionet.org/content/bidsleep-dataset/1.0.1/",
+    "https://doi.org/10.13026/rees-1092"
+  ],
+  "reported_size": {
+    "zip": "5.9 GB",
+    "uncompressed": "27.9 GB"
+  },
+  "inventory_complete": false,
+  "evidence_date": "2026-10-23",
+  "files": [
+    {
+      "path": "data/raw/bidsleep/1.0.1/Bidslab00/1/motion.csv",
+      "source": "https://physionet.org/files/bidsleep-dataset/1.0.1/Bidslab00/1/motion.csv",
+      "source_status": "official directory listed",
+      "reported_size": null,
+      "exact_bytes": 103763554,
+      "official_checksums": {}
+    },
+    {
+      "path": "data/raw/bidsleep/1.0.1/Bidslab00/1/hr.csv",
+      "source": "https://physionet.org/files/bidsleep-dataset/1.0.1/Bidslab00/1/hr.csv",
+      "source_status": "official directory listed",
+      "reported_size": null,
+      "exact_bytes": 114314,
+      "official_checksums": {}
+    },
+    {
+      "path": "data/raw/bidsleep/1.0.1/Bidslab00/1/labels.mat",
+      "source": "https://physionet.org/files/bidsleep-dataset/1.0.1/Bidslab00/1/labels.mat",
+      "source_status": "official directory listed",
+      "reported_size": null,
+      "exact_bytes": 465,
+      "official_checksums": {}
+    }
+  ],
+  "notes": [
+    "Optional extension; no default full download. Listed night is not claimed smallest.",
+    "Official SHA256SUMS.txt exists at https://physionet.org/files/bidsleep-dataset/1.0.1/SHA256SUMS.txt; values not yet read. Verification currently computes local SHA-256 only.",
+    "Dreem 2 reference labels; do not claim complete PSG ground truth."
+  ]
+}

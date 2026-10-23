@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "sleepaccel",
+  "version": "PhysioNet 1.0.0",
+  "license": {
+    "name": "ODC-By 1.0",
+    "source": "https://physionet.org/content/sleep-accel/1.0.0/LICENSE.txt",
+    "status": "official mirror license read; NSRR license and cross-site identity not verified"
+  },
+  "sources": [
+    "https://sleepdata.org/datasets/sleepaccel",
+    "https://physionet.org/content/sleep-accel/1.0.0/",
+    "https://github.com/nsrr/sleepaccel-documentation/blob/d6a09dba76c38fd8c9e0429b095096b54224ee2e/pages/README.md"
+  ],
+  "reported_size": {
+    "nsrr_zip": "563 MB (documentation)",
+    "physionet_zip": "550.1 MB",
+    "physionet_uncompressed": "2.2 GB"
+  },
+  "inventory_complete": false,
+  "evidence_date": "2026-10-23",
+  "files": [
+    {
+      "path": "data/raw/sleepaccel/1.0.0/motion/5383425_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/5383425_acceleration.txt",
+      "source_status": "official SHA256SUMS entry confirmed 2026-10-23; signal not downloaded",
+      "reported_size": "12.8 MB",
+      "exact_bytes": null,
+      "official_checksums": {
+        "sha256": "40e461c8b2da44a7cd780cbae28b1d7dbcf7d32d9172898ae94c85e3f69b366e"
+      },
+      "checksum_source": "https://physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt"
+    },
+    {
+      "path": "data/raw/sleepaccel/1.0.0/heart_rate/5383425_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/5383425_heartrate.txt",
+      "source_status": "official SHA256SUMS entry confirmed 2026-10-23; signal not downloaded",
+      "reported_size": null,
+      "exact_bytes": null,
+      "official_checksums": {
+        "sha256": "9b6af9046a4c516f948f307e8e130a823b244056ae705e2bb8abd89bb3e76eb8"
+      },
+      "checksum_source": "https://physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt"
+    },
+    {
+      "path": "data/raw/sleepaccel/1.0.0/labels/5383425_labeled_sleep.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/labels/5383425_labeled_sleep.txt",
+      "source_status": "official SHA256SUMS entry confirmed 2026-10-23; signal not downloaded",
+      "reported_size": null,
+      "exact_bytes": null,
+      "official_checksums": {
+        "sha256": "10af34ea9a31f2284dafa034827e3050c0ea584b71107133e694715c5990df1b"
+      },
+      "checksum_source": "https://physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt"
+    }
+  ],
+  "notes": [
+    "Three candidate files only, not confirmed smallest complete sample.",
+    "Official SHA256SUMS.txt read in official browser on 2026-10-23 (11899 bytes); three hashes recorded. Exact signal bytes remain unknown.",
+    "Preserve NSRR/Walch citations and funding acknowledgements; labels/time alignment untested."
+  ]
+}

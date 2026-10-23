@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "psg-audio",
+  "version": null,
+  "license": {
+    "name": null,
+    "status": "unconfirmed; download blocked pending data license"
+  },
+  "sources": [
+    "https://doi.org/10.11922/sciencedb.00345",
+    "https://www.nature.com/articles/s41597-021-00977-w"
+  ],
+  "reported_size": null,
+  "inventory_complete": false,
+  "evidence_date": "2026-10-23",
+  "files": [],
+  "notes": [
+    "No actual file inventory verified; RML labels described in paper only."
+  ]
+}
