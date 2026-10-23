@@ -23,3 +23,9 @@ Phase 0 未完成：需要实际文件清单、数据许可、标签/时间戳�
 提交前检查暂存 diff；没有下载原始音频或信号，没有模型指标。
 
 公开状态：GitHub REST 更新响应确认 private=false。
+
+## 2026-10-23：SleepAccel 官方校验清单
+
+上一阶段 ed1787b95480662d1fdbff39cd2a97b4e768792b 已推送且远端哈希一致，仓库公开。
+本轮内置浏览器成功显示 SleepAccel 1.0.0 官方 SHA256SUMS 正文（11,899 bytes），核实候选受试者三个文件的路径与官方 SHA-256，记录于 WEARABLE_AUDIT.md。本地保存操作超时，不宣称下载成功。
+正在实现仅离线 audit/plan/verify 工具；未完成审查前不计入已交付功能。继续保留 Phase 0 未完成状态。

@@ -41,3 +41,15 @@ SleepAccel 是合理的首个可穿戴候选：31 人，Apple Watch 三轴加速
 已核实的完整单夜候选（未称全库最小）：[Bidslab00/1 目录](https://physionet.org/content/bidsleep-dataset/1.0.1/Bidslab00/1/)三文件均修改 2026-03-20。网页预览显示 [hr.csv](https://physionet.org/content/bidsleep-dataset/1.0.1/Bidslab00/1/hr.csv) 114,314 bytes，[labels.mat](https://physionet.org/content/bidsleep-dataset/1.0.1/Bidslab00/1/labels.mat) 465 bytes，[motion.csv](https://physionet.org/content/bidsleep-dataset/1.0.1/Bidslab00/1/motion.csv) 103,763,554 bytes，合计 **103,878,333 bytes**。labels.mat 仅见元信息，未解析其内部变量；预览不等于全文件质量核验。
 
 建议本轮优先 SleepAccel；BIDSleep 需独立适配标签编码与绝对时间，保留为多夜外部验证来源。两者都没有在本轮产生本地数据、模型结果或真实设备验收。
+
+## 后续主线程复核：校验清单已读取
+
+2026-10-23 内置浏览器实际显示 https://physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt 全文，页面标 11,899 bytes。以下三个条目确认，取代前文“清单正文未取得”和候选 HR 路径仅推导的状态：
+
+| 相对文件路径 | 官方 SHA-256 |
+|---|---|
+| heart_rate/5383425_heartrate.txt | 9b6af9046a4c516f948f307e8e130a823b244056ae705e2bb8abd89bb3e76eb8 |
+| labels/5383425_labeled_sleep.txt | 10af34ea9a31f2284dafa034827e3050c0ea584b71107133e694715c5990df1b |
+| motion/5383425_acceleration.txt | 40e461c8b2da44a7cd780cbae28b1d7dbcf7d32d9172898ae94c85e3f69b366e |
+
+这证明官方清单包含这些路径与摘要，不证明本地信号已经下载或校验。使用浏览器 Download 保存清单时工具超时，未取得返回路径，故本地保存状态未确认。信号文件精确字节数仍待读取。
