@@ -8,6 +8,7 @@ from pathlib import Path
 import statistics
 
 from .cli import ROOT, load_manifest, raw_path
+from .sleepaccel_labels import normalize_stage
 
 
 def inspect_rows(text, kind):
@@ -36,7 +37,11 @@ def inspect_rows(text, kind):
               'gap_max_seconds': max(gaps), 'before_psg_rows': sum(r[0] < 0 for r in rows)}
     if kind == 'labels':
         report['raw_label_counts'] = dict(sorted(Counter(int(r[1]) for r in rows).items()))
-        report['semantic_mapping_applied'] = False
+        normalized = [normalize_stage(int(r[1])) for r in rows]
+        report['semantic_mapping_applied'] = True
+        report['mapping_version'] = 'sleepaccel-five-stage-v1'
+        report['valid_target_rows'] = sum(r['target_valid'] for r in normalized)
+        report['normalized_stage_counts'] = dict(Counter(r['stage'] for r in normalized if r['target_valid']))
     return report
 
 

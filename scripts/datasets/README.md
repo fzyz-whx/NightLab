@@ -35,4 +35,4 @@ python -B -m scripts.datasets.inspect_sleepaccel --kind heart_rate
 python -B -m scripts.datasets.inspect_sleepaccel --kind motion
 ```
 
-该脚本统计实际列数、有限值、严格递增时间、间隔和原始标签频数，不套用阶段映射；原始标签4/-1的依据见 docs/LABEL_MAPPING_EVIDENCE.md。暂用于已审计的最小样本，读取完整样本到内存，不用于未经规模评估的全库处理。
+该脚本统计实际列数、有限值、严格递增时间、间隔和原始标签频数，同时保留原始标签并应用 sleepaccel-five-stage-v1：3/4合并N3、-1保留为空且目标掩码为false，未文档化数字报错；原始标签4/-1的依据见 docs/LABEL_MAPPING_EVIDENCE.md。暂用于已审计的最小样本，读取完整样本到内存，不用于未经规模评估的全库处理。
