@@ -23,11 +23,21 @@
 
 ## 当前Phase2代码检查点
 
-新增代码已主线程阅读并运行完整测试：122 passed、1 Windows真实symlink权限skip、54 subtests passed。测试时仅CPU，OMP/MKL/OpenBLAS进程线程均限制2。还没有真实事件级指标或神经模型结果。
+最新代码已主线程检查并运行完整测试：136 passed、1 Windows真实symlink权限skip、54 subtests passed（19.64秒）。测试时仅CPU，OMP/MKL/OpenBLAS进程线程均限制2。真实事件评价已完成，神经模型结果尚无。
 
 - backend/src/nightlab/audio/events.py：固定5秒bin，取覆盖bin中心的窗口概率均值，阈值>=.5，合并相邻正bin。禁止缺覆盖bin。evaluate_events用一对一IoU>=.5，先最大匹配数量再最大IoU；返回TP/FP/FN、P/R/F1、FP/hour。边界截断参考参与检测，但不进入起止误差均值。38个手算/边界测试。
 - backend/src/nightlab/deep/inputs.py：真实STFT的32x100 log-mel图，不能用旧67维摘要伪造图；可穿戴5个1Hz观测值通道+2个观测mask，缺失保持NaN，标签/重复块沿用显式v2策略；MaskedChannelStandardizer只拟合训练观测，transform时缺失填0并保留mask。12测试通过。没有Torch依赖。
 - 两名子代理已结束，仅留下以上代码和测试；无子代理训练任务。
+
+## 连续事件评价已完成
+
+- `docs/EVENT_PROTOCOL.md`在计算真实指标前固定5秒网格/概率0.5/一对一IoU0.5。旧模型不重训、不按测试结果调参。
+- `scripts/datasets/dense_audio.py`只补齐固定验证/测试4条录音：共2876个窗口，复用2546、补算330；新窗不补监督标签。原始官方MD5/本地SHA256、旧特征/源码摘要、EDF/RML时钟、时间轴与身份核对；每条重算一个已存窗口，逐项相同。缓存位于原cohort录音下`psg-continuous-classic-v1`。
+- `scripts/evaluate/audio_events.py`只加载与`baseline-reproducibility.json`摘要相符的自建模型；所有文件先验摘要再joblib。旧声音报告没有后来添加的feature_subset字段，以67个完整特征名和数量核对；不改旧报告/模型。
+- 真实`runs/psg-events-pilot-v1`及`-repro`除耗时外所有报告字段完全一致；每个保存匹配独立复核IoU与一对一索引。全窗/bin概率与参考/预测时间轴保持本地忽略。
+- RF验证TP/FP/FN=28/58/76，事件F1=.294737，29FP/hour；测试10/81/72，F1=.115607，40.5FP/hour。多数类两集合均无预测、召回0。验证104参考/2小时、测试82参考/2小时，这四条无截断目标。
+- RF测试10个成功匹配的起/止MAE=2.65/5.05秒，不能用它掩盖72个漏检。FP中37个无交集、44个IoU不足；FN中20个无交集、52个不足。不能按测试分数改阈值。
+- 公共真实摘要/失败统计/复跑凭据在`docs/results/*events*`和`event-reproducibility-v1.json`；PNG/SVG及来源在`artifacts/experiments/psg-events-pilot-v1`，图已查看。不是产品UI截图，也不是Phase2整体完成。
 
 ## 环境检查与失败状态
 
@@ -42,15 +52,14 @@
 
 ## 接下来先做什么
 
-1. 完成声音dense缓存/事件评价runner，现有baseline不重训。复用已校验的6321个特征，只计算旧监督准备排除的869窗；必须覆盖每小时全部719窗，不能把无标签窗当负例或填0。
-2. 验证原始输入/旧NPZ摘要与特征源码指纹。解码统一5秒/.5，IoU.5；RML四目标类型裁剪到实际分片，标记边界截断。10份RML未见重复目标事件或非目标呼吸类型；1006、1014有边界目标，验证/测试四人无边界目标。
-3. 本地模型只加载自己生成且摘要与docs/results/baseline-reproducibility.json一致的joblib。输出事件级指标、每小时误报、未截断匹配的起止误差，模型预测与参考标注分开。
-4. 完成低负载PyTorch CPU路径和小CNN训练前，先给资源预算；GPU训练继续等明确窗口。候选架构尚未实现：音频轻量2D-CNN；可穿戴1D-CNN。训练/归一化仅用train，checkpoint仅看validation，test不调参。
-5. 后续仍须抗噪对照、事件级/失败分析、API/React/SQLite、CSV/JSON/个人音频导入删除、真实UI截图、完整许可/引用/讲解稿和交付验收。不要收缩goal成仅有CLI。
+1. 完成低负载PyTorch CPU路径；只改本项目venv，global Torch失败不处理，不和其他项目并发安装/训练争抢资源。下载明确partial与校验，不能假设旧pip临时文件仍可续传。
+2. 实现候选音频轻量2D-CNN、可穿戴1D-CNN及输入缓存/可信checkpoint。训练/归一化仅用train，checkpoint仅看validation，test不调参。长训练先报预算、等明确资源窗口；GPU仍默认禁用。
+3. 当前dense只覆盖验证/测试4人，没补训练6人；CNN图像需要原始STFT，不能用67维旧摘要伪造。可按监督窗口准备真实输入，保留掩码；不要因为事件评价又重训旧基线。
+4. 后续仍须抗噪对照、神经基线/消融/失败分析、API/React/SQLite、CSV/JSON/个人音频导入删除、真实UI截图、完整许可/引用/讲解稿和交付验收。不要收缩goal成仅有CLI。
 
 ## 避免重读/重做
 
 - 从此文件、AGENTS.md、git status/log、对应源代码与实际产物继续，不要加载整段旧聊天或其他项目记忆。
 - docs/EXPERIMENTS.md和docs/results保留冻结分数。旧声学/可穿戴基线不要因后续测试分数修改。
 - .venv/Scripts/python.exe -m pytest -q可核验当前完整套件；长任务只能等待已确认存活的具体handle，不能凭partial或旧日志宣布在运行。
-- 上下文系统压缩尚未由代理触发；当前工具没有强制compaction入口。这里是可恢复交接记录，不是假称压缩已执行。
+- 已从系统压缩后的交接重新核验当前文件、进程和Git；代理本身没有调用强制compaction接口。这里持续保留精简接续记录。

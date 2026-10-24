@@ -1,0 +1,8 @@
+{
+  "metrics_path": "docs/results/psg-events-pilot-v1.json",
+  "metrics_sha256": "7267a959cf94432bf111f49444a4edc4c02dbbe085401598f0d4322582d433ea",
+  "failures_path": "docs/results/psg-events-failures-v1.json",
+  "failures_sha256": "0d4192ecec53480fb80cc9ad973f18a228f7252ec6baace07a0db7ec251af8a5",
+  "plot_source_sha256": "8304f5bdb489f359eacbb315ef0c6ebee3ec976945303fe86d0c59e849cb3c69",
+  "scope": "actual computed event metrics; no manually edited scores"
+}

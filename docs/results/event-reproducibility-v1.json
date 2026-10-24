@@ -1,0 +1,12 @@
+{
+  "scope": "actual frozen-model event rerun; no retraining or GPU use",
+  "all_report_fields_except_elapsed_seconds_exactly_reproduced": true,
+  "all_saved_matches_independently_checked_for_IoU_and_one_to_one_indices": true,
+  "public_summary_omits_raw_intervals_predictions_and_matches": true,
+  "primary_run_sha256": "668ad2abbf4a9257884feab3b35079b92c7a417e63572aeb9f8051550e3a45b9",
+  "repeated_run_sha256": "ab9ff18497bd68f8c9dac8524660680c3a6aa6f72238531f36c5220014efaf89",
+  "primary_summary_sha256": "7267a959cf94432bf111f49444a4edc4c02dbbe085401598f0d4322582d433ea",
+  "protocol_sha256": "8cc38b4ac56f412878bd04f00100b46f4151f36f7e9be839f04f31cf6ee68507",
+  "record_count": 4,
+  "observed_hours": 4.0
+}

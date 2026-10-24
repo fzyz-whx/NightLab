@@ -1,0 +1,286 @@
+{
+  "source_run_sha256": "668ad2abbf4a9257884feab3b35079b92c7a417e63572aeb9f8051550e3a45b9",
+  "analysis_source_sha256": "26e565cfd27f8446b307409bdf4d700279587058acfef47745cad2cebed17e34",
+  "scope": "descriptive interval-overlap errors; no threshold tuning or causal/clinical conclusion",
+  "category_interpretation": "FN categories use prediction overlap; no_reference_overlap means no opposite-side interval overlap",
+  "models": {
+    "majority": {
+      "validation": {
+        "false_positives": {
+          "no_reference_overlap": 0,
+          "overlap_below_iou_threshold": 0,
+          "one_to_one_competition": 0
+        },
+        "false_negatives": {
+          "no_reference_overlap": 104,
+          "overlap_below_iou_threshold": 0,
+          "one_to_one_competition": 0
+        },
+        "predictions_overlapping_multiple_references": 0,
+        "references_overlapping_multiple_predictions": 0
+      },
+      "test": {
+        "false_positives": {
+          "no_reference_overlap": 0,
+          "overlap_below_iou_threshold": 0,
+          "one_to_one_competition": 0
+        },
+        "false_negatives": {
+          "no_reference_overlap": 82,
+          "overlap_below_iou_threshold": 0,
+          "one_to_one_competition": 0
+        },
+        "predictions_overlapping_multiple_references": 0,
+        "references_overlapping_multiple_predictions": 0
+      }
+    },
+    "random_forest": {
+      "validation": {
+        "false_positives": {
+          "no_reference_overlap": 26,
+          "overlap_below_iou_threshold": 32,
+          "one_to_one_competition": 0
+        },
+        "false_negatives": {
+          "no_reference_overlap": 36,
+          "overlap_below_iou_threshold": 40,
+          "one_to_one_competition": 0
+        },
+        "predictions_overlapping_multiple_references": 6,
+        "references_overlapping_multiple_predictions": 2
+      },
+      "test": {
+        "false_positives": {
+          "no_reference_overlap": 37,
+          "overlap_below_iou_threshold": 44,
+          "one_to_one_competition": 0
+        },
+        "false_negatives": {
+          "no_reference_overlap": 20,
+          "overlap_below_iou_threshold": 52,
+          "one_to_one_competition": 0
+        },
+        "predictions_overlapping_multiple_references": 8,
+        "references_overlapping_multiple_predictions": 3
+      }
+    }
+  },
+  "records": [
+    {
+      "record_id": "00001008-100507",
+      "split": "validation",
+      "models": {
+        "majority": {
+          "false_positives": {
+            "no_reference_overlap": 0,
+            "overlap_below_iou_threshold": 0,
+            "one_to_one_competition": 0
+          },
+          "false_negatives": {
+            "no_reference_overlap": 39,
+            "overlap_below_iou_threshold": 0,
+            "one_to_one_competition": 0
+          },
+          "predictions_overlapping_multiple_references": 0,
+          "references_overlapping_multiple_predictions": 0,
+          "predicted_duration": {
+            "count": 0,
+            "median_seconds": null,
+            "max_seconds": null
+          },
+          "reference_duration": {
+            "count": 39,
+            "median_seconds": 12.0,
+            "max_seconds": 46.5
+          }
+        },
+        "random_forest": {
+          "false_positives": {
+            "no_reference_overlap": 17,
+            "overlap_below_iou_threshold": 19,
+            "one_to_one_competition": 0
+          },
+          "false_negatives": {
+            "no_reference_overlap": 2,
+            "overlap_below_iou_threshold": 27,
+            "one_to_one_competition": 0
+          },
+          "predictions_overlapping_multiple_references": 4,
+          "references_overlapping_multiple_predictions": 0,
+          "predicted_duration": {
+            "count": 46,
+            "median_seconds": 37.5,
+            "max_seconds": 315.0
+          },
+          "reference_duration": {
+            "count": 39,
+            "median_seconds": 12.0,
+            "max_seconds": 46.5
+          }
+        }
+      }
+    },
+    {
+      "record_id": "00001020-100507",
+      "split": "validation",
+      "models": {
+        "majority": {
+          "false_positives": {
+            "no_reference_overlap": 0,
+            "overlap_below_iou_threshold": 0,
+            "one_to_one_competition": 0
+          },
+          "false_negatives": {
+            "no_reference_overlap": 65,
+            "overlap_below_iou_threshold": 0,
+            "one_to_one_competition": 0
+          },
+          "predictions_overlapping_multiple_references": 0,
+          "references_overlapping_multiple_predictions": 0,
+          "predicted_duration": {
+            "count": 0,
+            "median_seconds": null,
+            "max_seconds": null
+          },
+          "reference_duration": {
+            "count": 65,
+            "median_seconds": 13.5,
+            "max_seconds": 23.5
+          }
+        },
+        "random_forest": {
+          "false_positives": {
+            "no_reference_overlap": 9,
+            "overlap_below_iou_threshold": 13,
+            "one_to_one_competition": 0
+          },
+          "false_negatives": {
+            "no_reference_overlap": 34,
+            "overlap_below_iou_threshold": 13,
+            "one_to_one_competition": 0
+          },
+          "predictions_overlapping_multiple_references": 2,
+          "references_overlapping_multiple_predictions": 2,
+          "predicted_duration": {
+            "count": 40,
+            "median_seconds": 15.0,
+            "max_seconds": 45.0
+          },
+          "reference_duration": {
+            "count": 65,
+            "median_seconds": 13.5,
+            "max_seconds": 23.5
+          }
+        }
+      }
+    },
+    {
+      "record_id": "00000999-100507",
+      "split": "test",
+      "models": {
+        "majority": {
+          "false_positives": {
+            "no_reference_overlap": 0,
+            "overlap_below_iou_threshold": 0,
+            "one_to_one_competition": 0
+          },
+          "false_negatives": {
+            "no_reference_overlap": 54,
+            "overlap_below_iou_threshold": 0,
+            "one_to_one_competition": 0
+          },
+          "predictions_overlapping_multiple_references": 0,
+          "references_overlapping_multiple_predictions": 0,
+          "predicted_duration": {
+            "count": 0,
+            "median_seconds": null,
+            "max_seconds": null
+          },
+          "reference_duration": {
+            "count": 54,
+            "median_seconds": 13.5,
+            "max_seconds": 42.0
+          }
+        },
+        "random_forest": {
+          "false_positives": {
+            "no_reference_overlap": 20,
+            "overlap_below_iou_threshold": 39,
+            "one_to_one_competition": 0
+          },
+          "false_negatives": {
+            "no_reference_overlap": 1,
+            "overlap_below_iou_threshold": 47,
+            "one_to_one_competition": 0
+          },
+          "predictions_overlapping_multiple_references": 8,
+          "references_overlapping_multiple_predictions": 3,
+          "predicted_duration": {
+            "count": 65,
+            "median_seconds": 35.0,
+            "max_seconds": 240.0
+          },
+          "reference_duration": {
+            "count": 54,
+            "median_seconds": 13.5,
+            "max_seconds": 42.0
+          }
+        }
+      }
+    },
+    {
+      "record_id": "00001018-100507",
+      "split": "test",
+      "models": {
+        "majority": {
+          "false_positives": {
+            "no_reference_overlap": 0,
+            "overlap_below_iou_threshold": 0,
+            "one_to_one_competition": 0
+          },
+          "false_negatives": {
+            "no_reference_overlap": 28,
+            "overlap_below_iou_threshold": 0,
+            "one_to_one_competition": 0
+          },
+          "predictions_overlapping_multiple_references": 0,
+          "references_overlapping_multiple_predictions": 0,
+          "predicted_duration": {
+            "count": 0,
+            "median_seconds": null,
+            "max_seconds": null
+          },
+          "reference_duration": {
+            "count": 28,
+            "median_seconds": 10.5,
+            "max_seconds": 12.5
+          }
+        },
+        "random_forest": {
+          "false_positives": {
+            "no_reference_overlap": 17,
+            "overlap_below_iou_threshold": 5,
+            "one_to_one_competition": 0
+          },
+          "false_negatives": {
+            "no_reference_overlap": 19,
+            "overlap_below_iou_threshold": 5,
+            "one_to_one_competition": 0
+          },
+          "predictions_overlapping_multiple_references": 0,
+          "references_overlapping_multiple_predictions": 0,
+          "predicted_duration": {
+            "count": 26,
+            "median_seconds": 10.0,
+            "max_seconds": 60.0
+          },
+          "reference_duration": {
+            "count": 28,
+            "median_seconds": 10.5,
+            "max_seconds": 12.5
+          }
+        }
+      }
+    }
+  ]
+}
