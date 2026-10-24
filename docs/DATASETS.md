@@ -13,3 +13,12 @@ CC BY 数据的公开使用需署名并标注修改。ODC-By 使用应保留许�
 主声音论文的文章许可是CC BY-NC-ND 4.0，不能将它当作数据许可；源站数据记录实际是CC BY 4.0。
 
 获取从 `python -B -m scripts.datasets plan --dataset <id>` 开始。已审计文件才能通过sample门槛；默认dry-run。完整信号、时间对齐、标签适用性需要单独验收，摘要匹配不代表研究任务成立。
+
+## SleepAccel正式引用与致谢要求
+
+2026-10-24主线程重新读取固定官方README blob（47944ca5b398ae765d9a6c6a079d7504bfd5e424），确认需引用：
+
+- Zhang GQ, Cui L, Mueller R, et al. The National Sleep Research Resource: towards a sleep data commons. J Am Med Inform Assoc. 2018;25(10):1351–1358. [doi:10.1093/jamia/ocy064](https://doi.org/10.1093/jamia/ocy064)。
+- Walch O, Huang Y, Forger D, Goldstein C. Sleep stage prediction with raw acceleration and photoplethysmography heart rate data derived from a consumer wearable device. Sleep. 2019;42(12):zsz180. [doi:10.1093/sleep/zsz180](https://doi.org/10.1093/sleep/zsz180)。
+
+官方还要求在正式产出的致谢中保留NSRR的NIH/NHLBI资助说明（R24 HL114473、75N92019R002），准确英文措辞见上表固定README，不用概括的“公开数据无使用限制”替代它。

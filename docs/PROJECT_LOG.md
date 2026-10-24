@@ -71,3 +71,11 @@ SleepAccel加速度旧curl已结束，已明确在data/raw内改为.part，并�
 本阶段实现提交：3f9ea5fc2d692a7f37aa226b902c522ed4501280（feat(datasets): add verified retrieval and validate PSG audio sample）。首次推送TLS失败，重试成功；GitHub API返回main为同一完整hash。该提交不包含任何原始信号/标注/音频、作者代码或模型。
 PSG人工参考阶段进一步检查：51条变化严格递增，均落在30秒网格，起点0至17880秒；仍不把变化条数当作epoch数。
 SleepAccel续传在读超时后保留13,004,766字节partial，终止状态已确认；下一次从该位置继续。总目标13,456,185字节，尚未校验完整。
+
+## 2026-10-24：Phase 0 最小数据可行性通过
+
+SleepAccel加速度最后42,232字节从13,413,953字节partial续传完成，完整13456185字节官方SHA256匹配；三文件13555951字节全部验证通过。实际motion298000行，976已评分epoch均有心率和motion采样，区间内最大缺口分别17秒和约10.10秒。已新增可复现alignment命令，未设置插值或质量阈值。
+
+逐项验收见PHASE0_ACCEPTANCE.md。声音主候选冲突被保留且冻结，PSG-Audio一个已授权EDF及RML提供可行最小声音路径。Phase 0通过不代表全数据、模型、正式泛化或软件交付通过。
+
+新增覆盖逻辑测试后共42项：41通过、1Windows真实symlink权限跳过。前一检查点说明提交c4d6d3a4bc9cc67c193bb221b8317b7a00eda31d已补推，GitHub API hash一致。当前阶段提交/推送将以本轮实际Git输出汇报。

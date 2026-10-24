@@ -1,5 +1,5 @@
 import unittest
-from scripts.datasets.inspect_sleepaccel import inspect_rows
+from scripts.datasets.inspect_sleepaccel import inspect_rows, alignment_summary
 from scripts.datasets.sleepaccel_labels import normalize_stage
 
 
@@ -32,6 +32,21 @@ class InspectionTests(unittest.TestCase):
         for raw in (6, -2, True, 4.0, '4'):
             with self.assertRaises(ValueError):
                 normalize_stage(raw)
+
+    def test_alignment_crops_outside_points_and_uses_half_open_epochs(self):
+        labels = [[0,0],[30,-1],[60,5]]
+        result = alignment_summary(labels, {'heart_rate': [[-1,80],[0,70],[29,71],[30,72],[90,73]],
+                                            'motion': [[0,1,2,3],[60,1,2,3]]})
+        self.assertEqual(result['scored_epochs'], 2)
+        self.assertEqual(result['scored_epochs_with_at_least_one_sample_per_signal'], 1)
+        self.assertEqual(result['signals']['heart_rate']['scored_epochs_without_samples'], 1)
+        self.assertEqual(result['signals']['heart_rate']['samples_before_label_range'], 1)
+        self.assertEqual(result['signals']['heart_rate']['samples_after_label_range'], 1)
+        self.assertEqual(result['signals']['motion']['samples_per_scored_epoch_min'], 1)
+
+    def test_missing_epoch_grid_is_not_silently_filled(self):
+        with self.assertRaises(ValueError):
+            alignment_summary([[0,0],[60,1]], {'motion':[[0,1,2,3]]})
 
 
 if __name__ == '__main__':

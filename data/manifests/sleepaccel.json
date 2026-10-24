@@ -24,7 +24,7 @@
     {
       "path": "data/raw/sleepaccel/1.0.0/motion/5383425_acceleration.txt",
       "source": "https://www.physionet.org/files/sleep-accel/1.0.0/motion/5383425_acceleration.txt",
-      "source_status": "official SHA256SUMS entry confirmed 2026-10-23; signal not downloaded",
+      "source_status": "Complete local audit sample downloaded and matched official SHA-256 on 2026-10-24; not a claim of full cohort availability",
       "reported_size": "12.8 MB",
       "exact_bytes": 13456185,
       "official_checksums": {
@@ -37,7 +37,7 @@
     {
       "path": "data/raw/sleepaccel/1.0.0/heart_rate/5383425_heartrate.txt",
       "source": "https://www.physionet.org/files/sleep-accel/1.0.0/heart_rate/5383425_heartrate.txt",
-      "source_status": "Downloaded locally and official SHA-256 matched 2026-10-24",
+      "source_status": "Complete local audit sample downloaded and matched official SHA-256 on 2026-10-24; not a claim of full cohort availability",
       "reported_size": null,
       "exact_bytes": 92313,
       "official_checksums": {
@@ -50,7 +50,7 @@
     {
       "path": "data/raw/sleepaccel/1.0.0/labels/5383425_labeled_sleep.txt",
       "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/5383425_labeled_sleep.txt",
-      "source_status": "Downloaded locally and official SHA-256 matched 2026-10-24",
+      "source_status": "Complete local audit sample downloaded and matched official SHA-256 on 2026-10-24; not a claim of full cohort availability",
       "reported_size": null,
       "exact_bytes": 7453,
       "official_checksums": {
@@ -62,8 +62,8 @@
     }
   ],
   "notes": [
-    "Three candidate files only, not confirmed smallest complete sample.",
-    "Official SHA256SUMS.txt read in official browser on 2026-10-23 (11899 bytes); three hashes recorded. Exact signal bytes remain unknown.",
-    "Preserve NSRR/Walch citations and funding acknowledgements; labels/time alignment untested."
+    "One participant, three complete files, 13555951 bytes; all official SHA-256 values matched on audit machine 2026-10-24.",
+    "Motion has 298000 rows, strictly increasing timestamps; 976 scored epochs have both HR and motion sample presence.",
+    "Other 30 participants not downloaded; quality thresholds, features and subject-wise evaluation remain Phase 1 work."
   ]
 }

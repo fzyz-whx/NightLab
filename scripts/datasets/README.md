@@ -27,6 +27,7 @@ verify按1MiB计算SHA-256，有官方MD5则另算。缺失、空文件、精确
 python -B -m scripts.datasets.inspect_sleepaccel --kind labels
 python -B -m scripts.datasets.inspect_sleepaccel --kind heart_rate
 python -B -m scripts.datasets.inspect_sleepaccel --kind motion
+python -B -m scripts.datasets.inspect_sleepaccel --kind alignment
 python -B -m scripts.datasets.inspect_sciencedb --subject 01
 python -B -m scripts.datasets.inspect_sciencedb --subject 02
 python -B -m unittest discover -s tests -p "test_*.py" -v
