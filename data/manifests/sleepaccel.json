@@ -5,7 +5,8 @@
   "license": {
     "name": "ODC-By 1.0",
     "source": "https://physionet.org/content/sleep-accel/1.0.0/LICENSE.txt",
-    "status": "official mirror license read; NSRR license and cross-site identity not verified"
+    "status": "official mirror license read; NSRR license and cross-site identity not verified",
+    "verified": true
   },
   "sources": [
     "https://sleepdata.org/datasets/sleepaccel",
@@ -22,7 +23,7 @@
   "files": [
     {
       "path": "data/raw/sleepaccel/1.0.0/motion/5383425_acceleration.txt",
-      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/5383425_acceleration.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/motion/5383425_acceleration.txt",
       "source_status": "official SHA256SUMS entry confirmed 2026-10-23; signal not downloaded",
       "reported_size": "12.8 MB",
       "exact_bytes": 13456185,
@@ -30,11 +31,12 @@
         "sha256": "40e461c8b2da44a7cd780cbae28b1d7dbcf7d32d9172898ae94c85e3f69b366e"
       },
       "checksum_source": "https://physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt",
-      "size_source": "Official www.physionet.org HTTP Content-Length, checked 2026-10-24"
+      "size_source": "Official www.physionet.org HTTP Content-Length, checked 2026-10-24",
+      "source_verified": true
     },
     {
       "path": "data/raw/sleepaccel/1.0.0/heart_rate/5383425_heartrate.txt",
-      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/5383425_heartrate.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/heart_rate/5383425_heartrate.txt",
       "source_status": "Downloaded locally and official SHA-256 matched 2026-10-24",
       "reported_size": null,
       "exact_bytes": 92313,
@@ -42,11 +44,12 @@
         "sha256": "9b6af9046a4c516f948f307e8e130a823b244056ae705e2bb8abd89bb3e76eb8"
       },
       "checksum_source": "https://physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt",
-      "size_source": "Official www.physionet.org HTTP Content-Length, checked 2026-10-24"
+      "size_source": "Official www.physionet.org HTTP Content-Length, checked 2026-10-24",
+      "source_verified": true
     },
     {
       "path": "data/raw/sleepaccel/1.0.0/labels/5383425_labeled_sleep.txt",
-      "source": "https://physionet.org/files/sleep-accel/1.0.0/labels/5383425_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/5383425_labeled_sleep.txt",
       "source_status": "Downloaded locally and official SHA-256 matched 2026-10-24",
       "reported_size": null,
       "exact_bytes": 7453,
@@ -54,7 +57,8 @@
         "sha256": "10af34ea9a31f2284dafa034827e3050c0ea584b71107133e694715c5990df1b"
       },
       "checksum_source": "https://physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt",
-      "size_source": "Official www.physionet.org HTTP Content-Length, checked 2026-10-24"
+      "size_source": "Official www.physionet.org HTTP Content-Length, checked 2026-10-24",
+      "source_verified": true
     }
   ],
   "notes": [

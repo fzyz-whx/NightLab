@@ -4,7 +4,9 @@
   "version": "5",
   "license": {
     "name": "CC BY 4.0",
-    "status": "official record displayed"
+    "status": "official record displayed",
+    "verified": true,
+    "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9"
   },
   "sources": [
     "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9",
@@ -16,78 +18,107 @@
   "files": [
     {
       "path": "data/raw/sciencedb-19070/v5/Data/01/01_HR.csv",
-      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_HR.csv)",
-      "source_status": "official directory listed",
+      "source": "https://china.scidb.cn/download?fileId=fd959ce31fe07c066497f3e514eead0b",
+      "source_status": "Official file metadata and frontend route; download response not yet checked",
       "reported_size": "1018.76 KB",
-      "exact_bytes": null,
+      "exact_bytes": 1043207,
       "official_checksums": {
         "md5": "b5e4c41273e159e441ee2186ebb4c7b9"
-      }
+      },
+      "file_id": "fd959ce31fe07c066497f3e514eead0b",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9",
+      "size_source": "Official filetree childrenFileListByPath response, 2026-10-24",
+      "source_verified": false
     },
     {
       "path": "data/raw/sciencedb-19070/v5/Data/01/01_SpO2.csv",
-      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_SpO2.csv)",
-      "source_status": "official directory listed",
+      "source": "https://china.scidb.cn/download?fileId=beae1f8637c442b55b7de8c3bd2a8c90",
+      "source_status": "Official file metadata and frontend route; download response not yet checked",
       "reported_size": "1023.72 KB",
-      "exact_bytes": null,
+      "exact_bytes": 1048291,
       "official_checksums": {
         "md5": "eaa9af6b108c4f02858da143f600fd05"
-      }
+      },
+      "file_id": "beae1f8637c442b55b7de8c3bd2a8c90",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9",
+      "size_source": "Official filetree childrenFileListByPath response, 2026-10-24",
+      "source_verified": false
     },
     {
       "path": "data/raw/sciencedb-19070/v5/Data/01/01_annotation.json",
-      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_annotation.json)",
-      "source_status": "official directory listed",
+      "source": "https://china.scidb.cn/download?fileId=296d6652a367e83d7a6b5c6319c96416",
+      "source_status": "Official frontend genDownloadUrl route; HEAD exact bytes matched 2026-10-24",
       "reported_size": "15.43 KB",
-      "exact_bytes": null,
+      "exact_bytes": 15798,
       "official_checksums": {
         "md5": "2ff0521469e10aa660ace085b9e9ca45"
-      }
+      },
+      "file_id": "296d6652a367e83d7a6b5c6319c96416",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9",
+      "size_source": "Official filetree childrenFileListByPath response, 2026-10-24",
+      "source_verified": true
     },
     {
       "path": "data/raw/sciencedb-19070/v5/Data/01/01_phone.wav",
-      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_phone.wav)",
-      "source_status": "official directory listed",
+      "source": "https://china.scidb.cn/download?fileId=821e4415a7713803a0ae02acf9241042",
+      "source_status": "Official frontend genDownloadUrl route; HEAD exact bytes matched 2026-10-24",
       "reported_size": "339.63 MB",
-      "exact_bytes": null,
+      "exact_bytes": 356126798,
       "official_checksums": {
         "md5": "54c8f003a98e905ee9301e0043198a4d"
-      }
+      },
+      "file_id": "821e4415a7713803a0ae02acf9241042",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9",
+      "size_source": "Official filetree childrenFileListByPath response, 2026-10-24",
+      "source_verified": true
     },
     {
       "path": "data/raw/sciencedb-19070/v5/Data/01/01_recorder_1.wav",
-      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_recorder_1.wav)",
-      "source_status": "official directory listed",
+      "source": "https://china.scidb.cn/download?fileId=78a0172ff9d0604030aadc0f83548d91",
+      "source_status": "Official file metadata and frontend route; download response not yet checked",
       "reported_size": "179.77 MB",
-      "exact_bytes": null,
+      "exact_bytes": 188505166,
       "official_checksums": {
         "md5": "edf6c571d75561be24701d47abc0314b"
-      }
+      },
+      "file_id": "78a0172ff9d0604030aadc0f83548d91",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9",
+      "size_source": "Official filetree childrenFileListByPath response, 2026-10-24",
+      "source_verified": false
     },
     {
       "path": "data/raw/sciencedb-19070/v5/Data/01/01_recorder_2.wav",
-      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_recorder_2.wav)",
-      "source_status": "official directory listed",
+      "source": "https://china.scidb.cn/download?fileId=7bfc0895b5a3153f86052f7b479b70c7",
+      "source_status": "Official file metadata and frontend route; download response not yet checked",
       "reported_size": "241.76 MB",
-      "exact_bytes": null,
+      "exact_bytes": 253506638,
       "official_checksums": {
         "md5": "b7fb87a294ea82634452386103df2197"
-      }
+      },
+      "file_id": "7bfc0895b5a3153f86052f7b479b70c7",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9",
+      "size_source": "Official filetree childrenFileListByPath response, 2026-10-24",
+      "source_verified": false
     },
     {
       "path": "data/raw/sciencedb-19070/v5/Data/01/01_sleep_stage.csv",
-      "source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9 (download tree Data/01/01_sleep_stage.csv)",
-      "source_status": "official directory listed",
+      "source": "https://china.scidb.cn/download?fileId=36e3c449ed099835e05fa31c188e0faa",
+      "source_status": "Official frontend genDownloadUrl route; HEAD exact bytes matched 2026-10-24",
       "reported_size": "23.65 KB",
-      "exact_bytes": null,
+      "exact_bytes": 24218,
       "official_checksums": {
         "md5": "92933af44f7aa5d48b5b1b12ccb43b76"
-      }
+      },
+      "file_id": "36e3c449ed099835e05fa31c188e0faa",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=7b5f1df9c3d4435baa0ff2dbecf487d9",
+      "size_source": "Official filetree childrenFileListByPath response, 2026-10-24",
+      "source_verified": true
     }
   ],
   "notes": [
-    "Partial subject 01 inventory only; exact bytes and official SHA-256 unknown.",
-    "MD5 values transcribed from official download tree; computed SHA-256 is local unless an official reference is supplied.",
-    "File-level downloadable URLs and JSON schema remain unverified."
+    "Partial subject 01 inventory with official exact sizes and MD5.",
+    "Use official china.scidb.cn/download route. downloadFileMole is PREVIEW: it may transform CSV into XLSX and WAV into MP3; never use it as raw data source.",
+    "Annotation JSON from preview happened to match original MD5; raw stage preview failed integrity and is excluded.",
+    "Official SHA-256 unknown; local SHA-256 must remain labelled local."
   ]
 }

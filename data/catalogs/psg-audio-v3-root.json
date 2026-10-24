@@ -1,0 +1,145 @@
+{
+  "source": "https://www.scidb.cn/api/gin-sdb-filetree/public/file/childrenFileListByPath",
+  "dataset_id": "778740145531650048",
+  "version": "V3",
+  "checked": "2026-10-24",
+  "scope": "root only, not recursive",
+  "files": [
+    {
+      "id": "6197f5e0e90e973b141c43ab7645b9fc",
+      "fileName": "APNEA",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/APNEA",
+      "dir": true
+    },
+    {
+      "id": "18eae16060e2f0ca7099c480df1d42ad",
+      "fileName": "APNEA_DATA",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/APNEA_DATA",
+      "dir": true
+    },
+    {
+      "id": "d9a79cfe4804a961661dcce2d87cfc79",
+      "fileName": "APNEA_DATASET",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/APNEA_DATASET",
+      "dir": true
+    },
+    {
+      "id": "a39bbadcb4a9f6921b47f90e13bd84a6",
+      "fileName": "APNEA_EDF",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/APNEA_EDF",
+      "dir": true
+    },
+    {
+      "id": "46b97641065816901a073776c92455a6",
+      "fileName": "APNEA_RML",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/APNEA_RML",
+      "dir": true
+    },
+    {
+      "id": "0929cb30b5d8dc22bf5ed75c75c9f205",
+      "fileName": "APNEA_RML_clean",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/APNEA_RML_clean",
+      "dir": true
+    },
+    {
+      "id": "750bc51ec55881c54438d8d1495804ca",
+      "fileName": "CHANGE_ME_REMOTE_DIR",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/CHANGE_ME_REMOTE_DIR",
+      "dir": true
+    },
+    {
+      "id": "835572715ad5ceebabed604857d8d6a4",
+      "fileName": "DataSet",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/DataSet",
+      "dir": true
+    },
+    {
+      "id": "8824bc8d871db3db9b8e4273d5929929",
+      "fileName": "Dataset",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/Dataset",
+      "dir": true
+    },
+    {
+      "id": "0fe4a88ab205ec1f636362488ef105a5",
+      "fileName": "PSG-Audio",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/PSG-Audio",
+      "dir": true
+    },
+    {
+      "id": "de1672159d5a99491498fb6d66671d9d",
+      "fileName": "V3",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/V3",
+      "dir": true
+    },
+    {
+      "id": "869c6ea4af8c715fb098c9201231cf64",
+      "fileName": "data",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/data",
+      "dir": true
+    },
+    {
+      "id": "5c6b0244a5a3519f3ad6aa3ff5f76b5b",
+      "fileName": "dataset",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/dataset",
+      "dir": true
+    },
+    {
+      "id": "8a36e1f0f1c34baa3ef8e74c00536a2d",
+      "fileName": "path",
+      "size": 0,
+      "md5": "",
+      "path": "/V3/path",
+      "dir": true
+    },
+    {
+      "id": "61a0ca3f89f14b48842ced89",
+      "fileName": "CPAP_pressure.txt",
+      "size": 1025,
+      "md5": "5077d52808856ec40024ec9e314b2d15",
+      "path": "/V3/CPAP_pressure.txt",
+      "dir": false
+    },
+    {
+      "id": "6225baffd7561b594fb67e20",
+      "fileName": "README.txt",
+      "size": 4099,
+      "md5": "0638603107CF502EC84E33569B4D5E22",
+      "path": "/V3/README.txt",
+      "dir": false
+    },
+    {
+      "id": "61a0ca3f89f14b48842cf368",
+      "fileName": "code.rar",
+      "size": 6737,
+      "md5": "6e6c31905ca7ea0c6e1d19c8d75f3ade",
+      "path": "/V3/code.rar",
+      "dir": false
+    }
+  ]
+}

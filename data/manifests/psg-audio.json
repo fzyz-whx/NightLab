@@ -1,20 +1,51 @@
 {
   "schema_version": 1,
   "id": "psg-audio",
-  "version": null,
+  "version": "V3",
   "license": {
-    "name": null,
-    "status": "unconfirmed; download blocked pending data license"
+    "name": "CC BY 4.0",
+    "verified": true,
+    "source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+    "status": "official record displayed 2026-10-24"
   },
   "sources": [
+    "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
     "https://doi.org/10.11922/sciencedb.00345",
     "https://www.nature.com/articles/s41597-021-00977-w"
   ],
-  "reported_size": null,
+  "reported_size": "918.08 GB (website rounded; 2851 file entries, duplicates observed)",
   "inventory_complete": false,
-  "evidence_date": "2026-10-23",
-  "files": [],
+  "evidence_date": "2026-10-24",
+  "files": [
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_RML/00000995-100507.rml",
+      "file_id": "61a0ca3f89f14b48842cee7f",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cee7f",
+      "source_verified": true,
+      "source_status": "Original official route HEAD matched exact length and filename 2026-10-24",
+      "exact_bytes": 241848,
+      "official_checksums": {
+        "md5": "1f4a23da89421167698938576f381058"
+      },
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_EDF/00000995-100507/00000995-100507[002].edf",
+      "file_id": "61a0ca3f89f14b48842cf1ee",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1ee",
+      "source_verified": true,
+      "source_status": "official directory and original route verified; exactly one 710738976-byte segment authorized by user 2026-10-24",
+      "exact_bytes": 710738976,
+      "official_checksums": {
+        "md5": "5e30d63825c3e4b25c1bbd6ed76fe4cb"
+      },
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048"
+    }
+  ],
   "notes": [
-    "No actual file inventory verified; RML labels described in paper only."
+    "Partial candidate only; root README checksum mismatch, do not treat its bytes as integrity verified.",
+    "APNEA_RML first page has repeated paths with same size/hash but different file IDs; no count of independent records inferred.",
+    "No EDF or full dataset downloaded. Candidate RML may contain sensitive fields; only aggregate schema summaries may enter Git.",
+    "User authorized one EDF segment only: [002]; no authorization for remaining segments or subjects."
   ]
 }

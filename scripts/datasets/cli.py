@@ -1,7 +1,8 @@
-"""Read-only Phase 0 tools. No downloader or dataset parser is implemented."""
+"""Dataset metadata, integrity checks, and explicitly selected sample retrieval."""
 
 import argparse
 import hashlib
+from http.client import HTTPException
 import json
 from pathlib import Path, PurePosixPath
 import re
@@ -112,19 +113,34 @@ def verify(root, manifest):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", nargs="?", choices=("audit", "plan", "verify"), default="audit")
+    parser.add_argument("command", nargs="?", choices=("audit", "plan", "verify", "sample", "download"), default="audit")
     parser.add_argument("--dataset", help="manifest id (default: all)")
+    parser.add_argument("--file", help="exact manifest path for one sample file")
+    parser.add_argument("--execute", action="store_true", help="enable sample network and writes")
+    parser.add_argument("--confirm-large-download", action="store_true", help="confirm the explicitly selected download file")
     args = parser.parse_args(argv)
     directory = ROOT / "data" / "manifests"
     try:
+        if args.command in {"sample", "download"} and (not args.dataset or not args.file):
+            raise ManifestError("retrieval requires --dataset and --file")
+        if args.command not in {"sample", "download"} and (args.file or args.execute):
+            raise ManifestError("--file and --execute are only valid for sample/download")
+        if args.confirm_large_download and args.command != 'download':
+            raise ManifestError('--confirm-large-download is only valid for download')
+        if args.command == 'download' and args.execute and not args.confirm_large_download:
+            raise ManifestError('download execution requires --confirm-large-download after user authorization')
         if args.dataset and not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", args.dataset):
             raise ManifestError("invalid dataset id")
         paths = [directory / f"{args.dataset}.json"] if args.dataset else sorted(directory.glob("*.json"))
         if not paths:
             raise ManifestError("no dataset manifests found")
         manifests = [load_manifest(path, ROOT) for path in paths]
-        if args.command == "plan":
-            output = {"mode": "offline read-only plan", "network": False, "writes": False, "download_policy": "Not implemented. Obtain metadata and license first; samples require an explicit next step; full downloads or >500 MB require explicit confirmation. BIDSleep is optional.", "datasets": manifests}
+        if args.command in {"sample", "download"}:
+            from .sample import sample
+            output = sample(ROOT, manifests[0], args.file, args.execute,
+                            confirmed_large=args.command == 'download' and (not args.execute or args.confirm_large_download))
+        elif args.command == "plan":
+            output = {"mode": "offline read-only plan", "network": False, "writes": False, "download_policy": "Retrieval selects one audited file, default dry-run. sample caps at 500 MB; download execution additionally requires --confirm-large-download after user authorization. No bulk download or prepare implemented. BIDSleep is optional.", "datasets": manifests}
         elif args.command == "audit":
             output = {"mode": "offline read-only metadata and local inventory", "datasets": [{**manifest, "local_files": [file_state(ROOT, entry) for entry in manifest["files"]]} for manifest in manifests]}
         else:
@@ -132,9 +148,12 @@ def main(argv=None):
             output = {"mode": "offline read-only integrity verification", "ok": all(item["ok"] for item in results), "datasets": results}
         print(json.dumps(output, ensure_ascii=False, indent=2))
         return 1 if args.command == "verify" and not output["ok"] else 0
-    except (ManifestError, OSError) as exc:
+    except (ValueError, OSError, HTTPException) as exc:
         print(f"dataset error: {exc}", file=sys.stderr)
         return 2
+    except KeyboardInterrupt:
+        print("sample interrupted; partial file preserved", file=sys.stderr)
+        return 130
 
 
 if __name__ == "__main__":
