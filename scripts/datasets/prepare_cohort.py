@@ -45,7 +45,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--dataset',required=True)
     parser.add_argument('--execute',action='store_true')
-    parser.add_argument('--workers',type=int,choices=(1,2),default=2)
+    parser.add_argument('--workers',type=int,choices=(1,2),default=1)
     parser.add_argument('--feature-tag',default='features-v1')
     parser.add_argument('--no-reuse-pilot',action='store_true')
     args = parser.parse_args()
@@ -70,7 +70,7 @@ def main():
         subset = {**manifest,'id':dataset,'files':entries}
         tasks.append((record,subset,f'data/processed/{args.dataset}/{record}/{args.feature_tag}',None if args.no_reuse_pilot else ROOT/f'data/processed/{dataset}/pilot-features-v1'))
     if not args.execute:
-        print(json.dumps({'mode':'cohort prepare dry-run','network':False,'writes':False,'records':[task[0] for task in tasks]},indent=2))
+        print(json.dumps({'mode':'cohort prepare dry-run','network':False,'writes':False,'workers':args.workers,'records':[task[0] for task in tasks]},indent=2))
         return 0
     results = []
     manager = Manager()

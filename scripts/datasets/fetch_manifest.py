@@ -17,7 +17,7 @@ def main():
     parser.add_argument('--dataset',required=True)
     parser.add_argument('--execute',action='store_true')
     parser.add_argument('--confirm-large-download',action='store_true')
-    parser.add_argument('--workers',type=int,choices=(1,2,3),default=2)
+    parser.add_argument('--workers',type=int,choices=(1,2,3),default=1)
     args = parser.parse_args()
     if not re.fullmatch(r'[a-z0-9][a-z0-9_-]*',args.dataset):
         parser.error('invalid dataset id')
@@ -27,7 +27,7 @@ def main():
     plans = [sample(ROOT,manifest,entry['path'],confirmed_large=True) for entry in manifest['files']]
     if not args.execute:
         print(json.dumps({'mode':'manifest dry-run','network':False,'writes':False,
-                          'files':plans,'selected_total_bytes':sum(plan['exact_bytes'] for plan in plans)},indent=2))
+                          'workers':args.workers,'files':plans,'selected_total_bytes':sum(plan['exact_bytes'] for plan in plans)},indent=2))
         return 0
     stop, log_lock = Event(), Lock()
     def log(message):
