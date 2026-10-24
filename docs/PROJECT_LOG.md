@@ -101,3 +101,9 @@ Phase1最小传统基线试点通过，整体goal继续。事件级完整时间�
 ### Phase1提交与远端核验
 
 阶段提交31a0dfcfca01ea40dd9599b735a2b73ff52156a6：feat: run reproducible subject-wise CPU baselines。已推送GitHub，独立API查询远端main返回同一完整hash。72测试通过、1Windows symlink权限跳过，pip check通过；5个生成SVG的尾部空白已由导出器规范化且XML解析通过。暂存检查确认无data/raw、data/processed、models、runs、venv文件，无凭据模式，无单文件>=5MB。图表是实际实验产物，不是产品UI截图。
+
+## 2026-10-24：共享GPU与低功耗约束、压缩前交接
+
+用户更新：多个项目共享RTX5060、供电功耗受限。NightLab默认不启动GPU任务；轻量CPU线程<=2、数据准备worker默认1，长训练等待明确资源窗口；不改系统功耗、其他项目或全局配置。根AGENTS.md记录执行约束，docs/WORK_STATE.md提供精简接续信息。
+
+事件解码/匹配和深度学习输入纯函数已完成单元实现（未运行真实事件指标或神经训练）。主线程低线程完整测试122通过、1真实symlink权限skip、54 subtests通过。Torch CPU轮子试下载网络超时，未安装；项目venv无Torch且当前无训练/下载进程。上下文强制压缩没有可调用工具，保存交接不等于系统已压缩。
