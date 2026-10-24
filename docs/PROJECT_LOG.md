@@ -118,4 +118,6 @@ RF验证TP/FP/FN=28/58/76、事件F1=.294737、29误报/小时；测试10/81/72�
 
 实际连续评价复跑一次，除耗时外所有字段逐项完全一致；独立检查每个匹配IoU与唯一索引。两项新测试集合定向通过后，最终完整测试136通过、1Windows实际symlink权限跳过、54 subtests通过（19.64秒）。一名Sol-low子代理只读审查新路径，未发现有明确证据的严重/中等问题；主线程保留实际运行和最终核验。PNG已检查布局；SVG无尾部空白。未下载新数据、未安装依赖、未训练神经模型。
 
-本阶段仅完成连续事件评价，不代表Phase2深度学习/抗噪完成；整体goal继续。提交前检查及推送hash在实际完成后追记。
+本阶段仅完成连续事件评价，不代表Phase2深度学习/抗噪完成；整体goal继续。
+
+提交`c0e431045b9dc3e89417c8986070201abece87db`（feat(audio): evaluate frozen baselines on continuous events）已推送。GitHub API远端main返回同一完整hash，工作树干净。暂存17文件，全部小于5MB；无raw/processed/models/runs/venv、无凭据模式，staged diff检查通过。图表为真实科研指标，不是产品截图。后续本条提交只记录这次已验证的结果。

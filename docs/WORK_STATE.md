@@ -10,6 +10,7 @@
 
 ## 已完成并提交
 
+- 最新实质性里程碑`c0e431045b9dc3e89417c8986070201abece87db`：真实连续声音事件评价、失败统计及图表。已推送，GitHub API远端main完整hash一致，工作树干净；随后文档核验追记见Git历史。
 - Phase0最小数据审计，见PHASE0_ACCEPTANCE.md。主声音ScienceDB19070 V5两样本事件跨度超过WAV长度，冻结事件训练；转任务书备用PSG-Audio。
 - Phase1传统基线试点，见PHASE1_ACCEPTANCE.md、EXPERIMENTS.md。核心提交31a0dfcfca01ea40dd9599b735a2b73ff52156a6；追记020db1f7ed0f11d1fef620d05893224b2d1a5fdf。两者已推送，远端hash已核验。
 - CPU环境：.venv，CPython3.12 AMD64；requirements-cpu.lock与25个wheel官方PyPI摘要核验，scripts/setup_cpu.ps1实际通过，pip check通过。全局Python不修改。
