@@ -1,0 +1,23 @@
+{
+  "scope": "actual local baseline reruns and own model load checks, not synthetic model accuracy",
+  "checks": [
+    {
+      "run": "psg-rf-pilot-v1",
+      "fixed_seed_metrics_exactly_reproduced": true,
+      "owned_saved_model_predictions_match_retrained_models": true,
+      "local_model_sha256": {
+        "majority": "577c855a0c99e3aca2104197002b86f5a0394d7a77a3ae2b2409e4aa5da0d606",
+        "random_forest": "a20408410200c503928ba3318d2cdada4a4257926e48e39ba4cce90c15865199"
+      }
+    },
+    {
+      "run": "sleepaccel-rf-pilot-v2",
+      "fixed_seed_metrics_exactly_reproduced": true,
+      "owned_saved_model_predictions_match_retrained_models": true,
+      "local_model_sha256": {
+        "majority": "e665ed9034ceafbd80f4a8fa8cd06b95a640b6afa468a000027c57ddd5bc5929",
+        "random_forest": "e7949eb2d9c9746dc18b02bf9c3f6d4256375ed96f3b6c591d99b1fbc39bd569"
+      }
+    }
+  ]
+}

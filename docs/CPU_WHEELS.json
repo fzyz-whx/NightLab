@@ -1,0 +1,207 @@
+{
+  "platform": "Windows AMD64",
+  "python": "3.12",
+  "checked": "2026-10-24",
+  "packages": [
+    {
+      "name": "numpy",
+      "version": "2.5.4",
+      "filename": "numpy-2.5.4-cp312-cp312-win_amd64.whl",
+      "sha256": "a7b1b6353e36a7e50de2973a38d705c88ee93adcf120673cee7f45a4a3fa223a",
+      "official_metadata": "https://pypi.org/pypi/numpy/2.5.4/json",
+      "requires_python": ">=3.12"
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1",
+      "filename": "scipy-1.18.1-cp312-cp312-win_amd64.whl",
+      "sha256": "5e4d44984abc0020154ea81b247adeddcc3ac5527b975ff798bd1ba0adc513c2",
+      "official_metadata": "https://pypi.org/pypi/scipy/1.18.1/json",
+      "requires_python": ">=3.12"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.1",
+      "filename": "scikit_learn-1.9.1-cp312-cp312-win_amd64.whl",
+      "sha256": "4b59abb30618121cc46b45972d6bf53a7128b4df4cd346c6ca6f4d5f9031e49c",
+      "official_metadata": "https://pypi.org/pypi/scikit-learn/1.9.1/json",
+      "requires_python": ">=3.11"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1",
+      "filename": "pytest-9.1.1-py3-none-any.whl",
+      "sha256": "37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c",
+      "official_metadata": "https://pypi.org/pypi/pytest/9.1.1/json",
+      "requires_python": ">=3.10"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.2.1",
+      "filename": "setuptools-84.2.1-py3-none-any.whl",
+      "sha256": "ca140b45d5325a9478f880e351484f62fef15f336462e449ca0c03c873d589c2",
+      "official_metadata": "https://pypi.org/pypi/setuptools/84.2.1/json",
+      "requires_python": ">=3.10"
+    },
+    {
+      "name": "wheel",
+      "version": "0.48.0",
+      "filename": "wheel-0.48.0-py3-none-any.whl",
+      "sha256": "3217dcc807155e45db462d7ef2431f5ddda0d7273b700d05a67b271ceb1287ab",
+      "official_metadata": "https://pypi.org/pypi/wheel/0.48.0/json",
+      "requires_python": ">=3.9"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "filename": "colorama-0.4.6-py2.py3-none-any.whl",
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "official_metadata": "https://pypi.org/pypi/colorama/0.4.6/json",
+      "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "filename": "iniconfig-2.3.1-py3-none-any.whl",
+      "sha256": "9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7",
+      "official_metadata": "https://pypi.org/pypi/iniconfig/2.3.1/json",
+      "requires_python": ">=3.10"
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0",
+      "filename": "joblib-1.6.0-py3-none-any.whl",
+      "sha256": "3dbbf9f6e4b592a2357b854608e980fe6390d131d7a82f011a377ef2ebef7aba",
+      "official_metadata": "https://pypi.org/pypi/joblib/1.6.0/json",
+      "requires_python": ">=3.10"
+    },
+    {
+      "name": "narwhals",
+      "version": "2.27.1",
+      "filename": "narwhals-2.27.1-py3-none-any.whl",
+      "sha256": "d057df13f5852b8e157596e82eb5e955fad267425df5e420e0ee9863da483b31",
+      "official_metadata": "https://pypi.org/pypi/narwhals/2.27.1/json",
+      "requires_python": ">=3.10"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "filename": "packaging-26.3-py3-none-any.whl",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "official_metadata": "https://pypi.org/pypi/packaging/26.3/json",
+      "requires_python": ">=3.9"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.7.0",
+      "filename": "pluggy-1.7.0-py3-none-any.whl",
+      "sha256": "7dd7b0d8832ba3cb632c306926ded123429211b83641b35dc5c41ad2d34f9bec",
+      "official_metadata": "https://pypi.org/pypi/pluggy/1.7.0/json",
+      "requires_python": ">=3.10"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "filename": "pygments-2.21.0-py3-none-any.whl",
+      "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9",
+      "official_metadata": "https://pypi.org/pypi/Pygments/2.21.0/json",
+      "requires_python": ">=3.9"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.7.0",
+      "filename": "threadpoolctl-3.7.0-py3-none-any.whl",
+      "sha256": "cd8b60b5641b45c67bbf73c64c843235fc2d8a480c87389f52f5dbee893b86be",
+      "official_metadata": "https://pypi.org/pypi/threadpoolctl/3.7.0/json",
+      "requires_python": ">=3.9"
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "filename": "cloudpickle-3.1.2-py3-none-any.whl",
+      "sha256": "9acb47f6afd73f60dc1df93bb801b472f05ff42fa6c84167d25cb206be1fbf4a",
+      "official_metadata": "https://pypi.org/pypi/cloudpickle/3.1.2/json",
+      "requires_python": ">=3.8"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.11.2",
+      "filename": "matplotlib-3.11.2-cp312-cp312-win_amd64.whl",
+      "sha256": "c5c1c68ee401fc98271263410f0e5ce88285abacf7627132914e8adf3d70ff43",
+      "official_metadata": "https://pypi.org/pypi/matplotlib/3.11.2/json",
+      "requires_python": ">=3.11"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.4.0",
+      "filename": "contourpy-1.4.0-cp312-cp312-win_amd64.whl",
+      "sha256": "6e697d94e69f499ff6bebb899cae97a58d5d14f0e1fe9568b43a0248d2f9af8c",
+      "official_metadata": "https://pypi.org/pypi/contourpy/1.4.0/json",
+      "requires_python": ">=3.12"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1",
+      "filename": "cycler-0.12.1-py3-none-any.whl",
+      "sha256": "85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30",
+      "official_metadata": "https://pypi.org/pypi/cycler/0.12.1/json",
+      "requires_python": ">=3.8"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.67.0",
+      "filename": "fonttools-4.67.0-cp312-cp312-win_amd64.whl",
+      "sha256": "2bfab2f5d1d255dec82f4bd082a1c10e77df808e42210890f50a9c30bf91570e",
+      "official_metadata": "https://pypi.org/pypi/fonttools/4.67.0/json",
+      "requires_python": ">=3.11"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1",
+      "filename": "kiwisolver-1.5.1-cp312-cp312-win_amd64.whl",
+      "sha256": "06a6917674de9e0fe3f66f5430787f59a9f2ddb64af9b714eaec547e29ef5c19",
+      "official_metadata": "https://pypi.org/pypi/kiwisolver/1.5.1/json",
+      "requires_python": ">=3.10"
+    },
+    {
+      "name": "pillow",
+      "version": "13.0.0",
+      "filename": "pillow-13.0.0-cp312-cp312-win_amd64.whl",
+      "sha256": "ff3fe9eb621fbb9db4c4be33ab946f6bac5f98ab50ca8d3260503653656c961b",
+      "official_metadata": "https://pypi.org/pypi/pillow/13.0.0/json",
+      "requires_python": ">=3.11"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "filename": "pyparsing-3.3.3-py3-none-any.whl",
+      "sha256": "ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4",
+      "official_metadata": "https://pypi.org/pypi/pyparsing/3.3.3/json",
+      "requires_python": ">=3.9"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "3.0.0",
+      "filename": "python_dateutil-3.0.0-py2.py3-none-any.whl",
+      "sha256": "3c79630202e4152c6add678446984236efe4f57e84d8e892aab0637bab82e9fd",
+      "official_metadata": "https://pypi.org/pypi/python-dateutil/3.0.0/json",
+      "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "filename": "six-1.17.0-py2.py3-none-any.whl",
+      "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "official_metadata": "https://pypi.org/pypi/six/1.17.0/json",
+      "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.5",
+      "filename": "tzdata-2026.5-py2.py3-none-any.whl",
+      "sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac",
+      "official_metadata": "https://pypi.org/pypi/tzdata/2026.5/json",
+      "requires_python": ">=2"
+    }
+  ]
+}

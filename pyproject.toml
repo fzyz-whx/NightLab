@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools==84.2.1", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nightlab"
+version = "0.1.0.dev0"
+description = "Local research tools for night audio and wearable sleep time series"
+requires-python = ">=3.12,<3.13"
+dependencies = ["numpy==2.5.4", "scipy==1.18.1", "scikit-learn==1.9.1", "threadpoolctl==3.7.0"]
+
+[project.optional-dependencies]
+test = ["pytest==9.1.1"]
+plots = ["matplotlib==3.11.2"]
+
+[tool.setuptools.packages.find]
+where = ["backend/src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["backend/src", "."]

@@ -138,7 +138,7 @@ class DatasetToolsTests(unittest.TestCase):
     def test_actual_repository_manifests_load(self):
         root = Path(__file__).resolve().parents[1]
         paths = sorted((root / "data/manifests").glob("*.json"))
-        self.assertEqual({p.stem for p in paths}, {"sleepaccel", "sciencedb-19070", "bidsleep", "psg-audio"})
+        self.assertTrue({"sleepaccel", "sciencedb-19070", "bidsleep", "psg-audio"}.issubset({p.stem for p in paths}))
         for path in paths:
             with self.subTest(manifest=path.name):
                 manifest = cli.load_manifest(path, root)

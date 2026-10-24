@@ -1,0 +1,8 @@
+{
+  "metrics_sha256": {
+    "sleepaccel-hr-pilot-v2": "c2eba9147dda7adedc8bf8df101e6bfa6c28d5aba7c627623164e989151be5e5",
+    "sleepaccel-accel-pilot-v2": "9fa382cfbe4c296a080afac27e49178f38b2371c388e2fb5ae28ff4a54178c0f",
+    "sleepaccel-rf-pilot-v2": "e23f6e2544ab119f537d878d92cfc525a962b160328c5142c35c088e2b887887"
+  },
+  "scope": "three-subject pilot only"
+}

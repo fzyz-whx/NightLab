@@ -1,0 +1,368 @@
+{
+  "rml_entries": 710,
+  "participants": [
+    {
+      "missing_edf": false,
+      "record_id": "00000995-100507",
+      "files": [
+        {
+          "directory_source": "/V3/APNEA_EDF/00000995-100507/00000995-100507[002].edf",
+          "file_id": "61a0ca3f89f14b48842cf1ee",
+          "exact_bytes": 710738976,
+          "md5": "5e30d63825c3e4b25c1bbd6ed76fe4cb",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1ee",
+          "status": "local_official_md5_verified"
+        },
+        {
+          "directory_source": "/V3/APNEA_RML/00000995-100507.rml",
+          "file_id": "61a0ca3f89f14b48842cee7f",
+          "exact_bytes": 241848,
+          "md5": "1f4a23da89421167698938576f381058",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cee7f",
+          "status": "local_official_md5_verified"
+        }
+      ],
+      "split": "train",
+      "subject_id": "00000995",
+      "rml_duplicate_ids": [
+        "6437f9c29870236416bbf9bc",
+        "644b5b677869a339f571e4a6",
+        "61a0ca3f89f14b48842cee7f"
+      ],
+      "missing_rml": false,
+      "rml_conflict": false
+    },
+    {
+      "missing_edf": false,
+      "record_id": "00000999-100507",
+      "files": [
+        {
+          "directory_source": "/V3/APNEA_EDF/00000999-100507/00000999-100507[002].edf",
+          "file_id": "61a0ca3f89f14b48842cf1e9",
+          "exact_bytes": 710738976,
+          "md5": "7d422cfdccc1d6d5d8b888c36b8ac1b6",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1e9",
+          "status": "local_official_md5_verified"
+        },
+        {
+          "directory_source": "/V3/APNEA_RML/00000999-100507.rml",
+          "file_id": "61a0ca3f89f14b48842ceee9",
+          "exact_bytes": 254815,
+          "md5": "dad826147db3b9de3021cbb647729540",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842ceee9",
+          "status": "local_official_md5_verified"
+        }
+      ],
+      "split": "test",
+      "subject_id": "00000999",
+      "rml_duplicate_ids": [
+        "61a0ca3f89f14b48842ceee9",
+        "6437f9c27869a339f571d95b",
+        "644b5b677869a339f571e4a7"
+      ],
+      "missing_rml": false,
+      "rml_conflict": false
+    },
+    {
+      "missing_edf": false,
+      "record_id": "00001000-100507",
+      "files": [
+        {
+          "directory_source": "/V3/APNEA_EDF/00001000-100507/00001000-100507[002].edf",
+          "file_id": "61a0ca3f89f14b48842cf369",
+          "exact_bytes": 710738976,
+          "md5": "092711cf855b4cf2e3b0778649e951fe",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf369",
+          "status": "local_official_md5_verified"
+        },
+        {
+          "directory_source": "/V3/APNEA_RML/00001000-100507.rml",
+          "file_id": "61a0ca3f89f14b48842ceea7",
+          "exact_bytes": 231067,
+          "md5": "b43b7be42922c89291e5a8aca0a2e999",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842ceea7",
+          "status": "local_official_md5_verified"
+        }
+      ],
+      "split": "train",
+      "subject_id": "00001000",
+      "rml_duplicate_ids": [
+        "6437f9c29870236416bbf9bd",
+        "61a0ca3f89f14b48842ceea7",
+        "644b5b677869a339f571e4a8"
+      ],
+      "missing_rml": false,
+      "rml_conflict": false
+    },
+    {
+      "missing_edf": false,
+      "record_id": "00001006-100507",
+      "files": [
+        {
+          "directory_source": "/V3/APNEA_EDF/00001006-100507/00001006-100507[002].edf",
+          "file_id": "61a0ca3f89f14b48842cf1df",
+          "exact_bytes": 710738976,
+          "md5": "fc63587e5f71c1b4f396734f2587babe",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1df",
+          "status": "local_official_md5_verified"
+        },
+        {
+          "directory_source": "/V3/APNEA_RML/00001006-100507.rml",
+          "file_id": "61a0ca3f89f14b48842ceed4",
+          "exact_bytes": 165048,
+          "md5": "c259b3c2fc757473e5ac11b918bbe3a2",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842ceed4",
+          "status": "local_official_md5_verified"
+        }
+      ],
+      "split": "train",
+      "subject_id": "00001006",
+      "rml_duplicate_ids": [
+        "6437f9c27869a339f571d95c",
+        "61a0ca3f89f14b48842ceed4",
+        "644b5b677869a339f571e4a9"
+      ],
+      "missing_rml": false,
+      "rml_conflict": false
+    },
+    {
+      "missing_edf": false,
+      "record_id": "00001008-100507",
+      "files": [
+        {
+          "directory_source": "/V3/APNEA_EDF/00001008-100507/00001008-100507[002].edf",
+          "file_id": "61a0ca3f89f14b48842cf1db",
+          "exact_bytes": 710738976,
+          "md5": "7225aac7df1cc669f785df49f73ba832",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1db",
+          "status": "local_official_md5_verified"
+        },
+        {
+          "directory_source": "/V3/APNEA_RML/00001008-100507.rml",
+          "file_id": "61a0ca3f89f14b48842ceeb9",
+          "exact_bytes": 193371,
+          "md5": "2d63d5b47aeea737473aadf0286151cf",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842ceeb9",
+          "status": "local_official_md5_verified"
+        }
+      ],
+      "split": "validation",
+      "subject_id": "00001008",
+      "rml_duplicate_ids": [
+        "6437f9c39870236416bbf9be",
+        "61a0ca3f89f14b48842ceeb9"
+      ],
+      "missing_rml": false,
+      "rml_conflict": false
+    },
+    {
+      "missing_edf": false,
+      "record_id": "00001010-100507",
+      "files": [
+        {
+          "directory_source": "/V3/APNEA_EDF/00001010-100507/00001010-100507[002].edf",
+          "file_id": "61a0ca3f89f14b48842cf1d6",
+          "exact_bytes": 710738976,
+          "md5": "b9b005a1573de1ae065961d7afe3328d",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1d6",
+          "status": "local_official_md5_verified"
+        },
+        {
+          "directory_source": "/V3/APNEA_RML/00001010-100507.rml",
+          "file_id": "61a0ca3f89f14b48842cef26",
+          "exact_bytes": 365732,
+          "md5": "fa844fc9d973b5a52c84641c4350a1d7",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cef26",
+          "status": "local_official_md5_verified"
+        }
+      ],
+      "split": "train",
+      "subject_id": "00001010",
+      "rml_duplicate_ids": [
+        "61a0ca3f89f14b48842cef26",
+        "6437f9c27869a339f571d95d"
+      ],
+      "missing_rml": false,
+      "rml_conflict": false
+    },
+    {
+      "missing_edf": false,
+      "record_id": "00001014-100507",
+      "files": [
+        {
+          "directory_source": "/V3/APNEA_EDF/00001014-100507/00001014-100507[002].edf",
+          "file_id": "61a0ca3f89f14b48842cf1cd",
+          "exact_bytes": 710738976,
+          "md5": "c457974f686666cf5ceabb392d06df7d",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1cd",
+          "status": "local_official_md5_verified"
+        },
+        {
+          "directory_source": "/V3/APNEA_RML/00001014-100507.rml",
+          "file_id": "61a0ca3f89f14b48842ceec4",
+          "exact_bytes": 250567,
+          "md5": "2465ad8eadda604d3e5caf2378b9e15f",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842ceec4",
+          "status": "local_official_md5_verified"
+        }
+      ],
+      "split": "train",
+      "subject_id": "00001014",
+      "rml_duplicate_ids": [
+        "6436722e9870236416bbf69f",
+        "61a0ca3f89f14b48842ceec4"
+      ],
+      "missing_rml": false,
+      "rml_conflict": false
+    },
+    {
+      "missing_edf": false,
+      "record_id": "00001016-100507",
+      "files": [
+        {
+          "directory_source": "/V3/APNEA_EDF/00001016-100507/00001016-100507[002].edf",
+          "file_id": "61a0ca3f89f14b48842cf1c9",
+          "exact_bytes": 710738976,
+          "md5": "6b2d75885374c85de6982488ee776a33",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1c9",
+          "status": "local_official_md5_verified"
+        },
+        {
+          "directory_source": "/V3/APNEA_RML/00001016-100507.rml",
+          "file_id": "61a0ca3f89f14b48842cee82",
+          "exact_bytes": 170739,
+          "md5": "27a96da8532c195db2fcc8e4919b0bdc",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cee82",
+          "status": "local_official_md5_verified"
+        }
+      ],
+      "split": "train",
+      "subject_id": "00001016",
+      "rml_duplicate_ids": [
+        "6437f9c39870236416bbf9bf",
+        "61a0ca3f89f14b48842cee82"
+      ],
+      "missing_rml": false,
+      "rml_conflict": false
+    },
+    {
+      "missing_edf": false,
+      "record_id": "00001018-100507",
+      "files": [
+        {
+          "directory_source": "/V3/APNEA_EDF/00001018-100507/00001018-100507[002].edf",
+          "file_id": "61a0ca3f89f14b48842cf1c2",
+          "exact_bytes": 710738976,
+          "md5": "b76351a7701d3ab814ed309f908edd3b",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1c2",
+          "status": "local_official_md5_verified"
+        },
+        {
+          "directory_source": "/V3/APNEA_RML/00001018-100507.rml",
+          "file_id": "61a0ca3f89f14b48842cef0b",
+          "exact_bytes": 317594,
+          "md5": "b31ad150124a9f44849de03906683638",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cef0b",
+          "status": "local_official_md5_verified"
+        }
+      ],
+      "split": "test",
+      "subject_id": "00001018",
+      "rml_duplicate_ids": [
+        "6436722e7869a339f571d63f",
+        "61a0ca3f89f14b48842cef0b"
+      ],
+      "missing_rml": false,
+      "rml_conflict": false
+    },
+    {
+      "missing_edf": false,
+      "record_id": "00001020-100507",
+      "files": [
+        {
+          "directory_source": "/V3/APNEA_EDF/00001020-100507/00001020-100507[002].edf",
+          "file_id": "61a0ca3f89f14b48842cf1bd",
+          "exact_bytes": 710738976,
+          "md5": "2be8c6c76bff08487fdc80f2c3a484db",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1bd",
+          "status": "local_official_md5_verified"
+        },
+        {
+          "directory_source": "/V3/APNEA_RML/00001020-100507.rml",
+          "file_id": "61a0ca3f89f14b48842ceed8",
+          "exact_bytes": 351693,
+          "md5": "7c9318349082a467ef062faa3d6097e3",
+          "from": "db",
+          "download_url": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842ceed8",
+          "status": "local_official_md5_verified"
+        }
+      ],
+      "split": "validation",
+      "subject_id": "00001020",
+      "rml_duplicate_ids": [
+        "61a0ca3f89f14b48842ceed8",
+        "6436722f9870236416bbf6a2"
+      ],
+      "missing_rml": false,
+      "rml_conflict": false
+    }
+  ],
+  "projected_additional_bytes": 6398951410,
+  "approval_status": "approved_by_user_2026-10-24",
+  "version": "V3",
+  "license": "CC BY 4.0",
+  "projected_total_bytes": 7109932234,
+  "selection": "Sorted full EDF directory; first record per distinct numeric subject prefix; first ten; exact second hour only; no labels or metrics",
+  "api_issue_resolved": "lastIndex must serialize integer; double200.0 rejected code10002",
+  "dataset_id": "778740145531650048",
+  "split_policy": {
+    "seed": 42,
+    "generator": "NumPy default_rng / PCG64",
+    "fractions": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "unit": "subject",
+    "assigned_before_window_preparation": true,
+    "subjects": {
+      "train": [
+        "00001010",
+        "00001014",
+        "00000995",
+        "00001016",
+        "00001006",
+        "00001000"
+      ],
+      "validation": [
+        "00001008",
+        "00001020"
+      ],
+      "test": [
+        "00000999",
+        "00001018"
+      ]
+    }
+  },
+  "approved_additional_bytes": 6398951410,
+  "execution_status": "all20_files_downloaded_and_official_md5_matched_2026-10-24"
+}

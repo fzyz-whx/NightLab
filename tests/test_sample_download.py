@@ -1,6 +1,7 @@
 import copy
 import hashlib
 import io
+from http.client import IncompleteRead
 from pathlib import Path
 import tempfile
 import unittest
@@ -79,6 +80,14 @@ class SampleDownloadTests(unittest.TestCase):
         with self.assertRaises(KeyboardInterrupt):
             self.run_download(response)
         self.assertEqual(self.partial.read_bytes(), b'abc')
+        self.assertFalse(self.target.exists())
+
+    def test_http_interruption_preserves_received_prefix(self):
+        response = Response()
+        response.read1 = Mock(side_effect=[b'abc',IncompleteRead(b'',3)])
+        with self.assertRaises(IncompleteRead):
+            self.run_download(response)
+        self.assertEqual(self.partial.read_bytes(),b'abc')
         self.assertFalse(self.target.exists())
 
     def test_bad_resume_responses_preserve_partial(self):

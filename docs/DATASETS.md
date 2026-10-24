@@ -22,3 +22,13 @@ CC BY 数据的公开使用需署名并标注修改。ODC-By 使用应保留许�
 - Walch O, Huang Y, Forger D, Goldstein C. Sleep stage prediction with raw acceleration and photoplethysmography heart rate data derived from a consumer wearable device. Sleep. 2019;42(12):zsz180. [doi:10.1093/sleep/zsz180](https://doi.org/10.1093/sleep/zsz180)。
 
 官方还要求在正式产出的致谢中保留NSRR的NIH/NHLBI资助说明（R24 HL114473、75N92019R002），准确英文措辞见上表固定README，不用概括的“公开数据无使用限制”替代它。
+
+## 当前试点数据范围（2026-10-24更新）
+
+PSG-Audio已从原先一小时扩展为用户明确批准的10人各第二小时：20文件总7109932234字节，全部官方MD5匹配，受试者划分6/2/2在窗口处理前冻结。
+SleepAccel当前选择3人共9文件，总84815494字节，全部匹配PhysioNet1.0.0官方SHA256；只获取小规模试点，未取完整31人ZIP。NSRR官方LICENSE.txt已实读并与PhysioNet逐字节匹配，原先“NSRR许可未读取”的状态已解决；未验证整个两个站点全库逐文件相同。
+两条传统基线和可穿戴输入消融均已真实运行，指标与局限见EXPERIMENTS.md。临床数据和派生特征均保留本地。
+
+正式致谢保留官方要求的文字：
+
+> The National Sleep Research Resource was supported by the U.S. National Institutes of Health, National Heart Lung and Blood Institute (R24 HL114473, 75N92019R002).

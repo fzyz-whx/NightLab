@@ -1,0 +1,6 @@
+{
+  "metrics_path": "runs/sleepaccel-rf-pilot-v2/metrics.json",
+  "metrics_sha256": "e23f6e2544ab119f537d878d92cfc525a962b160328c5142c35c088e2b887887",
+  "source": "actual recorded metrics; no manual score edits",
+  "scope": "pilot held-out subjects; no population or clinical validation"
+}

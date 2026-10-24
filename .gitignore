@@ -21,3 +21,5 @@ node_modules/
 dist/
 .pytest_cache/
 private/
+*.egg-info/
+build/

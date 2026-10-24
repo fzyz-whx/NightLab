@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite this development repository and the original datasets when using NightLab."
+title: NightLab
+type: software
+version: 0.1.0.dev0
+authors:
+  - name: fzyz-whx
+repository-code: https://github.com/fzyz-whx/NightLab
+url: https://github.com/fzyz-whx/NightLab
+abstract: "A local research workbench for night audio and wearable sleep time series; development software, not a medical diagnostic product."

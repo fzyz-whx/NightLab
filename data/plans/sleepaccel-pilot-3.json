@@ -1,0 +1,56 @@
+{
+  "status": "selected three participants acquired; all9 official PhysioNet1.0.0 SHA256 values matched",
+  "existing_subject": "5383425",
+  "proposed_files": [
+    {
+      "subject_id": "8258170",
+      "path": "motion/8258170_acceleration.txt",
+      "sha256": "7f464b9cd84b7d9bc5646ba338ee193ff8631c1ed3782db1edcef1dedb5c452e",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/8258170_acceleration.txt",
+      "exact_bytes": 13531879,
+      "connection_note": "per-request public DNS resolution override with HTTPS certificate verification; no system DNS/proxy changes"
+    },
+    {
+      "subject_id": "8258170",
+      "path": "heart_rate/8258170_heartrate.txt",
+      "sha256": "9b6916730ed38d5481c0d9bdf139ce9ec6f1a835bd0f090355dc312c76a63729",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/8258170_heartrate.txt",
+      "exact_bytes": 105155,
+      "connection_note": "per-request public DNS resolution override with HTTPS certificate verification; no system DNS/proxy changes"
+    },
+    {
+      "subject_id": "8258170",
+      "path": "labels/8258170_labeled_sleep.txt",
+      "sha256": "caee858de45cd29b86cc21503a69e5991bfeeecd534052d03f346a3b049d3b44",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/labels/8258170_labeled_sleep.txt",
+      "exact_bytes": 7403,
+      "connection_note": "per-request public DNS resolution override with HTTPS certificate verification; no system DNS/proxy changes"
+    },
+    {
+      "subject_id": "1066528",
+      "path": "motion/1066528_acceleration.txt",
+      "sha256": "853b212bef01aa63ace0f0c555b3b1c23f2be71e9a4d04de4c8e65f3f9ac98b3",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/1066528_acceleration.txt",
+      "exact_bytes": 57331743,
+      "connection_note": "per-request public DNS resolution override with HTTPS certificate verification; no system DNS/proxy changes"
+    },
+    {
+      "subject_id": "1066528",
+      "path": "heart_rate/1066528_heartrate.txt",
+      "sha256": "31533209b9a515c331eb41800f676885e652ebda9077794d44ccbfb90342c3e7",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/1066528_heartrate.txt",
+      "exact_bytes": 276120,
+      "connection_note": "per-request public DNS resolution override with HTTPS certificate verification; no system DNS/proxy changes"
+    },
+    {
+      "subject_id": "1066528",
+      "path": "labels/1066528_labeled_sleep.txt",
+      "sha256": "528f424f7c02ba9a72aa7043e92ad070a72fc8ca5dd1bdaf3d7de79d3e181b43",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/labels/1066528_labeled_sleep.txt",
+      "exact_bytes": 7243,
+      "connection_note": "per-request public DNS resolution override with HTTPS certificate verification; no system DNS/proxy changes"
+    }
+  ],
+  "additional_exact_bytes": 71259543,
+  "retrieval_note": "NSRR official alternative used for remaining files after PhysioNet timeouts; source license and selected file identities verified. No system DNS/proxy changes."
+}

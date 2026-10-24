@@ -1,0 +1,212 @@
+[
+  {
+    "subject_id": "1066528",
+    "rows": 952,
+    "nan_feature_cells": 1137,
+    "repeated_block_policy": "collapse_identical",
+    "signals": {
+      "heart_rate": {
+        "input_samples": 5539,
+        "original_input_samples": 16617,
+        "identical_repeated_blocks": 3,
+        "discarded_exact_repeat_samples": 11078,
+        "samples_before_label_range": 571,
+        "samples_after_label_range": 4
+      },
+      "motion": {
+        "input_samples": 1281000,
+        "original_input_samples": 1281000,
+        "identical_repeated_blocks": 1,
+        "discarded_exact_repeat_samples": 0,
+        "samples_before_label_range": 92669,
+        "samples_after_label_range": 428
+      }
+    },
+    "input_integrity": {
+      "dataset": "sleepaccel",
+      "scope": "listed files only; no format, labels, or time alignment validation",
+      "inventory_complete": false,
+      "ok": true,
+      "official_sha256_verified": true,
+      "files": [
+        {
+          "path": "data/raw/sleepaccel/1.0.0/motion/1066528_acceleration.txt",
+          "present": true,
+          "actual_bytes": 57331743,
+          "errors": [],
+          "official_sha256_verified": true,
+          "local_checksums": {
+            "sha256": "853b212bef01aa63ace0f0c555b3b1c23f2be71e9a4d04de4c8e65f3f9ac98b3"
+          },
+          "checksum_provenance": "official checksum compared",
+          "ok": true
+        },
+        {
+          "path": "data/raw/sleepaccel/1.0.0/heart_rate/1066528_heartrate.txt",
+          "present": true,
+          "actual_bytes": 276120,
+          "errors": [],
+          "official_sha256_verified": true,
+          "local_checksums": {
+            "sha256": "31533209b9a515c331eb41800f676885e652ebda9077794d44ccbfb90342c3e7"
+          },
+          "checksum_provenance": "official checksum compared",
+          "ok": true
+        },
+        {
+          "path": "data/raw/sleepaccel/1.0.0/labels/1066528_labeled_sleep.txt",
+          "present": true,
+          "actual_bytes": 7243,
+          "errors": [],
+          "official_sha256_verified": true,
+          "local_checksums": {
+            "sha256": "528f424f7c02ba9a72aa7043e92ad070a72fc8ca5dd1bdaf3d7de79d3e181b43"
+          },
+          "checksum_provenance": "official checksum compared",
+          "ok": true
+        }
+      ],
+      "errors": []
+    }
+  },
+  {
+    "subject_id": "5383425",
+    "rows": 976,
+    "nan_feature_cells": 0,
+    "repeated_block_policy": "collapse_identical",
+    "signals": {
+      "heart_rate": {
+        "input_samples": 5774,
+        "original_input_samples": 5774,
+        "identical_repeated_blocks": 1,
+        "discarded_exact_repeat_samples": 0,
+        "samples_before_label_range": 80,
+        "samples_after_label_range": 78
+      },
+      "motion": {
+        "input_samples": 298000,
+        "original_input_samples": 298000,
+        "identical_repeated_blocks": 1,
+        "discarded_exact_repeat_samples": 0,
+        "samples_before_label_range": 240,
+        "samples_after_label_range": 4227
+      }
+    },
+    "input_integrity": {
+      "dataset": "sleepaccel",
+      "scope": "listed files only; no format, labels, or time alignment validation",
+      "inventory_complete": false,
+      "ok": true,
+      "official_sha256_verified": true,
+      "files": [
+        {
+          "path": "data/raw/sleepaccel/1.0.0/motion/5383425_acceleration.txt",
+          "present": true,
+          "actual_bytes": 13456185,
+          "errors": [],
+          "official_sha256_verified": true,
+          "local_checksums": {
+            "sha256": "40e461c8b2da44a7cd780cbae28b1d7dbcf7d32d9172898ae94c85e3f69b366e"
+          },
+          "checksum_provenance": "official checksum compared",
+          "ok": true
+        },
+        {
+          "path": "data/raw/sleepaccel/1.0.0/heart_rate/5383425_heartrate.txt",
+          "present": true,
+          "actual_bytes": 92313,
+          "errors": [],
+          "official_sha256_verified": true,
+          "local_checksums": {
+            "sha256": "9b6af9046a4c516f948f307e8e130a823b244056ae705e2bb8abd89bb3e76eb8"
+          },
+          "checksum_provenance": "official checksum compared",
+          "ok": true
+        },
+        {
+          "path": "data/raw/sleepaccel/1.0.0/labels/5383425_labeled_sleep.txt",
+          "present": true,
+          "actual_bytes": 7453,
+          "errors": [],
+          "official_sha256_verified": true,
+          "local_checksums": {
+            "sha256": "10af34ea9a31f2284dafa034827e3050c0ea584b71107133e694715c5990df1b"
+          },
+          "checksum_provenance": "official checksum compared",
+          "ok": true
+        }
+      ],
+      "errors": []
+    }
+  },
+  {
+    "subject_id": "8258170",
+    "rows": 972,
+    "nan_feature_cells": 1,
+    "repeated_block_policy": "collapse_identical",
+    "signals": {
+      "heart_rate": {
+        "input_samples": 6380,
+        "original_input_samples": 6380,
+        "identical_repeated_blocks": 1,
+        "discarded_exact_repeat_samples": 0,
+        "samples_before_label_range": 720,
+        "samples_after_label_range": 30
+      },
+      "motion": {
+        "input_samples": 295000,
+        "original_input_samples": 295000,
+        "identical_repeated_blocks": 1,
+        "discarded_exact_repeat_samples": 0,
+        "samples_before_label_range": 104,
+        "samples_after_label_range": 2999
+      }
+    },
+    "input_integrity": {
+      "dataset": "sleepaccel",
+      "scope": "listed files only; no format, labels, or time alignment validation",
+      "inventory_complete": false,
+      "ok": true,
+      "official_sha256_verified": true,
+      "files": [
+        {
+          "path": "data/raw/sleepaccel/1.0.0/motion/8258170_acceleration.txt",
+          "present": true,
+          "actual_bytes": 13531879,
+          "errors": [],
+          "official_sha256_verified": true,
+          "local_checksums": {
+            "sha256": "7f464b9cd84b7d9bc5646ba338ee193ff8631c1ed3782db1edcef1dedb5c452e"
+          },
+          "checksum_provenance": "official checksum compared",
+          "ok": true
+        },
+        {
+          "path": "data/raw/sleepaccel/1.0.0/heart_rate/8258170_heartrate.txt",
+          "present": true,
+          "actual_bytes": 105155,
+          "errors": [],
+          "official_sha256_verified": true,
+          "local_checksums": {
+            "sha256": "9b6916730ed38d5481c0d9bdf139ce9ec6f1a835bd0f090355dc312c76a63729"
+          },
+          "checksum_provenance": "official checksum compared",
+          "ok": true
+        },
+        {
+          "path": "data/raw/sleepaccel/1.0.0/labels/8258170_labeled_sleep.txt",
+          "present": true,
+          "actual_bytes": 7403,
+          "errors": [],
+          "official_sha256_verified": true,
+          "local_checksums": {
+            "sha256": "caee858de45cd29b86cc21503a69e5991bfeeecd534052d03f346a3b049d3b44"
+          },
+          "checksum_provenance": "official checksum compared",
+          "ok": true
+        }
+      ],
+      "errors": []
+    }
+  }
+]

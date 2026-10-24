@@ -1,0 +1,351 @@
+{
+  "schema_version": 1,
+  "id": "psg-audio-pilot-10",
+  "version": "V3",
+  "license": {
+    "name": "CC BY 4.0",
+    "verified": true,
+    "source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048"
+  },
+  "sources": [
+    "https://www.scidb.cn/en/detail?dataSetId=778740145531650048"
+  ],
+  "reported_size": {
+    "exact_selected_bytes": 7109932234,
+    "approved_additional_bytes": 6398951410
+  },
+  "inventory_complete": false,
+  "evidence_date": "2026-10-24",
+  "files": [
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_EDF/00000995-100507/00000995-100507[002].edf",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1ee",
+      "exact_bytes": 710738976,
+      "official_checksums": {
+        "md5": "5e30d63825c3e4b25c1bbd6ed76fe4cb"
+      },
+      "file_id": "61a0ca3f89f14b48842cf1ee",
+      "subject_id": "00000995",
+      "record_id": "00000995-100507",
+      "split": "train",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_RML/00000995-100507.rml",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cee7f",
+      "exact_bytes": 241848,
+      "official_checksums": {
+        "md5": "1f4a23da89421167698938576f381058"
+      },
+      "file_id": "61a0ca3f89f14b48842cee7f",
+      "subject_id": "00000995",
+      "record_id": "00000995-100507",
+      "split": "train",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_EDF/00000999-100507/00000999-100507[002].edf",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1e9",
+      "exact_bytes": 710738976,
+      "official_checksums": {
+        "md5": "7d422cfdccc1d6d5d8b888c36b8ac1b6"
+      },
+      "file_id": "61a0ca3f89f14b48842cf1e9",
+      "subject_id": "00000999",
+      "record_id": "00000999-100507",
+      "split": "test",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_RML/00000999-100507.rml",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842ceee9",
+      "exact_bytes": 254815,
+      "official_checksums": {
+        "md5": "dad826147db3b9de3021cbb647729540"
+      },
+      "file_id": "61a0ca3f89f14b48842ceee9",
+      "subject_id": "00000999",
+      "record_id": "00000999-100507",
+      "split": "test",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_EDF/00001000-100507/00001000-100507[002].edf",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf369",
+      "exact_bytes": 710738976,
+      "official_checksums": {
+        "md5": "092711cf855b4cf2e3b0778649e951fe"
+      },
+      "file_id": "61a0ca3f89f14b48842cf369",
+      "subject_id": "00001000",
+      "record_id": "00001000-100507",
+      "split": "train",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_RML/00001000-100507.rml",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842ceea7",
+      "exact_bytes": 231067,
+      "official_checksums": {
+        "md5": "b43b7be42922c89291e5a8aca0a2e999"
+      },
+      "file_id": "61a0ca3f89f14b48842ceea7",
+      "subject_id": "00001000",
+      "record_id": "00001000-100507",
+      "split": "train",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_EDF/00001006-100507/00001006-100507[002].edf",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1df",
+      "exact_bytes": 710738976,
+      "official_checksums": {
+        "md5": "fc63587e5f71c1b4f396734f2587babe"
+      },
+      "file_id": "61a0ca3f89f14b48842cf1df",
+      "subject_id": "00001006",
+      "record_id": "00001006-100507",
+      "split": "train",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_RML/00001006-100507.rml",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842ceed4",
+      "exact_bytes": 165048,
+      "official_checksums": {
+        "md5": "c259b3c2fc757473e5ac11b918bbe3a2"
+      },
+      "file_id": "61a0ca3f89f14b48842ceed4",
+      "subject_id": "00001006",
+      "record_id": "00001006-100507",
+      "split": "train",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_EDF/00001008-100507/00001008-100507[002].edf",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1db",
+      "exact_bytes": 710738976,
+      "official_checksums": {
+        "md5": "7225aac7df1cc669f785df49f73ba832"
+      },
+      "file_id": "61a0ca3f89f14b48842cf1db",
+      "subject_id": "00001008",
+      "record_id": "00001008-100507",
+      "split": "validation",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_RML/00001008-100507.rml",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842ceeb9",
+      "exact_bytes": 193371,
+      "official_checksums": {
+        "md5": "2d63d5b47aeea737473aadf0286151cf"
+      },
+      "file_id": "61a0ca3f89f14b48842ceeb9",
+      "subject_id": "00001008",
+      "record_id": "00001008-100507",
+      "split": "validation",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_EDF/00001010-100507/00001010-100507[002].edf",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1d6",
+      "exact_bytes": 710738976,
+      "official_checksums": {
+        "md5": "b9b005a1573de1ae065961d7afe3328d"
+      },
+      "file_id": "61a0ca3f89f14b48842cf1d6",
+      "subject_id": "00001010",
+      "record_id": "00001010-100507",
+      "split": "train",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_RML/00001010-100507.rml",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cef26",
+      "exact_bytes": 365732,
+      "official_checksums": {
+        "md5": "fa844fc9d973b5a52c84641c4350a1d7"
+      },
+      "file_id": "61a0ca3f89f14b48842cef26",
+      "subject_id": "00001010",
+      "record_id": "00001010-100507",
+      "split": "train",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_EDF/00001014-100507/00001014-100507[002].edf",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1cd",
+      "exact_bytes": 710738976,
+      "official_checksums": {
+        "md5": "c457974f686666cf5ceabb392d06df7d"
+      },
+      "file_id": "61a0ca3f89f14b48842cf1cd",
+      "subject_id": "00001014",
+      "record_id": "00001014-100507",
+      "split": "train",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_RML/00001014-100507.rml",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842ceec4",
+      "exact_bytes": 250567,
+      "official_checksums": {
+        "md5": "2465ad8eadda604d3e5caf2378b9e15f"
+      },
+      "file_id": "61a0ca3f89f14b48842ceec4",
+      "subject_id": "00001014",
+      "record_id": "00001014-100507",
+      "split": "train",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_EDF/00001016-100507/00001016-100507[002].edf",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1c9",
+      "exact_bytes": 710738976,
+      "official_checksums": {
+        "md5": "6b2d75885374c85de6982488ee776a33"
+      },
+      "file_id": "61a0ca3f89f14b48842cf1c9",
+      "subject_id": "00001016",
+      "record_id": "00001016-100507",
+      "split": "train",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_RML/00001016-100507.rml",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cee82",
+      "exact_bytes": 170739,
+      "official_checksums": {
+        "md5": "27a96da8532c195db2fcc8e4919b0bdc"
+      },
+      "file_id": "61a0ca3f89f14b48842cee82",
+      "subject_id": "00001016",
+      "record_id": "00001016-100507",
+      "split": "train",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_EDF/00001018-100507/00001018-100507[002].edf",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1c2",
+      "exact_bytes": 710738976,
+      "official_checksums": {
+        "md5": "b76351a7701d3ab814ed309f908edd3b"
+      },
+      "file_id": "61a0ca3f89f14b48842cf1c2",
+      "subject_id": "00001018",
+      "record_id": "00001018-100507",
+      "split": "test",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_RML/00001018-100507.rml",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cef0b",
+      "exact_bytes": 317594,
+      "official_checksums": {
+        "md5": "b31ad150124a9f44849de03906683638"
+      },
+      "file_id": "61a0ca3f89f14b48842cef0b",
+      "subject_id": "00001018",
+      "record_id": "00001018-100507",
+      "split": "test",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_EDF/00001020-100507/00001020-100507[002].edf",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842cf1bd",
+      "exact_bytes": 710738976,
+      "official_checksums": {
+        "md5": "2be8c6c76bff08487fdc80f2c3a484db"
+      },
+      "file_id": "61a0ca3f89f14b48842cf1bd",
+      "subject_id": "00001020",
+      "record_id": "00001020-100507",
+      "split": "validation",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    },
+    {
+      "path": "data/raw/psg-audio/v3/APNEA_RML/00001020-100507.rml",
+      "source": "https://china.scidb.cn/download?fileId=61a0ca3f89f14b48842ceed8",
+      "exact_bytes": 351693,
+      "official_checksums": {
+        "md5": "7c9318349082a467ef062faa3d6097e3"
+      },
+      "file_id": "61a0ca3f89f14b48842ceed8",
+      "subject_id": "00001020",
+      "record_id": "00001020-100507",
+      "split": "validation",
+      "checksum_source": "https://www.scidb.cn/en/detail?dataSetId=778740145531650048",
+      "source_verified": true,
+      "source_status": "Official original route HEAD matched exact bytes, 2026-10-24"
+    }
+  ],
+  "subjects": {
+    "seed": 42,
+    "generator": "NumPy default_rng / PCG64",
+    "fractions": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "unit": "subject",
+    "assigned_before_window_preparation": true,
+    "subjects": {
+      "train": [
+        "00001010",
+        "00001014",
+        "00000995",
+        "00001016",
+        "00001006",
+        "00001000"
+      ],
+      "validation": [
+        "00001008",
+        "00001020"
+      ],
+      "test": [
+        "00000999",
+        "00001018"
+      ]
+    }
+  },
+  "authorization": "User explicitly approved the fixed 10-subject plan, 2026-10-24; no other EDF segments or subjects."
+}

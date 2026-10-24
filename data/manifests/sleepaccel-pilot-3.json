@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "id": "sleepaccel-pilot-3",
+  "version": "PhysioNet 1.0.0",
+  "license": {
+    "name": "ODC-By 1.0",
+    "source": "https://physionet.org/content/sleep-accel/1.0.0/LICENSE.txt",
+    "status": "official mirror license read; NSRR license and cross-site identity not verified",
+    "verified": true,
+    "nsrr_source": "https://sleepdata.org/datasets/sleepaccel/files/LICENSE.txt",
+    "nsrr_license_sha256": "86c0ad300f6d380591298bc03652e30b81f65954bbf22435812bcfd46812ab06"
+  },
+  "sources": [
+    "https://sleepdata.org/datasets/sleepaccel",
+    "https://physionet.org/content/sleep-accel/1.0.0/",
+    "https://github.com/nsrr/sleepaccel-documentation/blob/d6a09dba76c38fd8c9e0429b095096b54224ee2e/pages/README.md"
+  ],
+  "reported_size": {
+    "nsrr_zip": "563 MB (documentation)",
+    "physionet_zip": "550.1 MB",
+    "physionet_uncompressed": "2.2 GB"
+  },
+  "inventory_complete": false,
+  "evidence_date": "2026-10-23",
+  "files": [
+    {
+      "path": "data/raw/sleepaccel/1.0.0/motion/5383425_acceleration.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/motion/5383425_acceleration.txt",
+      "source_status": "Complete local audit sample downloaded and matched official SHA-256 on 2026-10-24; not a claim of full cohort availability",
+      "reported_size": "12.8 MB",
+      "exact_bytes": 13456185,
+      "official_checksums": {
+        "sha256": "40e461c8b2da44a7cd780cbae28b1d7dbcf7d32d9172898ae94c85e3f69b366e"
+      },
+      "checksum_source": "https://physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt",
+      "size_source": "Official www.physionet.org HTTP Content-Length, checked 2026-10-24",
+      "source_verified": true,
+      "subject_id": "5383425",
+      "split": "validation"
+    },
+    {
+      "path": "data/raw/sleepaccel/1.0.0/heart_rate/5383425_heartrate.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/heart_rate/5383425_heartrate.txt",
+      "source_status": "Complete local audit sample downloaded and matched official SHA-256 on 2026-10-24; not a claim of full cohort availability",
+      "reported_size": null,
+      "exact_bytes": 92313,
+      "official_checksums": {
+        "sha256": "9b6af9046a4c516f948f307e8e130a823b244056ae705e2bb8abd89bb3e76eb8"
+      },
+      "checksum_source": "https://physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt",
+      "size_source": "Official www.physionet.org HTTP Content-Length, checked 2026-10-24",
+      "source_verified": true,
+      "subject_id": "5383425",
+      "split": "validation"
+    },
+    {
+      "path": "data/raw/sleepaccel/1.0.0/labels/5383425_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/5383425_labeled_sleep.txt",
+      "source_status": "Complete local audit sample downloaded and matched official SHA-256 on 2026-10-24; not a claim of full cohort availability",
+      "reported_size": null,
+      "exact_bytes": 7453,
+      "official_checksums": {
+        "sha256": "10af34ea9a31f2284dafa034827e3050c0ea584b71107133e694715c5990df1b"
+      },
+      "checksum_source": "https://physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt",
+      "size_source": "Official www.physionet.org HTTP Content-Length, checked 2026-10-24",
+      "source_verified": true,
+      "subject_id": "5383425",
+      "split": "validation"
+    },
+    {
+      "path": "data/raw/sleepaccel/1.0.0/motion/8258170_acceleration.txt",
+      "source": "https://sleepdata.org/datasets/sleepaccel/files/motion/8258170_acceleration.txt",
+      "source_verified": true,
+      "source_status": "Official NSRR origin; ODC-By license SHA256 identical to PhysioNet, per-file identity checked on retrieval",
+      "exact_bytes": 13531879,
+      "official_checksums": {
+        "sha256": "7f464b9cd84b7d9bc5646ba338ee193ff8631c1ed3782db1edcef1dedb5c452e"
+      },
+      "checksum_source": "https://www.physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt",
+      "subject_id": "8258170",
+      "split": "train"
+    },
+    {
+      "path": "data/raw/sleepaccel/1.0.0/heart_rate/8258170_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/8258170_heartrate.txt",
+      "source_verified": true,
+      "source_status": "official SHA256 list and original HEAD exact size checked 2026-10-24",
+      "exact_bytes": 105155,
+      "official_checksums": {
+        "sha256": "9b6916730ed38d5481c0d9bdf139ce9ec6f1a835bd0f090355dc312c76a63729"
+      },
+      "checksum_source": "https://www.physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt",
+      "subject_id": "8258170",
+      "split": "train"
+    },
+    {
+      "path": "data/raw/sleepaccel/1.0.0/labels/8258170_labeled_sleep.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/labels/8258170_labeled_sleep.txt",
+      "source_verified": true,
+      "source_status": "official SHA256 list and original HEAD exact size checked 2026-10-24",
+      "exact_bytes": 7403,
+      "official_checksums": {
+        "sha256": "caee858de45cd29b86cc21503a69e5991bfeeecd534052d03f346a3b049d3b44"
+      },
+      "checksum_source": "https://www.physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt",
+      "subject_id": "8258170",
+      "split": "train"
+    },
+    {
+      "path": "data/raw/sleepaccel/1.0.0/motion/1066528_acceleration.txt",
+      "source": "https://sleepdata.org/datasets/sleepaccel/files/motion/1066528_acceleration.txt",
+      "source_verified": true,
+      "source_status": "Official NSRR origin; ODC-By license SHA256 identical to PhysioNet, per-file identity checked on retrieval",
+      "exact_bytes": 57331743,
+      "official_checksums": {
+        "sha256": "853b212bef01aa63ace0f0c555b3b1c23f2be71e9a4d04de4c8e65f3f9ac98b3"
+      },
+      "checksum_source": "https://www.physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt",
+      "subject_id": "1066528",
+      "split": "test"
+    },
+    {
+      "path": "data/raw/sleepaccel/1.0.0/heart_rate/1066528_heartrate.txt",
+      "source": "https://sleepdata.org/datasets/sleepaccel/files/heart_rate/1066528_heartrate.txt",
+      "source_verified": true,
+      "source_status": "Official NSRR origin; ODC-By license SHA256 identical to PhysioNet, per-file identity checked on retrieval",
+      "exact_bytes": 276120,
+      "official_checksums": {
+        "sha256": "31533209b9a515c331eb41800f676885e652ebda9077794d44ccbfb90342c3e7"
+      },
+      "checksum_source": "https://www.physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt",
+      "subject_id": "1066528",
+      "split": "test"
+    },
+    {
+      "path": "data/raw/sleepaccel/1.0.0/labels/1066528_labeled_sleep.txt",
+      "source": "https://sleepdata.org/datasets/sleepaccel/files/labels/1066528_labeled_sleep.txt",
+      "source_verified": true,
+      "source_status": "Official NSRR origin; ODC-By license SHA256 identical to PhysioNet, per-file identity checked on retrieval",
+      "exact_bytes": 7243,
+      "official_checksums": {
+        "sha256": "528f424f7c02ba9a72aa7043e92ad070a72fc8ca5dd1bdaf3d7de79d3e181b43"
+      },
+      "checksum_source": "https://www.physionet.org/content/sleep-accel/1.0.0/SHA256SUMS.txt",
+      "subject_id": "1066528",
+      "split": "test"
+    }
+  ],
+  "notes": [
+    "3-subject pilot only, not full31 or population validation",
+    "Two additional small samples total71259543 bytes, under500MB; source certificate checks remain enabled. Per-request public DNS resolution override used during this local retrieval, no system changes.",
+    "All9 selected files passed fixed release SHA256; strict preparation initially rejected1066528 HR, then explicit v2 identical-block policy documented and tested."
+  ],
+  "subjects": {
+    "seed": 42,
+    "generator": "NumPy default_rng / PCG64",
+    "unit": "subject",
+    "subjects": {
+      "train": [
+        "8258170"
+      ],
+      "validation": [
+        "5383425"
+      ],
+      "test": [
+        "1066528"
+      ]
+    },
+    "scope": "three-subject pilot, one participant per partition; highly uncertain"
+  },
+  "preparation_policy": {
+    "repeated_signal_blocks": "collapse_identical",
+    "scope": "only complete equal-length blocks separated by strict time resets and equal in every timestamp/value; otherwise reject"
+  }
+}

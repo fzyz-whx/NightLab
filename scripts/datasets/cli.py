@@ -113,18 +113,25 @@ def verify(root, manifest):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", nargs="?", choices=("audit", "plan", "verify", "sample", "download"), default="audit")
+    parser.add_argument("command", nargs="?", choices=("audit", "plan", "verify", "sample", "download", "prepare"), default="audit")
     parser.add_argument("--dataset", help="manifest id (default: all)")
     parser.add_argument("--file", help="exact manifest path for one sample file")
     parser.add_argument("--execute", action="store_true", help="enable sample network and writes")
     parser.add_argument("--confirm-large-download", action="store_true", help="confirm the explicitly selected download file")
+    parser.add_argument('--output', help='prepare destination under data/processed')
     args = parser.parse_args(argv)
     directory = ROOT / "data" / "manifests"
     try:
         if args.command in {"sample", "download"} and (not args.dataset or not args.file):
             raise ManifestError("retrieval requires --dataset and --file")
-        if args.command not in {"sample", "download"} and (args.file or args.execute):
-            raise ManifestError("--file and --execute are only valid for sample/download")
+        if args.command == 'prepare' and (not args.dataset or args.file):
+            raise ManifestError('prepare requires --dataset and does not accept --file')
+        if args.file and args.command not in {'sample','download'}:
+            raise ManifestError('--file is only valid for retrieval')
+        if args.execute and args.command not in {'sample','download','prepare'}:
+            raise ManifestError('--execute is only valid for retrieval/preparation')
+        if args.output and args.command != 'prepare':
+            raise ManifestError('--output is only valid for prepare')
         if args.confirm_large_download and args.command != 'download':
             raise ManifestError('--confirm-large-download is only valid for download')
         if args.command == 'download' and args.execute and not args.confirm_large_download:
@@ -135,12 +142,15 @@ def main(argv=None):
         if not paths:
             raise ManifestError("no dataset manifests found")
         manifests = [load_manifest(path, ROOT) for path in paths]
-        if args.command in {"sample", "download"}:
+        if args.command == 'prepare':
+            from .prepare import prepare
+            output = prepare(ROOT,manifests[0],args.output,args.execute)
+        elif args.command in {"sample", "download"}:
             from .sample import sample
             output = sample(ROOT, manifests[0], args.file, args.execute,
                             confirmed_large=args.command == 'download' and (not args.execute or args.confirm_large_download))
         elif args.command == "plan":
-            output = {"mode": "offline read-only plan", "network": False, "writes": False, "download_policy": "Retrieval selects one audited file, default dry-run. sample caps at 500 MB; download execution additionally requires --confirm-large-download after user authorization. No bulk download or prepare implemented. BIDSleep is optional.", "datasets": manifests}
+            output = {"mode": "offline read-only plan", "network": False, "writes": False, "download_policy": "Retrieval/preparation default to dry-run. sample caps at 500 MB; download execution additionally requires --confirm-large-download after user authorization. No bulk download. Preparation handles audited pilot files only. BIDSleep is optional.", "datasets": manifests}
         elif args.command == "audit":
             output = {"mode": "offline read-only metadata and local inventory", "datasets": [{**manifest, "local_files": [file_state(ROOT, entry) for entry in manifest["files"]]} for manifest in manifests]}
         else:

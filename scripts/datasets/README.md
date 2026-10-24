@@ -30,7 +30,7 @@ python -B -m scripts.datasets.inspect_sleepaccel --kind motion
 python -B -m scripts.datasets.inspect_sleepaccel --kind alignment
 python -B -m scripts.datasets.inspect_sciencedb --subject 01
 python -B -m scripts.datasets.inspect_sciencedb --subject 02
-python -B -m unittest discover -s tests -p "test_*.py" -v
+.venv\Scripts\python.exe -m pytest -q
 ```
 
 SleepAccel检查必须先匹配官方SHA256，才统计列数、有限值、单调时间、间隔和原始标签。sleepaccel-five-stage-v1保留原始编码，3/4合并N3、-1掩码为无效目标，未文档化编码拒绝；依据见docs/LABEL_MAPPING_EVIDENCE.md。检查脚本读取完整小样本到内存，尚未为未经规模评估的全库处理优化。
@@ -44,3 +44,8 @@ ScienceDB检查先匹配JSON官方MD5，再读取从官方206 Range得到的WAV�
 `download --dataset <id> --file <manifest-path>`默认仍是dry-run。大文件执行需先有用户针对该文件的授权，再加 `--execute --confirm-large-download`；该参数不能代替授权。当前唯一获准的EDF是00000995-100507[002].edf（710738976字节），未批准其余分片或受试者。每次只获取一个清单文件，没有批量全库下载。
 
 `python -B -m scripts.datasets.inspect_psg`先核验完整EDF/RML，再检查头/时钟/事件区间，并实际读取短音频记录。只从UserStaging取得人工阶段来源，MachineStaging独立报告，不把阶段变化条数当作epoch数。输出避免身份字段和绝对日期。见docs/PSG_AUDIT.md。
+
+
+## Phase1准备与训练环境
+
+标准库审计/获取保持独立；prepare、prepare_cohort、模型训练和完整测试需先执行scripts/setup_cpu.ps1并使用.venv的Python。当前NPZ无pickle，产物/输入/特征源代码摘要均记录。固定清单下载支持明确执行和取消，失败文件保留partial；同一清单重跑会复用已经校验的文件。完整复现命令与真实试点结果见README和docs/EXPERIMENTS.md。

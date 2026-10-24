@@ -1,0 +1,6 @@
+{
+  "metrics_path": "runs/psg-rf-pilot-v1/metrics.json",
+  "metrics_sha256": "4a2ca9951307727b525463d6dea4dd833b92205c58b45245382848f936991b5d",
+  "source": "actual recorded metrics; no manual score edits",
+  "scope": "pilot held-out subjects; no population or clinical validation"
+}

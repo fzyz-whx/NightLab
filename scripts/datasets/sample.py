@@ -45,7 +45,7 @@ def matching_file(path, entry):
     return all(digests[name].hexdigest() == value.lower() for name, value in entry["official_checksums"].items())
 
 
-def sample(root, manifest, selected, execute=False, confirmed_large=False):
+def sample(root, manifest, selected, execute=False, confirmed_large=False, progress=None, stop_requested=None):
     # Imported here to keep the CLI's manifest/path validation authoritative.
     from .cli import raw_path
 
@@ -79,6 +79,8 @@ def sample(root, manifest, selected, execute=False, confirmed_large=False):
               "official_checksums": entry["official_checksums"], "network": execute, "writes": execute}
     if not execute:
         return result
+    if stop_requested is not None and stop_requested():
+        raise InterruptedError('retrieval cancelled; partial preserved')
     if target.exists():
         if not matching_file(target, entry):
             raise ValueError("existing target differs; refusing overwrite")
@@ -118,6 +120,8 @@ def sample(root, manifest, selected, execute=False, confirmed_large=False):
             with partial.open("ab" if partial.exists() else "xb") as stream:
                 total = offset
                 while True:
+                    if stop_requested is not None and stop_requested():
+                        raise InterruptedError('retrieval cancelled; partial preserved')
                     if time.monotonic() - started > TOTAL_TIMEOUT:
                         raise TimeoutError("sample deadline exceeded; partial preserved")
                     read = getattr(response, "read1", response.read)
@@ -128,6 +132,8 @@ def sample(root, manifest, selected, execute=False, confirmed_large=False):
                         raise ValueError("response exceeds exact_bytes; partial preserved")
                     stream.write(chunk)
                     total += len(chunk)
+                    if progress is not None:
+                        progress(total,size)
                 stream.flush()
                 os.fsync(stream.fileno())
     if not matching_file(partial, entry):

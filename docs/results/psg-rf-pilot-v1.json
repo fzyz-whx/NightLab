@@ -1,0 +1,423 @@
+{
+  "models": {
+    "majority": {
+      "validation": {
+        "macro_f1": 0.4294171220400729,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.7525937749401437,
+        "label_order": [
+          "no_target_reference_event",
+          "reference_respiratory_event"
+        ],
+        "confusion_matrix": [
+          [
+            943,
+            0
+          ],
+          [
+            310,
+            0
+          ]
+        ],
+        "per_class": {
+          "no_target_reference_event": {
+            "precision": 0.7525937749401437,
+            "recall": 1.0,
+            "f1": 0.8588342440801457,
+            "support": 943
+          },
+          "reference_respiratory_event": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 310
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero",
+        "pr_auc_average_precision": 0.24740622505985635
+      },
+      "test": {
+        "macro_f1": 0.452814219212865,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.8275328692962104,
+        "label_order": [
+          "no_target_reference_event",
+          "reference_respiratory_event"
+        ],
+        "confusion_matrix": [
+          [
+            1070,
+            0
+          ],
+          [
+            223,
+            0
+          ]
+        ],
+        "per_class": {
+          "no_target_reference_event": {
+            "precision": 0.8275328692962104,
+            "recall": 1.0,
+            "f1": 0.90562843842573,
+            "support": 1070
+          },
+          "reference_respiratory_event": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 223
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero",
+        "pr_auc_average_precision": 0.17246713070378963
+      }
+    },
+    "random_forest": {
+      "validation": {
+        "macro_f1": 0.5394571718697329,
+        "balanced_accuracy": 0.5820340026682174,
+        "accuracy": 0.5762170790103751,
+        "label_order": [
+          "no_target_reference_event",
+          "reference_respiratory_event"
+        ],
+        "confusion_matrix": [
+          [
+            538,
+            405
+          ],
+          [
+            126,
+            184
+          ]
+        ],
+        "per_class": {
+          "no_target_reference_event": {
+            "precision": 0.8102409638554217,
+            "recall": 0.5705196182396607,
+            "f1": 0.6695706285003111,
+            "support": 943
+          },
+          "reference_respiratory_event": {
+            "precision": 0.31239388794567063,
+            "recall": 0.5935483870967742,
+            "f1": 0.40934371523915464,
+            "support": 310
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero",
+        "pr_auc_average_precision": 0.43887706931414583
+      },
+      "test": {
+        "macro_f1": 0.5959831667963063,
+        "balanced_accuracy": 0.6780960563262227,
+        "accuracy": 0.6728538283062645,
+        "label_order": [
+          "no_target_reference_event",
+          "reference_respiratory_event"
+        ],
+        "confusion_matrix": [
+          [
+            717,
+            353
+          ],
+          [
+            70,
+            153
+          ]
+        ],
+        "per_class": {
+          "no_target_reference_event": {
+            "precision": 0.9110546378653113,
+            "recall": 0.6700934579439253,
+            "f1": 0.7722132471728594,
+            "support": 1070
+          },
+          "reference_respiratory_event": {
+            "precision": 0.30237154150197626,
+            "recall": 0.6860986547085202,
+            "f1": 0.41975308641975306,
+            "support": 223
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero",
+        "pr_auc_average_precision": 0.2833172519840089
+      }
+    }
+  },
+  "config": {
+    "seed": 42,
+    "trees": 200,
+    "max_depth": 12,
+    "min_samples_leaf": 3
+  },
+  "hyperparameter_policy": "fixed before test evaluation; no search or test-based threshold selection",
+  "split_subjects": {
+    "train": [
+      "00000995",
+      "00001000",
+      "00001006",
+      "00001010",
+      "00001014",
+      "00001016"
+    ],
+    "validation": [
+      "00001008",
+      "00001020"
+    ],
+    "test": [
+      "00000999",
+      "00001018"
+    ]
+  },
+  "split_rows": {
+    "train": 3775,
+    "validation": 1253,
+    "test": 1293
+  },
+  "imputer_fit_scope": "training rows only",
+  "evaluation_unit": "windows/epochs in held-out subjects; not population or clinical validation",
+  "dataset": "psg-audio-pilot-10",
+  "dataset_version": "V3",
+  "subject_count": 10,
+  "feature_count": 67,
+  "feature_names": [
+    "rms_adc_full_scale",
+    "zero_crossing_fraction",
+    "power_centroid_hz",
+    "log_mel_mean_00",
+    "log_mel_mean_01",
+    "log_mel_mean_02",
+    "log_mel_mean_03",
+    "log_mel_mean_04",
+    "log_mel_mean_05",
+    "log_mel_mean_06",
+    "log_mel_mean_07",
+    "log_mel_mean_08",
+    "log_mel_mean_09",
+    "log_mel_mean_10",
+    "log_mel_mean_11",
+    "log_mel_mean_12",
+    "log_mel_mean_13",
+    "log_mel_mean_14",
+    "log_mel_mean_15",
+    "log_mel_mean_16",
+    "log_mel_mean_17",
+    "log_mel_mean_18",
+    "log_mel_mean_19",
+    "log_mel_mean_20",
+    "log_mel_mean_21",
+    "log_mel_mean_22",
+    "log_mel_mean_23",
+    "log_mel_mean_24",
+    "log_mel_mean_25",
+    "log_mel_mean_26",
+    "log_mel_mean_27",
+    "log_mel_mean_28",
+    "log_mel_mean_29",
+    "log_mel_mean_30",
+    "log_mel_mean_31",
+    "log_mel_std_00",
+    "log_mel_std_01",
+    "log_mel_std_02",
+    "log_mel_std_03",
+    "log_mel_std_04",
+    "log_mel_std_05",
+    "log_mel_std_06",
+    "log_mel_std_07",
+    "log_mel_std_08",
+    "log_mel_std_09",
+    "log_mel_std_10",
+    "log_mel_std_11",
+    "log_mel_std_12",
+    "log_mel_std_13",
+    "log_mel_std_14",
+    "log_mel_std_15",
+    "log_mel_std_16",
+    "log_mel_std_17",
+    "log_mel_std_18",
+    "log_mel_std_19",
+    "log_mel_std_20",
+    "log_mel_std_21",
+    "log_mel_std_22",
+    "log_mel_std_23",
+    "log_mel_std_24",
+    "log_mel_std_25",
+    "log_mel_std_26",
+    "log_mel_std_27",
+    "log_mel_std_28",
+    "log_mel_std_29",
+    "log_mel_std_30",
+    "log_mel_std_31"
+  ],
+  "feature_nan_count": 0,
+  "provenance": [
+    {
+      "record_id": "00000995-100507",
+      "features_path": "data/processed/psg-audio/pilot-features-v1",
+      "features_sha256": "b50237e3a70e5ac3e2dc4ed5d6b34350c852dc8265a3f1e981a83c0b10d63b99",
+      "feature_version": "psg-rms-logmel-v1",
+      "feature_source_sha256": {
+        "nightlab.audio.edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+        "nightlab.audio.features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+        "nightlab.audio.reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+        "nightlab.audio.prepare": "b48033639b35787eac5a2f7e0c19227078b2474e30130c7f6112c5b96764eba2"
+      }
+    },
+    {
+      "record_id": "00000999-100507",
+      "features_path": "data/processed/psg-audio-pilot-10/00000999-100507/features-v1",
+      "features_sha256": "2d05d3c0f3d252aa1355cca702b584ee7efc06af3800351c380b839d3d7075e5",
+      "feature_version": "psg-rms-logmel-v1",
+      "feature_source_sha256": {
+        "nightlab.audio.edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+        "nightlab.audio.features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+        "nightlab.audio.reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+        "nightlab.audio.prepare": "b48033639b35787eac5a2f7e0c19227078b2474e30130c7f6112c5b96764eba2"
+      }
+    },
+    {
+      "record_id": "00001000-100507",
+      "features_path": "data/processed/psg-audio-pilot-10/00001000-100507/features-v1",
+      "features_sha256": "41beba0e556fe9a90953ddfa32034103c17d9372860b206463d50db1992b16b8",
+      "feature_version": "psg-rms-logmel-v1",
+      "feature_source_sha256": {
+        "nightlab.audio.edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+        "nightlab.audio.features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+        "nightlab.audio.reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+        "nightlab.audio.prepare": "b48033639b35787eac5a2f7e0c19227078b2474e30130c7f6112c5b96764eba2"
+      }
+    },
+    {
+      "record_id": "00001006-100507",
+      "features_path": "data/processed/psg-audio-pilot-10/00001006-100507/features-v1",
+      "features_sha256": "c3cd6328a4b99c13911061ccf2d31db4c3a71cc1645bfe24e13466a14d9a086a",
+      "feature_version": "psg-rms-logmel-v1",
+      "feature_source_sha256": {
+        "nightlab.audio.edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+        "nightlab.audio.features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+        "nightlab.audio.reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+        "nightlab.audio.prepare": "b48033639b35787eac5a2f7e0c19227078b2474e30130c7f6112c5b96764eba2"
+      }
+    },
+    {
+      "record_id": "00001008-100507",
+      "features_path": "data/processed/psg-audio-pilot-10/00001008-100507/features-v1",
+      "features_sha256": "0883210e234130c17b6ea18fb655e812319f6f68af6b60e41e8ea1677307ec56",
+      "feature_version": "psg-rms-logmel-v1",
+      "feature_source_sha256": {
+        "nightlab.audio.edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+        "nightlab.audio.features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+        "nightlab.audio.reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+        "nightlab.audio.prepare": "b48033639b35787eac5a2f7e0c19227078b2474e30130c7f6112c5b96764eba2"
+      }
+    },
+    {
+      "record_id": "00001010-100507",
+      "features_path": "data/processed/psg-audio-pilot-10/00001010-100507/features-v1",
+      "features_sha256": "a8d40025e377a727b9728c23f251a54485d16aa200f103267ec17bbe7c07e225",
+      "feature_version": "psg-rms-logmel-v1",
+      "feature_source_sha256": {
+        "nightlab.audio.edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+        "nightlab.audio.features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+        "nightlab.audio.reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+        "nightlab.audio.prepare": "b48033639b35787eac5a2f7e0c19227078b2474e30130c7f6112c5b96764eba2"
+      }
+    },
+    {
+      "record_id": "00001014-100507",
+      "features_path": "data/processed/psg-audio-pilot-10/00001014-100507/features-v1",
+      "features_sha256": "2e6a390413de8a442021ea9965df4671d47825765417b4f579a119c49b48e6c2",
+      "feature_version": "psg-rms-logmel-v1",
+      "feature_source_sha256": {
+        "nightlab.audio.edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+        "nightlab.audio.features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+        "nightlab.audio.reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+        "nightlab.audio.prepare": "b48033639b35787eac5a2f7e0c19227078b2474e30130c7f6112c5b96764eba2"
+      }
+    },
+    {
+      "record_id": "00001016-100507",
+      "features_path": "data/processed/psg-audio-pilot-10/00001016-100507/features-v1",
+      "features_sha256": "703218f3f1f477668015c6e4143bac5fbfbb754d7158c82bafd019055659c347",
+      "feature_version": "psg-rms-logmel-v1",
+      "feature_source_sha256": {
+        "nightlab.audio.edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+        "nightlab.audio.features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+        "nightlab.audio.reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+        "nightlab.audio.prepare": "b48033639b35787eac5a2f7e0c19227078b2474e30130c7f6112c5b96764eba2"
+      }
+    },
+    {
+      "record_id": "00001018-100507",
+      "features_path": "data/processed/psg-audio-pilot-10/00001018-100507/features-v1",
+      "features_sha256": "97e9291870772aa8d5c4a98abd70b22473afdc9fe64052eb08d7c8bf2a77f60a",
+      "feature_version": "psg-rms-logmel-v1",
+      "feature_source_sha256": {
+        "nightlab.audio.edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+        "nightlab.audio.features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+        "nightlab.audio.reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+        "nightlab.audio.prepare": "b48033639b35787eac5a2f7e0c19227078b2474e30130c7f6112c5b96764eba2"
+      }
+    },
+    {
+      "record_id": "00001020-100507",
+      "features_path": "data/processed/psg-audio-pilot-10/00001020-100507/features-v1",
+      "features_sha256": "c13dcb561e9031bb39d4ec5197c7aabb9fd079c6defa559e2bef956239685f84",
+      "feature_version": "psg-rms-logmel-v1",
+      "feature_source_sha256": {
+        "nightlab.audio.edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+        "nightlab.audio.features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+        "nightlab.audio.reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+        "nightlab.audio.prepare": "b48033639b35787eac5a2f7e0c19227078b2474e30130c7f6112c5b96764eba2"
+      }
+    }
+  ],
+  "split_policy": {
+    "seed": 42,
+    "generator": "NumPy default_rng / PCG64",
+    "fractions": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "unit": "subject",
+    "assigned_before_window_preparation": true,
+    "subjects": {
+      "train": [
+        "00001010",
+        "00001014",
+        "00000995",
+        "00001016",
+        "00001006",
+        "00001000"
+      ],
+      "validation": [
+        "00001008",
+        "00001020"
+      ],
+      "test": [
+        "00000999",
+        "00001018"
+      ]
+    }
+  },
+  "elapsed_seconds": 26.409400099997583,
+  "environment": {
+    "python": "3.12.10",
+    "nightlab": "0.1.0.dev0",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "experiment_scope": "pilot held-out subjects; no population or clinical validation"
+}
