@@ -97,3 +97,7 @@ Phase0验收提交0d8d336a3bbb77b42bc9d9b8e940e54f5c9e7edf已补推，GitHub API
 测试：72通过、1因Windows真实symlink权限跳过，54个subtest通过；包含真实配置清单、手工特征/指标、时间/标签/缺失、重复块、范围/短响应/摘要/中断、划分无交集、训练统计边界与序列化检查。测试修复记录：新增cohort时旧测试硬编码4份manifest失败，改为验证必要基础清单存在并加载所有实际清单；没有跳过新清单。曾被真实时间回退拒绝的cohort失败记录保留，处理策略和测试补齐后重新准备。
 
 Phase1最小传统基线试点通过，整体goal继续。事件级完整时间定位、深度学习/抗噪、更大可穿戴人群、API/UI、个人数据导入删除与最终交付仍待完成；不把这些原型分数宣称为人群或医疗准确率。
+
+### Phase1提交与远端核验
+
+阶段提交31a0dfcfca01ea40dd9599b735a2b73ff52156a6：feat: run reproducible subject-wise CPU baselines。已推送GitHub，独立API查询远端main返回同一完整hash。72测试通过、1Windows symlink权限跳过，pip check通过；5个生成SVG的尾部空白已由导出器规范化且XML解析通过。暂存检查确认无data/raw、data/processed、models、runs、venv文件，无凭据模式，无单文件>=5MB。图表是实际实验产物，不是产品UI截图。
