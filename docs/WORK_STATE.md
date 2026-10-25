@@ -10,6 +10,7 @@
 
 ## 已完成并提交
 
+- 最新实质性里程碑`8e30cc10e3c39b41b0e096940b45d16cc49dcaea`：四CNN正式结果/精确复跑、输入消融、CNN连续事件和真实图表。已推送，GitHub API main完整hash相同；检查无NightLab训练/下载进程，工作树干净。后续文档追记见Git。
 - 最新实质性里程碑`c0e431045b9dc3e89417c8986070201abece87db`：真实连续声音事件评价、失败统计及图表。已推送，GitHub API远端main完整hash一致，工作树干净；随后文档核验追记见Git历史。
 - Phase0最小数据审计，见PHASE0_ACCEPTANCE.md。主声音ScienceDB19070 V5两样本事件跨度超过WAV长度，冻结事件训练；转任务书备用PSG-Audio。
 - Phase1传统基线试点，见PHASE1_ACCEPTANCE.md、EXPERIMENTS.md。核心提交31a0dfcfca01ea40dd9599b735a2b73ff52156a6；追记020db1f7ed0f11d1fef620d05893224b2d1a5fdf。两者已推送，远端hash已核验。

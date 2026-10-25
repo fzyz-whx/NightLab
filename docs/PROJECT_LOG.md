@@ -143,3 +143,5 @@ GPU smoke仅5个训练batch和validation，不计算test；音频14.48秒/峰值
 CNN连续事件评价与RF沿用相同协议。测试TP/FP/FN=5/70/77，F1=.063694、35FP/hour、recall=.060976，弱于RF，不能以少误报掩盖少检出。每条录音独立匹配，输入必须包括全部heldout窗；smoke、不全概率、篡改SHA与来源不一致均拒绝。失败分类与科研图从实际记录生成，PNG已查看，原时间轴保留本地。
 
 最终完整测试186通过、1 Windows实际symlink权限skip、54 subtests通过（5.17秒），pip check通过。torch张量峰值音频141MB/wearable70MB，不含驱动和显示；耗时字段不含准备/来源核验。原始数据没有新增下载，未操作其他项目/系统电源。Phase2还缺抗噪实验，整体goal未完成，应用当前goal已核实active。
+
+结果提交`8e30cc10e3c39b41b0e096940b45d16cc49dcaea`（feat(deep): publish reproducible CNN pilots and event comparisons）已推送，GitHub API main完整hash相同。暂存21文件均<5MB、无raw/processed/models/runs/venv，无凭据模式，SVG XML及diff检查通过。最终进程检查无NightLab训练/下载进程，GPU采样0%/1290MiB为整机当时状态，不据此推断其他项目长期空闲。文档追记记录本次已验证结果。
