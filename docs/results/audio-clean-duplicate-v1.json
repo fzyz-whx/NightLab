@@ -1,0 +1,406 @@
+{
+  "task": "audio",
+  "feature_set": "all",
+  "config": {
+    "seed": 42,
+    "epochs": 20,
+    "patience": 5,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 5.0,
+    "cpu_threads": 2
+  },
+  "seed": 42,
+  "selection": "highest validation Macro-F1; strict improvement, earliest tie, patience stop; test never selects",
+  "best_epoch": 1,
+  "best_validation_macro_f1": 0.5948308243048592,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss_batch_weighted": 0.5745761448579119,
+      "training_rows_seen": 7550,
+      "validation_macro_f1": 0.5948308243048592,
+      "elapsed_seconds": 2.660555700000259
+    },
+    {
+      "epoch": 2,
+      "training_loss_batch_weighted": 0.46818082387084203,
+      "training_rows_seen": 7550,
+      "validation_macro_f1": 0.46206322837735236,
+      "elapsed_seconds": 3.2530189999997674
+    },
+    {
+      "epoch": 3,
+      "training_loss_batch_weighted": 0.45265315640051634,
+      "training_rows_seen": 7550,
+      "validation_macro_f1": 0.474763652116301,
+      "elapsed_seconds": 3.861772199999905
+    },
+    {
+      "epoch": 4,
+      "training_loss_batch_weighted": 0.43333113126407397,
+      "training_rows_seen": 7550,
+      "validation_macro_f1": 0.5677099485207467,
+      "elapsed_seconds": 4.4663899000006495
+    },
+    {
+      "epoch": 5,
+      "training_loss_batch_weighted": 0.408634772671769,
+      "training_rows_seen": 7550,
+      "validation_macro_f1": 0.48195862661195743,
+      "elapsed_seconds": 5.052246500001274
+    },
+    {
+      "epoch": 6,
+      "training_loss_batch_weighted": 0.41108246280657534,
+      "training_rows_seen": 7550,
+      "validation_macro_f1": 0.5443109386244475,
+      "elapsed_seconds": 5.671417600000495
+    }
+  ],
+  "class_weights_training_only": [
+    0.7063997005988024,
+    1.7112420670897552
+  ],
+  "training_class_counts": [
+    5344,
+    2206
+  ],
+  "normalizer": {
+    "fit_scope": "supervised training subject rows only; observed finite values",
+    "fit_rows": 7550,
+    "feature_set": "all",
+    "missing_fill": "standardized zero with independent observation mask (wearable only)"
+  },
+  "label_order": [
+    "no_target_reference_event",
+    "reference_respiratory_event"
+  ],
+  "split_subjects": {
+    "train": [
+      "00001010",
+      "00001014",
+      "00000995",
+      "00001016",
+      "00001006",
+      "00001000"
+    ],
+    "validation": [
+      "00001008",
+      "00001020"
+    ],
+    "test": [
+      "00000999",
+      "00001018"
+    ]
+  },
+  "split_rows": {
+    "train": 7550,
+    "validation": 1253,
+    "test": 1293
+  },
+  "parameter_count": 23650,
+  "models": {
+    "cnn": {
+      "validation": {
+        "macro_f1": 0.5948308243048592,
+        "balanced_accuracy": 0.7050593507337598,
+        "accuracy": 0.6049481245011972,
+        "label_order": [
+          "no_target_reference_event",
+          "reference_respiratory_event"
+        ],
+        "confusion_matrix": [
+          [
+            478,
+            465
+          ],
+          [
+            30,
+            280
+          ]
+        ],
+        "per_class": {
+          "no_target_reference_event": {
+            "precision": 0.9409448818897638,
+            "recall": 0.5068928950159067,
+            "f1": 0.658855961405927,
+            "support": 943
+          },
+          "reference_respiratory_event": {
+            "precision": 0.37583892617449666,
+            "recall": 0.9032258064516129,
+            "f1": 0.5308056872037915,
+            "support": 310
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero",
+        "pr_auc_average_precision": 0.5179094116341663
+      },
+      "test": {
+        "macro_f1": 0.541872526157095,
+        "balanced_accuracy": 0.62343154100834,
+        "accuracy": 0.6117556071152359,
+        "label_order": [
+          "no_target_reference_event",
+          "reference_respiratory_event"
+        ],
+        "confusion_matrix": [
+          [
+            648,
+            422
+          ],
+          [
+            80,
+            143
+          ]
+        ],
+        "per_class": {
+          "no_target_reference_event": {
+            "precision": 0.8901098901098901,
+            "recall": 0.6056074766355141,
+            "f1": 0.7208008898776418,
+            "support": 1070
+          },
+          "reference_respiratory_event": {
+            "precision": 0.25309734513274335,
+            "recall": 0.6412556053811659,
+            "f1": 0.3629441624365482,
+            "support": 223
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero",
+        "pr_auc_average_precision": 0.24820905880547178
+      }
+    }
+  },
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "peak_allocated_gpu_bytes": 141020672,
+  "elapsed_seconds": 5.73864500000127,
+  "smoke_only": false,
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.9.1+cu128",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "nightlab": "0.1.0.dev0"
+  },
+  "scope": "pilot held-out subjects; no population, clinical or device-generalization validation",
+  "mode": "clean_duplicate",
+  "dataset": "psg-audio-pilot-10",
+  "dataset_version": "V3",
+  "input_version": "deep-inputs-v1",
+  "split_policy": {
+    "seed": 42,
+    "generator": "NumPy default_rng / PCG64",
+    "fractions": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "unit": "subject",
+    "assigned_before_window_preparation": true,
+    "subjects": {
+      "train": [
+        "00001010",
+        "00001014",
+        "00000995",
+        "00001016",
+        "00001006",
+        "00001000"
+      ],
+      "validation": [
+        "00001008",
+        "00001020"
+      ],
+      "test": [
+        "00000999",
+        "00001018"
+      ]
+    }
+  },
+  "augmentation_index_sha256": "3171cbc37f832b028ff612cb080fd11acccba8da9b5e6a77b105f281699e48c7",
+  "original_provenance": [
+    {
+      "record_id": "00000995-100507",
+      "path": "data/processed/psg-audio-pilot-10/deep-inputs-v1/00000995-100507",
+      "inputs_sha256": "80845f909e53c8f0884254e91ebdaa7fdab814be21b40212cd2b2756cd4c34af",
+      "metadata_sha256": "59e01f67f899f4473c71665b4dc7d98737d899b12ad590b3b5c58595a21dd1e4",
+      "row_offset": 0,
+      "rows": 719
+    },
+    {
+      "record_id": "00000999-100507",
+      "path": "data/processed/psg-audio-pilot-10/deep-inputs-v1/00000999-100507",
+      "inputs_sha256": "01412878c1d37f2177bba1cac234753222c6af62dd605cae6cbaaa4bd7a76fbf",
+      "metadata_sha256": "fc4283a7adf7a9ca5f8a5195a19cf3ed61aa6ca6550068c182e9f9943faa1192",
+      "row_offset": 719,
+      "rows": 719
+    },
+    {
+      "record_id": "00001000-100507",
+      "path": "data/processed/psg-audio-pilot-10/deep-inputs-v1/00001000-100507",
+      "inputs_sha256": "cec99a0a7c38f8949ebce9975407b55f9c7dd9b1f31d64f132f834bd14afa9de",
+      "metadata_sha256": "a51b3316e49e47b45a955d538e09c0874037b9c7a388392f04b1b9f771ed0a87",
+      "row_offset": 1438,
+      "rows": 719
+    },
+    {
+      "record_id": "00001006-100507",
+      "path": "data/processed/psg-audio-pilot-10/deep-inputs-v1/00001006-100507",
+      "inputs_sha256": "2d2a132bbae37b3197d6be6e29ce4ebeed684e16eb94a7ef17c7e73cc29c551b",
+      "metadata_sha256": "635f2e02c253c309969a963c4a800084d037dfaf4593b0dc64b1e7fa155a23e2",
+      "row_offset": 2157,
+      "rows": 719
+    },
+    {
+      "record_id": "00001008-100507",
+      "path": "data/processed/psg-audio-pilot-10/deep-inputs-v1/00001008-100507",
+      "inputs_sha256": "947dc76a1a90fe07b9e244b11fe6e170fb9d054ddef885faf40b08e1b6871b1c",
+      "metadata_sha256": "671096fc2df12481a13bbccb0b3adcddb928037c0fee3a24516aed5f37260557",
+      "row_offset": 2876,
+      "rows": 719
+    },
+    {
+      "record_id": "00001010-100507",
+      "path": "data/processed/psg-audio-pilot-10/deep-inputs-v1/00001010-100507",
+      "inputs_sha256": "6c06ba86e33807d250d7d671c2377674ad04bc86682181e7c49d2447f4cdcefc",
+      "metadata_sha256": "db1ffefa527173eb96fc01371b0e7865fcb08d2e2a065a370b0ab2b4a9a19944",
+      "row_offset": 3595,
+      "rows": 719
+    },
+    {
+      "record_id": "00001014-100507",
+      "path": "data/processed/psg-audio-pilot-10/deep-inputs-v1/00001014-100507",
+      "inputs_sha256": "25caeb5dca91b4e4fc0f34dc6f46d314ff55aa0926090420df383249d5d70b90",
+      "metadata_sha256": "224f62359637914f9201bc7c83581798a55ad893569b23573111604ba8002079",
+      "row_offset": 4314,
+      "rows": 719
+    },
+    {
+      "record_id": "00001016-100507",
+      "path": "data/processed/psg-audio-pilot-10/deep-inputs-v1/00001016-100507",
+      "inputs_sha256": "263bc8d73033ff7fd60d6f478bbbe9fb179350747ecaaaff754631062af7e048",
+      "metadata_sha256": "d94df0a127cb04abe1d9fd6ee5b5dc0021805860231dfb9ab41600337b12496f",
+      "row_offset": 5033,
+      "rows": 719
+    },
+    {
+      "record_id": "00001018-100507",
+      "path": "data/processed/psg-audio-pilot-10/deep-inputs-v1/00001018-100507",
+      "inputs_sha256": "141abac12f57d49d4137a0f17ba4e3f2211fd077fb3515c1fbfdd8a272b46a6c",
+      "metadata_sha256": "2b8eecbce39f689d5a283cf25d33977f68b69ac41a2257a592240d297b5efe95",
+      "row_offset": 5752,
+      "rows": 719
+    },
+    {
+      "record_id": "00001020-100507",
+      "path": "data/processed/psg-audio-pilot-10/deep-inputs-v1/00001020-100507",
+      "inputs_sha256": "a24ba6327e2883d79eb8eec44591a6ab3e73d6b17c3633e57371e7a3f69ac33c",
+      "metadata_sha256": "43c4de21cb413df0d1f175dd9a1dee6acef1cf3467b5986a4f632afd33a3f154",
+      "row_offset": 6471,
+      "rows": 719
+    }
+  ],
+  "augmentation_provenance": [
+    {
+      "record_id": "00000995-100507",
+      "path": "data/processed/psg-audio-pilot-10/noise-augmentation-v1/00000995-100507",
+      "rows": 638,
+      "artifact_sha256": "d84194d999468f19705538be458f80c53856f9488a995e5d203139ebde73464f",
+      "metadata_sha256": "a6cd1756533f7964f0c3e893cd4b3fa7087ee8365d3d9876db50a1853c568a07"
+    },
+    {
+      "record_id": "00001000-100507",
+      "path": "data/processed/psg-audio-pilot-10/noise-augmentation-v1/00001000-100507",
+      "rows": 600,
+      "artifact_sha256": "1c0ba1690b1b4a8513a91247e740f21de20703e2e7b1ae12a395a8a318151476",
+      "metadata_sha256": "40ee9f6af86057dd20120f23ef8b479acbb3b4e8e1368ee3e071fc9ecd95e069"
+    },
+    {
+      "record_id": "00001006-100507",
+      "path": "data/processed/psg-audio-pilot-10/noise-augmentation-v1/00001006-100507",
+      "rows": 641,
+      "artifact_sha256": "04cab6189d8cd3f41d41e20d0bb737fac85a6148255c84b431890b324a165782",
+      "metadata_sha256": "43a6c08192a2fd26a141cef34d4d0211ca642b341e2f05887c45ec94da5a6241"
+    },
+    {
+      "record_id": "00001010-100507",
+      "path": "data/processed/psg-audio-pilot-10/noise-augmentation-v1/00001010-100507",
+      "rows": 562,
+      "artifact_sha256": "cfb1a7f849baa23392c40f1e3388a523ffa4df059bb6e1bbf6ae1487371b5e27",
+      "metadata_sha256": "fa79a40792ada5060cc552fd34b05c6a80ec2b04fcdc1658c7ecd8816938d5ae"
+    },
+    {
+      "record_id": "00001014-100507",
+      "path": "data/processed/psg-audio-pilot-10/noise-augmentation-v1/00001014-100507",
+      "rows": 631,
+      "artifact_sha256": "c29ccb79a1800ba12cff04dff35ba50197eb7d956a3bb60544cc25fb376f08dc",
+      "metadata_sha256": "7138633de452a2b2d3981db01689d0e92045c537b7c077cefc830e968b12fddd"
+    },
+    {
+      "record_id": "00001016-100507",
+      "path": "data/processed/psg-audio-pilot-10/noise-augmentation-v1/00001016-100507",
+      "rows": 703,
+      "artifact_sha256": "4b0c38d0a3fb82f466bd394d6de0f4987be7bbf22a4a56178c1ffad89ee701b0",
+      "metadata_sha256": "cee38feb3080a53639e16a4b14a47b4efb762622665176fe29ddab556bf0ac84"
+    }
+  ],
+  "condition_counts": {
+    "white:-5": 439,
+    "white:0": 460,
+    "white:5": 491,
+    "white:10": 511,
+    "mains_hum:-5": 488,
+    "mains_hum:0": 443,
+    "mains_hum:5": 474,
+    "mains_hum:10": 469
+  },
+  "original_scored_training_rows": 3775,
+  "additional_training_rows": 3775,
+  "origin_indices_sha256": "c90241131baf6081cbeee6b59447a1309c743083fdff48f122af69475eaa868d",
+  "source_hashes": {
+    "noise": "026b1425fe9c768a6a17d6cb308f2c1f1807fd3b2ac851003f3f5a2915fa10e2",
+    "noise_windows": "596d08af8668e154e2080289656b8eb25baeffc7d88353f70c4a345e9bd1d3fa",
+    "representations": "7e3e094c6cf7a7cb4c4b173e39a74f414cdf1f602c22115934db06fd8860b6ff",
+    "features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+    "deep.inputs": "59b07adf3c6c58a7b6c24a53d953594c7d1829a5546194d08fa515b0de1955d5",
+    "edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+    "reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+    "dense_audio": "38898bdf4d22bd742ae861a800501ceb29cdb06c997fafd77f3d10c1909296ba",
+    "noise_audit": "647d146d6ff93ec6dada188eb3b188fea93fbe0bc8d35baec22ee4b621a1c433",
+    "prepare": "fe71e29607ff438a9dd78c641bb707cf4cb32c030ba70c3d8f419873838fd1ca",
+    "deep_cache": "a127844991c0a1f4c46883e4f6ce3848a32328d2fa642b6644b823c98087393a",
+    "cli": "41560670a7cf7560bcedb8832acb01f3e2057080433fda063394c86ab5bdbd13",
+    "prepare_cohort": "9a6b7d553bb2b1aa023677c5cafd151b7ecd4fc9b33548f05277832580fb50d3",
+    "noise_features": "27940a5ac7e021654eb4cfb13a9cb300f0183ef3f05fb40e30572283468d08fe",
+    "protocol": "9007c85e8c135bf38616973ee249d27e196cc5e7d8bcc102b94e1f2d95ce6f42",
+    "manifest": "c5166fda15c21f70a0e8189b3351d0483cb3b17fb636ea12d431daacf903afa8",
+    "classic_corpus": "37205356f8a305f2296d8e0784735d7184616968dd3530d89743dc9811bc4536",
+    "noise_augmentation": "b04c0064c7821d94a5900186c2538fe7c369fddb816984a9630588e0f4ad44b8",
+    "augmentation_protocol": "e08e95abe03a722de6b7c9e70d34000f677097e9feb359d9e206be07c0e93675"
+  },
+  "training_protocol_sha256": "e08e95abe03a722de6b7c9e70d34000f677097e9feb359d9e206be07c0e93675",
+  "source_sha256": {
+    "models": "f8d1b2868849855c3631cd544bcfb82b50d96b666cc1b8e745ad3cd50d85f4ce",
+    "training": "eca3ce37a8095f789c9f0ff5693260d0a2ea2a83be6b1a470b1b401a9d5d8106",
+    "inputs": "59b07adf3c6c58a7b6c24a53d953594c7d1829a5546194d08fa515b0de1955d5"
+  },
+  "runner_source_sha256": "538d7f47e9f27757dc5c847741e01cdbcfa0bcac68702de2ac3d1ba2a6927cbc",
+  "total_optimizer_steps": 708,
+  "optimizer_steps_to_selected_epoch": 118,
+  "checkpoint_sha256": "9178efc35bd248f708b229638b7d00ee2c1d453af8e3a34150c90b5547af4ce5",
+  "saved_loaded_predictions_exact": true,
+  "predictions_sha256": "71bb160e55c8d57c035ef6a673f4ffe07936d24f6ecf4a46dcc523fd39e9c96c",
+  "run_name": "audio-clean-duplicate-v1-repro",
+  "metrics_source_sha256": "30146563db6a3362261a8c8b78a36b225019da7daa3e9f2b3ca46ac2ac970b8d",
+  "reproducibility_checked_against": "audio-clean-duplicate-v1",
+  "public_export": "aggregate metrics; learned moments, weights and per-window predictions remain local"
+}

@@ -1,0 +1,21 @@
+{
+  "scope": "actual same-seed CUDA repeat on this environment, not cross-platform bitwise guarantee",
+  "checks": [
+    {
+      "run": "audio-clean-duplicate-v1",
+      "repeat": "audio-clean-duplicate-v1-repro",
+      "all_metrics_histories_probabilities_and_weight_tensors_exact": true,
+      "original_metrics_sha256": "c2de82f7bb6ac226d9a0633044f2e9368b126b5c19a84e73dcbe38e1adab23e6",
+      "repeated_metrics_sha256": "30146563db6a3362261a8c8b78a36b225019da7daa3e9f2b3ca46ac2ac970b8d",
+      "checkpoint_sha256": "9178efc35bd248f708b229638b7d00ee2c1d453af8e3a34150c90b5547af4ce5"
+    },
+    {
+      "run": "audio-noise-augmented-v1",
+      "repeat": "audio-noise-augmented-v1-repro",
+      "all_metrics_histories_probabilities_and_weight_tensors_exact": true,
+      "original_metrics_sha256": "d500a24cdb855c39032494f72b5904aa67f117e281ea9e3e9446e3e625bd1f25",
+      "repeated_metrics_sha256": "b0cae203403174cafa34e40c616b4dcb975801f5bf106f90fcc02f513af18ce0",
+      "checkpoint_sha256": "06f672c241103e78b35e5ead66a3edca65b0c045f6faccc53a5b388d30604047"
+    }
+  ]
+}

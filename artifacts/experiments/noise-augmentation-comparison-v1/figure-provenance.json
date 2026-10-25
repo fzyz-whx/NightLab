@@ -1,0 +1,12 @@
+{
+  "metrics_path": "docs/results/noise-augmentation-comparison-v1.json",
+  "metrics_sha256": "19fdd3bb65eac3964f0ff479e42f95b1f537baacc3e3587cb7d7c4c9863250ad",
+  "plot_source_sha256": "cae978334bd1f046f2eeff4239cee17ab46279991ce7e2eba0016731cf87e95f",
+  "scope": "actual recorded metrics, every model and all fixed SNR values; no manual score edits",
+  "outputs": [
+    "noisy-model-comparison.png",
+    "noisy-model-comparison.svg",
+    "filtered_noisy-model-comparison.png",
+    "filtered_noisy-model-comparison.svg"
+  ]
+}

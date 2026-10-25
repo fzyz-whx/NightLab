@@ -2,7 +2,7 @@
 
 本地优先的夜间声音与可穿戴睡眠时序研究工作台。研究用途，不用于医学诊断。
 
-**当前：传统基线、两个轻量CNN及连续声音事件评价的真实试点已跑通。** 抗噪实验和产品UI仍待完成。声音主候选发现时间对齐冲突后冻结，当前声音使用已校验的PSG-Audio。
+**当前：传统基线、轻量CNN、连续声音事件与合成干扰/滤波/增强的真实试点已跑通。** 正在进入本地软件主流程，产品UI仍待完成。声音主候选发现时间对齐冲突后冻结，当前声音使用已校验的PSG-Audio。
 
 ## 真实试点结果
 
@@ -22,7 +22,7 @@
 
 CNN同协议测试事件F1=0.0637、误报35次/小时、召回0.0610，整体弱于RF；可穿戴CNN融合仍未检出N3。四个CNN均完成同种子复跑，权重张量、概率、训练/验证历史及最终指标完全一致；这证明计算复现，不是独立种子或人群验证。心率/加速度/融合全部消融与失败案例见实验记录。
 
-抗噪的[固定协议](docs/NOISE_PROTOCOL.md)、实际SNR/无削波和完整冻结模型对照已完成。白噪声四SNR下，两模型固定阈值均不检出事件、82个参考全漏；工频滤波也非一致改善。两名测试受试者的全部32个四分支合并条件、两个模型结果与复跑公开，增强训练仍待执行。白噪声/工频均为合成干扰，不代表真实宿舍声；“干净”技术分支只表示未额外注入干扰的原始观测。
+抗噪的[固定协议](docs/NOISE_PROTOCOL.md)、实际SNR/无削波及完整四模型对照已完成。原始RF/CNN和原始重复CNN在白噪声四SNR下固定阈值均不检出事件；增强CNN只在0/5/10dB分别检出3/6/1个参考事件（总82），滤波后仍全漏。增强未缩放窗口Macro-F1=.5664，高于原始重复控制.5419，但事件F1低于该控制，不能称全面改善。全部条件和不同早停更新数完整公开。白噪声/工频为合成干扰，不代表真实宿舍声；“干净”只指未额外注入干扰的原始观测。
 
 ![真实声音试点指标](artifacts/experiments/psg-rf-pilot-v1/baseline-comparison.png)
 
@@ -111,12 +111,21 @@ $env:OMP_NUM_THREADS='2'; $env:MKL_NUM_THREADS='2'; $env:OPENBLAS_NUM_THREADS='2
 .venv\Scripts\python.exe -m scripts.evaluate.noise --run-name my-noise-evaluation --device cuda
 ```
 
-该CPU准备的本次实例约10分钟、数值两线程/单worker，提前检查RAM并预留2GiB；不写整夜混合WAV。增强训练及等样本量控制的[预先固定方案](docs/NOISE_AUGMENTATION_PROTOCOL.md)另行记录，未冒充完成。原始3人/10人授权与本次31人授权都有明确范围，其他机器获取数据仍须先审计预算。
+该CPU测试特征准备本次约10分钟，增强副本约12分钟、数值两线程/单worker，提前检查RAM并预留2GiB；不写整夜混合WAV。增强训练与等样本量控制的[预先固定方案](docs/NOISE_AUGMENTATION_PROTOCOL.md)均实际运行并复跑，证据和限制在实验记录。原始3人/10人授权与本次31人授权有明确范围，其他机器获取数据仍须先审计预算。
+
+```powershell
+.venv\Scripts\python.exe -m scripts.datasets.noise_augmentation --execute
+.venv\Scripts\python.exe -m scripts.train.audio_augmentation --mode clean_duplicate --run-name my-clean-duplicate --device cuda
+.venv\Scripts\python.exe -m scripts.train.audio_augmentation --mode noise_augmented --run-name my-noise-augmented --device cuda
+```
+
+新模型必须先完成保存/加载、固定种子复跑和自有权重摘要登记，再由可信模型入口评价。当前本机预设的augmentation评价绑定已公开的repro收据，不能用未知权重替换来冒充复现。
 
 ## 研究与工程文档
 
 - [原始任务书](docs/PROJECT_SPEC.md)、[决策与调整](docs/DECISIONS.md)
 - [Phase0最小数据验收](docs/PHASE0_ACCEPTANCE.md)、[Phase1试点验收](docs/PHASE1_ACCEPTANCE.md)
+- [Phase2算法/抗噪试点验收](docs/PHASE2_ACCEPTANCE.md)，软件主流程与31人扩展仍继续
 - [声音主候选时间冲突](docs/SOUND_AUDIT.md)、[PSG实际样本](docs/PSG_AUDIT.md)
 - [可穿戴审计](docs/WEARABLE_AUDIT.md)、[标签映射](docs/LABEL_MAPPING_EVIDENCE.md)
 - [当前架构](docs/ARCHITECTURE.md)、[研究方案](docs/RESEARCH_PLAN.md)、[实验](docs/EXPERIMENTS.md)

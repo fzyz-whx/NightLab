@@ -144,7 +144,14 @@ def pooled_scores(items):
             'events':aggregate_events([item['events'] for item in items])}
 
 
-def evaluate(root,run_name,requested_device='cpu'):
+def cnn_outputs(bundles,images,device):
+    """Apply each frozen model's own training moments, without fitting."""
+    return {name:predict_probabilities(bundle['model'],
+                torch.from_numpy(bundle['normalizer'].transform(images)[:,None,:,:]),device)
+            for name,bundle in bundles.items()}
+
+
+def evaluate(root,run_name,requested_device='cpu',extra_cnns=None):
     root = Path(root).resolve()
     if not re.fullmatch(r'[a-z0-9][a-z0-9_-]*',run_name):
         raise ValueError('portable output name required')
@@ -161,12 +168,21 @@ def evaluate(root,run_name,requested_device='cpu'):
     torch.backends.cuda.matmul.allow_tf32 = False
     index,manifest,records,sources,index_sha = validate_index(root)
     rf,cnn,normalizer,rf_report,cnn_report,model_hashes = load_frozen_models(root,device)
+    extra_cnns = extra_cnns or {}
+    if any(not re.fullmatch(r'[a-z][a-z0-9_]*',name) or name in ('random_forest','cnn') for name in extra_cnns):
+        raise ValueError('distinct portable extra CNN names required')
+    cnns = {'cnn':{'model':cnn,'normalizer':normalizer,'report':cnn_report},**extra_cnns}
+    model_names = ('random_forest',*cnns)
+    for name,bundle in extra_cnns.items():
+        if bundle['report']['split_policy'] != index['split_policy']:
+            raise ValueError('extra CNN and noise corpus use different subject partitions')
+        model_hashes[name] = bundle['hashes']
     if rf_report['split_policy'] != index['split_policy'] or cnn_report['split_policy'] != index['split_policy']:
         raise ValueError('models and noise corpus use different subject partitions')
     if list(rf.classes_) != LABELS:
         raise ValueError('unexpected RF class order')
     local_records,collected,controls = [],{},[]
-    unscaled = {'random_forest':[],'cnn':[]}
+    unscaled = {name:[] for name in model_names}
     with threadpool_limits(limits=2):
         for subject_index,record in enumerate(records,1):
             _,_,base_provenance,expected,_ = noise_features._verified_context(root,manifest,record)
@@ -187,9 +203,8 @@ def evaluate(root,run_name,requested_device='cpu'):
             base_local = {'record_id':record['record_id'],'participant':f'test-{subject_index:02d}',
                           'kind':'unscaled','snr_db':None,'branch':'unscaled',
                           'reference_intervals':references,'reference_censored':censored,'models':{}}
-            normalized_reference = normalizer.transform(unscaled_images)[:,None,:,:]
             original_outputs = {'random_forest':rf.predict_proba(dense['X']),
-                                'cnn':predict_probabilities(cnn,torch.from_numpy(normalized_reference),device)}
+                                **cnn_outputs(cnns,unscaled_images,device)}
             mask = expected['supervised_mask']
             for name,full in original_outputs.items():
                 predicted = np.asarray(LABELS)[full.argmax(axis=1)]
@@ -211,14 +226,12 @@ def evaluate(root,run_name,requested_device='cpu'):
                                  'metadata_sha256':entry['metadata_sha256'],'artifact_sha256':entry['artifact_sha256']})
                 for branch in BRANCHES:
                     rf_full = rf.predict_proba(arrays['X_'+branch])
-                    rf_probability = rf_full[:,1]
-                    normalized = normalizer.transform(arrays['images_'+branch])[:,None,:,:]
-                    cnn_full = predict_probabilities(cnn,torch.from_numpy(normalized),device)
-                    cnn_probability = cnn_full[:,1]
+                    branch_outputs = {'random_forest':rf_full,**cnn_outputs(cnns,arrays['images_'+branch],device)}
                     local = {'record_id':record['record_id'],'participant':f'test-{subject_index:02d}',
                              'kind':entry['kind'],'snr_db':entry['snr_db'],'branch':branch,
                              'reference_intervals':references,'reference_censored':censored,'models':{}}
-                    for name,probability,full in (('random_forest',rf_probability,rf_full),('cnn',cnn_probability,cnn_full)):
+                    for name,full in branch_outputs.items():
+                        probability = full[:,1]
                         scored = score_probabilities(probability,arrays,references,censored,duration)
                         predicted = np.asarray(LABELS)[full.argmax(axis=1)]
                         mask = arrays['supervised_mask']
@@ -236,7 +249,7 @@ def evaluate(root,run_name,requested_device='cpu'):
     for kind in noise_features.KINDS:
         for snr_db in noise_features.SNRS:
             for branch in BRANCHES:
-                models = {name:pooled_scores(collected[(kind,snr_db,branch,name)]) for name in ('random_forest','cnn')}
+                models = {name:pooled_scores(collected[(kind,snr_db,branch,name)]) for name in model_names}
                 conditions.append({'kind':kind,'snr_db':snr_db,'branch':branch,'models':models})
     matched = {(item['kind'],item['snr_db']):item for item in conditions if item['branch'] == 'matched_clean'}
     unscaled_scores = {name:pooled_scores(items) for name,items in unscaled.items()}
@@ -258,11 +271,13 @@ def evaluate(root,run_name,requested_device='cpu'):
               'unscaled_reference':unscaled_scores,
               'unscaled_classification_matches_frozen':{
                   'random_forest':unscaled_scores['random_forest']['classification'] == rf_report['models']['random_forest']['test'],
-                  'cnn':unscaled_scores['cnn']['classification'] == cnn_report['models']['cnn']['test']},
+                  **{name:unscaled_scores[name]['classification'] == bundle['report']['models']['cnn']['test']
+                     for name,bundle in cnns.items()}},
               'decision_rules':'window labels use model argmax (first class wins ties); event bins use >=0.5 per frozen protocol',
               'test_subject_count':len(records),'distinct_observed_hours':2,
               'scope':'synthetic-interference pilot; repeated conditions on the same two subjects, not independent cohorts or real dorm noise',
-              'model_policy':'frozen weights and training moments; no refit, threshold selection or augmented model yet',
+              'model_policy':('frozen weights and training moments; no refit or threshold selection'
+                              if extra_cnns else 'frozen weights and training moments; no refit, threshold selection or augmented model yet'),
               'elapsed_seconds':time.perf_counter()-started,
               'environment':{name:version(name) for name in ('numpy','scipy','torch','scikit-learn')}}
     public['per_record'] = [{key:value for key,value in record.items() if key in ('participant','kind','snr_db','branch')}

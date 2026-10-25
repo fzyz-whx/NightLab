@@ -10,6 +10,7 @@
 
 ## 已完成并提交
 
+- 最近已推送`9439bb21be934b4fe4e456a6ecd18f99b98a3268`：冻结噪声完整比较/图表、31人批准计划、离线ZIP验收代码。GitHub API完整hash相同。后续增强和下载恢复工作尚待当前阶段提交。
 - 最新实质性里程碑`8e30cc10e3c39b41b0e096940b45d16cc49dcaea`：四CNN正式结果/精确复跑、输入消融、CNN连续事件和真实图表。已推送，GitHub API main完整hash相同；检查无NightLab训练/下载进程，工作树干净。后续文档追记见Git。
 - 最新实质性里程碑`c0e431045b9dc3e89417c8986070201abece87db`：真实连续声音事件评价、失败统计及图表。已推送，GitHub API远端main完整hash一致，工作树干净；随后文档核验追记见Git历史。
 - Phase0最小数据审计，见PHASE0_ACCEPTANCE.md。主声音ScienceDB19070 V5两样本事件跨度超过WAV长度，冻结事件训练；转任务书备用PSG-Audio。
@@ -74,31 +75,37 @@
 
 ## 接下来先做什么
 
-1. NOISE_PROTOCOL.md已固定。noise.py和noise_windows.py实现全录音合成噪声/16k实际SNR/共增益四分支/跨块因果滤波与重叠窗口。noise_audit已实际完成训练995第二小时8条件：SNR最大误差7.48e-9dB、全分支无削波、gain均1、最高峰.4027、旧原特征exact，165.99秒/峰RSS1521659904字节。公开docs/results/noise-calibration-v1.json；无模型性能分数。完整295 passed/1 symlink skip/54 subtests。
-2. 噪声实验需考虑整录音一致噪声与相邻窗重合、准确SNR、零信号未定义、削波/增益控制。若为防削波整体衰减，增加同增益的干净对照，避免将音量变化误判为噪声/去噪效果；不要只在log-mel上加数值却声称原始波形已知SNR。训练增强限train，val只选checkpoint，test固定一次比较。
-3. 当前只有三人wearable试点，正式泛化证据很弱；后续可先核实更多官方SleepAccel文件预算，超过500MB/全量仍需新授权，不能因为GPU回归扩大下载许可。
-4. 后续仍须抗噪对照、神经基线/消融/失败分析、API/React/SQLite、CSV/JSON/个人音频导入删除、真实UI截图、完整许可/引用/讲解稿和交付验收。不要收缩goal成仅有CLI。
+1. 按API_UI_PLAN.md先锁依赖和接口，实施FastAPI/SQLite与React三页；当前只是设计，尚无API/UI可用。Node24.22.1/npm11.19.1已实查；项目venv无fastapi/uvicorn/soundfile/httpx，端口8766/5178当时空闲但启动前重验。
+2. 并行监督已批准的31人ZIP，唯一owner87301/PID7816，不能重启旧handle；完整退出且字节到齐后先跑离线CRC/93目标SHA验收，再创建31人manifest与质量审计，不能直接跳模型或声称数据就绪。
+3. 31人拟18/6/7已冻结，旧三人只在新train，验证/测试人未探索。质量门槛通过后再跑新版传统/CNN/消融，旧三人/声音十人试点报告不改，不根据测试表现换受试者。
+4. 个人记录导入/确认删除、完整DB/文件/模型/UI实路径验证、静音实际浏览器截图、许可/引用/中文讲解稿和新环境复现仍需完成。整体goal保留全部软件交付，不缩成CLI。
 
 ## 当前抗噪批次开发
 
 - 校准基础提交`ab13cc381ed1e6880c878f232f3c3edf3e66062e`已推送，GitHub API hash一致。之后的feature/evaluator代码尚待本阶段提交。
 - pilot（训练995、white/-5）真实四分支全719窗特征已完成，57.85秒；每个明确监督的67参考向量、全部719张参考图与旧缓存完全一致。公开docs/results/noise-feature-pilot-v1.json。共同gain相同按float.hex精确复用参考矩阵；新joint_features一次FFT输出两个表示，与旧函数人工测试逐项相等。
-- 最新全套344 passed、2 Windows真实symlink权限skip、54 subtests（13.79秒）；新增archive intake25测试由代理完成后主线程完整复核。缓存/评价先前319测试也通过。
+- 最新全套415 passed、3 Windows真实symlink权限skip、54 subtests（17.40秒），pip check通过。新临时HTTP502/503/504 bounded retry与403/长Retry-After不绕过的测试已纳入。
 - 特征session61898已确认exit0，16 record-condition全部完成，592.82秒，完整索引data/processed/psg-audio-pilot-10/noise-eval-v1/corpus.json为complete=true；不是仍在跑。输入/校准/来源/环境都校验，所有gain=1，参考67和图像与旧数据逐项相同。
 - 冻结RF/CNN评价noise-frozen-models-v1（session3547 exit0）与-repro（22513 exit0）已完成，约12.43秒；所有字段除耗时完全一致，包括概率/bin/事件/匹配。public docs/results/noise-frozen-models-v1.json、noise-frozen-inference-reproducibility-v1.json和三组PNG/SVG已生成并查看。复跑只对校验缓存推理，不是第二次重建全特征。
 - 未缩放RF/CNN分类与既有报告完整字典exact；事件F1仍.115607/.063694。白噪声四SNR两模型均全背景，F1事件0/FN82/FP0，窗口Macro-F1=.452814，不能以零FP当成功。工频滤波非一致改善；完整曲线/逐匿名人计数都保留。无增强模型结果。
 - 审查补齐RF训练provenance/完整67特征核对、独立未缩放基线、实际指标源码hash；窗口分类argmax与事件>=.5两规则如实记录。没有改测试阈值。
-- 增强下一步依NOISE_AUGMENTATION_PROTOCOL.md：每明确train窗固定一个噪声副本（总3775），原始3775+副本7550；另加clean_duplicate同7550行控制，区分多训练步数与噪声。新协议在增强结果前固定，不修改原NOISE_PROTOCOL/既有缓存source_hashes。增强模块/实际准备与训练尚待实现。
+- 增强数据session3460已确认exit0，六train人3775副本、710.38秒，noise-augmentation-v1/corpus.json complete=true。原始3775+副本7550，仅train。未滤波noisy分支选窗直接用同整段C/N/alpha/g，人工证明与流式noisy逐样本exact，减少无关滤波/FFT；不能改已冻结源码/协议，否则现cache拒绝复用。
+- 两模式已正式训练+实际重训：audio-clean-duplicate-v1[-repro]、audio-noise-augmented-v1[-repro]；smoke仅val。模型源码scripts/train/audio_augmentation.py，原索引/标签/身份/时间与全部train mask精确对应，无val/test副本。权重、概率、损失/验证历史exact；公共两个报告与audio-augmentation-reproducibility-v1.json已导出，学习均值尺度留私有。
+- 原始重复：test Macro-F1=.541873/AP=.248209，事件F1=.130435、45FP/h，选1/实际6epoch、118/708更新；增强：.566368/.258293，事件F1=.096970、37.5FP/h，选8/实际13epoch、944/1534更新。两者max预算相同但早停后实际步数不同，不能纯因果归功噪声。
+- 四模型噪声全32合并条件已评分并复跑，noise-augmentation-comparison-v1和-repro；原有RF/CNN全部32条件exact不变，四模型未缩放分类均match私有训练报告。白噪声增强0/5/10仅TP3/6/1（总82），-5零；滤波白噪声仍全漏，不全面改善。全部JSON/每匿名人/两组PNG-SVG已导出并查看；原概率/时间轴只本地。
+- Phase2试点验收见PHASE2_ACCEPTANCE.md，算法基本流程通过；下一步本地软件API/UI按API_UI_PLAN.md实现，31人扩展独立继续，整体goal未完成。当前尚无API/UI/SQLite/个人导入删除。
 
 ## SleepAccel31人已授权与下载状态
 
 - 用户2026-10-25明确批准官方1.0.0 ZIP576850847字节，新增28人84文件；拟18/6/7，旧3人全部在新train，精确ID与93条大小/SHA在data/plans/sleepaccel-expansion-options.json。用户睡前要求自主继续、不再请示，原三人结果继续冻结。
 - 原文件三类全31人2347765245字节，已有84815494；不执行2.26GB逐文件fallback，选已批准ZIP。ZIP尚未完整且没有新原始成员被验收，不能声称31人就绪。
 - PhysioNet原curl handle45356已失效且无对应进程，保留4897875字节。单请求公共DNS核实IP，不改系统代理/DNS；NSRR同名官方ZIP的206 Range明确总576850847，完整4897875字节前缀与原partial SHA一致，才允许切换NSRR续传。计划记录来源链，ETag只作If-Range，不当SHA。
-- **旧续传session57313已确认exit1，无curl PID；有限重试后保留78794594字节，未到576850847。不要继续等旧handle或直接提取。**实际来源NSRR、If-Range ETag与总长已核验，--resolve为本请求公开DNS解析，不改系统。IP以后重用须重新核实，不能硬编码为通用默认。
+- 旧handle45356/57313/18289/93481/71843均已终止，勿重启等它们。先长响应停于78MB，16MiB helper经TLS/低速失败推进97MB，再固定TLS1.2/HTTP1.1推进196MB；supervisor71843（旧PID4052）后至255266739，遇官方HTTP502失败，无当前owner。
 - 只有无curl owner/handle终止、bytes完整后，才执行scripts/datasets/sleepaccel_archive --execute。模块默认dry只元数据；执行前写complete=false，预审ZIP路径/映射/size，93成员逐CRC/官方SHA，新84逐文件独占原子发布、现9 SHA复用不改写；只取HR/motion/labels，extras不提取；archive SHA明确local非official。完整receipt在data/raw/sleepaccel/archives/intake-receipt.json。
 - intake代理曾额度受限，用户通知重置后查询ordinaryUsageAllowed为true，恢复完成2文件且跑25 passed/1 symlink skip；主线程复核及完整344测试通过。无真实提取，模型/清洗/cohort31manifest尚未开始。
-- 当前开发下载恢复工具：sleepaccel_archive_intake代理只新增fetch_sleepaccel_archive.py及测试，顺序16MiB Range/curl、逐响应校验/断开前缀安全续传、磁盘与锁检查；尚未真实执行。main仍是唯一真实下载owner，待审查/测试后启动新handle。不要把开发中的helper当成正在下载。
+- fetch_sleepaccel_archive.py真实运行后主线程补了已观察到的重复非关键HSTS header兼容（关键Range/ETag重复仍拒绝），空TLS35等3次有限retry、TLS1.2/http1.1、每请求pin和noproxy（不改全局）、HTTP502/503/504有界重试并尊重Retry-After；401/403不绕过。actualRange/header+size检查后才append，网络截断合法prefix保留；local增量SHA/progress、锁、磁盘budget分开于93成员验收。
+- **当前唯一网络owner：exec session87301，Python PID7816，命令行含 --nightlab-sleepaccel-archive-supervisor，6次有限helper重试/30秒backoff；启动时fresh DOH=170.223.88.242。先poll此handle或实际PID/标记，不因等待超时另开下载。**起点255266739，最近实查已333012915字节（57.73%）且PID/命令标记仍在；仍未完整，fetch-progress.json.download_complete/member_crc_sha_verified分开。只有supervisor退出且字节576850847完整才可intake。
+- 元数据route代理4次限定1MiB probe总2227246字节，无其他下载job；NSRR direct TLS1.2有效body约290KB/s但TTFB19秒且长响应不稳定，现本机proxy总体无优势；未改Clash节点/TUN/DNS/其他项目。raw headers含负载均衡cookie，不抄公开报告。
 
 ## 避免重读/重做
 

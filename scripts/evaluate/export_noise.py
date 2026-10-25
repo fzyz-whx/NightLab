@@ -1,13 +1,17 @@
 """Verify actual frozen inference repeats and export only aggregate noise results."""
 import argparse
 import json
+import re
 from pathlib import Path
 
 from scripts.datasets.cli import ROOT
 from scripts.datasets.dense_audio import sha256
 
 
-def export(root,original='noise-frozen-models-v1',repeated='noise-frozen-models-v1-repro'):
+def export(root,original='noise-frozen-models-v1',repeated='noise-frozen-models-v1-repro',
+           public_name='noise-frozen-models-v1',receipt_name='noise-frozen-inference-reproducibility-v1'):
+    if any(not re.fullmatch(r'[a-z0-9][a-z0-9_-]*',value) for value in (original,repeated,public_name,receipt_name)):
+        raise ValueError('portable report/run names required')
     paths = [root/'runs'/name/'events.json' for name in (original,repeated)]
     reports = [json.loads(path.read_text(encoding='utf-8')) for path in paths]
     for key in reports[0]:
@@ -31,8 +35,18 @@ def export(root,original='noise-frozen-models-v1',repeated='noise-frozen-models-
                'unscaled_classification_matches_frozen':public['unscaled_classification_matches_frozen'],
                'unit_gain_input_control_count':sum(item['unit_gain_inputs_exact'] is True for item in public['input_controls']),
                'condition_record_count':len(public['input_controls']),'pooled_four_branch_conditions':len(public['conditions'])}
-    destination = root/'docs/results/noise-frozen-models-v1.json'
-    verification = root/'docs/results/noise-frozen-inference-reproducibility-v1.json'
+    if 'cnn_noise_augmented' in public['unscaled_reference']:
+        baseline_path = root/'docs/results/noise-frozen-models-v1.json'
+        baseline = json.loads(baseline_path.read_text(encoding='utf-8'))
+        for before,after in zip(baseline['conditions'],public['conditions'],strict=True):
+            if (before['kind'],before['snr_db'],before['branch']) != (after['kind'],after['snr_db'],after['branch']):
+                raise ValueError('frozen baseline conditions changed')
+            for model in ('random_forest','cnn'):
+                if before['models'][model] != after['models'][model]:
+                    raise ValueError('original frozen-model results changed')
+        receipt.update(original_RF_CNN_all_conditions_unchanged=True,baseline_public_sha256=sha256(baseline_path))
+    destination = root/f'docs/results/{public_name}.json'
+    verification = root/f'docs/results/{receipt_name}.json'
     if destination.exists() or verification.exists():
         raise ValueError('public export exists; refusing overwrite')
     destination.write_bytes(summary.read_bytes())
@@ -43,11 +57,15 @@ def export(root,original='noise-frozen-models-v1',repeated='noise-frozen-models-
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--execute',action='store_true')
+    parser.add_argument('--original',default='noise-frozen-models-v1')
+    parser.add_argument('--repeated',default='noise-frozen-models-v1-repro')
+    parser.add_argument('--public-name',default='noise-frozen-models-v1')
+    parser.add_argument('--receipt-name',default='noise-frozen-inference-reproducibility-v1')
     args = parser.parse_args()
     if not args.execute:
         print(json.dumps({'mode':'noise inference verification/export dry-run','writes':False}))
         return
-    print(json.dumps(export(ROOT),indent=2))
+    print(json.dumps(export(ROOT,args.original,args.repeated,args.public_name,args.receipt_name),indent=2))
 
 
 if __name__ == '__main__':

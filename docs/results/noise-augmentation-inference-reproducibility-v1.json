@@ -1,0 +1,19 @@
+{
+  "scope": "actual same-device frozen-model inference on verified cached features; not a second feature build",
+  "all_fields_except_elapsed_seconds_exact": true,
+  "includes_window_probabilities_bins_event_intervals_matches_classification_and_pooled_metrics": true,
+  "original_run_sha256": "c2f06b292213827f3f94f64f04b33681e8cc984d77558b42c53705219a1f9ac5",
+  "repeated_run_sha256": "9c3665ca61493bc468e4078b44b883aab1ea8c92fdeb669e0453f9bb71b6e738",
+  "public_summary_sha256": "19fdd3bb65eac3964f0ff479e42f95b1f537baacc3e3587cb7d7c4c9863250ad",
+  "unscaled_classification_matches_frozen": {
+    "random_forest": true,
+    "cnn": true,
+    "cnn_clean_duplicate": true,
+    "cnn_noise_augmented": true
+  },
+  "unit_gain_input_control_count": 16,
+  "condition_record_count": 16,
+  "pooled_four_branch_conditions": 32,
+  "original_RF_CNN_all_conditions_unchanged": true,
+  "baseline_public_sha256": "a4f6659250b113a49e760ec85d5fbcad8c3c59013e010128f50dbd355f2c8ab0"
+}
