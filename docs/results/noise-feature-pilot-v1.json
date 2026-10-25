@@ -1,0 +1,126 @@
+{
+  "scope": "actual training-only feature pilot; no held-out model score",
+  "elapsed_seconds": 57.84535170000163,
+  "rows": 719,
+  "branches": 4,
+  "metadata_sha256": "92ee7fb595692a4f26cc93653b05845ea248ff44ca5bd88a71b77bc7eb4439be",
+  "artifact_sha256": "8fdd5037c4cc9b529e24fd26d0dbbf7cba64ee3ca9b70d81c7814cbddb5bc857",
+  "source_index_sha256": "3257b22d38aad927a6f63867744754450d955e1cb0d1cbf25a0b3b05630dbdeb",
+  "source_hashes": {
+    "noise": "026b1425fe9c768a6a17d6cb308f2c1f1807fd3b2ac851003f3f5a2915fa10e2",
+    "noise_windows": "596d08af8668e154e2080289656b8eb25baeffc7d88353f70c4a345e9bd1d3fa",
+    "representations": "7e3e094c6cf7a7cb4c4b173e39a74f414cdf1f602c22115934db06fd8860b6ff",
+    "features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+    "deep.inputs": "59b07adf3c6c58a7b6c24a53d953594c7d1829a5546194d08fa515b0de1955d5",
+    "edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+    "reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+    "dense_audio": "38898bdf4d22bd742ae861a800501ceb29cdb06c997fafd77f3d10c1909296ba",
+    "noise_audit": "647d146d6ff93ec6dada188eb3b188fea93fbe0bc8d35baec22ee4b621a1c433",
+    "prepare": "fe71e29607ff438a9dd78c641bb707cf4cb32c030ba70c3d8f419873838fd1ca",
+    "deep_cache": "a127844991c0a1f4c46883e4f6ce3848a32328d2fa642b6644b823c98087393a",
+    "cli": "41560670a7cf7560bcedb8832acb01f3e2057080433fda063394c86ab5bdbd13",
+    "prepare_cohort": "9a6b7d553bb2b1aa023677c5cafd151b7ecd4fc9b33548f05277832580fb50d3",
+    "noise_features": "27940a5ac7e021654eb4cfb13a9cb300f0183ef3f05fb40e30572283468d08fe",
+    "protocol": "9007c85e8c135bf38616973ee249d27e196cc5e7d8bcc102b94e1f2d95ce6f42",
+    "manifest": "c5166fda15c21f70a0e8189b3351d0483cb3b17fb636ea12d431daacf903afa8",
+    "classic_corpus": "37205356f8a305f2296d8e0784735d7184616968dd3530d89743dc9811bc4536"
+  },
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "condition": {
+    "kind": "white",
+    "snr_db": -5
+  },
+  "statistics": {
+    "actual_window_branch_peaks": {
+      "matched_clean": 0.208587646484375,
+      "matched_filtered_clean": 0.10081262141466141,
+      "noisy": 0.4026877284049988,
+      "filtered_noisy": 0.16011838614940643
+    },
+    "clipped_window_samples": {
+      "matched_clean": 0,
+      "matched_filtered_clean": 0,
+      "noisy": 0,
+      "filtered_noisy": 0
+    },
+    "clean_branches_reused": false,
+    "common_gain_hex": "0x1.0000000000000p+0"
+  },
+  "calibration": {
+    "target_snr_db": -5.0,
+    "noise_scale": 0.06394466857157076,
+    "common_gain": 1.0,
+    "clean_analysis_rms": 0.020370634081752294,
+    "noise_analysis_rms": 0.5665003817553982,
+    "achieved_analysis_snr_db": -5.000000000000002,
+    "peaks_before_gain": {
+      "matched_clean": 0.208587646484375,
+      "matched_filtered_clean": 0.10081261910783072,
+      "noisy": 0.40268773438589245,
+      "filtered_noisy": 0.16011839309641718
+    },
+    "peak_bound_after_gain": 0.40268773438589245,
+    "source_rate": 48000,
+    "sample_count": 172800000,
+    "recording_fingerprint": "0c350feb7a77d23fc8294bf68d775a3e77bd26a06557f8bdbaed1fc654eddb09"
+  },
+  "shapes": {
+    "y": [
+      719
+    ],
+    "subject_id": [
+      719
+    ],
+    "start_seconds": [
+      719
+    ],
+    "end_seconds": [
+      719
+    ],
+    "supervised_mask": [
+      719
+    ],
+    "X_matched_clean": [
+      719,
+      67
+    ],
+    "images_matched_clean": [
+      719,
+      32,
+      100
+    ],
+    "X_matched_filtered_clean": [
+      719,
+      67
+    ],
+    "images_matched_filtered_clean": [
+      719,
+      32,
+      100
+    ],
+    "X_noisy": [
+      719,
+      67
+    ],
+    "images_noisy": [
+      719,
+      32,
+      100
+    ],
+    "X_filtered_noisy": [
+      719,
+      67
+    ],
+    "images_filtered_noisy": [
+      719,
+      32,
+      100
+    ]
+  },
+  "all_scored_classic_reference_rows_match_frozen_exact": true,
+  "all_719_reference_images_match_frozen_exact": true
+}

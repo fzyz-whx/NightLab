@@ -1,0 +1,1274 @@
+{
+  "schema_version": 1,
+  "dataset": "SleepAccel / PhysioNet 1.0.0",
+  "status": "approved official full31 archive; acquisition in progress, raw files not admitted yet",
+  "evidence_date": "2026-10-25",
+  "license": {
+    "name": "ODC-By 1.0",
+    "source": "https://physionet.org/content/sleep-accel/1.0.0/LICENSE.txt",
+    "status": "Official ODC-By1.0 license text/hash verified; existing nine files matched PhysioNet SHA; full archive admission pending.",
+    "verified": true,
+    "nsrr_source": "https://sleepdata.org/datasets/sleepaccel/files/LICENSE.txt",
+    "nsrr_license_sha256": "86c0ad300f6d380591298bc03652e30b81f65954bbf22435812bcfd46812ab06"
+  },
+  "directory_sources": {
+    "motion": "https://physionet.org/files/sleep-accel/1.0.0/motion/",
+    "heart_rate": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/",
+    "labels": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/"
+  },
+  "checksum_source_local_sha256": "a227a4b611b044fe1d2a3498fdff560f4071ce5895d744d5b1f60a3ad784fa71",
+  "already_explored_subjects": [
+    "1066528",
+    "5383425",
+    "8258170"
+  ],
+  "selection_policy_small": "numeric subject order, exclude the three already explored subjects, take first six; no label or outcome selection",
+  "options": {
+    "all31": {
+      "total_subjects": 31,
+      "total_files": 93,
+      "total_bytes": 2347765245,
+      "additional_subjects": 28,
+      "additional_files": 84,
+      "additional_bytes": 2262949751,
+      "proposed_split": {
+        "seed": 42,
+        "generator": "NumPy default_rng / PCG64",
+        "policy": "all three previously explored pilot subjects reserved for training; remaining IDs numerically sorted before seed permutation",
+        "subjects": {
+          "train": [
+            "1066528",
+            "5383425",
+            "8258170",
+            "1818471",
+            "5498603",
+            "8686948",
+            "8530312",
+            "5797046",
+            "1449548",
+            "9961348",
+            "8692923",
+            "3509524",
+            "6220552",
+            "7749105",
+            "2638030",
+            "1455390",
+            "8000685",
+            "844359"
+          ],
+          "validation": [
+            "46343",
+            "5132496",
+            "8173033",
+            "4018081",
+            "3997827",
+            "4426783"
+          ],
+          "test": [
+            "9618981",
+            "781756",
+            "1360686",
+            "9106476",
+            "759667",
+            "4314139",
+            "2598705"
+          ]
+        }
+      }
+    },
+    "first6_additional": {
+      "total_subjects": 9,
+      "total_files": 27,
+      "total_bytes": 474000331,
+      "additional_subject_ids": [
+        "46343",
+        "759667",
+        "781756",
+        "844359",
+        "1360686",
+        "1449548"
+      ],
+      "additional_files": 18,
+      "additional_bytes": 389184837,
+      "proposed_split": {
+        "seed": 42,
+        "generator": "NumPy default_rng / PCG64",
+        "policy": "all three previously explored pilot subjects reserved for training; remaining IDs numerically sorted before seed permutation",
+        "subjects": {
+          "train": [
+            "1066528",
+            "5383425",
+            "8258170",
+            "844359",
+            "781756"
+          ],
+          "validation": [
+            "1449548",
+            "1360686"
+          ],
+          "test": [
+            "759667",
+            "46343"
+          ]
+        }
+      }
+    }
+  },
+  "proposed_new_holdout_policy": "Put all three already explored pilot subjects in training; shuffle remaining subjects by seed42 before selecting train/validation/test, preserving genuinely new held-out people. Existing pilot reports stay frozen. Exact split awaits selected cohort approval.",
+  "archive_size_status": "PhysioNet HEAD and NSRR206 Content-Range both verify576850847 bytes; existing4897875-byte prefix SHA matched before official alternate resume; all93member SHA admission pending.",
+  "mirror_policy": "NSRR is an official candidate alternate; only existing nine files were verified identical. Every new file must match fixed PhysioNet SHA256 after download.",
+  "files": [
+    {
+      "subject_id": "46343",
+      "kind": "heart_rate",
+      "filename": "46343_heartrate.txt",
+      "relative_source_path": "heart_rate/46343_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/46343_heartrate.txt",
+      "exact_bytes": 82703,
+      "official_checksums": {
+        "sha256": "d4a5607f38f2826bee7bfbfcf547e20f78552500a4dca92d234980b8bb2d2e35"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "46343",
+      "kind": "labels",
+      "filename": "46343_labeled_sleep.txt",
+      "relative_source_path": "labels/46343_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/46343_labeled_sleep.txt",
+      "exact_bytes": 4176,
+      "official_checksums": {
+        "sha256": "dcc450e4d04d4ddf39f3d6ed414142328503014ff20c31752a83cb3cb14b8c45"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "46343",
+      "kind": "motion",
+      "filename": "46343_acceleration.txt",
+      "relative_source_path": "motion/46343_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/46343_acceleration.txt",
+      "exact_bytes": 44656043,
+      "official_checksums": {
+        "sha256": "08c23acebb3610ed2c201637ce1787b5d3646ab3dae4c2771d0dcae428e618e7"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "759667",
+      "kind": "heart_rate",
+      "filename": "759667_heartrate.txt",
+      "relative_source_path": "heart_rate/759667_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/759667_heartrate.txt",
+      "exact_bytes": 73625,
+      "official_checksums": {
+        "sha256": "11acb925eff586d9d52c13518de7ab8f68666cc781d9652798cc1b70f4091ef9"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "759667",
+      "kind": "labels",
+      "filename": "759667_labeled_sleep.txt",
+      "relative_source_path": "labels/759667_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/759667_labeled_sleep.txt",
+      "exact_bytes": 3427,
+      "official_checksums": {
+        "sha256": "e82238ed85367240b601edcd60802d640b820e1d542cbbbb17f3f0ce23d9d419"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "759667",
+      "kind": "motion",
+      "filename": "759667_acceleration.txt",
+      "relative_source_path": "motion/759667_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/759667_acceleration.txt",
+      "exact_bytes": 54002660,
+      "official_checksums": {
+        "sha256": "e1d0a16cb9eee7b151470a5a68bf9f599a94baf50b43927f8c22fa9ffa8d51f7"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "781756",
+      "kind": "heart_rate",
+      "filename": "781756_heartrate.txt",
+      "relative_source_path": "heart_rate/781756_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/781756_heartrate.txt",
+      "exact_bytes": 300404,
+      "official_checksums": {
+        "sha256": "bff3c34446b48bb0f7b3641385036c84197ca1d10b634d8eb6f3654ef89a03b1"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "781756",
+      "kind": "labels",
+      "filename": "781756_labeled_sleep.txt",
+      "relative_source_path": "labels/781756_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/781756_labeled_sleep.txt",
+      "exact_bytes": 7475,
+      "official_checksums": {
+        "sha256": "afafe3b32980def187f34d8c09dbe88aaf7aae31e6908d9b95ad06d33f4a61c2"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "781756",
+      "kind": "motion",
+      "filename": "781756_acceleration.txt",
+      "relative_source_path": "motion/781756_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/781756_acceleration.txt",
+      "exact_bytes": 71677656,
+      "official_checksums": {
+        "sha256": "e713127dae509ce68928d2117500d292abfedf044e33339854739912c6beae71"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "844359",
+      "kind": "heart_rate",
+      "filename": "844359_heartrate.txt",
+      "relative_source_path": "heart_rate/844359_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/844359_heartrate.txt",
+      "exact_bytes": 117893,
+      "official_checksums": {
+        "sha256": "192549983fab7d0c2ef95e752541c2f333f4c841b9e424f278e771533e7c2467"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "844359",
+      "kind": "labels",
+      "filename": "844359_labeled_sleep.txt",
+      "relative_source_path": "labels/844359_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/844359_labeled_sleep.txt",
+      "exact_bytes": 7271,
+      "official_checksums": {
+        "sha256": "a54486d4870231a0c68452eeabbd7d57aabd7acc680c264f3802bdb9a6c65e42"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "844359",
+      "kind": "motion",
+      "filename": "844359_acceleration.txt",
+      "relative_source_path": "motion/844359_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/844359_acceleration.txt",
+      "exact_bytes": 65794299,
+      "official_checksums": {
+        "sha256": "64f95ee0b1d5d06ee9bbcdae3a127e9b1fd3d5f1c1140212fb0736d84494967a"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "1066528",
+      "kind": "heart_rate",
+      "filename": "1066528_heartrate.txt",
+      "relative_source_path": "heart_rate/1066528_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/1066528_heartrate.txt",
+      "exact_bytes": 276120,
+      "official_checksums": {
+        "sha256": "31533209b9a515c331eb41800f676885e652ebda9077794d44ccbfb90342c3e7"
+      },
+      "already_verified_local": true
+    },
+    {
+      "subject_id": "1066528",
+      "kind": "labels",
+      "filename": "1066528_labeled_sleep.txt",
+      "relative_source_path": "labels/1066528_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/1066528_labeled_sleep.txt",
+      "exact_bytes": 7243,
+      "official_checksums": {
+        "sha256": "528f424f7c02ba9a72aa7043e92ad070a72fc8ca5dd1bdaf3d7de79d3e181b43"
+      },
+      "already_verified_local": true
+    },
+    {
+      "subject_id": "1066528",
+      "kind": "motion",
+      "filename": "1066528_acceleration.txt",
+      "relative_source_path": "motion/1066528_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/1066528_acceleration.txt",
+      "exact_bytes": 57331743,
+      "official_checksums": {
+        "sha256": "853b212bef01aa63ace0f0c555b3b1c23f2be71e9a4d04de4c8e65f3f9ac98b3"
+      },
+      "already_verified_local": true
+    },
+    {
+      "subject_id": "1360686",
+      "kind": "heart_rate",
+      "filename": "1360686_heartrate.txt",
+      "relative_source_path": "heart_rate/1360686_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/1360686_heartrate.txt",
+      "exact_bytes": 114860,
+      "official_checksums": {
+        "sha256": "ca7dea5968f0d2776e47144d8ef6b1b7925026fede03df352db02dacb90a2436"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "1360686",
+      "kind": "labels",
+      "filename": "1360686_labeled_sleep.txt",
+      "relative_source_path": "labels/1360686_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/1360686_labeled_sleep.txt",
+      "exact_bytes": 7391,
+      "official_checksums": {
+        "sha256": "345c6e658cea863b427da52d5ce39a4ebd168d3b465b9a32afaafc524c2d19d6"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "1360686",
+      "kind": "motion",
+      "filename": "1360686_acceleration.txt",
+      "relative_source_path": "motion/1360686_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/1360686_acceleration.txt",
+      "exact_bytes": 70567885,
+      "official_checksums": {
+        "sha256": "9f0aa31fd8e061fd24a0f9419ee2e0fb8e8f36088b89113f581ea6cf2be6a126"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "1449548",
+      "kind": "heart_rate",
+      "filename": "1449548_heartrate.txt",
+      "relative_source_path": "heart_rate/1449548_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/1449548_heartrate.txt",
+      "exact_bytes": 215078,
+      "official_checksums": {
+        "sha256": "64bcca6fad58fb3af07deb7c83c75ed203ffeb4c56739a818df38b1fa1736c4f"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "1449548",
+      "kind": "labels",
+      "filename": "1449548_labeled_sleep.txt",
+      "relative_source_path": "labels/1449548_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/1449548_labeled_sleep.txt",
+      "exact_bytes": 7359,
+      "official_checksums": {
+        "sha256": "4ebf9e4506841e936a09e3e532e211697385f847d73f3bf779a37833866bc7d0"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "1449548",
+      "kind": "motion",
+      "filename": "1449548_acceleration.txt",
+      "relative_source_path": "motion/1449548_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/1449548_acceleration.txt",
+      "exact_bytes": 81544632,
+      "official_checksums": {
+        "sha256": "c789cb685407f8d9a3fc5064a3d83c4d28ab51d028444dd6be4f40d8d0ccb02a"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "1455390",
+      "kind": "heart_rate",
+      "filename": "1455390_heartrate.txt",
+      "relative_source_path": "heart_rate/1455390_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/1455390_heartrate.txt",
+      "exact_bytes": 114160,
+      "official_checksums": {
+        "sha256": "745b88c668443eec40e3a072b619c899619a07ee524e4e1461f8d82170dcae58"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "1455390",
+      "kind": "labels",
+      "filename": "1455390_labeled_sleep.txt",
+      "relative_source_path": "labels/1455390_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/1455390_labeled_sleep.txt",
+      "exact_bytes": 7582,
+      "official_checksums": {
+        "sha256": "e9876130a8e60c7c7922c3cd075998fbe7487110b58717783e2040f1309db453"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "1455390",
+      "kind": "motion",
+      "filename": "1455390_acceleration.txt",
+      "relative_source_path": "motion/1455390_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/1455390_acceleration.txt",
+      "exact_bytes": 72218151,
+      "official_checksums": {
+        "sha256": "3bb8ff976c4ba90b34a9549784892bf8f92d439dcf248f55da72f932564a3fc7"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "1818471",
+      "kind": "heart_rate",
+      "filename": "1818471_heartrate.txt",
+      "relative_source_path": "heart_rate/1818471_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/1818471_heartrate.txt",
+      "exact_bytes": 120310,
+      "official_checksums": {
+        "sha256": "38a6dff7ab41572123565c2d383e37eda1253b49d859944bfaf25f936d7d672d"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "1818471",
+      "kind": "labels",
+      "filename": "1818471_labeled_sleep.txt",
+      "relative_source_path": "labels/1818471_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/1818471_labeled_sleep.txt",
+      "exact_bytes": 7561,
+      "official_checksums": {
+        "sha256": "fa55e6b7adf687238cc30b6159fe72e18c60fd08d9bf6c3b1c23be9f259dac3a"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "1818471",
+      "kind": "motion",
+      "filename": "1818471_acceleration.txt",
+      "relative_source_path": "motion/1818471_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/1818471_acceleration.txt",
+      "exact_bytes": 74671017,
+      "official_checksums": {
+        "sha256": "0332f7f6c614a3c523178be3bca84816c1a07f601dfd3f0ef1c9d922bb909482"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "2598705",
+      "kind": "heart_rate",
+      "filename": "2598705_heartrate.txt",
+      "relative_source_path": "heart_rate/2598705_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/2598705_heartrate.txt",
+      "exact_bytes": 113042,
+      "official_checksums": {
+        "sha256": "8296752e1e35254089361d4e8061be97c96274f2f39b628eff2771b4f9c31a1e"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "2598705",
+      "kind": "labels",
+      "filename": "2598705_labeled_sleep.txt",
+      "relative_source_path": "labels/2598705_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/2598705_labeled_sleep.txt",
+      "exact_bytes": 7520,
+      "official_checksums": {
+        "sha256": "57c01fb968a11efe9f6cf856de589bfcc700e8638d656e5746131ce26aee0f2d"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "2598705",
+      "kind": "motion",
+      "filename": "2598705_acceleration.txt",
+      "relative_source_path": "motion/2598705_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/2598705_acceleration.txt",
+      "exact_bytes": 72350296,
+      "official_checksums": {
+        "sha256": "481a5dff2c47933341d92efcc1e24d775bc2b6fe96194a604dd3f48b5570958a"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "2638030",
+      "kind": "heart_rate",
+      "filename": "2638030_heartrate.txt",
+      "relative_source_path": "heart_rate/2638030_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/2638030_heartrate.txt",
+      "exact_bytes": 117527,
+      "official_checksums": {
+        "sha256": "b060cfd9e2762e0e8cb9c516de7e22886dd636fcf8143b6d423a3694b8715d96"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "2638030",
+      "kind": "labels",
+      "filename": "2638030_labeled_sleep.txt",
+      "relative_source_path": "labels/2638030_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/2638030_labeled_sleep.txt",
+      "exact_bytes": 7400,
+      "official_checksums": {
+        "sha256": "d7ac001ab6596d98bf077648603c1c3f02b04520df62d8040f4c69a1d4c9b0cd"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "2638030",
+      "kind": "motion",
+      "filename": "2638030_acceleration.txt",
+      "relative_source_path": "motion/2638030_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/2638030_acceleration.txt",
+      "exact_bytes": 89545927,
+      "official_checksums": {
+        "sha256": "aa69641c5b95b00e957cd940f99e0d8ea8cae12f5e2547b44839b4baf1b261cc"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "3509524",
+      "kind": "heart_rate",
+      "filename": "3509524_heartrate.txt",
+      "relative_source_path": "heart_rate/3509524_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/3509524_heartrate.txt",
+      "exact_bytes": 65234,
+      "official_checksums": {
+        "sha256": "e13e97da0d41bfe765b0fe10d73257a03a8b64fdb13d42d277892e3cd29c7f04"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "3509524",
+      "kind": "labels",
+      "filename": "3509524_labeled_sleep.txt",
+      "relative_source_path": "labels/3509524_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/3509524_labeled_sleep.txt",
+      "exact_bytes": 2963,
+      "official_checksums": {
+        "sha256": "5355e9ac8f812ef38826fc37332798edba4583e8549516244fa1db1da2d13abd"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "3509524",
+      "kind": "motion",
+      "filename": "3509524_acceleration.txt",
+      "relative_source_path": "motion/3509524_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/3509524_acceleration.txt",
+      "exact_bytes": 50611367,
+      "official_checksums": {
+        "sha256": "9559518fa668cbccd03b60c3acb836ed5a89cb57be5e37e8ecba157f408d24ab"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "3997827",
+      "kind": "heart_rate",
+      "filename": "3997827_heartrate.txt",
+      "relative_source_path": "heart_rate/3997827_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/3997827_heartrate.txt",
+      "exact_bytes": 135169,
+      "official_checksums": {
+        "sha256": "2f936506b0df3addc2b55f7475db9fbe6f7113c0a89cc16fdc325e6c6be116c2"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "3997827",
+      "kind": "labels",
+      "filename": "3997827_labeled_sleep.txt",
+      "relative_source_path": "labels/3997827_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/3997827_labeled_sleep.txt",
+      "exact_bytes": 7462,
+      "official_checksums": {
+        "sha256": "cbc17a9fac7d3f45fe80c337b8f028421b4ca0d6d702457fd3ec2ae3b15b1aab"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "3997827",
+      "kind": "motion",
+      "filename": "3997827_acceleration.txt",
+      "relative_source_path": "motion/3997827_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/3997827_acceleration.txt",
+      "exact_bytes": 82170857,
+      "official_checksums": {
+        "sha256": "2bb3792009dd2fba479dc5ffca062d4c4f62bde2f5cf601609dfbf879d205445"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "4018081",
+      "kind": "heart_rate",
+      "filename": "4018081_heartrate.txt",
+      "relative_source_path": "heart_rate/4018081_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/4018081_heartrate.txt",
+      "exact_bytes": 84717,
+      "official_checksums": {
+        "sha256": "be430ff7b9253c2c25ba4a1adb627964533c2339f46676b8a4da3c0331ac7987"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "4018081",
+      "kind": "labels",
+      "filename": "4018081_labeled_sleep.txt",
+      "relative_source_path": "labels/4018081_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/4018081_labeled_sleep.txt",
+      "exact_bytes": 3707,
+      "official_checksums": {
+        "sha256": "4021b20889f7ff56bfd24395616214144fd8794a26d7d2e214a00725729241bf"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "4018081",
+      "kind": "motion",
+      "filename": "4018081_acceleration.txt",
+      "relative_source_path": "motion/4018081_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/4018081_acceleration.txt",
+      "exact_bytes": 50337704,
+      "official_checksums": {
+        "sha256": "63843270171830acbf8df682cc9ce4cb93da88aec2a380479c152bc3d40bb697"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "4314139",
+      "kind": "heart_rate",
+      "filename": "4314139_heartrate.txt",
+      "relative_source_path": "heart_rate/4314139_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/4314139_heartrate.txt",
+      "exact_bytes": 185676,
+      "official_checksums": {
+        "sha256": "7c97fc39acdde127ab2a53b792b59da193ac0b9a8c512cfe94716671418d8c27"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "4314139",
+      "kind": "labels",
+      "filename": "4314139_labeled_sleep.txt",
+      "relative_source_path": "labels/4314139_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/4314139_labeled_sleep.txt",
+      "exact_bytes": 7396,
+      "official_checksums": {
+        "sha256": "34c4a7d562bdbe0cfb307dd375597066720c928dfa3238e60fb878c677230db2"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "4314139",
+      "kind": "motion",
+      "filename": "4314139_acceleration.txt",
+      "relative_source_path": "motion/4314139_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/4314139_acceleration.txt",
+      "exact_bytes": 68646164,
+      "official_checksums": {
+        "sha256": "7623537df91b35c6a8cd5f1d62aaf8b8d8cd287aeb7c82f34a3d3e85fc07453f"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "4426783",
+      "kind": "heart_rate",
+      "filename": "4426783_heartrate.txt",
+      "relative_source_path": "heart_rate/4426783_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/4426783_heartrate.txt",
+      "exact_bytes": 274961,
+      "official_checksums": {
+        "sha256": "a9d16fd4a08b8ea221e1cb5e9fb09a4482ff0c918690d92e6154744a2e9f9d5a"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "4426783",
+      "kind": "labels",
+      "filename": "4426783_labeled_sleep.txt",
+      "relative_source_path": "labels/4426783_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/4426783_labeled_sleep.txt",
+      "exact_bytes": 7467,
+      "official_checksums": {
+        "sha256": "f12cd05a74a91014cbf9df327a54e32aa32ff7fe0c4959be610a32cea1af647d"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "4426783",
+      "kind": "motion",
+      "filename": "4426783_acceleration.txt",
+      "relative_source_path": "motion/4426783_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/4426783_acceleration.txt",
+      "exact_bytes": 79547090,
+      "official_checksums": {
+        "sha256": "2ab468602b131372990368f5df7db547b5b9a82f5863934d057e5abcc566569c"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "5132496",
+      "kind": "heart_rate",
+      "filename": "5132496_heartrate.txt",
+      "relative_source_path": "heart_rate/5132496_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/5132496_heartrate.txt",
+      "exact_bytes": 72217,
+      "official_checksums": {
+        "sha256": "ecc21fe3c2b69b4b2f219ca3d2ffa87b4d080e83616777965c74366df2f2fdde"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "5132496",
+      "kind": "labels",
+      "filename": "5132496_labeled_sleep.txt",
+      "relative_source_path": "labels/5132496_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/5132496_labeled_sleep.txt",
+      "exact_bytes": 3347,
+      "official_checksums": {
+        "sha256": "dcd97ad2dfb659f1ba135f8499ba9b721d12278bf5c480d145cd23d053d934ef"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "5132496",
+      "kind": "motion",
+      "filename": "5132496_acceleration.txt",
+      "relative_source_path": "motion/5132496_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/5132496_acceleration.txt",
+      "exact_bytes": 55329450,
+      "official_checksums": {
+        "sha256": "7bc6488b53fc536a482b46cd55185429be5764bd1e3d77d2ec0ab860f0f5b580"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "5383425",
+      "kind": "heart_rate",
+      "filename": "5383425_heartrate.txt",
+      "relative_source_path": "heart_rate/5383425_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/5383425_heartrate.txt",
+      "exact_bytes": 92313,
+      "official_checksums": {
+        "sha256": "9b6af9046a4c516f948f307e8e130a823b244056ae705e2bb8abd89bb3e76eb8"
+      },
+      "already_verified_local": true
+    },
+    {
+      "subject_id": "5383425",
+      "kind": "labels",
+      "filename": "5383425_labeled_sleep.txt",
+      "relative_source_path": "labels/5383425_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/5383425_labeled_sleep.txt",
+      "exact_bytes": 7453,
+      "official_checksums": {
+        "sha256": "10af34ea9a31f2284dafa034827e3050c0ea584b71107133e694715c5990df1b"
+      },
+      "already_verified_local": true
+    },
+    {
+      "subject_id": "5383425",
+      "kind": "motion",
+      "filename": "5383425_acceleration.txt",
+      "relative_source_path": "motion/5383425_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/5383425_acceleration.txt",
+      "exact_bytes": 13456185,
+      "official_checksums": {
+        "sha256": "40e461c8b2da44a7cd780cbae28b1d7dbcf7d32d9172898ae94c85e3f69b366e"
+      },
+      "already_verified_local": true
+    },
+    {
+      "subject_id": "5498603",
+      "kind": "heart_rate",
+      "filename": "5498603_heartrate.txt",
+      "relative_source_path": "heart_rate/5498603_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/5498603_heartrate.txt",
+      "exact_bytes": 135063,
+      "official_checksums": {
+        "sha256": "5c761d785824a5260b10bcd3db9003cd2e99c2bd2fcc19b33672bb18bf95545d"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "5498603",
+      "kind": "labels",
+      "filename": "5498603_labeled_sleep.txt",
+      "relative_source_path": "labels/5498603_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/5498603_labeled_sleep.txt",
+      "exact_bytes": 5714,
+      "official_checksums": {
+        "sha256": "0bdc0d01ac2317acfb68fc6350e43e52cc4bedbf71884964c0c6d1efc970f404"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "5498603",
+      "kind": "motion",
+      "filename": "5498603_acceleration.txt",
+      "relative_source_path": "motion/5498603_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/5498603_acceleration.txt",
+      "exact_bytes": 61629219,
+      "official_checksums": {
+        "sha256": "bf96f61d3122d7acb7dd5166f5be246bc0892d6991771db01d2f6b9a8d80e7db"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "5797046",
+      "kind": "heart_rate",
+      "filename": "5797046_heartrate.txt",
+      "relative_source_path": "heart_rate/5797046_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/5797046_heartrate.txt",
+      "exact_bytes": 206064,
+      "official_checksums": {
+        "sha256": "b604456fa323da8647a1be531970e9cb1bc2ecbe3332fab3956ee2099e5ab295"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "5797046",
+      "kind": "labels",
+      "filename": "5797046_labeled_sleep.txt",
+      "relative_source_path": "labels/5797046_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/5797046_labeled_sleep.txt",
+      "exact_bytes": 7346,
+      "official_checksums": {
+        "sha256": "65322b3f4809bf0db23d8c2c308e9e420e8dee3c00362e101bc9ed7cebe5a521"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "5797046",
+      "kind": "motion",
+      "filename": "5797046_acceleration.txt",
+      "relative_source_path": "motion/5797046_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/5797046_acceleration.txt",
+      "exact_bytes": 84493260,
+      "official_checksums": {
+        "sha256": "091f6576fae2ce495eed80a0ff91d7dd5d9a4de7261b2898c7fb843e25d61a68"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "6220552",
+      "kind": "heart_rate",
+      "filename": "6220552_heartrate.txt",
+      "relative_source_path": "heart_rate/6220552_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/6220552_heartrate.txt",
+      "exact_bytes": 116983,
+      "official_checksums": {
+        "sha256": "ccd00eb897af251d8f3b318338a5c5f30535666455a38fd7d0d7bb0f43367f97"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "6220552",
+      "kind": "labels",
+      "filename": "6220552_labeled_sleep.txt",
+      "relative_source_path": "labels/6220552_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/6220552_labeled_sleep.txt",
+      "exact_bytes": 7510,
+      "official_checksums": {
+        "sha256": "14e849b5a449fc436fdfddd4c72ed4b359482c4e5483e5bcbe2da8ee8f02fdf7"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "6220552",
+      "kind": "motion",
+      "filename": "6220552_acceleration.txt",
+      "relative_source_path": "motion/6220552_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/6220552_acceleration.txt",
+      "exact_bytes": 82908418,
+      "official_checksums": {
+        "sha256": "523f7459ccc981e96588a9ead745f00992fe0a680fde3e3bb281fb20641cf9a1"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "7749105",
+      "kind": "heart_rate",
+      "filename": "7749105_heartrate.txt",
+      "relative_source_path": "heart_rate/7749105_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/7749105_heartrate.txt",
+      "exact_bytes": 40356,
+      "official_checksums": {
+        "sha256": "dc79b8371afdbe00d32e71b7d022a0b5369f5fef3a585c3ab492f2e18912fceb"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "7749105",
+      "kind": "labels",
+      "filename": "7749105_labeled_sleep.txt",
+      "relative_source_path": "labels/7749105_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/7749105_labeled_sleep.txt",
+      "exact_bytes": 7322,
+      "official_checksums": {
+        "sha256": "13be3a033e2316561a80f879e8e1a0780154db23346571946ef92b4b715f40cf"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "7749105",
+      "kind": "motion",
+      "filename": "7749105_acceleration.txt",
+      "relative_source_path": "motion/7749105_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/7749105_acceleration.txt",
+      "exact_bytes": 19010882,
+      "official_checksums": {
+        "sha256": "eea783b417766e7386639534bbdc2ed6e35827b8b131ad0d1f9536a5e7063c7e"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8000685",
+      "kind": "heart_rate",
+      "filename": "8000685_heartrate.txt",
+      "relative_source_path": "heart_rate/8000685_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/8000685_heartrate.txt",
+      "exact_bytes": 114746,
+      "official_checksums": {
+        "sha256": "e55de33f616651c28dde4ab6e39cdcfce09aea71134e6637fab5cfde4470d024"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8000685",
+      "kind": "labels",
+      "filename": "8000685_labeled_sleep.txt",
+      "relative_source_path": "labels/8000685_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/8000685_labeled_sleep.txt",
+      "exact_bytes": 7355,
+      "official_checksums": {
+        "sha256": "dd7a8d14dbf35c7e56e8391b7de15e30a05fc067427552a7eeb37ec922a90a71"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8000685",
+      "kind": "motion",
+      "filename": "8000685_acceleration.txt",
+      "relative_source_path": "motion/8000685_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/8000685_acceleration.txt",
+      "exact_bytes": 74991095,
+      "official_checksums": {
+        "sha256": "4539a801542440c18a78663497055eec1b634dc61839a450b9afd35a6dad4cec"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8173033",
+      "kind": "heart_rate",
+      "filename": "8173033_heartrate.txt",
+      "relative_source_path": "heart_rate/8173033_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/8173033_heartrate.txt",
+      "exact_bytes": 96978,
+      "official_checksums": {
+        "sha256": "cf506dd0d701680ecff05f23e56c6ab155b294b5a8d1ff4f68e9e28ca0a36b3c"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8173033",
+      "kind": "labels",
+      "filename": "8173033_labeled_sleep.txt",
+      "relative_source_path": "labels/8173033_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/8173033_labeled_sleep.txt",
+      "exact_bytes": 7537,
+      "official_checksums": {
+        "sha256": "f2d3fe32311a35161978d6d3bc85c65535e42081eda60948ee6b8cb6c25f1af7"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8173033",
+      "kind": "motion",
+      "filename": "8173033_acceleration.txt",
+      "relative_source_path": "motion/8173033_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/8173033_acceleration.txt",
+      "exact_bytes": 71773746,
+      "official_checksums": {
+        "sha256": "f689a60f7f1d6b5583945104e2f1b055dc3d92566e3f5838960f6419f78c1249"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8258170",
+      "kind": "heart_rate",
+      "filename": "8258170_heartrate.txt",
+      "relative_source_path": "heart_rate/8258170_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/8258170_heartrate.txt",
+      "exact_bytes": 105155,
+      "official_checksums": {
+        "sha256": "9b6916730ed38d5481c0d9bdf139ce9ec6f1a835bd0f090355dc312c76a63729"
+      },
+      "already_verified_local": true
+    },
+    {
+      "subject_id": "8258170",
+      "kind": "labels",
+      "filename": "8258170_labeled_sleep.txt",
+      "relative_source_path": "labels/8258170_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/8258170_labeled_sleep.txt",
+      "exact_bytes": 7403,
+      "official_checksums": {
+        "sha256": "caee858de45cd29b86cc21503a69e5991bfeeecd534052d03f346a3b049d3b44"
+      },
+      "already_verified_local": true
+    },
+    {
+      "subject_id": "8258170",
+      "kind": "motion",
+      "filename": "8258170_acceleration.txt",
+      "relative_source_path": "motion/8258170_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/8258170_acceleration.txt",
+      "exact_bytes": 13531879,
+      "official_checksums": {
+        "sha256": "7f464b9cd84b7d9bc5646ba338ee193ff8631c1ed3782db1edcef1dedb5c452e"
+      },
+      "already_verified_local": true
+    },
+    {
+      "subject_id": "8530312",
+      "kind": "heart_rate",
+      "filename": "8530312_heartrate.txt",
+      "relative_source_path": "heart_rate/8530312_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/8530312_heartrate.txt",
+      "exact_bytes": 117518,
+      "official_checksums": {
+        "sha256": "b0ca407ad0537f72988564bf6666320ccb52564e2d540d6c25b3cbe51242a4e8"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8530312",
+      "kind": "labels",
+      "filename": "8530312_labeled_sleep.txt",
+      "relative_source_path": "labels/8530312_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/8530312_labeled_sleep.txt",
+      "exact_bytes": 7374,
+      "official_checksums": {
+        "sha256": "de1de085634a200f8e30f078035098931d91600cddb3c3e3ffc84f87b4b6b721"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8530312",
+      "kind": "motion",
+      "filename": "8530312_acceleration.txt",
+      "relative_source_path": "motion/8530312_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/8530312_acceleration.txt",
+      "exact_bytes": 75983447,
+      "official_checksums": {
+        "sha256": "4b8401ca6902072c5c9d2f6d30e8990d4701686a4c9d5d5efe83abcfed3c7f24"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8686948",
+      "kind": "heart_rate",
+      "filename": "8686948_heartrate.txt",
+      "relative_source_path": "heart_rate/8686948_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/8686948_heartrate.txt",
+      "exact_bytes": 110181,
+      "official_checksums": {
+        "sha256": "22d737b6350bed5a70be35530820cd5c62f78847ea50550e131c7255b739f92d"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8686948",
+      "kind": "labels",
+      "filename": "8686948_labeled_sleep.txt",
+      "relative_source_path": "labels/8686948_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/8686948_labeled_sleep.txt",
+      "exact_bytes": 7411,
+      "official_checksums": {
+        "sha256": "0014bd67a50f729da036bcba954c0938e3dbed63804ac903286932d405777d2d"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8686948",
+      "kind": "motion",
+      "filename": "8686948_acceleration.txt",
+      "relative_source_path": "motion/8686948_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/8686948_acceleration.txt",
+      "exact_bytes": 69982123,
+      "official_checksums": {
+        "sha256": "985d1e30d7cfb2e9045335882464338cd7d0afa7b83cce713a8b74eb1580af9a"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8692923",
+      "kind": "heart_rate",
+      "filename": "8692923_heartrate.txt",
+      "relative_source_path": "heart_rate/8692923_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/8692923_heartrate.txt",
+      "exact_bytes": 124856,
+      "official_checksums": {
+        "sha256": "f4b857aff674373a6a559c407529ff209bc60f238e26c4d18f661c68327c85bd"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8692923",
+      "kind": "labels",
+      "filename": "8692923_labeled_sleep.txt",
+      "relative_source_path": "labels/8692923_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/8692923_labeled_sleep.txt",
+      "exact_bytes": 7376,
+      "official_checksums": {
+        "sha256": "2572858c6644e660671236579c6d0f31333b285fe339e73f7c0b6ddf0ef7ff0d"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "8692923",
+      "kind": "motion",
+      "filename": "8692923_acceleration.txt",
+      "relative_source_path": "motion/8692923_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/8692923_acceleration.txt",
+      "exact_bytes": 82610017,
+      "official_checksums": {
+        "sha256": "c9809f6422f8de6ea11eeab4367178658f896ebfe7aa3a1eaee1c1fc7908e378"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "9106476",
+      "kind": "heart_rate",
+      "filename": "9106476_heartrate.txt",
+      "relative_source_path": "heart_rate/9106476_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/9106476_heartrate.txt",
+      "exact_bytes": 131510,
+      "official_checksums": {
+        "sha256": "ee6a39842ff71e24e5dbd2e8ef12b70ce1afdd026d2e4ab4f378c7d819c12516"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "9106476",
+      "kind": "labels",
+      "filename": "9106476_labeled_sleep.txt",
+      "relative_source_path": "labels/9106476_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/9106476_labeled_sleep.txt",
+      "exact_bytes": 7441,
+      "official_checksums": {
+        "sha256": "21911940e6b8b314004d39a039fd4582b7d83bd63b6724d16e28a7e99fc6d629"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "9106476",
+      "kind": "motion",
+      "filename": "9106476_acceleration.txt",
+      "relative_source_path": "motion/9106476_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/9106476_acceleration.txt",
+      "exact_bytes": 74566327,
+      "official_checksums": {
+        "sha256": "b4698dc20703b88fb8defbf1634e49a5af48d68c61ca3340ec248db49dee4710"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "9618981",
+      "kind": "heart_rate",
+      "filename": "9618981_heartrate.txt",
+      "relative_source_path": "heart_rate/9618981_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/9618981_heartrate.txt",
+      "exact_bytes": 102430,
+      "official_checksums": {
+        "sha256": "de4da3e112a473d5ae212b302b89b99542580793afc2794388fc49fbd047c731"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "9618981",
+      "kind": "labels",
+      "filename": "9618981_labeled_sleep.txt",
+      "relative_source_path": "labels/9618981_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/9618981_labeled_sleep.txt",
+      "exact_bytes": 7187,
+      "official_checksums": {
+        "sha256": "68263f683415e11861005d32ff4f6ca1762e26ce519ef84bec9413b2afdb9187"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "9618981",
+      "kind": "motion",
+      "filename": "9618981_acceleration.txt",
+      "relative_source_path": "motion/9618981_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/9618981_acceleration.txt",
+      "exact_bytes": 399418975,
+      "official_checksums": {
+        "sha256": "6b45fdd550481c4c6f5618880a1797a68482d9d2a455ffdb9d92ee24f79f5121"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "9961348",
+      "kind": "heart_rate",
+      "filename": "9961348_heartrate.txt",
+      "relative_source_path": "heart_rate/9961348_heartrate.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/heart_rate/9961348_heartrate.txt",
+      "exact_bytes": 258613,
+      "official_checksums": {
+        "sha256": "9427e712ffb4d2ef3e83e6606f6e2a7fb78b8247de5fb5e16e58453b3708b5c6"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "9961348",
+      "kind": "labels",
+      "filename": "9961348_labeled_sleep.txt",
+      "relative_source_path": "labels/9961348_labeled_sleep.txt",
+      "source": "https://www.physionet.org/files/sleep-accel/1.0.0/labels/9961348_labeled_sleep.txt",
+      "exact_bytes": 5387,
+      "official_checksums": {
+        "sha256": "e40ec17850e67c13e0c8b2e5fff9186777cc31d4d5fed98f144238df75af87ca"
+      },
+      "already_verified_local": false
+    },
+    {
+      "subject_id": "9961348",
+      "kind": "motion",
+      "filename": "9961348_acceleration.txt",
+      "relative_source_path": "motion/9961348_acceleration.txt",
+      "source": "https://physionet.org/files/sleep-accel/1.0.0/motion/9961348_acceleration.txt",
+      "exact_bytes": 77983706,
+      "official_checksums": {
+        "sha256": "373d469e7ec17473e5dbc8a053abf456958ab97c8bdefa701e6274dc2a5aa4c6"
+      },
+      "already_verified_local": false
+    }
+  ],
+  "archive": {
+    "url": "https://sleepdata.org/datasets/sleepaccel/files/m/browser/motion-and-heart-rate-from-a-wrist-worn-wearable-and-labeled-sleep-from-polysomnography-1.0.0.zip",
+    "exact_bytes": 576850847,
+    "version": "1.0.0",
+    "evidence": "official content-page href plus successful HEAD 200 application/zip, Accept-Ranges bytes",
+    "etag": "\"5d9cfd46-22620b9f\"",
+    "checksum_policy": "no official archive SHA observed; compute local SHA256 and separately verify every admitted file against official PhysioNet SHA256",
+    "members_status": "not inspected before authorization; extract only 93 planned HR/motion/labels members after path/size checks, reuse 9 existing verified files",
+    "approved_primary_url": "https://physionet.org/content/sleep-accel/get-zip/1.0.0/",
+    "effective_source_evidence": {
+      "method": "official alternate206 range response plus full existing-prefix SHA match",
+      "total_bytes": 576850847,
+      "identical_prefix_bytes": 4897875,
+      "prefix_sha256_local": "8eef89a6a99461028cdb7c2e5d4ac27607d7f7af1c855f5f079963a8451cd2d3",
+      "etag": "\"6631383e-22620b9f\"",
+      "scope": "proves resumable prefix consistency; all admitted members still require official SHA; not a whole-mirror identity claim"
+    },
+    "source_chain": [
+      {
+        "source": "https://physionet.org/content/sleep-accel/get-zip/1.0.0/",
+        "received_prefix_bytes": 4897875
+      },
+      {
+        "source": "https://sleepdata.org/datasets/sleepaccel/files/m/browser/motion-and-heart-rate-from-a-wrist-worn-wearable-and-labeled-sleep-from-polysomnography-1.0.0.zip",
+        "resume_offset": 4897875,
+        "prefix_verified_before_resume": true
+      }
+    ]
+  },
+  "approved_archive": true,
+  "authorization": {
+    "date": "2026-10-25",
+    "user_reply": "\u6279\u51c6\u5b8c\u657431\u4ebaZIP\uff08\u63a8\u8350\uff0c576.85MB\uff09",
+    "scope": "one official1.0.0 ZIP exactly576850847 bytes; admit28new people84files after member SHA checks; no authorization for2.26GB file-by-file fallback"
+  },
+  "selected_option": "all31"
+}

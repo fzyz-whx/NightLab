@@ -1,0 +1,14 @@
+{
+  "metrics_path": "docs/results/noise-frozen-models-v1.json",
+  "metrics_sha256": "a4f6659250b113a49e760ec85d5fbcad8c3c59013e010128f50dbd355f2c8ab0",
+  "plot_source_sha256": "6b047d880b8577000d29a5982f76ca11b2124978ef8c40d59a7ff125a4f20de9",
+  "scope": "actual recorded metrics; all preregistered branches and both fixed models",
+  "outputs": [
+    "window-macro-f1.png",
+    "window-macro-f1.svg",
+    "event-f1.png",
+    "event-f1.svg",
+    "false-positives-per-hour.png",
+    "false-positives-per-hour.svg"
+  ]
+}

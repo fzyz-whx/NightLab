@@ -81,9 +81,24 @@
 
 ## 当前抗噪批次开发
 
-- 下一步先pilot（训练995、white/-5）真实全719窗特征以估算耗时，再固定test两人16个record-condition批次，四分支RF/CNN对照；之后再训练增强CNN。未运行者不报告性能。
-- Sol-medium子代理noise_primitives正在仅新增audio/representations.py、scripts/datasets/noise_features.py及两个测试文件，实现一次FFT同时生成旧67特征和32x100真实图、cache按相同gain复用参考分支。主线程负责最终阅读、测试、真实执行和模型评价。不要把正在编辑的新文件当成通过验收。
-- 活跃真实noise_audit工具session29909已确认exit0；不要重启它。当前无真实训练/下载/校准进程。仍检查当下实际状态后再启动批次。
+- 校准基础提交`ab13cc381ed1e6880c878f232f3c3edf3e66062e`已推送，GitHub API hash一致。之后的feature/evaluator代码尚待本阶段提交。
+- pilot（训练995、white/-5）真实四分支全719窗特征已完成，57.85秒；每个明确监督的67参考向量、全部719张参考图与旧缓存完全一致。公开docs/results/noise-feature-pilot-v1.json。共同gain相同按float.hex精确复用参考矩阵；新joint_features一次FFT输出两个表示，与旧函数人工测试逐项相等。
+- 最新全套344 passed、2 Windows真实symlink权限skip、54 subtests（13.79秒）；新增archive intake25测试由代理完成后主线程完整复核。缓存/评价先前319测试也通过。
+- 特征session61898已确认exit0，16 record-condition全部完成，592.82秒，完整索引data/processed/psg-audio-pilot-10/noise-eval-v1/corpus.json为complete=true；不是仍在跑。输入/校准/来源/环境都校验，所有gain=1，参考67和图像与旧数据逐项相同。
+- 冻结RF/CNN评价noise-frozen-models-v1（session3547 exit0）与-repro（22513 exit0）已完成，约12.43秒；所有字段除耗时完全一致，包括概率/bin/事件/匹配。public docs/results/noise-frozen-models-v1.json、noise-frozen-inference-reproducibility-v1.json和三组PNG/SVG已生成并查看。复跑只对校验缓存推理，不是第二次重建全特征。
+- 未缩放RF/CNN分类与既有报告完整字典exact；事件F1仍.115607/.063694。白噪声四SNR两模型均全背景，F1事件0/FN82/FP0，窗口Macro-F1=.452814，不能以零FP当成功。工频滤波非一致改善；完整曲线/逐匿名人计数都保留。无增强模型结果。
+- 审查补齐RF训练provenance/完整67特征核对、独立未缩放基线、实际指标源码hash；窗口分类argmax与事件>=.5两规则如实记录。没有改测试阈值。
+- 增强下一步依NOISE_AUGMENTATION_PROTOCOL.md：每明确train窗固定一个噪声副本（总3775），原始3775+副本7550；另加clean_duplicate同7550行控制，区分多训练步数与噪声。新协议在增强结果前固定，不修改原NOISE_PROTOCOL/既有缓存source_hashes。增强模块/实际准备与训练尚待实现。
+
+## SleepAccel31人已授权与下载状态
+
+- 用户2026-10-25明确批准官方1.0.0 ZIP576850847字节，新增28人84文件；拟18/6/7，旧3人全部在新train，精确ID与93条大小/SHA在data/plans/sleepaccel-expansion-options.json。用户睡前要求自主继续、不再请示，原三人结果继续冻结。
+- 原文件三类全31人2347765245字节，已有84815494；不执行2.26GB逐文件fallback，选已批准ZIP。ZIP尚未完整且没有新原始成员被验收，不能声称31人就绪。
+- PhysioNet原curl handle45356已失效且无对应进程，保留4897875字节。单请求公共DNS核实IP，不改系统代理/DNS；NSRR同名官方ZIP的206 Range明确总576850847，完整4897875字节前缀与原partial SHA一致，才允许切换NSRR续传。计划记录来源链，ETag只作If-Range，不当SHA。
+- **旧续传session57313已确认exit1，无curl PID；有限重试后保留78794594字节，未到576850847。不要继续等旧handle或直接提取。**实际来源NSRR、If-Range ETag与总长已核验，--resolve为本请求公开DNS解析，不改系统。IP以后重用须重新核实，不能硬编码为通用默认。
+- 只有无curl owner/handle终止、bytes完整后，才执行scripts/datasets/sleepaccel_archive --execute。模块默认dry只元数据；执行前写complete=false，预审ZIP路径/映射/size，93成员逐CRC/官方SHA，新84逐文件独占原子发布、现9 SHA复用不改写；只取HR/motion/labels，extras不提取；archive SHA明确local非official。完整receipt在data/raw/sleepaccel/archives/intake-receipt.json。
+- intake代理曾额度受限，用户通知重置后查询ordinaryUsageAllowed为true，恢复完成2文件且跑25 passed/1 symlink skip；主线程复核及完整344测试通过。无真实提取，模型/清洗/cohort31manifest尚未开始。
+- 当前开发下载恢复工具：sleepaccel_archive_intake代理只新增fetch_sleepaccel_archive.py及测试，顺序16MiB Range/curl、逐响应校验/断开前缀安全续传、磁盘与锁检查；尚未真实执行。main仍是唯一真实下载owner，待审查/测试后启动新handle。不要把开发中的helper当成正在下载。
 
 ## 避免重读/重做
 

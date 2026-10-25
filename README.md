@@ -22,11 +22,15 @@
 
 CNN同协议测试事件F1=0.0637、误报35次/小时、召回0.0610，整体弱于RF；可穿戴CNN融合仍未检出N3。四个CNN均完成同种子复跑，权重张量、概率、训练/验证历史及最终指标完全一致；这证明计算复现，不是独立种子或人群验证。心率/加速度/融合全部消融与失败案例见实验记录。
 
-抗噪的[固定协议](docs/NOISE_PROTOCOL.md)与一小时混合校准已通过：八条件实际SNR、无削波及连续样本核验完成，批量模型性能和增强训练仍待执行。白噪声/工频均明确为合成干扰，不代表真实宿舍声；“干净”技术分支只表示未额外注入干扰的原始观测。
+抗噪的[固定协议](docs/NOISE_PROTOCOL.md)、实际SNR/无削波和完整冻结模型对照已完成。白噪声四SNR下，两模型固定阈值均不检出事件、82个参考全漏；工频滤波也非一致改善。两名测试受试者的全部32个四分支合并条件、两个模型结果与复跑公开，增强训练仍待执行。白噪声/工频均为合成干扰，不代表真实宿舍声；“干净”技术分支只表示未额外注入干扰的原始观测。
 
 ![真实声音试点指标](artifacts/experiments/psg-rf-pilot-v1/baseline-comparison.png)
 
 ![真实CNN比较与失败矩阵](artifacts/experiments/cnn-pilot-v1/cnn-comparison.png)
+
+![真实固定模型抗噪事件曲线](artifacts/experiments/noise-frozen-models-v1/event-f1.png)
+
+SleepAccel31人扩展已单独批准，[具体预算与新划分](docs/WEARABLE_EXPANSION_PLAN.md)保留逐文件清单；当前ZIP获取与逐文件验收尚未完成，表中仍是三人试点分数。不会把“批准下载”当作“数据到齐”或“泛化提高”。
 
 ## Windows CPU环境
 
@@ -98,6 +102,16 @@ $env:OMP_NUM_THREADS='2'; $env:MKL_NUM_THREADS='2'; $env:OPENBLAS_NUM_THREADS='2
 ```
 
 可穿戴另外运行`--feature-set heart_rate`和`acceleration`，需使用不同run名。`--smoke`只跑5个训练batch和validation，不产生test结果。输入准备重新验证官方原始/经典缓存，训练入口再次核验当前来源；归一化/类别权重仅拟合train，检查点仅按validation选取。学习统计、权重、逐窗预测保持本地，公共JSON保留汇总分数及来源摘要。
+
+噪声缓存默认只展示计划；`pilot`仅固定训练录音用于预算，`test`必须全部16个录音条件完成才可评分。冻结RF/CNN不重训，使用相同训练归一化。
+
+```powershell
+.venv\Scripts\python.exe -m scripts.datasets.noise_features --scope pilot
+.venv\Scripts\python.exe -m scripts.datasets.noise_features --scope test --execute
+.venv\Scripts\python.exe -m scripts.evaluate.noise --run-name my-noise-evaluation --device cuda
+```
+
+该CPU准备的本次实例约10分钟、数值两线程/单worker，提前检查RAM并预留2GiB；不写整夜混合WAV。增强训练及等样本量控制的[预先固定方案](docs/NOISE_AUGMENTATION_PROTOCOL.md)另行记录，未冒充完成。原始3人/10人授权与本次31人授权都有明确范围，其他机器获取数据仍须先审计预算。
 
 ## 研究与工程文档
 
