@@ -1,0 +1,2 @@
+# CPython3.12 WindowsAMD64; official PyTorch CUDA12.8 index.
+torch==2.9.1+cu128 --hash=sha256:3a01f0b64c10a82d444d9fd06b3e8c567b1158b76b2764b8f51bfd8f535064b0

@@ -11,6 +11,21 @@ class SubjectSplit:
     seed: int
 
 
+def validate_subject_assignments(assignments, subjects):
+    """Require three disjoint nonempty sets covering the prepared subjects."""
+    names = ('train','validation','test')
+    if set(assignments) != set(names):
+        raise ValueError('three named subject sets required')
+    groups = [set(assignments[name]) for name in names]
+    if any(not group for group in groups) or any(len(group) != len(assignments[name])
+                                                for group,name in zip(groups,names,strict=True)):
+        raise ValueError('nonempty unique subject sets required')
+    if any(groups[a] & groups[b] for a,b in ((0,1),(0,2),(1,2))):
+        raise ValueError('subject leakage across splits')
+    if set.union(*groups) != set(subjects):
+        raise ValueError('subject assignment differs from prepared subjects')
+
+
 def subject_split(subject_ids, seed=42, train_fraction=.6, validation_fraction=.2):
     values = np.asarray(subject_ids,dtype=object)
     if values.ndim != 1 or not len(values) or any(not isinstance(value,str) or not value.strip() for value in values):

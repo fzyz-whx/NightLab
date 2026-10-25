@@ -121,3 +121,13 @@ RF验证TP/FP/FN=28/58/76、事件F1=.294737、29误报/小时；测试10/81/72�
 本阶段仅完成连续事件评价，不代表Phase2深度学习/抗噪完成；整体goal继续。
 
 提交`c0e431045b9dc3e89417c8986070201abece87db`（feat(audio): evaluate frozen baselines on continuous events）已推送。GitHub API远端main返回同一完整hash，工作树干净。暂存17文件，全部小于5MB；无raw/processed/models/runs/venv、无凭据模式，staged diff检查通过。图表为真实科研指标，不是产品截图。后续本条提交只记录这次已验证的结果。
+
+## 2026-10-25：GPU窗口恢复，CNN准备与短程核验
+
+用户明确恢复GPU与满功率供电，单GPU训练窗口有效；CPU线程<=2、数据worker1，不改其他项目或系统功耗。工作树从已推送e0d1bd51acc194391695a16a70dada0ece4f5820恢复。
+
+项目独立安装torch2.9.1+cu128，复用2862033275字节pip缓存，官方索引SHA256与wheel平台标签匹配，无新大包下载；8个小依赖9556742字节均与官方PyPI摘要匹配。setup_deep.ps1实际运行、pip check与RTX5060 CUDA矩阵计算通过，支持sm_120。旧全局Torch错误未修。
+
+按协议实现小AudioCNN/WearableCNN和train-only统计、validation检查点、确定性FP32训练。真实准备十人7190张原始STFT音频图、三人2900个可穿戴张量；官方原始/经典NPZ/代码/标签身份时间全部校验。子代理实现models/cache并审查trainer；其发现训练入口未再次核对当前raw/旧cache的P2问题，主线程复用来源核验并加回归测试，未带入正式训练。
+
+GPU smoke仅5个训练batch和validation，不计算test；音频14.48秒/峰值141020672字节，可穿戴4.08秒/70169600字节，保存加载概率逐项一致。完整测试163通过、1Windows真实symlink权限跳过、54 subtests通过（4.67秒），CPU路径与种子复现有实际测试。计划下一步四个正式模型顺序运行，最多20epoch/早停5，总预算约15分钟；当前不声称已有正式CNN分数。

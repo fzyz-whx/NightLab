@@ -29,9 +29,11 @@
 .venv\Scripts\python.exe -m pytest -q
 ```
 
-NumPy/SciPy/scikit-learn用于当前算法，Matplotlib只用于真实科研图表；当前训练仅使用本地CPU，无模型API调用、启动自动下载权重或CUDA要求。深度学习依赖在后续核对驱动后安装。
+NumPy/SciPy/scikit-learn用于经典算法，Matplotlib用于真实科研图表。经典基线保持CPU可运行；轻量CNN使用可选PyTorch，当前已验证CPU路径和RTX5060 CUDA12.8路径。无模型API调用或启动自动下载权重。
 
-当前机器多项目共享GPU且功耗受限：NightLab默认不启动GPU任务，数据准备默认1个worker、数值线程最多2；长训练等明确可用窗口。不改变系统电源计划或其他项目进程，也没有自动跨项目GPU排队器。
+2026-10-25用户已恢复GPU窗口与满功率供电，本轮允许单进程轻量CNN训练；平时多项目共享GPU，默认仍需明确窗口。准备默认1个worker、数值线程最多2；不改变系统电源计划或其他项目进程，也没有自动跨项目GPU排队器。
+
+可选CUDA环境使用[官方PyTorch2.9.1 CUDA12.8轮子](https://download.pytorch.org/whl/cu128/torch/)和哈希锁定的小依赖。运行`.\scripts\setup_deep.ps1`，默认要求`data/raw/environment/wheels/`下已有核验轮子或传`-LocalTorchWheel`；缺失时会先显示约2.86GB大小并停止，取得明确下载授权后才能用`-AllowTorchDownload`。本机复用了官方SHA256相同的pip缓存，没有重新下载该大包。不要复制其他项目的site-packages。当前模型与训练协议见[DL_PROTOCOL.md](docs/DL_PROTOCOL.md)。
 
 已提交的图表和聚合JSON可直接查看，无需下载原始数据。重绘声音图表可运行：
 

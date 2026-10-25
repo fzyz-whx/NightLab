@@ -13,6 +13,7 @@ from threadpoolctl import threadpool_limits
 
 from nightlab.audio.events import decode_events, evaluate_events
 from nightlab.audio.reference import TARGET_TYPES
+from nightlab.experiments.splits import validate_subject_assignments as validate_assignments
 from scripts.datasets.cli import ROOT, load_manifest
 from scripts.datasets.dense_audio import ensure_dense, sha256
 from scripts.train.baselines import load_corpus
@@ -68,19 +69,6 @@ def load_owned_models(root, baseline_name, baseline_report):
     if any(sha256(paths[name]) != digest for name,digest in hashes.items()):
         raise ValueError('owned model checksum mismatch; refusing joblib load')
     return {name:joblib.load(path) for name,path in paths.items()}, hashes
-
-
-def validate_assignments(assignments, subjects):
-    if set(assignments) != {'train','validation','test'}:
-        raise ValueError('three named subject sets required')
-    groups = [set(assignments[name]) for name in ('train','validation','test')]
-    if any(not group for group in groups) or any(len(group) != len(assignments[name]) for group,name in
-                                                zip(groups,('train','validation','test'),strict=True)):
-        raise ValueError('nonempty unique subject sets required')
-    if any(groups[a] & groups[b] for a,b in ((0,1),(0,2),(1,2))):
-        raise ValueError('subject leakage across splits')
-    if set.union(*groups) != set(subjects):
-        raise ValueError('subject assignment differs from prepared subjects')
 
 
 def evaluate(root, run_name):

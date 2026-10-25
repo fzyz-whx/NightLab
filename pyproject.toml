@@ -12,6 +12,7 @@ dependencies = ["numpy==2.5.4", "scipy==1.18.1", "scikit-learn==1.9.1", "threadp
 [project.optional-dependencies]
 test = ["pytest==9.1.1"]
 plots = ["matplotlib==3.11.2"]
+deep = ["torch==2.9.1"]
 
 [tool.setuptools.packages.find]
 where = ["backend/src"]
