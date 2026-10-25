@@ -1,0 +1,46 @@
+{
+  "scope": "actual CUDA same-seed reruns on this hardware/software; not cross-platform bitwise guarantee",
+  "checks": [
+    {
+      "run": "audio-cnn-pilot-v1",
+      "repeated_run": "audio-cnn-pilot-v1-repro",
+      "metrics_history_probabilities_and_state_tensors_exact": true,
+      "owned_saved_loaded_predictions_exact": true,
+      "original_metrics_sha256": "bbcaf629f0a467ea664d90e7c695c6339e96a1f54cc1d80f997c7ba9f77f88ca",
+      "repeated_metrics_sha256": "1feb373ade9fec15d9136fd0902281f464e5b2f098033af254f407418c7892b1",
+      "original_checkpoint_sha256": "4febc3f3046f3ab559ac0fa7257c5051b38161e4c483f7ee0f926a948230d774",
+      "repeated_checkpoint_sha256": "4febc3f3046f3ab559ac0fa7257c5051b38161e4c483f7ee0f926a948230d774"
+    },
+    {
+      "run": "wearable-cnn-fusion-v1",
+      "repeated_run": "wearable-cnn-fusion-v1-repro",
+      "metrics_history_probabilities_and_state_tensors_exact": true,
+      "owned_saved_loaded_predictions_exact": true,
+      "original_metrics_sha256": "bc42f69dc0345d818a1719af58a503ec74cc1e4f1ea4a235eee165b642c1edd9",
+      "repeated_metrics_sha256": "2ab3fba2eac616171066a44944b61eafff464e09ecf5031b6b3f378ac83b890e",
+      "original_checkpoint_sha256": "4695b4d1b3420d548341263293406b477737e2b7f31f14a1471e742c2e6a523a",
+      "repeated_checkpoint_sha256": "4695b4d1b3420d548341263293406b477737e2b7f31f14a1471e742c2e6a523a"
+    },
+    {
+      "run": "wearable-cnn-hr-v1",
+      "repeated_run": "wearable-cnn-hr-v1-repro",
+      "metrics_history_probabilities_and_state_tensors_exact": true,
+      "owned_saved_loaded_predictions_exact": true,
+      "original_metrics_sha256": "c2b87fa4e6a654f88a3d70e45b78eec7b2ce8cf72445f8a9bc1753777dcd6a64",
+      "repeated_metrics_sha256": "bea154f8f35489851231dc14f8fd912cd0dcbb5d7af53fc474c729eefd9940bf",
+      "original_checkpoint_sha256": "523fdca9e5aa654aebd5deab509c0dee1c46ba09ed1054d432c8f825e88fc576",
+      "repeated_checkpoint_sha256": "523fdca9e5aa654aebd5deab509c0dee1c46ba09ed1054d432c8f825e88fc576"
+    },
+    {
+      "run": "wearable-cnn-accel-v1",
+      "repeated_run": "wearable-cnn-accel-v1-repro",
+      "metrics_history_probabilities_and_state_tensors_exact": true,
+      "owned_saved_loaded_predictions_exact": true,
+      "original_metrics_sha256": "10eed6aacc6f505953faa7a9bdc03706bf1226a32650bff40c964d2276a26700",
+      "repeated_metrics_sha256": "218dd6f32f414eb6cc8543f833cb09ae76b1042da1a8984066da8c5c3ec1a64b",
+      "original_checkpoint_sha256": "64e85a84ac770d542309ebb7f205e890a4389aa1cca0bf74a2dbe314c4274e49",
+      "repeated_checkpoint_sha256": "64e85a84ac770d542309ebb7f205e890a4389aa1cca0bf74a2dbe314c4274e49"
+    }
+  ],
+  "metadata_correction": "Initial local runs mislabeled deep-inputs-v1 as dataset_version. Reruns separate source dataset_version from input_version; no model, optimizer, split or score was changed."
+}

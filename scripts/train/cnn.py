@@ -21,6 +21,7 @@ def load_inputs(root,task):
     corpus = json.loads((folder/'corpus.json').read_text(encoding='utf-8'))
     manifest_path = root/f'data/manifests/{dataset}.json'
     manifest = load_manifest(manifest_path,root)
+    corpus['dataset_version'] = manifest['version']
     classic = root/f'data/processed/{dataset}/corpus.json'
     classic_records = {record['record_id']:record for record in json.loads(classic.read_text(encoding='utf-8'))['records']}
     if (not corpus['complete'] or corpus['task'] != task or corpus['dataset'] != dataset
@@ -88,10 +89,12 @@ def run(root,task,run_name,feature_set='all',device='cpu',smoke=False,config=Non
         repeated = predict_probabilities(loaded,features[item['rows']],torch.device(report['device']),report['config']['batch_size'])
         if not np.array_equal(repeated,item['probabilities']):
             raise ValueError('saved/loaded owned checkpoint predictions differ')
-    report.update(dataset=corpus['dataset'], dataset_version=corpus['version'], split_policy=corpus['split_policy'],
+    report.update(dataset=corpus['dataset'], dataset_version=corpus['dataset_version'], input_version=corpus['version'],
+                  split_policy=corpus['split_policy'],
                   provenance=provenance, checkpoint_sha256=checksum, saved_loaded_predictions_exact=True,
                   source_sha256={name:sha256(module.__file__) for name,module in
-                                 (('models',models),('training',training),('inputs',inputs),('deep_cache',deep_cache))})
+                                 (('models',models),('training',training),('inputs',inputs),('deep_cache',deep_cache))},
+                  runner_source_sha256=sha256(__file__))
     output.mkdir(parents=True)
     np.savez_compressed(output/'predictions.npz', **{f'{part}_{name}':value for part,item in probabilities.items()
                                                     for name,value in item.items()})

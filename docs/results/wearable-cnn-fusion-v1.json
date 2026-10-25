@@ -1,0 +1,401 @@
+{
+  "task": "wearable",
+  "feature_set": "all",
+  "config": {
+    "seed": 42,
+    "epochs": 20,
+    "patience": 5,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 5.0,
+    "cpu_threads": 2
+  },
+  "seed": 42,
+  "selection": "highest validation Macro-F1; strict improvement, earliest tie, patience stop; test never selects",
+  "best_epoch": 8,
+  "best_validation_macro_f1": 0.2102777815316837,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss_batch_weighted": 1.4903285675088074,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.11884348732115466,
+      "elapsed_seconds": 0.09418730000106734
+    },
+    {
+      "epoch": 2,
+      "training_loss_batch_weighted": 1.3006943503525032,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.1585064380480386,
+      "elapsed_seconds": 0.1746212000016385
+    },
+    {
+      "epoch": 3,
+      "training_loss_batch_weighted": 1.1908247411986927,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.19635676886042003,
+      "elapsed_seconds": 0.24361390000012761
+    },
+    {
+      "epoch": 4,
+      "training_loss_batch_weighted": 1.1251592150440923,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.15592709540326205,
+      "elapsed_seconds": 0.3112990000008722
+    },
+    {
+      "epoch": 5,
+      "training_loss_batch_weighted": 1.0387938385637698,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.15750022083571727,
+      "elapsed_seconds": 0.3700347000012698
+    },
+    {
+      "epoch": 6,
+      "training_loss_batch_weighted": 0.9769918992195601,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.15656599926772125,
+      "elapsed_seconds": 0.4264532000015606
+    },
+    {
+      "epoch": 7,
+      "training_loss_batch_weighted": 0.9258995522196891,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.16719783414775158,
+      "elapsed_seconds": 0.49166890000014973
+    },
+    {
+      "epoch": 8,
+      "training_loss_batch_weighted": 0.8704926656106863,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.2102777815316837,
+      "elapsed_seconds": 0.5590898000009474
+    },
+    {
+      "epoch": 9,
+      "training_loss_batch_weighted": 0.8280061870936013,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.16519463017674804,
+      "elapsed_seconds": 0.6256451000008383
+    },
+    {
+      "epoch": 10,
+      "training_loss_batch_weighted": 0.8081849362133953,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.20695336110430448,
+      "elapsed_seconds": 0.6871869000005972
+    },
+    {
+      "epoch": 11,
+      "training_loss_batch_weighted": 0.7840738659532963,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.19163868249812527,
+      "elapsed_seconds": 0.7577208000002429
+    },
+    {
+      "epoch": 12,
+      "training_loss_batch_weighted": 0.7663983923417551,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.17938754178972785,
+      "elapsed_seconds": 0.8221962000006897
+    },
+    {
+      "epoch": 13,
+      "training_loss_batch_weighted": 0.7372914184758692,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.1690056473686034,
+      "elapsed_seconds": 0.8828702999999223
+    }
+  ],
+  "class_weights_training_only": [
+    2.046315789473684,
+    4.05,
+    0.486,
+    1.4727272727272727,
+    0.6545454545454545
+  ],
+  "training_class_counts": [
+    95,
+    48,
+    400,
+    132,
+    297
+  ],
+  "normalizer": {
+    "fit_scope": "supervised training subject rows only; observed finite values",
+    "fit_rows": 972,
+    "feature_set": "all",
+    "missing_fill": "standardized zero with independent observation mask (wearable only)"
+  },
+  "label_order": [
+    "W",
+    "N1",
+    "N2",
+    "N3",
+    "REM"
+  ],
+  "split_subjects": {
+    "train": [
+      "8258170"
+    ],
+    "validation": [
+      "5383425"
+    ],
+    "test": [
+      "1066528"
+    ]
+  },
+  "split_rows": {
+    "train": 972,
+    "validation": 976,
+    "test": 952
+  },
+  "parameter_count": 7877,
+  "models": {
+    "cnn": {
+      "validation": {
+        "macro_f1": 0.2102777815316837,
+        "balanced_accuracy": 0.3588776093794681,
+        "accuracy": 0.25922131147540983,
+        "label_order": [
+          "W",
+          "N1",
+          "N2",
+          "N3",
+          "REM"
+        ],
+        "confusion_matrix": [
+          [
+            27,
+            6,
+            0,
+            0,
+            7
+          ],
+          [
+            2,
+            18,
+            0,
+            0,
+            32
+          ],
+          [
+            3,
+            121,
+            0,
+            0,
+            267
+          ],
+          [
+            4,
+            42,
+            0,
+            0,
+            178
+          ],
+          [
+            36,
+            25,
+            0,
+            0,
+            208
+          ]
+        ],
+        "per_class": {
+          "W": {
+            "precision": 0.375,
+            "recall": 0.675,
+            "f1": 0.48214285714285715,
+            "support": 40
+          },
+          "N1": {
+            "precision": 0.08490566037735849,
+            "recall": 0.34615384615384615,
+            "f1": 0.13636363636363635,
+            "support": 52
+          },
+          "N2": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 391
+          },
+          "N3": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 224
+          },
+          "REM": {
+            "precision": 0.30057803468208094,
+            "recall": 0.7732342007434945,
+            "f1": 0.4328824141519251,
+            "support": 269
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero"
+      },
+      "test": {
+        "macro_f1": 0.24821473595667146,
+        "balanced_accuracy": 0.27207777849442305,
+        "accuracy": 0.3004201680672269,
+        "label_order": [
+          "W",
+          "N1",
+          "N2",
+          "N3",
+          "REM"
+        ],
+        "confusion_matrix": [
+          [
+            40,
+            101,
+            26,
+            0,
+            18
+          ],
+          [
+            5,
+            48,
+            29,
+            0,
+            15
+          ],
+          [
+            41,
+            146,
+            79,
+            0,
+            33
+          ],
+          [
+            0,
+            31,
+            30,
+            0,
+            1
+          ],
+          [
+            37,
+            135,
+            18,
+            0,
+            119
+          ]
+        ],
+        "per_class": {
+          "W": {
+            "precision": 0.3252032520325203,
+            "recall": 0.21621621621621623,
+            "f1": 0.2597402597402597,
+            "support": 185
+          },
+          "N1": {
+            "precision": 0.10412147505422993,
+            "recall": 0.4948453608247423,
+            "f1": 0.17204301075268819,
+            "support": 97
+          },
+          "N2": {
+            "precision": 0.4340659340659341,
+            "recall": 0.26421404682274247,
+            "f1": 0.3284823284823285,
+            "support": 299
+          },
+          "N3": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 62
+          },
+          "REM": {
+            "precision": 0.6397849462365591,
+            "recall": 0.3851132686084142,
+            "f1": 0.4808080808080808,
+            "support": 309
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero"
+      }
+    }
+  },
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "peak_allocated_gpu_bytes": 70169600,
+  "elapsed_seconds": 0.9107187000008707,
+  "smoke_only": false,
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.9.1+cu128",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "nightlab": "0.1.0.dev0"
+  },
+  "scope": "pilot held-out subjects; no population, clinical or device-generalization validation",
+  "dataset": "sleepaccel-pilot-3",
+  "dataset_version": "PhysioNet 1.0.0",
+  "input_version": "deep-inputs-v1",
+  "split_policy": {
+    "seed": 42,
+    "generator": "NumPy default_rng / PCG64",
+    "unit": "subject",
+    "subjects": {
+      "train": [
+        "8258170"
+      ],
+      "validation": [
+        "5383425"
+      ],
+      "test": [
+        "1066528"
+      ]
+    },
+    "scope": "three-subject pilot, one participant per partition; highly uncertain"
+  },
+  "provenance": [
+    {
+      "record_id": "1066528",
+      "path": "data/processed/sleepaccel-pilot-3/deep-inputs-v1/1066528",
+      "inputs_sha256": "e7b6a454dac6fbdca4985bf2b197a1d2754da9e20df72805840fa15327a76d99",
+      "metadata_sha256": "aeff0b04b50c4303771909e809b21e04622cca72bbf121c5661851922d2b8922",
+      "row_offset": 0,
+      "rows": 952
+    },
+    {
+      "record_id": "5383425",
+      "path": "data/processed/sleepaccel-pilot-3/deep-inputs-v1/5383425",
+      "inputs_sha256": "97414c901ee1be4b77fec1629f698df9a4ec1fb7e6d71d51377649a9535eb2d5",
+      "metadata_sha256": "adf535d5e75f98b2a15c372fd2b6a5e6cc18f9ec7d37151114544f1b56fc9832",
+      "row_offset": 952,
+      "rows": 976
+    },
+    {
+      "record_id": "8258170",
+      "path": "data/processed/sleepaccel-pilot-3/deep-inputs-v1/8258170",
+      "inputs_sha256": "dd09029fe94bf860f54546f865b91c4036a9b2e3ada6efea8a7984b2dc1d46a5",
+      "metadata_sha256": "13b88942a3ab3590744fd7f8eccb724d0e640a8b35c128305453bfc824b89dd6",
+      "row_offset": 1928,
+      "rows": 972
+    }
+  ],
+  "checkpoint_sha256": "4695b4d1b3420d548341263293406b477737e2b7f31f14a1471e742c2e6a523a",
+  "saved_loaded_predictions_exact": true,
+  "source_sha256": {
+    "models": "f8d1b2868849855c3631cd544bcfb82b50d96b666cc1b8e745ad3cd50d85f4ce",
+    "training": "eca3ce37a8095f789c9f0ff5693260d0a2ea2a83be6b1a470b1b401a9d5d8106",
+    "inputs": "59b07adf3c6c58a7b6c24a53d953594c7d1829a5546194d08fa515b0de1955d5",
+    "deep_cache": "a127844991c0a1f4c46883e4f6ce3848a32328d2fa642b6644b823c98087393a"
+  },
+  "runner_source_sha256": "4ac75b339912c75408058f5c5827f1c2d86279231abd69fa2498c563bcc6cc32",
+  "predictions_sha256": "791c6aab7e5894b1a4ebf9677245f900543d34645029cbe4653c89555b903a44",
+  "run_name": "wearable-cnn-fusion-v1-repro",
+  "metrics_source_sha256": "2ab3fba2eac616171066a44944b61eafff464e09ecf5031b6b3f378ac83b890e",
+  "public_export": "aggregate metrics; learned moments, weights and individual predictions remain local",
+  "reproducibility_checked_against": "wearable-cnn-fusion-v1"
+}

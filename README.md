@@ -2,7 +2,7 @@
 
 本地优先的夜间声音与可穿戴睡眠时序研究工作台。研究用途，不用于医学诊断。
 
-**当前：两条传统机器学习基线和连续声音事件评价的真实试点已跑通。** 尚无产品UI、深度学习或抗噪结论。声音主候选发现时间对齐冲突后冻结，当前声音基线使用已校验的PSG-Audio。
+**当前：传统基线、两个轻量CNN及连续声音事件评价的真实试点已跑通。** 抗噪实验和产品UI仍待完成。声音主候选发现时间对齐冲突后冻结，当前声音使用已校验的PSG-Audio。
 
 ## 真实试点结果
 
@@ -10,15 +10,21 @@
 |---|---|---:|---:|
 | 声音多数类 | 10人，6/2/2 | 0.453 | 0.500 |
 | 声音随机森林 | 同上 | 0.596 | 0.678 |
+| 声音CNN | 同上 | 0.544 | 0.561 |
 | 可穿戴多数类 | 3人，1/1/1 | 0.096 | 0.200 |
 | 可穿戴随机森林 | 同上 | 0.210 | 0.251 |
+| 可穿戴CNN融合 | 同上 | 0.248 | 0.272 |
 
 音频任务是PSG参考呼吸事件相关窗口分类；10秒窗、5秒步长，有明确标签的窗口才参与监督评价。RF目标窗Precision仅0.302，误报仍多。可穿戴仅一人训练，N1/N3识别很弱，结果不支持人群或医疗准确率结论。
 [完整参数、输入消融、错误分析与真实JSON](docs/EXPERIMENTS.md)。未编辑分数或隐藏负面结果。
 
 对固定声音模型做整小时连续推理后，RF测试事件Precision=0.1099、Recall=0.1220、F1=0.1156，误报40.5次/小时（测试2人各1小时，TP/FP/FN=10/81/72）。这比窗口分类困难得多，当前不能可靠定位事件。规则在计算前固定为5秒网格、概率阈值0.5、一对一IoU≥0.5；[协议与限制](docs/EVENT_PROTOCOL.md)和负面结果全部保留。
 
+CNN同协议测试事件F1=0.0637、误报35次/小时、召回0.0610，整体弱于RF；可穿戴CNN融合仍未检出N3。四个CNN均完成同种子复跑，权重张量、概率、训练/验证历史及最终指标完全一致；这证明计算复现，不是独立种子或人群验证。心率/加速度/融合全部消融与失败案例见实验记录。
+
 ![真实声音试点指标](artifacts/experiments/psg-rf-pilot-v1/baseline-comparison.png)
+
+![真实CNN比较与失败矩阵](artifacts/experiments/cnn-pilot-v1/cnn-comparison.png)
 
 ## Windows CPU环境
 
@@ -77,6 +83,19 @@ $env:OMP_NUM_THREADS='2'; $env:MKL_NUM_THREADS='2'; $env:OPENBLAS_NUM_THREADS='2
 ```
 
 第一条只显示计划；执行时补齐固定验证/测试四人的连续特征。评价器只加载此前已记录摘要的本机自建模型，不下载权重。新环境需先复现基线并核验自建保存/加载一致性、登记新摘要；不能将未知joblib或外部权重写入可信清单冒充本机模型。已公开的聚合结果与图表可直接查看。
+
+安装可选PyTorch并准备已授权数据后，CNN命令如下。`--device`默认CPU；只有明确GPU窗口时才传cuda。新run名不会覆盖已有结果。
+
+```powershell
+.venv\Scripts\python.exe -m scripts.datasets.deep_cache --task audio
+.venv\Scripts\python.exe -m scripts.datasets.deep_cache --task audio --execute
+.venv\Scripts\python.exe -m scripts.datasets.deep_cache --task wearable --execute
+.venv\Scripts\python.exe -m scripts.train.cnn --task audio --run-name my-audio-cnn --device cuda
+.venv\Scripts\python.exe -m scripts.train.cnn --task wearable --run-name my-wearable-cnn --feature-set all --device cuda
+.venv\Scripts\python.exe -m scripts.evaluate.cnn_events --run-name my-audio-cnn --output-name my-cnn-events
+```
+
+可穿戴另外运行`--feature-set heart_rate`和`acceleration`，需使用不同run名。`--smoke`只跑5个训练batch和validation，不产生test结果。输入准备重新验证官方原始/经典缓存，训练入口再次核验当前来源；归一化/类别权重仅拟合train，检查点仅按validation选取。学习统计、权重、逐窗预测保持本地，公共JSON保留汇总分数及来源摘要。
 
 ## 研究与工程文档
 

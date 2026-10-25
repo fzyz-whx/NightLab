@@ -82,7 +82,7 @@ def test_training_entry_rechecks_current_source_not_only_saved_npz(tmp_path,monk
     provenance.update(record_id='1',feature_source_sha256=feature_source_hashes('sleepaccel'))
     monkeypatch.setattr(cnn,'load_manifest',cache.load_manifest)
     cache.prepare_deep(tmp_path,'wearable',True)
-    cnn.load_inputs(tmp_path,'wearable')
+    assert cnn.load_inputs(tmp_path,'wearable')[0]['dataset_version'] == 'test'
     assert calls == ['verify','verify']
     # Same valid NPZ, changed current raw/old-source context: training must refuse it.
     provenance['input_sha256']['raw'] = 'changed'

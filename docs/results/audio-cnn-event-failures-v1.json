@@ -1,0 +1,160 @@
+{
+  "source_run_sha256": "7621cf1bf2eb7cbcec58e2a7c90f9a07c38a8c890485a17e26dcef131ab0802a",
+  "analysis_source_sha256": "26e565cfd27f8446b307409bdf4d700279587058acfef47745cad2cebed17e34",
+  "scope": "descriptive interval-overlap errors; no threshold tuning or causal/clinical conclusion",
+  "category_interpretation": "FN categories use prediction overlap; no_reference_overlap means no opposite-side interval overlap",
+  "models": {
+    "cnn": {
+      "validation": {
+        "false_positives": {
+          "no_reference_overlap": 17,
+          "overlap_below_iou_threshold": 23,
+          "one_to_one_competition": 0
+        },
+        "false_negatives": {
+          "no_reference_overlap": 59,
+          "overlap_below_iou_threshold": 23,
+          "one_to_one_competition": 0
+        },
+        "predictions_overlapping_multiple_references": 1,
+        "references_overlapping_multiple_predictions": 1
+      },
+      "test": {
+        "false_positives": {
+          "no_reference_overlap": 38,
+          "overlap_below_iou_threshold": 32,
+          "one_to_one_competition": 0
+        },
+        "false_negatives": {
+          "no_reference_overlap": 40,
+          "overlap_below_iou_threshold": 37,
+          "one_to_one_competition": 0
+        },
+        "predictions_overlapping_multiple_references": 5,
+        "references_overlapping_multiple_predictions": 0
+      }
+    }
+  },
+  "records": [
+    {
+      "record_id": "00001008-100507",
+      "split": "validation",
+      "models": {
+        "cnn": {
+          "false_positives": {
+            "no_reference_overlap": 9,
+            "overlap_below_iou_threshold": 18,
+            "one_to_one_competition": 0
+          },
+          "false_negatives": {
+            "no_reference_overlap": 15,
+            "overlap_below_iou_threshold": 18,
+            "one_to_one_competition": 0
+          },
+          "predictions_overlapping_multiple_references": 1,
+          "references_overlapping_multiple_predictions": 1,
+          "predicted_duration": {
+            "count": 33,
+            "median_seconds": 10.0,
+            "max_seconds": 80.0
+          },
+          "reference_duration": {
+            "count": 39,
+            "median_seconds": 12.0,
+            "max_seconds": 46.5
+          }
+        }
+      }
+    },
+    {
+      "record_id": "00001020-100507",
+      "split": "validation",
+      "models": {
+        "cnn": {
+          "false_positives": {
+            "no_reference_overlap": 8,
+            "overlap_below_iou_threshold": 5,
+            "one_to_one_competition": 0
+          },
+          "false_negatives": {
+            "no_reference_overlap": 44,
+            "overlap_below_iou_threshold": 5,
+            "one_to_one_competition": 0
+          },
+          "predictions_overlapping_multiple_references": 0,
+          "references_overlapping_multiple_predictions": 0,
+          "predicted_duration": {
+            "count": 29,
+            "median_seconds": 10.0,
+            "max_seconds": 25.0
+          },
+          "reference_duration": {
+            "count": 65,
+            "median_seconds": 13.5,
+            "max_seconds": 23.5
+          }
+        }
+      }
+    },
+    {
+      "record_id": "00000999-100507",
+      "split": "test",
+      "models": {
+        "cnn": {
+          "false_positives": {
+            "no_reference_overlap": 23,
+            "overlap_below_iou_threshold": 29,
+            "one_to_one_competition": 0
+          },
+          "false_negatives": {
+            "no_reference_overlap": 18,
+            "overlap_below_iou_threshold": 32,
+            "one_to_one_competition": 0
+          },
+          "predictions_overlapping_multiple_references": 3,
+          "references_overlapping_multiple_predictions": 0,
+          "predicted_duration": {
+            "count": 56,
+            "median_seconds": 15.0,
+            "max_seconds": 105.0
+          },
+          "reference_duration": {
+            "count": 54,
+            "median_seconds": 13.5,
+            "max_seconds": 42.0
+          }
+        }
+      }
+    },
+    {
+      "record_id": "00001018-100507",
+      "split": "test",
+      "models": {
+        "cnn": {
+          "false_positives": {
+            "no_reference_overlap": 15,
+            "overlap_below_iou_threshold": 3,
+            "one_to_one_competition": 0
+          },
+          "false_negatives": {
+            "no_reference_overlap": 22,
+            "overlap_below_iou_threshold": 5,
+            "one_to_one_competition": 0
+          },
+          "predictions_overlapping_multiple_references": 2,
+          "references_overlapping_multiple_predictions": 0,
+          "predicted_duration": {
+            "count": 19,
+            "median_seconds": 10.0,
+            "max_seconds": 75.0
+          },
+          "reference_duration": {
+            "count": 28,
+            "median_seconds": 10.5,
+            "max_seconds": 12.5
+          }
+        }
+      }
+    }
+  ]
+}

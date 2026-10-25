@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "protocol": "docs/EVENT_PROTOCOL.md",
+  "protocol_sha256": "8cc38b4ac56f412878bd04f00100b46f4151f36f7e9be839f04f31cf6ee68507",
+  "evaluation_source_sha256": "65aa4a0a7ea89b52a53b9825aae3dd0e1c67d1cb4bc80a98c2c974d8cd16470b",
+  "event_source_sha256": "c02acfdb6d267a58126fc4c3188ae46e074cc09163d97802f4e4cb8c9ac4b3c0",
+  "dataset": "psg-audio-pilot-10",
+  "training_run": "audio-cnn-pilot-v1-repro",
+  "training_metrics_sha256": "1feb373ade9fec15d9136fd0902281f464e5b2f098033af254f407418c7892b1",
+  "predictions_sha256": "cc27a655f51d6571698f7676e64635fda41ee6c5fdb16cb6d31727eb2250a531",
+  "checkpoint_sha256": "4febc3f3046f3ab559ac0fa7257c5051b38161e4c483f7ee0f926a948230d774",
+  "manifest_sha256": "c5166fda15c21f70a0e8189b3351d0483cb3b17fb636ea12d431daacf903afa8",
+  "models": {
+    "cnn": {
+      "validation": {
+        "tp": 22,
+        "fp": 40,
+        "fn": 82,
+        "precision": 0.3548387096774194,
+        "recall": 0.21153846153846154,
+        "f1": 0.26506024096385544,
+        "false_positives_per_hour": 20.0,
+        "observed_seconds": 7200.0,
+        "record_count": 2,
+        "localization": {
+          "matched_uncensored_count": 22,
+          "mean_onset_error_seconds": -0.75,
+          "mean_end_error_seconds": -1.6363636363636365,
+          "mean_absolute_onset_error_seconds": 3.4318181818181817,
+          "mean_absolute_end_error_seconds": 2.5
+        },
+        "reference_count": 104,
+        "censored_reference_count": 0
+      },
+      "test": {
+        "tp": 5,
+        "fp": 70,
+        "fn": 77,
+        "precision": 0.06666666666666667,
+        "recall": 0.06097560975609756,
+        "f1": 0.06369426751592357,
+        "false_positives_per_hour": 35.0,
+        "observed_seconds": 7200.0,
+        "record_count": 2,
+        "localization": {
+          "matched_uncensored_count": 5,
+          "mean_onset_error_seconds": -0.3,
+          "mean_end_error_seconds": 1.0,
+          "mean_absolute_onset_error_seconds": 4.5,
+          "mean_absolute_end_error_seconds": 2.2
+        },
+        "reference_count": 82,
+        "censored_reference_count": 0
+      }
+    }
+  },
+  "numeric_threads_max": 2,
+  "worker_count": 1,
+  "elapsed_seconds": 12.769968299999164,
+  "scope": "fixed pilot event evaluation; no retraining, threshold search or clinical validation",
+  "records": [
+    {
+      "participant": "validation-01",
+      "split": "validation",
+      "reference_count": 39,
+      "censored_reference_count": 0,
+      "models": {
+        "cnn": {
+          "tp": 6,
+          "fp": 27,
+          "fn": 33,
+          "precision": 0.18181818181818182,
+          "recall": 0.15384615384615385,
+          "f1": 0.16666666666666666,
+          "false_positives_per_hour": 27.0,
+          "observed_seconds": 3600.0,
+          "localization": {
+            "matched_uncensored_count": 6,
+            "mean_onset_error_seconds": -1.4166666666666667,
+            "mean_end_error_seconds": -3.25,
+            "mean_absolute_onset_error_seconds": 3.5833333333333335,
+            "mean_absolute_end_error_seconds": 4.083333333333333
+          }
+        }
+      }
+    },
+    {
+      "participant": "validation-02",
+      "split": "validation",
+      "reference_count": 65,
+      "censored_reference_count": 0,
+      "models": {
+        "cnn": {
+          "tp": 16,
+          "fp": 13,
+          "fn": 49,
+          "precision": 0.5517241379310345,
+          "recall": 0.24615384615384617,
+          "f1": 0.3404255319148936,
+          "false_positives_per_hour": 13.0,
+          "observed_seconds": 3600.0,
+          "localization": {
+            "matched_uncensored_count": 16,
+            "mean_onset_error_seconds": -0.5,
+            "mean_end_error_seconds": -1.03125,
+            "mean_absolute_onset_error_seconds": 3.375,
+            "mean_absolute_end_error_seconds": 1.90625
+          }
+        }
+      }
+    },
+    {
+      "participant": "test-01",
+      "split": "test",
+      "reference_count": 54,
+      "censored_reference_count": 0,
+      "models": {
+        "cnn": {
+          "tp": 4,
+          "fp": 52,
+          "fn": 50,
+          "precision": 0.07142857142857142,
+          "recall": 0.07407407407407407,
+          "f1": 0.07272727272727272,
+          "false_positives_per_hour": 52.0,
+          "observed_seconds": 3600.0,
+          "localization": {
+            "matched_uncensored_count": 4,
+            "mean_onset_error_seconds": -0.25,
+            "mean_end_error_seconds": 1.875,
+            "mean_absolute_onset_error_seconds": 5.5,
+            "mean_absolute_end_error_seconds": 2.125
+          }
+        }
+      }
+    },
+    {
+      "participant": "test-02",
+      "split": "test",
+      "reference_count": 28,
+      "censored_reference_count": 0,
+      "models": {
+        "cnn": {
+          "tp": 1,
+          "fp": 18,
+          "fn": 27,
+          "precision": 0.05263157894736842,
+          "recall": 0.03571428571428571,
+          "f1": 0.0425531914893617,
+          "false_positives_per_hour": 18.0,
+          "observed_seconds": 3600.0,
+          "localization": {
+            "matched_uncensored_count": 1,
+            "mean_onset_error_seconds": -0.5,
+            "mean_end_error_seconds": -2.5,
+            "mean_absolute_onset_error_seconds": 0.5,
+            "mean_absolute_end_error_seconds": 2.5
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "task": "wearable",
+  "feature_set": "heart_rate",
+  "config": {
+    "seed": 42,
+    "epochs": 20,
+    "patience": 5,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 5.0,
+    "cpu_threads": 2
+  },
+  "seed": 42,
+  "selection": "highest validation Macro-F1; strict improvement, earliest tie, patience stop; test never selects",
+  "best_epoch": 1,
+  "best_validation_macro_f1": 0.08642570281124498,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss_batch_weighted": 1.5811835998370323,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.08642570281124498,
+      "elapsed_seconds": 0.07275329999902169
+    },
+    {
+      "epoch": 2,
+      "training_loss_batch_weighted": 1.4549376248332209,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.08642570281124498,
+      "elapsed_seconds": 0.13817529999869294
+    },
+    {
+      "epoch": 3,
+      "training_loss_batch_weighted": 1.417060118153262,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.08642570281124498,
+      "elapsed_seconds": 0.20153749999917636
+    },
+    {
+      "epoch": 4,
+      "training_loss_batch_weighted": 1.3822342010191928,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.08642570281124498,
+      "elapsed_seconds": 0.26764149999871734
+    },
+    {
+      "epoch": 5,
+      "training_loss_batch_weighted": 1.3290281791255307,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.08642570281124498,
+      "elapsed_seconds": 0.3364531999995961
+    },
+    {
+      "epoch": 6,
+      "training_loss_batch_weighted": 1.3067386449609764,
+      "training_rows_seen": 972,
+      "validation_macro_f1": 0.08642570281124498,
+      "elapsed_seconds": 0.40936390000024403
+    }
+  ],
+  "class_weights_training_only": [
+    2.046315789473684,
+    4.05,
+    0.486,
+    1.4727272727272727,
+    0.6545454545454545
+  ],
+  "training_class_counts": [
+    95,
+    48,
+    400,
+    132,
+    297
+  ],
+  "normalizer": {
+    "fit_scope": "supervised training subject rows only; observed finite values",
+    "fit_rows": 972,
+    "feature_set": "heart_rate",
+    "missing_fill": "standardized zero with independent observation mask (wearable only)"
+  },
+  "label_order": [
+    "W",
+    "N1",
+    "N2",
+    "N3",
+    "REM"
+  ],
+  "split_subjects": {
+    "train": [
+      "8258170"
+    ],
+    "validation": [
+      "5383425"
+    ],
+    "test": [
+      "1066528"
+    ]
+  },
+  "split_rows": {
+    "train": 972,
+    "validation": 976,
+    "test": 952
+  },
+  "parameter_count": 7077,
+  "models": {
+    "cnn": {
+      "validation": {
+        "macro_f1": 0.08642570281124498,
+        "balanced_accuracy": 0.2,
+        "accuracy": 0.27561475409836067,
+        "label_order": [
+          "W",
+          "N1",
+          "N2",
+          "N3",
+          "REM"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            40
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            52
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            391
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            224
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            269
+          ]
+        ],
+        "per_class": {
+          "W": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 40
+          },
+          "N1": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 52
+          },
+          "N2": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 391
+          },
+          "N3": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 224
+          },
+          "REM": {
+            "precision": 0.27561475409836067,
+            "recall": 1.0,
+            "f1": 0.4321285140562249,
+            "support": 269
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero"
+      },
+      "test": {
+        "macro_f1": 0.20479279743023734,
+        "balanced_accuracy": 0.25570830565751523,
+        "accuracy": 0.3644957983193277,
+        "label_order": [
+          "W",
+          "N1",
+          "N2",
+          "N3",
+          "REM"
+        ],
+        "confusion_matrix": [
+          [
+            41,
+            0,
+            41,
+            25,
+            78
+          ],
+          [
+            30,
+            0,
+            12,
+            16,
+            39
+          ],
+          [
+            50,
+            0,
+            20,
+            68,
+            161
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            57
+          ],
+          [
+            14,
+            0,
+            4,
+            10,
+            281
+          ]
+        ],
+        "per_class": {
+          "W": {
+            "precision": 0.3037037037037037,
+            "recall": 0.22162162162162163,
+            "f1": 0.25625,
+            "support": 185
+          },
+          "N1": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 97
+          },
+          "N2": {
+            "precision": 0.2597402597402597,
+            "recall": 0.06688963210702341,
+            "f1": 0.10638297872340426,
+            "support": 299
+          },
+          "N3": {
+            "precision": 0.04032258064516129,
+            "recall": 0.08064516129032258,
+            "f1": 0.053763440860215055,
+            "support": 62
+          },
+          "REM": {
+            "precision": 0.45616883116883117,
+            "recall": 0.9093851132686084,
+            "f1": 0.6075675675675676,
+            "support": 309
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero"
+      }
+    }
+  },
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "peak_allocated_gpu_bytes": 70121984,
+  "elapsed_seconds": 0.44210819999898376,
+  "smoke_only": false,
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.9.1+cu128",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "nightlab": "0.1.0.dev0"
+  },
+  "scope": "pilot held-out subjects; no population, clinical or device-generalization validation",
+  "dataset": "sleepaccel-pilot-3",
+  "dataset_version": "PhysioNet 1.0.0",
+  "input_version": "deep-inputs-v1",
+  "split_policy": {
+    "seed": 42,
+    "generator": "NumPy default_rng / PCG64",
+    "unit": "subject",
+    "subjects": {
+      "train": [
+        "8258170"
+      ],
+      "validation": [
+        "5383425"
+      ],
+      "test": [
+        "1066528"
+      ]
+    },
+    "scope": "three-subject pilot, one participant per partition; highly uncertain"
+  },
+  "provenance": [
+    {
+      "record_id": "1066528",
+      "path": "data/processed/sleepaccel-pilot-3/deep-inputs-v1/1066528",
+      "inputs_sha256": "e7b6a454dac6fbdca4985bf2b197a1d2754da9e20df72805840fa15327a76d99",
+      "metadata_sha256": "aeff0b04b50c4303771909e809b21e04622cca72bbf121c5661851922d2b8922",
+      "row_offset": 0,
+      "rows": 952
+    },
+    {
+      "record_id": "5383425",
+      "path": "data/processed/sleepaccel-pilot-3/deep-inputs-v1/5383425",
+      "inputs_sha256": "97414c901ee1be4b77fec1629f698df9a4ec1fb7e6d71d51377649a9535eb2d5",
+      "metadata_sha256": "adf535d5e75f98b2a15c372fd2b6a5e6cc18f9ec7d37151114544f1b56fc9832",
+      "row_offset": 952,
+      "rows": 976
+    },
+    {
+      "record_id": "8258170",
+      "path": "data/processed/sleepaccel-pilot-3/deep-inputs-v1/8258170",
+      "inputs_sha256": "dd09029fe94bf860f54546f865b91c4036a9b2e3ada6efea8a7984b2dc1d46a5",
+      "metadata_sha256": "13b88942a3ab3590744fd7f8eccb724d0e640a8b35c128305453bfc824b89dd6",
+      "row_offset": 1928,
+      "rows": 972
+    }
+  ],
+  "checkpoint_sha256": "523fdca9e5aa654aebd5deab509c0dee1c46ba09ed1054d432c8f825e88fc576",
+  "saved_loaded_predictions_exact": true,
+  "source_sha256": {
+    "models": "f8d1b2868849855c3631cd544bcfb82b50d96b666cc1b8e745ad3cd50d85f4ce",
+    "training": "eca3ce37a8095f789c9f0ff5693260d0a2ea2a83be6b1a470b1b401a9d5d8106",
+    "inputs": "59b07adf3c6c58a7b6c24a53d953594c7d1829a5546194d08fa515b0de1955d5",
+    "deep_cache": "a127844991c0a1f4c46883e4f6ce3848a32328d2fa642b6644b823c98087393a"
+  },
+  "runner_source_sha256": "4ac75b339912c75408058f5c5827f1c2d86279231abd69fa2498c563bcc6cc32",
+  "predictions_sha256": "4f7bcaf85d1f0036b55520bc7594571fa4d0c3269d10e73f7fbe06e18523a603",
+  "run_name": "wearable-cnn-hr-v1-repro",
+  "metrics_source_sha256": "bea154f8f35489851231dc14f8fd912cd0dcbb5d7af53fc474c729eefd9940bf",
+  "public_export": "aggregate metrics; learned moments, weights and individual predictions remain local",
+  "reproducibility_checked_against": "wearable-cnn-hr-v1"
+}

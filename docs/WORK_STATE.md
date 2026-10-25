@@ -20,11 +20,11 @@
 - 声音RF测试Macro-F1=.595983、balanced accuracy=.678096、AP=.283317、目标窗Precision=.302372；多数类Macro-F1=.452814。
 - 可穿戴融合RF测试Macro-F1=.209617、balanced accuracy=.250946；多数类Macro-F1=.095604。仅HR/仅accel/融合均真实运行，负面结果完整公开。每集合仅1人，不能声称总体效果。
 - 两条主基线固定种子重训指标精确一致，自己生成的保存模型加载后预测与重训模型逐项一致；docs/results/baseline-reproducibility.json含可信本地模型SHA。
-- 原始/特征/权重/runs均忽略，公开docs/results及artifacts/experiments是实际聚合结果。README有复现命令，架构见ARCHITECTURE.md。尚无API/UI/个人导入删除/深度学习结果，软件LICENSE尚未确定。
+- 原始/特征/权重/runs均忽略，公开docs/results及artifacts/experiments是实际聚合结果。README有复现命令，架构见ARCHITECTURE.md。尚无API/UI/个人导入删除，软件LICENSE尚未确定；CNN结果见下。
 
 ## 当前Phase2代码检查点
 
-最新完整测试：163 passed、1 Windows真实symlink权限skip、54 subtests passed（4.67秒）。GPU smoke已真实完成，但正式CNN测试结果尚无；不要引用smoke分数当正式结果。
+最新完整测试：186 passed、1 Windows真实symlink权限skip、54 subtests passed（5.17秒），pip check通过。四个正式CNN与复跑、事件评价已完成；不要引用smoke分数当正式结果。
 
 - backend/src/nightlab/audio/events.py：固定5秒bin，取覆盖bin中心的窗口概率均值，阈值>=.5，合并相邻正bin。禁止缺覆盖bin。evaluate_events用一对一IoU>=.5，先最大匹配数量再最大IoU；返回TP/FP/FN、P/R/F1、FP/hour。边界截断参考参与检测，但不进入起止误差均值。38个手算/边界测试。
 - backend/src/nightlab/deep/inputs.py：真实STFT的32x100 log-mel图，不能用旧67维摘要伪造图；可穿戴5个1Hz观测值通道+2个观测mask，缺失保持NaN，标签/重复块沿用显式v2策略；MaskedChannelStandardizer只拟合训练观测，transform时缺失填0并保留mask。12测试通过。没有Torch依赖。
@@ -38,7 +38,17 @@
 - scripts/datasets/deep_cache.py已实际准备10人7190张32x100音频图和三人2900个5x30值+2x30掩码epoch；原始/经典缓存/来源代码/时间标签核对，数据在各cohort/deep-inputs-v1下，complete=true。音频全部窗保留，仅监督mask参与训练/窗口评分。
 - scripts/train/cnn.py仅接受完整核验缓存，训练入口再次验证当前raw和经典来源。子代理审查发现原先只验deep NPZ的缺口，主线程补齐并加回归测试。一个Sol-medium代理实现models/deep_cache并只读审查trainer；主线程负责环境、协议、训练实现与最终核验。
 - GPU smoke：audio-cnn-smoke-v1为5batch+val，14.48秒/141020672峰值张量字节；wearable-cnn-smoke-v1为4.08秒/70169600字节。均无test指标，保存/weights_only加载同batch概率完全一致；合成CPU测试还核验了同种子训练一致、缺失mask/消融、训练统计范围。
-- 计划正式audio、wearable融合/HR/accel四次顺序训练，总预算约15分钟以内。真实结果还没跑，不报告精度。当前代码检查点和推送状态见后续Git/PROJECT_LOG。
+- CNN实现检查点`0b8545bc8de9f4d89abd81103e7d4c28c2a387b0`已推送并API核对远端一致（当时163测试）。后续正式结果见下。
+
+## 2026-10-25：四个CNN正式结果与复跑
+
+- 原run：audio-cnn-pilot-v1、wearable-cnn-fusion-v1、wearable-cnn-hr-v1、wearable-cnn-accel-v1；每个另有`-repro`。参数/划分未改，验证选点，不按test调参。
+- 音频CNN最佳epoch1/实际6，val/test Macro-F1=.643396/.543759，test balanced=.561332、AP=.247170，弱于冻结RF .595983/.283317。
+- wearable融合最佳8/实际13，test Macro-F1=.248215、balanced=.272078；HR最佳1/实际6、test Macro-F1=.204793；accel最佳2/实际7、test=.206617。测试只有一人；融合N3零检出、N1预测461对参考97，不能声称可靠。
+- 四个模型全部实际重训：state_dict每张量、权重SHA、概率、训练loss/val历史/最终指标完全一致；每次保存/weights_only独立加载概率相同。公开凭据`docs/results/cnn-reproducibility-v1.json`，这是同种子计算复现而非独立种子统计。
+- 首次报告误把缓存version写到dataset_version，修正runner将V3/PhysioNet1.0.0与input_version分开，重新四次运行并证明数值不变；旧本地报告保留，未手改分数。公共四份CNN JSON来自修正后的-repro，去除学习均值/尺度；真实图cnn-pilot-v1已查看。
+- scripts/evaluate/cnn_events.py校验概率/权重摘要、当前来源与全heldout行，权重仅hash不反序列化，复用冻结协议。audio-cnn-events-v1：val TP/FP/FN22/40/82 F1=.265060 FP/h20；test5/70/77 F1=.063694 FP/h35，比RF召回更差。测试5个匹配MAE4.5/2.2秒不能代表漏检。
+- CNN测试FP38无交集、32低IoU，FN40无交集、37低IoU；详细间隔/概率仅本地，公开summary按validation-01等匿名编号。神经训练已结束，无后台训练被留下；以实际进程/handle检查为准。
 
 ## 连续事件评价已完成
 
@@ -58,14 +68,14 @@
   - torch2.14.1+cpu，CPython3.12 WindowsAMD64，123996008字节。
   - https://download-r2.pytorch.org/whl/cpu/torch-2.14.1%2Bcpu-cp312-cp312-win_amd64.whl
   - SHA256 c52adc3bd526ff7fc5bdcc58fc4a76e6214d09951b646ffe5256ebd7ba60cef1。
-- pip --dry-run获取该轮子在约33MB处读超时，进程已终止，安装未发生，DL锁尚未生成。不要假设pip临时文件可续传。后续可在低负载窗口用明确partial获取/校验，或先继续事件评价与软件工作。
+- 这是旧CPU轮子失败记录：pip --dry-run在约33MB处超时，进程终止、未安装。2026-10-25已有可用2.9.1 CUDA路径，不再重试2.14 CPU包；勿把旧pip临时文件当作活下载。
 - 旧下载已终止；以新进程/具体工具handle为准，不重启旧session。
 
 ## 接下来先做什么
 
-1. 在本次用户恢复的GPU窗口顺序跑4个正式CNN，先观察真实进度，分别报告全部消融和负面结果；测试不调参。当前smoke不是正式结果。
-2. 音频CNN全窗口预测复用冻结EVENT_PROTOCOL，追加事件/错误统计；不改旧RF报告。
-3. 完成抗噪SNR -5/0/5/10、传统滤波和噪声增强对照；无同意的室友片段不采集。先用可明确标注的合成干扰做可控实验，并明确不代表宿舍真实噪声。
+1. 设计并固定抗噪SNR -5/0/5/10协议、传统滤波和噪声增强对照。无同意的室友片段不采集；先明确标注合成干扰，不能冒充宿舍真实噪声。
+2. 噪声实验需考虑整录音一致噪声与相邻窗重合、准确SNR、零信号未定义、削波/增益控制。若为防削波整体衰减，增加同增益的干净对照，避免将音量变化误判为噪声/去噪效果；不要只在log-mel上加数值却声称原始波形已知SNR。训练增强限train，val只选checkpoint，test固定一次比较。
+3. 当前只有三人wearable试点，正式泛化证据很弱；后续可先核实更多官方SleepAccel文件预算，超过500MB/全量仍需新授权，不能因为GPU回归扩大下载许可。
 4. 后续仍须抗噪对照、神经基线/消融/失败分析、API/React/SQLite、CSV/JSON/个人音频导入删除、真实UI截图、完整许可/引用/讲解稿和交付验收。不要收缩goal成仅有CLI。
 
 ## 避免重读/重做
