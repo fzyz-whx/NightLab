@@ -22,6 +22,8 @@
 
 CNN同协议测试事件F1=0.0637、误报35次/小时、召回0.0610，整体弱于RF；可穿戴CNN融合仍未检出N3。四个CNN均完成同种子复跑，权重张量、概率、训练/验证历史及最终指标完全一致；这证明计算复现，不是独立种子或人群验证。心率/加速度/融合全部消融与失败案例见实验记录。
 
+抗噪的[固定协议](docs/NOISE_PROTOCOL.md)与一小时混合校准已通过：八条件实际SNR、无削波及连续样本核验完成，批量模型性能和增强训练仍待执行。白噪声/工频均明确为合成干扰，不代表真实宿舍声；“干净”技术分支只表示未额外注入干扰的原始观测。
+
 ![真实声音试点指标](artifacts/experiments/psg-rf-pilot-v1/baseline-comparison.png)
 
 ![真实CNN比较与失败矩阵](artifacts/experiments/cnn-pilot-v1/cnn-comparison.png)

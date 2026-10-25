@@ -1,0 +1,443 @@
+{
+  "mode": "noise calibration audit execute",
+  "record_id": "00000995-100507",
+  "split": "train",
+  "network": false,
+  "writes": true,
+  "source_rate_hz": 48000,
+  "duration_seconds": 3600.0,
+  "sample_count": 172800000,
+  "resident_reference_and_noise_bytes": 1382400000,
+  "required_free_ram_bytes": 4066754560,
+  "workers": 1,
+  "numeric_threads_max": 2,
+  "output": "data/processed/noise-audit-v1/00000995-100507",
+  "noise_kinds": [
+    "white",
+    "mains_hum"
+  ],
+  "snr_db": [
+    -5,
+    0,
+    5,
+    10
+  ],
+  "scope": "mixing/continuity calibration only; no model evaluation or noise performance claim",
+  "conditions": [
+    {
+      "kind": "white",
+      "seed": 94270170607886712,
+      "noise_sha256": "ee19cdf5e8e2c8aebc27121067d04ffd48793ce14d6382d4eb53ac494c812033",
+      "calibration": {
+        "target_snr_db": -5.0,
+        "noise_scale": 0.06394466857157076,
+        "common_gain": 1.0,
+        "clean_analysis_rms": 0.020370634081752294,
+        "noise_analysis_rms": 0.5665003817553982,
+        "achieved_analysis_snr_db": -5.000000000000002,
+        "peaks_before_gain": {
+          "matched_clean": 0.208587646484375,
+          "matched_filtered_clean": 0.10081261910783072,
+          "noisy": 0.40268773438589245,
+          "filtered_noisy": 0.16011839309641718
+        },
+        "peak_bound_after_gain": 0.40268773438589245,
+        "source_rate": 48000,
+        "sample_count": 172800000,
+        "recording_fingerprint": "0c350feb7a77d23fc8294bf68d775a3e77bd26a06557f8bdbaed1fc654eddb09"
+      },
+      "actual_rounded_analysis_snr_db": -5.000000000006918,
+      "actual_branch_peaks": {
+        "matched_clean": 0.208587646484375,
+        "matched_filtered_clean": 0.10081262141466141,
+        "noisy": 0.4026877284049988,
+        "filtered_noisy": 0.16011838614940643
+      },
+      "clipped_samples": {
+        "matched_clean": 0,
+        "matched_filtered_clean": 0,
+        "noisy": 0,
+        "filtered_noisy": 0
+      },
+      "verified_samples_per_branch": 172800000,
+      "elapsed_seconds": 18.996692600001552
+    },
+    {
+      "kind": "white",
+      "seed": 94270170607886712,
+      "noise_sha256": "ee19cdf5e8e2c8aebc27121067d04ffd48793ce14d6382d4eb53ac494c812033",
+      "calibration": {
+        "target_snr_db": 0.0,
+        "noise_scale": 0.035958729663394765,
+        "common_gain": 1.0,
+        "clean_analysis_rms": 0.020370634081752294,
+        "noise_analysis_rms": 0.5665003817553982,
+        "achieved_analysis_snr_db": 0.0,
+        "peaks_before_gain": {
+          "matched_clean": 0.208587646484375,
+          "matched_filtered_clean": 0.10081261910783072,
+          "noisy": 0.2645667853053387,
+          "filtered_noisy": 0.1243803518790716
+        },
+        "peak_bound_after_gain": 0.2645667853053387,
+        "source_rate": 48000,
+        "sample_count": 172800000,
+        "recording_fingerprint": "0c350feb7a77d23fc8294bf68d775a3e77bd26a06557f8bdbaed1fc654eddb09"
+      },
+      "actual_rounded_analysis_snr_db": -2.959617427603736e-11,
+      "actual_branch_peaks": {
+        "matched_clean": 0.208587646484375,
+        "matched_filtered_clean": 0.10081262141466141,
+        "noisy": 0.2645667791366577,
+        "filtered_noisy": 0.12438035011291504
+      },
+      "clipped_samples": {
+        "matched_clean": 0,
+        "matched_filtered_clean": 0,
+        "noisy": 0,
+        "filtered_noisy": 0
+      },
+      "verified_samples_per_branch": 172800000,
+      "elapsed_seconds": 17.138392900000326
+    },
+    {
+      "kind": "white",
+      "seed": 94270170607886712,
+      "noise_sha256": "ee19cdf5e8e2c8aebc27121067d04ffd48793ce14d6382d4eb53ac494c812033",
+      "calibration": {
+        "target_snr_db": 5.0,
+        "noise_scale": 0.020221079691074926,
+        "common_gain": 1.0,
+        "clean_analysis_rms": 0.020370634081752294,
+        "noise_analysis_rms": 0.5665003817553982,
+        "achieved_analysis_snr_db": 5.000000000000001,
+        "peaks_before_gain": {
+          "matched_clean": 0.208587646484375,
+          "matched_filtered_clean": 0.10081261910783072,
+          "noisy": 0.22808377121118242,
+          "filtered_noisy": 0.11215375448481325
+        },
+        "peak_bound_after_gain": 0.22808377121118242,
+        "source_rate": 48000,
+        "sample_count": 172800000,
+        "recording_fingerprint": "0c350feb7a77d23fc8294bf68d775a3e77bd26a06557f8bdbaed1fc654eddb09"
+      },
+      "actual_rounded_analysis_snr_db": 4.999999999999169,
+      "actual_branch_peaks": {
+        "matched_clean": 0.208587646484375,
+        "matched_filtered_clean": 0.10081262141466141,
+        "noisy": 0.2280837744474411,
+        "filtered_noisy": 0.11215375363826752
+      },
+      "clipped_samples": {
+        "matched_clean": 0,
+        "matched_filtered_clean": 0,
+        "noisy": 0,
+        "filtered_noisy": 0
+      },
+      "verified_samples_per_branch": 172800000,
+      "elapsed_seconds": 17.53576559999783
+    },
+    {
+      "kind": "white",
+      "seed": 94270170607886712,
+      "noise_sha256": "ee19cdf5e8e2c8aebc27121067d04ffd48793ce14d6382d4eb53ac494c812033",
+      "calibration": {
+        "target_snr_db": 10.0,
+        "noise_scale": 0.011371148750258728,
+        "common_gain": 1.0,
+        "clean_analysis_rms": 0.020370634081752294,
+        "noise_analysis_rms": 0.5665003817553982,
+        "achieved_analysis_snr_db": 10.0,
+        "peaks_before_gain": {
+          "matched_clean": 0.208587646484375,
+          "matched_filtered_clean": 0.10081261910783072,
+          "noisy": 0.219137078332506,
+          "filtered_noisy": 0.10710550274416109
+        },
+        "peak_bound_after_gain": 0.219137078332506,
+        "source_rate": 48000,
+        "sample_count": 172800000,
+        "recording_fingerprint": "0c350feb7a77d23fc8294bf68d775a3e77bd26a06557f8bdbaed1fc654eddb09"
+      },
+      "actual_rounded_analysis_snr_db": 9.99999999989832,
+      "actual_branch_peaks": {
+        "matched_clean": 0.208587646484375,
+        "matched_filtered_clean": 0.10081262141466141,
+        "noisy": 0.2191370725631714,
+        "filtered_noisy": 0.10710550099611282
+      },
+      "clipped_samples": {
+        "matched_clean": 0,
+        "matched_filtered_clean": 0,
+        "noisy": 0,
+        "filtered_noisy": 0
+      },
+      "verified_samples_per_branch": 172800000,
+      "elapsed_seconds": 17.0991589999976
+    },
+    {
+      "kind": "mains_hum",
+      "seed": 16907638653237921850,
+      "noise_sha256": "b050fd742e775e6b1d7e1a0ad9e42adb19ae5ff5b9d9bcc297c0e15a5d743f8b",
+      "calibration": {
+        "target_snr_db": -5.0,
+        "noise_scale": 0.04445174850793131,
+        "common_gain": 1.0,
+        "clean_analysis_rms": 0.020370634081752294,
+        "noise_analysis_rms": 0.8149213556932153,
+        "achieved_analysis_snr_db": -5.0,
+        "peaks_before_gain": {
+          "matched_clean": 0.208587646484375,
+          "matched_filtered_clean": 0.10081261910783072,
+          "noisy": 0.24786360864895146,
+          "filtered_noisy": 0.12117037867179431
+        },
+        "peak_bound_after_gain": 0.24786360864895146,
+        "source_rate": 48000,
+        "sample_count": 172800000,
+        "recording_fingerprint": "09bab59cd3dccb0c2cb3b90aff2703b2a27e6a9c65edc001b4a1aec4da6c02e6"
+      },
+      "actual_rounded_analysis_snr_db": -5.000000007471481,
+      "actual_branch_peaks": {
+        "matched_clean": 0.208587646484375,
+        "matched_filtered_clean": 0.10081262141466141,
+        "noisy": 0.24786360561847687,
+        "filtered_noisy": 0.12117037922143936
+      },
+      "clipped_samples": {
+        "matched_clean": 0,
+        "matched_filtered_clean": 0,
+        "noisy": 0,
+        "filtered_noisy": 0
+      },
+      "verified_samples_per_branch": 172800000,
+      "elapsed_seconds": 16.620636800002103
+    },
+    {
+      "kind": "mains_hum",
+      "seed": 16907638653237921850,
+      "noise_sha256": "b050fd742e775e6b1d7e1a0ad9e42adb19ae5ff5b9d9bcc297c0e15a5d743f8b",
+      "calibration": {
+        "target_snr_db": 0.0,
+        "noise_scale": 0.024997055162978215,
+        "common_gain": 1.0,
+        "clean_analysis_rms": 0.020370634081752294,
+        "noise_analysis_rms": 0.8149213556932153,
+        "achieved_analysis_snr_db": 0.0,
+        "peaks_before_gain": {
+          "matched_clean": 0.208587646484375,
+          "matched_filtered_clean": 0.10081261910783072,
+          "noisy": 0.21809252469797552,
+          "filtered_noisy": 0.11207437904366925
+        },
+        "peak_bound_after_gain": 0.21809252469797552,
+        "source_rate": 48000,
+        "sample_count": 172800000,
+        "recording_fingerprint": "09bab59cd3dccb0c2cb3b90aff2703b2a27e6a9c65edc001b4a1aec4da6c02e6"
+      },
+      "actual_rounded_analysis_snr_db": 1.4560168264225078e-09,
+      "actual_branch_peaks": {
+        "matched_clean": 0.208587646484375,
+        "matched_filtered_clean": 0.10081262141466141,
+        "noisy": 0.21809253096580505,
+        "filtered_noisy": 0.11207438260316849
+      },
+      "clipped_samples": {
+        "matched_clean": 0,
+        "matched_filtered_clean": 0,
+        "noisy": 0,
+        "filtered_noisy": 0
+      },
+      "verified_samples_per_branch": 172800000,
+      "elapsed_seconds": 18.761529300001712
+    },
+    {
+      "kind": "mains_hum",
+      "seed": 16907638653237921850,
+      "noise_sha256": "b050fd742e775e6b1d7e1a0ad9e42adb19ae5ff5b9d9bcc297c0e15a5d743f8b",
+      "calibration": {
+        "target_snr_db": 5.0,
+        "noise_scale": 0.014056877126205427,
+        "common_gain": 1.0,
+        "clean_analysis_rms": 0.020370634081752294,
+        "noise_analysis_rms": 0.8149213556932153,
+        "achieved_analysis_snr_db": 4.999999999999999,
+        "peaks_before_gain": {
+          "matched_clean": 0.208587646484375,
+          "matched_filtered_clean": 0.10081261910783072,
+          "noisy": 0.2045408671576583,
+          "filtered_noisy": 0.10695932255884368
+        },
+        "peak_bound_after_gain": 0.208587646484375,
+        "source_rate": 48000,
+        "sample_count": 172800000,
+        "recording_fingerprint": "09bab59cd3dccb0c2cb3b90aff2703b2a27e6a9c65edc001b4a1aec4da6c02e6"
+      },
+      "actual_rounded_analysis_snr_db": 4.999999998134795,
+      "actual_branch_peaks": {
+        "matched_clean": 0.208587646484375,
+        "matched_filtered_clean": 0.10081262141466141,
+        "noisy": 0.20454086363315582,
+        "filtered_noisy": 0.10695932060480118
+      },
+      "clipped_samples": {
+        "matched_clean": 0,
+        "matched_filtered_clean": 0,
+        "noisy": 0,
+        "filtered_noisy": 0
+      },
+      "verified_samples_per_branch": 172800000,
+      "elapsed_seconds": 17.7239883000002
+    },
+    {
+      "kind": "mains_hum",
+      "seed": 16907638653237921850,
+      "noise_sha256": "b050fd742e775e6b1d7e1a0ad9e42adb19ae5ff5b9d9bcc297c0e15a5d743f8b",
+      "calibration": {
+        "target_snr_db": 10.0,
+        "noise_scale": 0.007904762911188265,
+        "common_gain": 1.0,
+        "clean_analysis_rms": 0.020370634081752294,
+        "noise_analysis_rms": 0.8149213556932153,
+        "achieved_analysis_snr_db": 10.0,
+        "peaks_before_gain": {
+          "matched_clean": 0.208587646484375,
+          "matched_filtered_clean": 0.10081261910783072,
+          "noisy": 0.205897930468218,
+          "filtered_noisy": 0.10408291491674419
+        },
+        "peak_bound_after_gain": 0.208587646484375,
+        "source_rate": 48000,
+        "sample_count": 172800000,
+        "recording_fingerprint": "09bab59cd3dccb0c2cb3b90aff2703b2a27e6a9c65edc001b4a1aec4da6c02e6"
+      },
+      "actual_rounded_analysis_snr_db": 9.999999995621987,
+      "actual_branch_peaks": {
+        "matched_clean": 0.208587646484375,
+        "matched_filtered_clean": 0.10081262141466141,
+        "noisy": 0.20589792728424072,
+        "filtered_noisy": 0.10408291220664978
+      },
+      "clipped_samples": {
+        "matched_clean": 0,
+        "matched_filtered_clean": 0,
+        "noisy": 0,
+        "filtered_noisy": 0
+      },
+      "verified_samples_per_branch": 172800000,
+      "elapsed_seconds": 17.55085809999946
+    }
+  ],
+  "provenance": {
+    "record_id": "00000995-100507",
+    "subject_id": "00000995",
+    "dataset_version": "V3",
+    "feature_version": "psg-continuous-classic-v1",
+    "source_features_path": "data/processed/psg-audio/pilot-features-v1",
+    "source_metadata_sha256": "ba9802733068368e1d1aee640f8db6671c6b758e5c30e295786ece00e131ee11",
+    "source_artifact_sha256": {
+      "features.npz": "b50237e3a70e5ac3e2dc4ed5d6b34350c852dc8265a3f1e981a83c0b10d63b99",
+      "timeline.npz": "f0750693abac444617435d2e5ab679e51a5ac46e2e5b5b357e874b1ed6fb4b7c"
+    },
+    "feature_source_sha256": {
+      "nightlab.audio.edf": "ed62d85c54474b94747852c7b131b5e99f99e09805507f9c09ff0db3b92648ee",
+      "nightlab.audio.features": "57c299a9d02d712b90144a73063671f6e34f06ab63c54ae970f9373636a40fb9",
+      "nightlab.audio.reference": "07baf45dbd7a908a16231312108ce83230cfc9e487cb4841e54190ff165f445e",
+      "nightlab.audio.prepare": "b48033639b35787eac5a2f7e0c19227078b2474e30130c7f6112c5b96764eba2"
+    },
+    "dense_source_sha256": "38898bdf4d22bd742ae861a800501ceb29cdb06c997fafd77f3d10c1909296ba",
+    "input_sha256": {
+      "data/raw/psg-audio/v3/APNEA_EDF/00000995-100507/00000995-100507[002].edf": "17ca21d50a10f6cb3264b2d969a7c735bdd5b3feee6c7470392e767a9c8dc5ce",
+      "data/raw/psg-audio/v3/APNEA_RML/00000995-100507.rml": "717154eaada649c78d8b1c5b17d5a7f4c253bc487a61f0a9addb1b5bcad1e770"
+    },
+    "channel": "Mic",
+    "duration_seconds": 3600.0,
+    "offset_seconds": 3600.0,
+    "feature_names": [
+      "rms_adc_full_scale",
+      "zero_crossing_fraction",
+      "power_centroid_hz",
+      "log_mel_mean_00",
+      "log_mel_mean_01",
+      "log_mel_mean_02",
+      "log_mel_mean_03",
+      "log_mel_mean_04",
+      "log_mel_mean_05",
+      "log_mel_mean_06",
+      "log_mel_mean_07",
+      "log_mel_mean_08",
+      "log_mel_mean_09",
+      "log_mel_mean_10",
+      "log_mel_mean_11",
+      "log_mel_mean_12",
+      "log_mel_mean_13",
+      "log_mel_mean_14",
+      "log_mel_mean_15",
+      "log_mel_mean_16",
+      "log_mel_mean_17",
+      "log_mel_mean_18",
+      "log_mel_mean_19",
+      "log_mel_mean_20",
+      "log_mel_mean_21",
+      "log_mel_mean_22",
+      "log_mel_mean_23",
+      "log_mel_mean_24",
+      "log_mel_mean_25",
+      "log_mel_mean_26",
+      "log_mel_mean_27",
+      "log_mel_mean_28",
+      "log_mel_mean_29",
+      "log_mel_mean_30",
+      "log_mel_mean_31",
+      "log_mel_std_00",
+      "log_mel_std_01",
+      "log_mel_std_02",
+      "log_mel_std_03",
+      "log_mel_std_04",
+      "log_mel_std_05",
+      "log_mel_std_06",
+      "log_mel_std_07",
+      "log_mel_std_08",
+      "log_mel_std_09",
+      "log_mel_std_10",
+      "log_mel_std_11",
+      "log_mel_std_12",
+      "log_mel_std_13",
+      "log_mel_std_14",
+      "log_mel_std_15",
+      "log_mel_std_16",
+      "log_mel_std_17",
+      "log_mel_std_18",
+      "log_mel_std_19",
+      "log_mel_std_20",
+      "log_mel_std_21",
+      "log_mel_std_22",
+      "log_mel_std_23",
+      "log_mel_std_24",
+      "log_mel_std_25",
+      "log_mel_std_26",
+      "log_mel_std_27",
+      "log_mel_std_28",
+      "log_mel_std_29",
+      "log_mel_std_30",
+      "log_mel_std_31"
+    ]
+  },
+  "reference_samples_sha256": "6a75ca98d91222cbeef046d6688ba91defb0b7ccfe4e6ba8ac60c684f6335dee",
+  "original_feature_spotcheck_exact": true,
+  "protocol_sha256": "9007c85e8c135bf38616973ee249d27e196cc5e7d8bcc102b94e1f2d95ce6f42",
+  "noise_source_sha256": "026b1425fe9c768a6a17d6cb308f2c1f1807fd3b2ac851003f3f5a2915fa10e2",
+  "audit_source_sha256": "647d146d6ff93ec6dada188eb3b188fea93fbe0bc8d35baec22ee4b621a1c433",
+  "available_ram_before_bytes": 6316896256,
+  "peak_working_set_bytes": 1521659904,
+  "elapsed_seconds": 165.98786699999982,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "source_report_sha256": "c764039810040610ab347cc287f409369dbbb6dd43d56c65f74358b07529dc12",
+  "reference_role": "observed PSG microphone recording with preexisting noise, not a noise-free physiological target",
+  "performance_evaluated": false
+}

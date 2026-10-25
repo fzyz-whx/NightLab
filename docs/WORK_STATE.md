@@ -74,10 +74,16 @@
 
 ## 接下来先做什么
 
-1. 设计并固定抗噪SNR -5/0/5/10协议、传统滤波和噪声增强对照。无同意的室友片段不采集；先明确标注合成干扰，不能冒充宿舍真实噪声。
+1. NOISE_PROTOCOL.md已固定。noise.py和noise_windows.py实现全录音合成噪声/16k实际SNR/共增益四分支/跨块因果滤波与重叠窗口。noise_audit已实际完成训练995第二小时8条件：SNR最大误差7.48e-9dB、全分支无削波、gain均1、最高峰.4027、旧原特征exact，165.99秒/峰RSS1521659904字节。公开docs/results/noise-calibration-v1.json；无模型性能分数。完整295 passed/1 symlink skip/54 subtests。
 2. 噪声实验需考虑整录音一致噪声与相邻窗重合、准确SNR、零信号未定义、削波/增益控制。若为防削波整体衰减，增加同增益的干净对照，避免将音量变化误判为噪声/去噪效果；不要只在log-mel上加数值却声称原始波形已知SNR。训练增强限train，val只选checkpoint，test固定一次比较。
 3. 当前只有三人wearable试点，正式泛化证据很弱；后续可先核实更多官方SleepAccel文件预算，超过500MB/全量仍需新授权，不能因为GPU回归扩大下载许可。
 4. 后续仍须抗噪对照、神经基线/消融/失败分析、API/React/SQLite、CSV/JSON/个人音频导入删除、真实UI截图、完整许可/引用/讲解稿和交付验收。不要收缩goal成仅有CLI。
+
+## 当前抗噪批次开发
+
+- 下一步先pilot（训练995、white/-5）真实全719窗特征以估算耗时，再固定test两人16个record-condition批次，四分支RF/CNN对照；之后再训练增强CNN。未运行者不报告性能。
+- Sol-medium子代理noise_primitives正在仅新增audio/representations.py、scripts/datasets/noise_features.py及两个测试文件，实现一次FFT同时生成旧67特征和32x100真实图、cache按相同gain复用参考分支。主线程负责最终阅读、测试、真实执行和模型评价。不要把正在编辑的新文件当成通过验收。
+- 活跃真实noise_audit工具session29909已确认exit0；不要重启它。当前无真实训练/下载/校准进程。仍检查当下实际状态后再启动批次。
 
 ## 避免重读/重做
 

@@ -145,3 +145,11 @@ CNN连续事件评价与RF沿用相同协议。测试TP/FP/FN=5/70/77，F1=.0636
 最终完整测试186通过、1 Windows实际symlink权限skip、54 subtests通过（5.17秒），pip check通过。torch张量峰值音频141MB/wearable70MB，不含驱动和显示；耗时字段不含准备/来源核验。原始数据没有新增下载，未操作其他项目/系统电源。Phase2还缺抗噪实验，整体goal未完成，应用当前goal已核实active。
 
 结果提交`8e30cc10e3c39b41b0e096940b45d16cc49dcaea`（feat(deep): publish reproducible CNN pilots and event comparisons）已推送，GitHub API main完整hash相同。暂存21文件均<5MB、无raw/processed/models/runs/venv，无凭据模式，SVG XML及diff检查通过。最终进程检查无NightLab训练/下载进程，GPU采样0%/1290MiB为整机当时状态，不据此推断其他项目长期空闲。文档追记记录本次已验证结果。
+
+## 2026-10-25：合成干扰协议与一小时校准
+
+从7dd17ee干净工作树继续，GPU窗口仍有效但本步仅CPU两线程/单worker。固定NOISE_PROTOCOL，原始Mic定位为含天然噪声的观测参考，不将其称为无噪生理真值；没有室友资料或新增下载。Sol-medium代理实现noise.py与人工测试，主线程阅读、增加共享样本窗口迭代/审计CLI及资源检查。
+
+真实训练995第二小时172800000个48k样本；官方文件/旧特征/代码/时钟核对，完整读取重算旧首特征完全相同。白噪声/工频各四SNR共8条件，整段16k频带校准，再由最终float32输入残差独立测量，最大误差7.48e-9dB；四分支全长度无削波，gain全1，最高峰.4027。因果SOS状态跨块保留、相邻窗共享实际样本，不逐窗抽噪声/缩放。强幅度人工测试覆盖gain<1。
+
+实际165.99秒，峰进程工作集1521659904字节；可用RAM检查与2GiB系统预留生效，不保存派生整夜WAV。noise_audit session29909已确认exit0。全套295通过、1 Windows真实symlink权限skip、54 subtests通过（8.53秒）；公开校准JSON仅数值/来源摘要，无原录音或时间轴。该阶段只通过进入门槛，不声称性能改善；下一步批量特征与RF/CNN/增强模型对照继续。
