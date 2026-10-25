@@ -197,3 +197,5 @@ fetch helper已实测合法16MiB响应与截断prefix保留；遇真实NSRR重�
 旧71843/PID4052有限重试至255266739字节，官方HTTP502导致终止（安全拒绝错误响应未append）。增加仅502/503/504有界重试/Retry-After，403不绕过；定向33通过/1symlink skip。新supervisor87301/PID7816以fresh解析170.223.88.242接续，仅6次helper/30秒backoff，文件大小到齐与93成员CRC/SHA仍分开。当前没有ZIP完成或数据入库声明，不操作任何其他项目服务/电源/网络设置。
 
 当前阶段提交前完整415通过、3 Windows真实symlink权限skip、54subtests（17.40秒），依赖检查通过。三项skip分别为需OS权限的真实目录链接创建，模拟解析/ZIP恶意链接等路径测试实际执行。所有新增研究图均查看，摘要与SRC/依赖/数据/权重SHA绑定；公开导出无原概率/间隔/学习均值尺度。归档最近实查333012915字节/PID7816仍活，不能将57.73%当数据验收。算法试点按PHASE2_ACCEPTANCE进入软件阶段；API_UI_PLAN是设计，尚无产品UI截图/功能声明。
+
+实质性提交`cdb87487be76f47d975a5afbaed93c2cdd869f3f`已推送，GitHub API返回main同一完整hash。29个阶段文件通过路径/单文件<5MB/SVG XML/空白/凭据扫描；数据/权重/progress/raw headers全在忽略目录。此阶段源树干净，归档后台继续：最新340613527/576850847，download_complete=false/member_crc_sha_verified=false。后续只做验证追记；整体goal保持进行中。

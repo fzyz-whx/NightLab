@@ -10,6 +10,7 @@
 
 ## 已完成并提交
 
+- 最新实质性提交`cdb87487be76f47d975a5afbaed93c2cdd869f3f`：噪声增强/等样本量控制实际训练复跑、四模型全条件评价/图表、Phase2试点验收、下载恢复工具与API/UI设计。已推送，GitHub API完整hash相同；当时工作树干净。API/UI仍只有设计，不要据提交名猜已实现。
 - 最近已推送`9439bb21be934b4fe4e456a6ecd18f99b98a3268`：冻结噪声完整比较/图表、31人批准计划、离线ZIP验收代码。GitHub API完整hash相同。后续增强和下载恢复工作尚待当前阶段提交。
 - 最新实质性里程碑`8e30cc10e3c39b41b0e096940b45d16cc49dcaea`：四CNN正式结果/精确复跑、输入消融、CNN连续事件和真实图表。已推送，GitHub API main完整hash相同；检查无NightLab训练/下载进程，工作树干净。后续文档追记见Git。
 - 最新实质性里程碑`c0e431045b9dc3e89417c8986070201abece87db`：真实连续声音事件评价、失败统计及图表。已推送，GitHub API远端main完整hash一致，工作树干净；随后文档核验追记见Git历史。
@@ -104,7 +105,7 @@
 - 只有无curl owner/handle终止、bytes完整后，才执行scripts/datasets/sleepaccel_archive --execute。模块默认dry只元数据；执行前写complete=false，预审ZIP路径/映射/size，93成员逐CRC/官方SHA，新84逐文件独占原子发布、现9 SHA复用不改写；只取HR/motion/labels，extras不提取；archive SHA明确local非official。完整receipt在data/raw/sleepaccel/archives/intake-receipt.json。
 - intake代理曾额度受限，用户通知重置后查询ordinaryUsageAllowed为true，恢复完成2文件且跑25 passed/1 symlink skip；主线程复核及完整344测试通过。无真实提取，模型/清洗/cohort31manifest尚未开始。
 - fetch_sleepaccel_archive.py真实运行后主线程补了已观察到的重复非关键HSTS header兼容（关键Range/ETag重复仍拒绝），空TLS35等3次有限retry、TLS1.2/http1.1、每请求pin和noproxy（不改全局）、HTTP502/503/504有界重试并尊重Retry-After；401/403不绕过。actualRange/header+size检查后才append，网络截断合法prefix保留；local增量SHA/progress、锁、磁盘budget分开于93成员验收。
-- **当前唯一网络owner：exec session87301，Python PID7816，命令行含 --nightlab-sleepaccel-archive-supervisor，6次有限helper重试/30秒backoff；启动时fresh DOH=170.223.88.242。先poll此handle或实际PID/标记，不因等待超时另开下载。**起点255266739，最近实查已333012915字节（57.73%）且PID/命令标记仍在；仍未完整，fetch-progress.json.download_complete/member_crc_sha_verified分开。只有supervisor退出且字节576850847完整才可intake。
+- **当前唯一网络owner：exec session87301，Python PID7816，命令行含 --nightlab-sleepaccel-archive-supervisor，6次有限helper重试/30秒backoff；启动时fresh DOH=170.223.88.242。先poll此handle或实际PID/标记，不因等待超时另开下载。**起点255266739，最近实查已340613527字节（约59%），此前PID/命令标记确认仍在；仍未完整，fetch-progress.json.download_complete/member_crc_sha_verified分开。只有supervisor退出且字节576850847完整才可intake。
 - 元数据route代理4次限定1MiB probe总2227246字节，无其他下载job；NSRR direct TLS1.2有效body约290KB/s但TTFB19秒且长响应不稳定，现本机proxy总体无优势；未改Clash节点/TUN/DNS/其他项目。raw headers含负载均衡cookie，不抄公开报告。
 
 ## 避免重读/重做
