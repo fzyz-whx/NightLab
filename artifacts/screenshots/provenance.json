@@ -28,6 +28,16 @@
       "path": "artifacts/screenshots/night-records-demo.jpg",
       "bytes": 160031,
       "sha256": "bf2686e6c1efc01f754e92b43851ad7aa0b22b0cde278f5cde2084516b07da5d"
+    },
+    {
+      "path": "artifacts/screenshots/record-load-error-demo.jpg",
+      "bytes": 46520,
+      "sha256": "22d9f76b713cef7be746cfbdbc3ea0835d848bca96177f530222e0702496030b"
+    },
+    {
+      "path": "artifacts/screenshots/record-load-recovered-demo.jpg",
+      "bytes": 61861,
+      "sha256": "42b26c9df069992406bcd72b01259e735bdef4840a02649b4da41b17a0a1b847"
     }
   ]
 }

@@ -79,3 +79,5 @@ PowerShell Parser 检查两个新脚本无语法错误。启动脚本实际面�
 主线程随后实际通过start_app.ps1启动全新CPU venv（无Torch），读取同源生产前端，真实自有RF完成90秒Demo的17窗口分析，CNN明确因缺可选依赖不可用；确认删除后记录归零。收据见docs/results/app-fresh-cpu-start-v1.json。验收服务随后停止。
 
 另一台机器的真实归档路径/耗时会改变intake receipt摘要。不要复制本机私有收据：仅在没有扩展缓存或models/runs的新克隆中，先实际验收当地归档，再用上述默认只读绑定检查及显式执行，唯一更新本地manifest的receipt摘要。官方93文件/划分/策略不变；本机既有实验拒绝换绑，详细边界见[PORTABLE_REPRODUCTION.md](PORTABLE_REPRODUCTION.md)。此流程由93个微型合成文件的真实intake→bind→冻结auditor测试覆盖，未冒充第二台机器重训。
+
+非敏感变量模板见仓库根目录`.env.example`。Python服务读取NIGHTLAB_DATA_DIR，Vite开发代理读取NIGHTLAB_API_URL；没有dotenv自动加载，可在PowerShell当前进程显式设置。示例不含凭据，也不改变默认运行配置。

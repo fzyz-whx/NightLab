@@ -28,10 +28,28 @@ export function RecordViewer({ id, review, onDeleted }: {
     const clipEnd = useRef<number | null>(null);
     const playSelection = async () => { if (!audio.current) return; audio.current.currentTime = range[0]; clipEnd.current = range[1]; try { await audio.current.play(); } catch { clipEnd.current = null; setError("播放未能开始，请检查音频文件或浏览器权限。"); } };
     const load = useCallback(async () => { const value = await api<RecordDetail>(`/records/${id}`); setDetail(value); setJob(value.latest_job); return value; }, [id]);
-    useEffect(() => { const control = new AbortController(); setError(''); Promise.all([api<RecordDetail>(`/records/${id}`, { signal: control.signal }), api<Waveform>(`/records/${id}/waveform?points=1600`, { signal: control.signal }), api<{
-            models: Model[];
-        }>('/models', { signal: control.signal })]).then(([d, w, m]) => { setDetail(d); setJob(d.latest_job); setWave(w); setModels(m.models); setModel(m.models.find(x => x.available)?.id || ''); setRange([0, Math.min(10, d.record.audio.duration_seconds)]); }).catch(e => { if (e.name !== 'AbortError')
-        setError(e.message); }); return () => control.abort(); }, [id]);
+    const loadInitial = useCallback(async (signal?: AbortSignal) => {
+        const [d, w, m] = await Promise.all([
+            api<RecordDetail>(`/records/${id}`, { signal }),
+            api<Waveform>(`/records/${id}/waveform?points=1600`, { signal }),
+            api<{ models: Model[] }>('/models', { signal }),
+        ]);
+        if (signal?.aborted) return;
+        setDetail(d);
+        setJob(d.latest_job);
+        setWave(w);
+        setModels(m.models);
+        setModel(m.models.find(x => x.available)?.id || '');
+        setRange([0, Math.min(10, d.record.audio.duration_seconds)]);
+    }, [id]);
+    useEffect(() => {
+        const control = new AbortController();
+        setError('');
+        void loadInitial(control.signal).catch(e => {
+            if (e.name !== 'AbortError') setError(e.message);
+        });
+        return () => control.abort();
+    }, [loadInitial]);
     useEffect(() => { if (!job || !activeJob(job))
         return; let stopped = false; let timer: ReturnType<typeof setTimeout>; const poll = async () => { try {
         const value = await api<Job>(`/jobs/${job.id}`);
@@ -62,7 +80,7 @@ export function RecordViewer({ id, review, onDeleted }: {
     const seek = (t: number) => { clipEnd.current = null; setCurrent(t); if (audio.current)
         audio.current.currentTime = t; const duration = detail?.record.audio.duration_seconds || 10; setRange([Math.min(t, Math.max(0, duration - 1)), Math.min(duration, t + 10)]); setSpectrumError(false); };
     if (!detail)
-        return <section className="card">{error ? <div className="notice error" role="alert">{error}<button onClick={() => void perform(async () => { await load(); })}>重试</button></div> : <p role="status">正在加载记录与波形…</p>}</section>;
+        return <section className="card">{error ? <div className="notice error" role="alert">{error}<button disabled={busy} onClick={() => void perform(() => loadInitial())}>重试</button></div> : <p role="status">正在加载记录与波形…</p>}</section>;
     const r = detail.record;
     const duration = r.audio.duration_seconds;
     const selectedModel = models.find(m => m.id === model);

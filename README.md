@@ -2,6 +2,8 @@
 
 一个本地优先的夜间声音与可穿戴睡眠时序研究工作台：导入、复核和比较真实 AI 实验。研究用途，不用于医学诊断。
 
+研究问题：背景干扰下，滤波或噪声增强能否改善 PSG 参考呼吸事件定位？心率与加速度能否预测未见受试者的公开睡眠阶段？
+
 当前已实现 React + FastAPI + SQLite 本地应用、声音 RF/CNN、SleepAccel 31 人 RF/CNN 消融，以及完整合成干扰/滤波/增强对照。主声音候选出现时间对齐冲突后冻结，声音路线使用经过校验的 PSG-Audio。负面结果与限制保留。
 
 ![实际工作台截图：本地生成的合成 Demo，非真人录音](artifacts/screenshots/night-records-demo.jpg)
@@ -106,3 +108,5 @@ npm --prefix frontend run build
 自写软件采用 [MIT](LICENSE)，第三方依赖和数据各自许可；公开仓库不包含原始数据/权重。引用软件用 [CITATION.cff](CITATION.cff)，数据仍需单独署名。提交改进时请附实际复现步骤、来源/许可和必要检查，不提交个人或临床原始文件。
 
 [原始任务书](docs/PROJECT_SPEC.md) · [决策记录](docs/DECISIONS.md) · [架构](docs/ARCHITECTURE.md) · [真实开发历史](docs/PROJECT_LOG.md) · [中文答辩稿](docs/DEFENSE_ZH.md) · [当前接续入口](docs/WORK_STATE.md)
+
+可用的非敏感环境变量示例见 [.env.example](.env.example)；应用读取当前进程环境，不会自动加载该示例文件。

@@ -13,11 +13,11 @@ python -B -m scripts.datasets sample --dataset sleepaccel --file data/raw/sleepa
 
 ## sample
 
-sample默认dry-run。确认输出的精确字节数与来源后，同一命令加 `--execute` 才执行。必须明确选择一个manifest路径；许可和来源已审计、HTTPS原始地址、精确大小1至500,000,000字节、官方SHA256或MD5和来源缺一则拒绝。当前只开放实际核查过的SleepAccel三文件、主声音01 JSON/阶段CSV/手机WAV和PSG-Audio单个RML；手机WAV因对齐冲突暂不建议获取。
+sample默认dry-run。确认输出的精确字节数与来源后，同一命令加 `--execute` 才执行。必须明确选择一个manifest路径；许可和来源已审计、HTTPS原始地址、精确大小1至500,000,000字节、官方SHA256或MD5和来源缺一则拒绝。入口仅接受manifest中逐项核实来源/许可/大小/摘要的文件；手机WAV因对齐冲突暂不建议获取。
 
 网络执行按块写入 `.part`，检查磁盘空间、Content-Length、摘要和大小；续传必须返回准确的206 Content-Range。服务器忽略Range返回200会拒绝追加。Ctrl+C、超时、校验失败保留partial；完整且官方摘要匹配后才发布正式文件名。已有完整文件校验通过时直接复用，已有不匹配正式文件拒绝覆盖。单次网络操作有socket30秒、总计约300秒上限，无无限重试；网络慢时再次执行同一命令继续。`.part`的正式路径与续传状态只在data/raw内，不能将其当成已验收数据。
 
-手动curl留下的未完成正式文件不能直接通过sample，须先确认没有进程写入，再在data/raw内改名为.part（不能覆盖已有partial）。批量全量下载和prepare尚未实现；全量或大于500MB的计划必须另行确认。
+手动curl留下的未完成正式文件不能直接通过sample，须先确认没有进程写入，再在data/raw内改名为.part（不能覆盖已有partial）。当前prepare、prepare_cohort与固定清单fetch_manifest已实现；全量或大于500MB的新清单仍必须另行确认。
 
 ## verify与结构审计
 
@@ -41,7 +41,7 @@ ScienceDB检查先匹配JSON官方MD5，再读取从官方206 Range得到的WAV�
 
 ## PSG-Audio 检查与明确授权的大文件获取
 
-`download --dataset <id> --file <manifest-path>`默认仍是dry-run。大文件执行需先有用户针对该文件的授权，再加 `--execute --confirm-large-download`；该参数不能代替授权。当前唯一获准的EDF是00000995-100507[002].edf（710738976字节），未批准其余分片或受试者。每次只获取一个清单文件，没有批量全库下载。
+`download --dataset <id> --file <manifest-path>`默认仍是dry-run。大文件执行需先有用户针对该文件的授权，再加 `--execute --confirm-large-download`；该参数不能代替授权。最初单分片授权后，用户另行批准了固定十人各第二小时计划（20文件约7.11GB）；具体清单见psg-audio-pilot-10 manifest，不扩大到其他分片或人。每次只获取一个清单文件，没有批量全库下载。
 
 `python -B -m scripts.datasets.inspect_psg`先核验完整EDF/RML，再检查头/时钟/事件区间，并实际读取短音频记录。只从UserStaging取得人工阶段来源，MachineStaging独立报告，不把阶段变化条数当作epoch数。输出避免身份字段和绝对日期。见docs/PSG_AUDIT.md。
 
@@ -49,3 +49,7 @@ ScienceDB检查先匹配JSON官方MD5，再读取从官方206 Range得到的WAV�
 ## Phase1准备与训练环境
 
 标准库审计/获取保持独立；prepare、prepare_cohort、模型训练和完整测试需先执行scripts/setup_cpu.ps1并使用.venv的Python。当前NPZ无pickle，产物/输入/特征源代码摘要均记录。固定清单下载支持明确执行和取消，失败文件保留partial；同一清单重跑会复用已经校验的文件。完整复现命令与真实试点结果见README和docs/EXPERIMENTS.md。
+
+## 当前扩展入口
+
+SleepAccel31归档获取/验收使用fetch_sleepaccel_archive与sleepaccel_archive；新机器先实际intake，再在无既有产物的新克隆中用bind_sleepaccel31_receipt绑定当地收据，然后prepare_sleepaccel31。详见docs/PORTABLE_REPRODUCTION.md和主README；不复制私人原始数据或收据，不在应用启动时获取。

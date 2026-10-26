@@ -56,3 +56,9 @@ API定向7项通过，包含坏导入无孤立文件/索引、Range206、局部�
 额外在隔离git checkout-index目录、全新无Torch CPU环境运行完整可用套件：405 passed、13 skipped、117 subtests passed（18.74秒）。跳过涉及可选Torch/本地自有模型与Windows符号链接权限，未下载数据或权重。先发现两个单元测试偷用本机intake receipt，已改为合成元信息夹具；正式数据校验没有放松。新增.gitattributes后151个源码/清单/报告/协议/锁/SVG在隔离检出与当前工作树逐字节相同。
 
 最终补入可迁移绑定工具后的完整复查：本机504 passed、4 skipped、117 subtests passed（36.83秒）；无数据/无Torch隔离公共检出417 passed、13 skipped、117 subtests passed。新绑定器12项合成测试通过；主线程另在本机默认只读复核93个真实raw，already bound/no change，未修改既有manifest或实验。
+
+## 继续核对：首次加载失败恢复
+
+主线程发现首次Promise.all加载失败后，原重试只重新获取record，遗漏waveform/models。现已将首次加载和重试复用同一完整请求，并在重试期间禁用重复提交。实际隐藏浏览器仅对本机/api/models临时阻断，观察错误与重试；解除阻断后重试恢复1602条波形line（1600包络加基准/游标）、两个可信模型和分析按钮，再实际完成17/17个RF CPU窗口。没有改系统网络，阻断已解除、页面已关闭。收据app-retry-acceptance-v1.json及两张实际合成截图入库。
+
+另按规格第16节补齐缺失的.env.example（只有非秘密默认值/说明，不自动加载），在窄屏仍存在的页脚补充研究/非诊断说明。前端检查随本次改动重新执行；算法与数据未改，不重复训练。

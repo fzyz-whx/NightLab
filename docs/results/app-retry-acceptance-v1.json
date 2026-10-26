@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-26",
+  "synthetic_demo_only": true,
+  "fault": "CDP scoped temporary block of localhost /api/models",
+  "retry_restores_record_waveform_and_model_catalog": true,
+  "waveform_line_elements": 1602,
+  "registered_audio_model_options": 2,
+  "analysis_button_enabled_after_retry": true,
+  "real_cpu_rf_completed_windows": 17,
+  "blocked_urls_cleared": true,
+  "browser_closed_after_verification": true
+}
