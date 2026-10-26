@@ -47,3 +47,21 @@
 后续完整规格复核修复RecordViewer首次失败重试漏waveform/models，实际局部阻断→重试→1600波形点/两模型→真实17窗RF通过。新增.env.example、REQUIREMENTS_AUDIT.md与错误/恢复真实截图；前端检查再次通过。专属PID29324验收服务/浏览器已停止，无训练或下载。该修复的提交hash见git log，已通过的研究结果不重跑。
 
 错误恢复及规格补齐的实质性提交`335fdb45c039babb51499c42ce4d83b95c8a6120`已推送，GitHub API main完整hash相同；当时工作树干净，8766/5178无验收服务监听。此次前端检查和实际浏览器故障恢复通过；后端/模型/data来源未改，完整套件504/417记录仍对应上一阶段。唯一未完成验收仍是缺少本人实际录音/设备导出，不擅自扩大采集或追加可选功能。
+
+## 最新用户范围更新（2026-10-26，覆盖此前等待手表的描述）
+
+个人数据仅本人声音，个人手表目前拿不到，舍友不纳入。不能继续以个人手表数据作为完成门槛。公开PSG十人/SleepAccel31人研究与冻结结果保留，个人声音单独做采集/探索。
+
+用户提出安卓采集软件需求：此前未实现，现在列为下一交付。环境只读核查尚未找到可用JDK/Android SDK/Gradle/adb；本轮未下载安装。采集规格、格式预算和真机验收层次见ANDROID_RECORDER_PLAN.md。写代码无需先连手机，APK安装/真实录音验收阶段再配合，ADB只在用户主动授权调试时使用。
+
+整体goal的原范围仍保留；App当前blocked记录来自旧材料阻塞，不代表新的Android实现已完成或已在后台运行。下一次实施先据当前环境准备源码/构建，保持CPU<=2、无GPU需求、不改全局环境。
+
+## 最新实施结果：Android已构建，等待真机（2026-10-26）
+
+覆盖上方“无Android工程/工具”等旧检查描述：工具实际在USERPROFILE/.zcode/workspace/default/_toolchain，已复用；Android Kotlin源码、debug APK已完成并真实签名核验。个人只本人声音、不等手表、不采舍友，公开研究保持冻结。
+
+APK private/android-delivery/NightLabRecorder-0.1.0-debug.apk，927378B，SHA 9b7df3cc30e46321c6c09ce2f2b8a513f4b4840c0712dd656c43073f0e0f57c6。签名key必须保留private/android-signing/debug.keystore用于更新，不清为普通构建缓存，不上传。构建命令scripts/build_android.ps1，国内镜像优先，严格验证；offline clean32秒通过。24 JVM用例22pass/2OS链接权限skip；lint0error/3非阻断提示。
+
+新模块RecordingService/MainActivity/SessionStore/PcmWavWriter/OperationGate，恢复/启动/导出/删除预约已防竞态；合法.part及已改名但未登记的连续孤立WAV可恢复为interrupted，不伪装连续完整。Android无INTERNET；仅本机保存后由用户导出ZIP。Java构建进程已退出，不留GPU/服务任务。
+
+scripts.verify_android_interop已实际通过Kotlin合成2x12秒包→桌面HTTP/SQLite/2窗自有RF→确认删除，非真实手机音频。详情android/README.md和docs/results/android-build-v1.json。下一步只需手机安装/权限/30–60秒回听与导出，再锁屏20–30分钟，最后本人整夜。不得把JVM/编译/合成通过当真机验收。

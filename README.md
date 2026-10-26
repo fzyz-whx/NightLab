@@ -103,10 +103,19 @@ npm --prefix frontend run lint
 npm --prefix frontend run build
 ```
 
-个人原始录音、手表、数据库、模型、逐窗预测和私有日志都被忽略。必须取得所有可能被录到者同意；个人数据没有 PSG 真值时只用于探索，不计算个人准确率或健康分数。当前没有真人手机/手表采集验证、真实宿舍噪声、跨设备泛化或临床验证；Android 录音与长上下文模型为可选扩展。删除的范围与文件系统限制见 [隐私说明](docs/PRIVACY.md)。
+个人原始录音、手表、数据库、模型、逐窗预测和私有日志都被忽略。必须取得所有可能被录到者同意；个人数据没有 PSG 真值时只用于探索，不计算个人准确率或健康分数。当前没有真人手机/手表采集验证、真实宿舍噪声、跨设备泛化或临床验证；按用户后续要求，Android本人声音采集端已实现并构建debug APK，真机短录/锁屏待验；长上下文模型仍为可选。删除的范围与文件系统限制见 [隐私说明](docs/PRIVACY.md)。
 
 自写软件采用 [MIT](LICENSE)，第三方依赖和数据各自许可；公开仓库不包含原始数据/权重。引用软件用 [CITATION.cff](CITATION.cff)，数据仍需单独署名。提交改进时请附实际复现步骤、来源/许可和必要检查，不提交个人或临床原始文件。
 
 [原始任务书](docs/PROJECT_SPEC.md) · [决策记录](docs/DECISIONS.md) · [架构](docs/ARCHITECTURE.md) · [真实开发历史](docs/PROJECT_LOG.md) · [中文答辩稿](docs/DEFENSE_ZH.md) · [当前接续入口](docs/WORK_STATE.md)
 
 可用的非敏感环境变量示例见 [.env.example](.env.example)；应用读取当前进程环境，不会自动加载该示例文件。
+
+
+## Android 本人声音采集
+
+当前个人路线只有本人声音，不等待手表，不纳入舍友。Android首版支持显式开始/停止、前台录音通知、每小时WAV分片、采集时间/设备/哈希JSON、本地ZIP导出和确认删除；没有联网权限。APK最低Android8.0，文件在本机`private/android-delivery/NightLabRecorder-0.1.0-debug.apk`，不随Git发布。
+
+[安装、构建与试录步骤](android/README.md) · [构建/签名/JVM核验](docs/results/android-build-v1.json) · [Kotlin导出到桌面的实际合成验证](docs/results/android-desktop-interop-v1.json)
+
+已完成严格依赖校验和离线clean构建，24个JVM用例22通过/2权限skip；它们不是手机录音测试。没有真实手机/锁屏/整夜验收，也没有用合成PCM冒充本人录音。先短录和回听，再锁屏20–30分钟，之后再采集本人整夜。公开31人可穿戴研究保持独立，个人手表缺失不阻塞声音路线。

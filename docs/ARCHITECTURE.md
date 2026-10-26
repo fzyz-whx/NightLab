@@ -55,3 +55,7 @@ metadata.json记录来源版本、原始文件完整性、特征定义/单位、
 ## 31人扩展隔离
 
 新`cleaning_v3.py`、`prepare_sleepaccel31.py`、`train/wearable31.py`绑定独立manifest/corpus和固定18/6/7划分。旧三人源码/cache/model不改；新loader再次核raw官方SHA、来源/数组摘要、身份/时间/缺失mask和旧三人精确兼容。完整结果见WEARABLE31_RESULTS.md。
+
+## Android本人采集端
+
+android/app是独立Kotlin客户端，不运行训练/诊断。RecordingService负责获准前台mic采集，PcmWavWriter流式写规范PCM16分片，SessionStore原子JSON与安全恢复/ZIP/删除。Activity/Service共用RecorderStorage，OperationGate将启动/恢复/导出/删除预约贯穿异步工作及Activity重建，避免恢复误伤新录音；IO不阻塞UI线程。Android只导出本地WAV/JSON，桌面当前解压后导入WAV，时间元信息独立保留。合成夹具已走实际桌面HTTP/文件/数据库/CPU模型链；硬件采集还需手机验证。

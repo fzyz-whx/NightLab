@@ -23,3 +23,12 @@ dist/
 private/
 *.egg-info/
 build/
+
+# Android local SDK paths, build caches, signing material and install packages
+.gradle/
+.kotlin/
+local.properties
+*.apk
+*.aab
+*.jks
+*.keystore

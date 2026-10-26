@@ -1,0 +1,18 @@
+{
+  "fixture_date": "2026-10-26",
+  "verified_at_utc": "2026-10-26T09:41:02.802616+00:00",
+  "input": "Actual Kotlin writer/SessionStore fixture export; synthetic PCM, not microphone",
+  "zip_chunks": 2,
+  "chunk_frames": 192000,
+  "chunk_seconds": 12,
+  "hashes_and_wav_headers_verified": true,
+  "first_start": "2026-10-25T23:59:59+08:00",
+  "second_start": "2026-10-26T00:00:11+08:00",
+  "desktop_http_imports": 2,
+  "no_wearable_dependency": true,
+  "owned_cpu_rf_actual_windows": 2,
+  "owned_rf_scope": "actual model path exercised",
+  "confirmed_delete_records_zero": true,
+  "standalone_kotlin_wav_seconds": 1,
+  "phone_microphone_or_screen_off_verified": false
+}

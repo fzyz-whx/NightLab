@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+    namespace 'org.nightlab.recorder'
+    compileSdk 34
+    buildToolsVersion '34.0.0'
+    defaultConfig {
+        applicationId 'org.nightlab.recorder'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '0.1.0'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = '17' }
+    signingConfigs {
+        debug {
+            storeFile rootProject.file('../private/android-signing/debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+    buildTypes {
+        debug { debuggable true }
+        release { minifyEnabled false }
+    }
+    testOptions {
+        unitTests.all {
+            maxParallelForks = 1
+            jvmArgs '-XX:ActiveProcessorCount=2'
+            if (System.getProperty('nightlab.session.fixture')) {
+                systemProperty 'nightlab.session.fixture', System.getProperty('nightlab.session.fixture')
+            }
+            if (System.getProperty('nightlab.wav.fixture')) {
+                systemProperty 'nightlab.wav.fixture', System.getProperty('nightlab.wav.fixture')
+            }
+        }
+    }
+    lint { abortOnError true }
+}
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.9.22'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.json:json:20240303'
+}

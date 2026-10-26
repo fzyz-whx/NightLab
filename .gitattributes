@@ -7,3 +7,8 @@ frontend/*.json text eol=lf
 *.lock text eol=crlf
 *.png -text
 *.jpg -text
+
+# Gradle on the audited Windows toolchain emits these provenance files with CRLF.
+android/gradle/verification-metadata.xml text eol=crlf
+android/*.lockfile text eol=crlf
+android/app/*.lockfile text eol=crlf

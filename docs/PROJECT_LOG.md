@@ -221,3 +221,19 @@ fetch helper已实测合法16MiB响应与截断prefix保留；遇真实NSRR重�
 补齐规格16节缺失的.env.example（非敏感进程变量说明，不自动加载）、移动页脚非诊断标识、README研究问题与数据工具说明的旧状态。完整要求证据见REQUIREMENTS_AUDIT.md。前端typecheck/lint/build通过，JS250.89kB/gzip79.06kB；后端/模型来源未修改，不重复全套训练。两张实际synthetic错误/恢复截图和聚合收据保存并查看。个人实际文件未提供，该层仍未验收。
 
 错误恢复及规格补齐的实质性提交`335fdb45c039babb51499c42ce4d83b95c8a6120`已推送，GitHub API main完整hash相同；当时工作树干净，8766/5178无验收服务监听。此次前端检查和实际浏览器故障恢复通过；后端/模型/data来源未改，完整套件504/417记录仍对应上一阶段。唯一未完成验收仍是缺少本人实际录音/设备导出，不擅自扩大采集或追加可选功能。
+
+## 2026-10-26：用户收敛个人数据与提出Android采集端
+
+用户确认个人仅本人声音，暂无手表数据，暂不考虑舍友；公开声音/可穿戴研究保留。主线程核实仓库没有Android工程/APK，PATH与常见位置尚无可用Java/SDK/Gradle/adb，未下载安装或改全局环境。新增Android采集方案和分层验收，明确开发无需先接手机，APK后的真实试录才需设备；本轮为范围/环境/协议阶段，未宣称已写App或编译APK。已核对官方麦克风前台服务、运行时权限、AudioRecord和真机连接文档。后续不再等待个人手表文件。
+
+## 2026-10-26：Android本人声音采集首版
+
+用户确认去做并要求下载优先国内镜像。复用旧Zcode的SDK34/BuildTools34/JDK17/Gradle8.5，纠正此前默认位置检查不足；无SDK/模拟器重下载。阿里云google/public Maven优先，约295MB本地Maven缓存（不是流量抓包值），394登记artifact核对SHA256，6根依赖与官方checksum匹配；锁和严格验证元数据入库。
+
+实现Kotlin前台mic服务、显式权限/通知、每小时PCM16 WAV、真实时区/样本与设备JSON、私有存储、异常/孤立片恢复、试听/停止试听、流式ZIP导出与取消、确认删除。审查发现恢复/启动竞态，新增跨Activity的OperationGate和回归；stopSelf绑定startId防止旧会话结束影响新会话。签名密钥在项目private/android-signing，非全局配置，不进Git。
+
+offline clean/test/lint/assemble真实通过（32秒）；24 JVM用例22通过/2 Windows符号链接权限skip，含明确启用的2个跨语言夹具。lint0error/3兼容或图标提示。最终签名检查通过v2，APK927378字节，SHA256 9b7df3cc30e46321c6c09ce2f2b8a513f4b4840c0712dd656c43073f0e0f57c6。两个12秒Kotlin合成分片的SHA/头/跨午夜时间经桌面HTTP导入核验，无手表附件，真实自有RF完成2窗口，确认删除归零。
+
+没有连接/启动手机或模拟器，没有麦克风、锁屏或整夜通过声明；下一步手机短录。没有改训练、模型或公开数据来源，不重复旧研究。真实产物与边界见android/README和android-build-v1/interop报告。
+
+交付打包复核补上APK内MIT/Apache2开源许可全文与查看入口，lint/assemble/签名重新通过；核心WAV/store/gate/采集逻辑未变，JVM记录仍对应上述offline clean。最终APK927378字节、SHA256 9b7df3cc30e46321c6c09ce2f2b8a513f4b4840c0712dd656c43073f0e0f57c6，签名证书保持同一私钥，便于后续本机更新。

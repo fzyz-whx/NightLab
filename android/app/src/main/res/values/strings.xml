@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="start_error">无法开始录音：%1$s</string>
+    <string name="play_error">无法试听：%1$s</string>
+    <string name="capture_counter">%1$s · %2$s MiB</string>
+    <color name="brand_teal">#287D74</color>
+</resources>

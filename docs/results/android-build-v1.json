@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-26",
+  "package": "org.nightlab.recorder",
+  "version": "0.1.0",
+  "version_code": 1,
+  "artifact": "NightLabRecorder-0.1.0-debug.apk",
+  "artifact_local_path": "private/android-delivery/NightLabRecorder-0.1.0-debug.apk",
+  "bytes": 927378,
+  "sha256": "9b7df3cc30e46321c6c09ce2f2b8a513f4b4840c0712dd656c43073f0e0f57c6",
+  "release_type": "debug development APK",
+  "min_sdk": 26,
+  "target_sdk": 34,
+  "compile_sdk": 34,
+  "tools": {
+    "jdk": "17.0.20.1",
+    "gradle": "8.5",
+    "android_build_tools": "34.0.0",
+    "agp": "8.3.2",
+    "kotlin": "1.9.22"
+  },
+  "existing_sdk_jdk_gradle_reused": true,
+  "offline_clean_tasks": [
+    "clean",
+    "testDebugUnitTest",
+    "lintDebug",
+    "assembleDebug"
+  ],
+  "offline_clean_build_seconds": 32,
+  "signature_verify": {
+    "passed": true,
+    "v2": true,
+    "certificate_sha256": "ae8c050d47d66b659a90f87091eb40e10f2e5ba654267f327e9a9a13c6ad423d"
+  },
+  "permissions": [
+    "android.permission.RECORD_AUDIO",
+    "android.permission.FOREGROUND_SERVICE",
+    "android.permission.FOREGROUND_SERVICE_MICROPHONE",
+    "android.permission.POST_NOTIFICATIONS",
+    "android.permission.WAKE_LOCK"
+  ],
+  "microphone_service_exported": false,
+  "native_abi_specific_libraries": false,
+  "test_suites": [
+    {
+      "name": "org.nightlab.recorder.OperationGateTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.nightlab.recorder.PcmWavWriterTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.nightlab.recorder.SessionStoreTest",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2
+    }
+  ],
+  "tests": 24,
+  "passed": 22,
+  "skipped": 2,
+  "skip_reason": "Windows real symbolic-link creation privilege unavailable; two SessionStore link tests explicitly assumed",
+  "lint_errors": 0,
+  "lint_issues": [
+    {
+      "id": "UnusedAttribute",
+      "severity": "Warning"
+    },
+    {
+      "id": "ObsoleteSdkInt",
+      "severity": "Warning"
+    },
+    {
+      "id": "MonochromeLauncherIcon",
+      "severity": "Warning"
+    }
+  ],
+  "synthetic_kotlin_to_desktop_interop_report": "docs/results/android-desktop-interop-v1.json",
+  "source_sha256": {
+    "android/app/build.gradle": "88788b44fcf137bb5ae3d0aae58fccac4063d1251d96a069d02425f7bb30b906",
+    "android/app/src/main/AndroidManifest.xml": "e5fdfd01be0aa3af2ab11910f5c4e0b04419a6cd826709ed228d853da7388f2c",
+    "android/app/src/main/assets/third_party_notices.txt": "784f13734dbb3df044a5fa343d6427dc011e14ca002e7038d8438d25faa16f07",
+    "android/app/src/main/java/org/nightlab/recorder/MainActivity.kt": "311cfa478a9a12c2e258c5059ca71803cc0c3a136cbcd25f9e769993af26916e",
+    "android/app/src/main/java/org/nightlab/recorder/OperationGate.kt": "b5ec4ed32823e323c99e9f41c25ac8701368c3fa3c0f909526e7483693fc04eb",
+    "android/app/src/main/java/org/nightlab/recorder/PcmWavWriter.kt": "47ca5a270829ece559f9e35852bfe0e03e6b526544d7eb1c516764c7fc180523",
+    "android/app/src/main/java/org/nightlab/recorder/RecorderStorage.kt": "f507abbc4e8e474540ddb307ac55a88ca8f75c5a2ad8e0f4afa4f8e6283832c3",
+    "android/app/src/main/java/org/nightlab/recorder/RecordingService.kt": "c8910afdb37e761da0a354e9388e36c0279890439bf6a341051ee4b5ae4b52fa",
+    "android/app/src/main/java/org/nightlab/recorder/SessionStore.kt": "0a231f747ee2d8f111c144f6a56cf3b36aebc0be0917f5160826ca66210b14af",
+    "android/app/src/main/res/drawable/ic_launcher_foreground.xml": "854dd62b7f894965ca9748de3d45853b4ea77712ed7f80e9a86c31389a03176f",
+    "android/app/src/main/res/drawable/ic_recording.xml": "6e3d77b5f6597fd7f60c8da88553245e41d43339eb431bb3cc53cfda52b50b7b",
+    "android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml": "8d378e9bd4db56f2c3300539075af05b77959fea28c714200e49809b0c83d8a4",
+    "android/app/src/main/res/values/strings.xml": "6b26b9a745fcdd3a61e73f0080bd1f7939f83927a914da2d3f2928b29ed0fb4d",
+    "android/app/src/main/res/values/styles.xml": "59dcd89167ae7a9c66942d71d49cf29da8603a7ecbf61d3f8f2284f79e4205d2",
+    "android/app/src/main/res/xml/data_extraction_rules.xml": "09e5cf26d18437bf29da8d9d211bfcd55a16be99ec68bbaa72fa23fa08130b4b",
+    "android/build.gradle": "55dea7371933ee20d5ba0f550bd05d3799824ab486fd84e8ed98099c137e38b9",
+    "android/gradle.properties": "9acfec6b932b80c681f2fd2b581e2ed7737f6a6f0a51e0411c947579ae2b8500",
+    "android/settings.gradle": "e5223135f7087ee2028dca0788ed437be6843f89b6ebead56bd8072b8987b96a"
+  },
+  "physical_device_test_run": false,
+  "microphone_capture_verified": false,
+  "screen_off_or_overnight_verified": false,
+  "no_phone_or_emulator_started_by_build": true,
+  "third_party_license_asset": "assets/third_party_notices.txt",
+  "license_source": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+  "apache_license_source_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "post_clean_source_delta": "Open-source notices asset and viewer added after offline clean unit run; lint/assemble/signature rechecked. Core capture/store/gate sources unchanged."
+}
