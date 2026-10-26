@@ -65,3 +65,5 @@ APK private/android-delivery/NightLabRecorder-0.1.0-debug.apk，927378B，SHA 9b
 新模块RecordingService/MainActivity/SessionStore/PcmWavWriter/OperationGate，恢复/启动/导出/删除预约已防竞态；合法.part及已改名但未登记的连续孤立WAV可恢复为interrupted，不伪装连续完整。Android无INTERNET；仅本机保存后由用户导出ZIP。Java构建进程已退出，不留GPU/服务任务。
 
 scripts.verify_android_interop已实际通过Kotlin合成2x12秒包→桌面HTTP/SQLite/2窗自有RF→确认删除，非真实手机音频。详情android/README.md和docs/results/android-build-v1.json。下一步只需手机安装/权限/30–60秒回听与导出，再锁屏20–30分钟，最后本人整夜。不得把JVM/编译/合成通过当真机验收。
+
+Android首版实质性提交`7d5e7ead2703d38a18a9fd28dc08e7a3bacfdb14`已推送，GitHub API main完整hash相同。300公共文件检查未包含APK/密钥/缓存/原始录音，24个Android摘要相关文件在隔离检出逐字节相同。最终安装包927378B、SHA256 9b7df3cc30e46321c6c09ce2f2b8a513f4b4840c0712dd656c43073f0e0f57c6；目前仅待真实手机权限/短录/锁屏验收，不再等待手表数据。构建进程已退出，未运行手机/模拟器。

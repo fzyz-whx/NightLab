@@ -237,3 +237,5 @@ offline clean/test/lint/assemble真实通过（32秒）；24 JVM用例22通过/2
 没有连接/启动手机或模拟器，没有麦克风、锁屏或整夜通过声明；下一步手机短录。没有改训练、模型或公开数据来源，不重复旧研究。真实产物与边界见android/README和android-build-v1/interop报告。
 
 交付打包复核补上APK内MIT/Apache2开源许可全文与查看入口，lint/assemble/签名重新通过；核心WAV/store/gate/采集逻辑未变，JVM记录仍对应上述offline clean。最终APK927378字节、SHA256 9b7df3cc30e46321c6c09ce2f2b8a513f4b4840c0712dd656c43073f0e0f57c6，签名证书保持同一私钥，便于后续本机更新。
+
+Android首版实质性提交`7d5e7ead2703d38a18a9fd28dc08e7a3bacfdb14`已推送，GitHub API main完整hash相同。300公共文件检查未包含APK/密钥/缓存/原始录音，24个Android摘要相关文件在隔离检出逐字节相同。最终安装包927378B、SHA256 9b7df3cc30e46321c6c09ce2f2b8a513f4b4840c0712dd656c43073f0e0f57c6；目前仅待真实手机权限/短录/锁屏验收，不再等待手表数据。构建进程已退出，未运行手机/模拟器。
