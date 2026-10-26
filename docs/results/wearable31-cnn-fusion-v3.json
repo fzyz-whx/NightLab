@@ -1,0 +1,323 @@
+{
+  "task": "wearable",
+  "feature_set": "all",
+  "config": {
+    "seed": 42,
+    "epochs": 20,
+    "patience": 5,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 5.0,
+    "cpu_threads": 1
+  },
+  "seed": 42,
+  "selection": "highest validation Macro-F1; strict improvement, earliest tie, patience stop; test never selects",
+  "best_epoch": 4,
+  "best_validation_macro_f1": 0.28817802238781887,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss_batch_weighted": 1.5069688274711648,
+      "training_rows_seen": 16126,
+      "validation_macro_f1": 0.23947994431755365,
+      "elapsed_seconds": 1.0802328000063426
+    },
+    {
+      "epoch": 2,
+      "training_loss_batch_weighted": 1.4122250968227459,
+      "training_rows_seen": 16126,
+      "validation_macro_f1": 0.2537193848573601,
+      "elapsed_seconds": 2.277273100000457
+    },
+    {
+      "epoch": 3,
+      "training_loss_batch_weighted": 1.3638877171404409,
+      "training_rows_seen": 16126,
+      "validation_macro_f1": 0.25812464194201995,
+      "elapsed_seconds": 3.400132000002486
+    },
+    {
+      "epoch": 4,
+      "training_loss_batch_weighted": 1.3317010821678732,
+      "training_rows_seen": 16126,
+      "validation_macro_f1": 0.28817802238781887,
+      "elapsed_seconds": 4.42477130000043
+    },
+    {
+      "epoch": 5,
+      "training_loss_batch_weighted": 1.3099575830750796,
+      "training_rows_seen": 16126,
+      "validation_macro_f1": 0.2530842224413375,
+      "elapsed_seconds": 5.411616000004869
+    },
+    {
+      "epoch": 6,
+      "training_loss_batch_weighted": 1.2806392434097824,
+      "training_rows_seen": 16126,
+      "validation_macro_f1": 0.2339855657628655,
+      "elapsed_seconds": 6.45616549999977
+    },
+    {
+      "epoch": 7,
+      "training_loss_batch_weighted": 1.2603505069943675,
+      "training_rows_seen": 16126,
+      "validation_macro_f1": 0.27296357753531086,
+      "elapsed_seconds": 7.461867200006964
+    },
+    {
+      "epoch": 8,
+      "training_loss_batch_weighted": 1.2400338894437062,
+      "training_rows_seen": 16126,
+      "validation_macro_f1": 0.2801429095673284,
+      "elapsed_seconds": 8.48372190000373
+    },
+    {
+      "epoch": 9,
+      "training_loss_batch_weighted": 1.2202335485938345,
+      "training_rows_seen": 16126,
+      "validation_macro_f1": 0.23525677402766357,
+      "elapsed_seconds": 9.482369100005599
+    }
+  ],
+  "class_weights_training_only": [
+    2.0503496503496503,
+    3.3701149425287356,
+    0.40446450965638325,
+    1.5926913580246913,
+    0.8966360856269113
+  ],
+  "training_class_counts": [
+    1573,
+    957,
+    7974,
+    2025,
+    3597
+  ],
+  "label_order": [
+    "W",
+    "N1",
+    "N2",
+    "N3",
+    "REM"
+  ],
+  "split_rows": {
+    "train": 16126,
+    "validation": 4422,
+    "test": 6225
+  },
+  "parameter_count": 7877,
+  "models": {
+    "cnn": {
+      "validation": {
+        "macro_f1": 0.28817802238781887,
+        "balanced_accuracy": 0.31277358072688555,
+        "accuracy": 0.3448665762098598,
+        "label_order": [
+          "W",
+          "N1",
+          "N2",
+          "N3",
+          "REM"
+        ],
+        "confusion_matrix": [
+          [
+            141,
+            90,
+            51,
+            37,
+            14
+          ],
+          [
+            44,
+            93,
+            73,
+            40,
+            34
+          ],
+          [
+            68,
+            292,
+            1014,
+            430,
+            230
+          ],
+          [
+            55,
+            191,
+            343,
+            138,
+            93
+          ],
+          [
+            74,
+            143,
+            352,
+            243,
+            139
+          ]
+        ],
+        "per_class": {
+          "W": {
+            "precision": 0.36910994764397903,
+            "recall": 0.42342342342342343,
+            "f1": 0.3944055944055944,
+            "support": 333
+          },
+          "N1": {
+            "precision": 0.11495673671199011,
+            "recall": 0.3274647887323944,
+            "f1": 0.17017383348581885,
+            "support": 284
+          },
+          "N2": {
+            "precision": 0.5531914893617021,
+            "recall": 0.49852507374631266,
+            "f1": 0.5244375484871994,
+            "support": 2034
+          },
+          "N3": {
+            "precision": 0.1554054054054054,
+            "recall": 0.16829268292682928,
+            "f1": 0.16159250585480095,
+            "support": 820
+          },
+          "REM": {
+            "precision": 0.2725490196078431,
+            "recall": 0.14616193480546794,
+            "f1": 0.19028062970568105,
+            "support": 951
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero"
+      },
+      "test": {
+        "macro_f1": 0.24738963119070564,
+        "balanced_accuracy": 0.26030697307813594,
+        "accuracy": 0.313574297188755,
+        "label_order": [
+          "W",
+          "N1",
+          "N2",
+          "N3",
+          "REM"
+        ],
+        "confusion_matrix": [
+          [
+            181,
+            90,
+            118,
+            67,
+            67
+          ],
+          [
+            86,
+            157,
+            221,
+            40,
+            76
+          ],
+          [
+            155,
+            497,
+            1369,
+            344,
+            581
+          ],
+          [
+            40,
+            168,
+            314,
+            83,
+            235
+          ],
+          [
+            112,
+            403,
+            483,
+            176,
+            162
+          ]
+        ],
+        "per_class": {
+          "W": {
+            "precision": 0.3153310104529617,
+            "recall": 0.34608030592734224,
+            "f1": 0.3299908842297174,
+            "support": 523
+          },
+          "N1": {
+            "precision": 0.11939163498098859,
+            "recall": 0.2706896551724138,
+            "f1": 0.16569920844327177,
+            "support": 580
+          },
+          "N2": {
+            "precision": 0.5465069860279441,
+            "recall": 0.4646978954514596,
+            "f1": 0.5022931572188589,
+            "support": 2946
+          },
+          "N3": {
+            "precision": 0.11690140845070422,
+            "recall": 0.0988095238095238,
+            "f1": 0.10709677419354839,
+            "support": 840
+          },
+          "REM": {
+            "precision": 0.14451382694023193,
+            "recall": 0.12125748502994012,
+            "f1": 0.13186813186813187,
+            "support": 1336
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero"
+      }
+    }
+  },
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "peak_allocated_gpu_bytes": 70169600,
+  "elapsed_seconds": 9.63971070000116,
+  "smoke_only": false,
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.9.1+cu128",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "nightlab": "0.1.0.dev0"
+  },
+  "scope": "31-person subject-held-out research experiment; epoch-pooled metrics; no clinical or real-device validation",
+  "dataset": "sleepaccel-cohort-31",
+  "dataset_version": "PhysioNet 1.0.0",
+  "input_version": "deep-inputs-v3",
+  "verified_corpus_sha256": {
+    "classic": "9f8b59db871190ac1142c50b811d227d80d9568efc45866dbe1bf99b0550c920",
+    "deep": "af51a76693c38b0e1cd73347fd0c47e0764cfc63d640804cca0aa59be3c03ef7"
+  },
+  "checkpoint_sha256": "093f88a089bb00eea376ba5612eab5829cb4a3486b1afd030301a96a18d16b71",
+  "saved_loaded_predictions_exact": true,
+  "source_sha256": {
+    "inputs": "59b07adf3c6c58a7b6c24a53d953594c7d1829a5546194d08fa515b0de1955d5",
+    "models": "f8d1b2868849855c3631cd544bcfb82b50d96b666cc1b8e745ad3cd50d85f4ce",
+    "training": "eca3ce37a8095f789c9f0ff5693260d0a2ea2a83be6b1a470b1b401a9d5d8106"
+  },
+  "runner_source_sha256": "0416b3a16feac1b44edd252552276355a2ac5c9180f6efe98f62befe0de471b4",
+  "subject_counts": {
+    "train": 18,
+    "validation": 6,
+    "test": 7
+  },
+  "same_seed_rerun": {
+    "history_exact_excluding_timing": true,
+    "metrics_exact": true,
+    "best_epoch_exact": true,
+    "checkpoint_bytes_exact": true,
+    "probabilities_and_rows_exact": true
+  }
+}

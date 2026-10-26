@@ -1,12 +1,12 @@
 # 数据来源、许可与引用
 
-更新：2026-10-24。公开论文、数据访问声明、数据库许可、文件校验是不同证据。原始数据不进入本仓库的软件许可，也不进入Git。
+更新：2026-10-26。公开论文、数据访问声明、数据库许可、文件校验是不同证据。原始数据不进入本仓库的软件许可，也不进入Git。
 
 | 数据 | 已核实版本与许可 | 来源与引用 | 当前使用状态 |
 |---|---|---|---|
 | 多模态睡眠声音 | V5，CC BY 4.0，官方2025-06-20更新 | [官方数据](https://doi.org/10.57760/sciencedb.19070)；Tao, Huang, Miao, Yang. Scientific Data 12,1263 (2025), [论文](https://doi.org/10.1038/s41597-025-05583-8) | 两份JSON与一份阶段CSV校验通过，声音头存在时间冲突，冻结事件训练 |
-| PSG-Audio | V3，CC BY 4.0，页面2022-03-14更新 | [官方数据](https://doi.org/10.11922/sciencedb.00345)（现重定向10.57760/sciencedb.00345）；Korompili et al., Scientific Data 8,197 (2021), [论文](https://doi.org/10.1038/s41597-021-00977-w) | 一个已授权EDF分片及对应RML匹配官方MD5，时钟与区间通过最小结构检查；根README差异保留，扩大范围前继续审计 |
-| SleepAccel | PhysioNet 1.0.0，ODC-By 1.0正文已读；NSRR与该版本逐文件同一性未验证 | [NSRR](https://sleepdata.org/datasets/sleepaccel)、[PhysioNet](https://physionet.org/content/sleep-accel/1.0.0/)、[固定官方说明及其引用/资助要求](https://github.com/nsrr/sleepaccel-documentation/blob/d6a09dba76c38fd8c9e0429b095096b54224ee2e/pages/README.md) | 心率/标签SHA256已匹配，一人样本仅审计；加速度仍需完成 |
+| PSG-Audio | V3，CC BY 4.0，页面2022-03-14更新 | [官方数据](https://doi.org/10.11922/sciencedb.00345)（现重定向10.57760/sciencedb.00345）；Korompili et al., Scientific Data 8,197 (2021), [论文](https://doi.org/10.1038/s41597-021-00977-w) | 十人各第二小时20文件匹配官方MD5，时钟/区间已核；固定6/2/2试点与域差异保留 |
+| SleepAccel | PhysioNet 1.0.0，ODC-By 1.0；NSRR归档93个选定目标成员全部匹配官方SHA | [NSRR](https://sleepdata.org/datasets/sleepaccel)、[PhysioNet](https://physionet.org/content/sleep-accel/1.0.0/)、[固定官方说明及其引用/资助要求](https://github.com/nsrr/sleepaccel-documentation/blob/d6a09dba76c38fd8c9e0429b095096b54224ee2e/pages/README.md) | 31人HR/motion/labels全93文件验收、独立18/6/7实验已完成；steps未提取 |
 | BIDSleep | 1.0.1，ODC-By 1.0；见可穿戴报告的官方证据范围 | [官方记录](https://physionet.org/content/bidsleep-dataset/1.0.1/)、[DOI](https://doi.org/10.13026/rees-1092) | 可选，不下载全量 |
 
 CC BY 数据的公开使用需署名并标注修改。ODC-By 使用应保留许可、通知和来源要求；不能将“开放访问”改写为无任何义务。SleepAccel研究报告需保留官方要求的NSRR和Walch等引用及资助致谢。
@@ -32,3 +32,9 @@ SleepAccel当前选择3人共9文件，总84815494字节，全部匹配PhysioNet
 正式致谢保留官方要求的文字：
 
 > The National Sleep Research Resource was supported by the U.S. National Institutes of Health, National Heart Lung and Blood Institute (R24 HL114473, 75N92019R002).
+
+## 2026-10-26：当前已验收范围
+
+上方“当前试点”是当时历史状态。现在PSG10人20文件及SleepAccel31人93个HR/motion/labels文件均已校验；SleepAccel完整ZIP576850847字节下载完成，逐成员CRC/官方SHA通过（84新增/9复用）。NSRR归档续传身份由完整既有前缀匹配及最终93目标成员官方SHA核验支持；steps等extras不提取，不宣称整个镜像全库已核。许可正文也匹配官方SHA。详见WEARABLE_EXPANSION_PLAN.md和WEARABLE_CLEANING_V3.md，六模型结果见WEARABLE31_RESULTS.md。
+
+软件MIT不覆盖这些数据库或第三方文章。项目未再分发原始数据/权重，正式文章仍保留上述数据引用及NSRR资助致谢。

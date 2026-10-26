@@ -184,3 +184,7 @@ CNN误报较少但召回更低，不能称为检测改善。CNN测试70个FP中3
 两个新CNN均实际重训一次，权重张量、概率、损失/验证历史、最终指标完全相同；保存后独立weights_only加载预测相同。完整四模型噪声评价再复跑，除耗时外全部字段（含原始概率/bin/区间/匹配）精确相同；旧RF/CNN全部32条件与先前报告逐项不变，未因框架扩展产生基线漂移。可复核收据为`audio-augmentation-reproducibility-v1.json`及`noise-augmentation-inference-reproducibility-v1.json`。本机确定性不等于跨平台保证，缓存推理复跑不等于再次从raw重建所有特征。
 
 最新415测试通过、3项因Windows真实目录symlink权限跳过、54subtests通过，pip check通过。试点算法阶段验收见PHASE2_ACCEPTANCE.md；这不是整体goal完成，31人扩展尚待下载/文件验收/质量审计，软件主流程也仍待实现。
+
+## 2026-10-26：SleepAccel31独立扩展
+
+完整31人的HR/motion/labels经过官方SHA验收，新v3规范化及旧三人exact parity通过；冻结合理18/6/7受试者，26773监督epoch。六个模型和每个一次从头seed42复跑均已完成，保存加载/概率/指标/权重exact。RF心率/加速度/融合测试Macro-F1为.23836/.27118/.31161；CNN为.20877/.21391/.24739，多数类.12849。三CNN低于对应RF；N3/REM仍弱，不按test调参。旧三人不同split不直接作提升比较。完整训练预算、每类F1、混淆矩阵和限制见[WEARABLE31_RESULTS.md](WEARABLE31_RESULTS.md)。

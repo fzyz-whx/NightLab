@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "id": "sleepaccel-cohort-31",
+  "status": "all31 v3 inputs prepared; three RF and three CNN with fixed18/6/7 split trained and same-seed reruns verified; see docs/WEARABLE31_RESULTS.md",
+  "manifest": "data/manifests/sleepaccel-cohort-31.json",
+  "selected_option": "all31",
+  "authorization": {
+    "date": "2026-10-25",
+    "user_reply": "批准完整31人ZIP（推荐，576.85MB）",
+    "scope": "one official1.0.0 ZIP exactly576850847 bytes; admit28new people84files after member SHA checks; no authorization for2.26GB file-by-file fallback"
+  },
+  "subjects": {
+    "seed": 42,
+    "generator": "NumPy default_rng / PCG64",
+    "policy": "all three previously explored pilot subjects reserved for training; remaining IDs numerically sorted before seed permutation",
+    "subjects": {
+      "train": [
+        "1066528",
+        "5383425",
+        "8258170",
+        "1818471",
+        "5498603",
+        "8686948",
+        "8530312",
+        "5797046",
+        "1449548",
+        "9961348",
+        "8692923",
+        "3509524",
+        "6220552",
+        "7749105",
+        "2638030",
+        "1455390",
+        "8000685",
+        "844359"
+      ],
+      "validation": [
+        "46343",
+        "5132496",
+        "8173033",
+        "4018081",
+        "3997827",
+        "4426783"
+      ],
+      "test": [
+        "9618981",
+        "781756",
+        "1360686",
+        "9106476",
+        "759667",
+        "4314139",
+        "2598705"
+      ]
+    },
+    "unit": "subject",
+    "scope": "Frozen 31-person expansion; new split does not alter pilot reports"
+  },
+  "selection_policy": "Freeze approved all31 proposed_split verbatim: old three train; remaining numerically sorted then seed42 PCG64; no label/effect selection",
+  "acquisition": {
+    "archive_source": "https://sleepdata.org/datasets/sleepaccel/files/m/browser/motion-and-heart-rate-from-a-wrist-worn-wearable-and-labeled-sleep-from-polysomnography-1.0.0.zip",
+    "approved_primary_url": "https://physionet.org/content/sleep-accel/get-zip/1.0.0/",
+    "archive_exact_bytes": 576850847,
+    "archive_sha256_local": "f0c1345070823a21e2bcc23a0a2f0cd82b85add5fc7797713dd7ab64a224ff8a",
+    "archive_sha256_status": "local digest only; official archive SHA unavailable",
+    "intake_receipt": "data/raw/sleepaccel/archives/intake-receipt.json",
+    "intake_receipt_sha256": "0be9ff8c5f313d3cd2e53f9c3548cbe5f18633e7f9c9b8ebdc794cb271569489",
+    "source_plan_sha256": "f77ef3a301bc596007b47e73dde7a0acfde654e083b1799c48121c6c03fc4468",
+    "checksum_source_local_sha256": "a227a4b611b044fe1d2a3498fdff560f4071ce5895d744d5b1f60a3ad784fa71",
+    "new_files": 84,
+    "reused_files": 9,
+    "all_target_members_official_sha256_verified": true
+  },
+  "inventory_scope": "Complete only for 31 subjects x heart_rate/motion/labels (93 files); steps and other archive extras are excluded and not extracted",
+  "raw_exact_bytes": 2347765245,
+  "preparation_policy": {
+    "version": "sleepaccel-canonical-v3",
+    "scope": "sleepaccel-cohort-31 only; old pilot manifest/features/deep cache unchanged",
+    "signals": "exact complete-row np.unique(axis=0), then ascending original timestamp; no values changed",
+    "label_interval": "[first original label timestamp,last original label timestamp+30), including unscored epochs",
+    "remaining_timestamp_conflicts": "reject inside label interval after exact-row deduplication; report outside conflicts and crop them explicitly",
+    "labels": "strict original _validate_rows reject; no reordering or repair",
+    "missing": "no interpolation, averaging or imputation; masks retained",
+    "author_source": "https://github.com/ojwalch/sleep_classifiers/blob/ec9704f0290563016adbe48184365ab102daf9ea/source/utils.py#L112-L115",
+    "decision": "Main thread approved v3 after complete31 audit found zero conflicting same-timestamp groups within label intervals; no model results used",
+    "original_strict_v2_audit": {
+      "path": "data/processed/sleepaccel-cohort-31/quality-audit.json",
+      "sha256": "cb5e00d06e015723089877ef37b331442962e7c5a60d29a2a11ed36c22e06cf0",
+      "complete": true,
+      "all_valid": false,
+      "valid_subjects": 16,
+      "invalid_subjects": 15,
+      "policy": "collapse_identical complete blocks only"
+    }
+  },
+  "legacy_policy": "Do not alter old three-person split, cached features, models, or scores",
+  "quality_audit": "data/processed/sleepaccel-cohort-31/quality-audit.json",
+  "quality_audit_result": {
+    "complete": true,
+    "all_valid": false,
+    "audited_subjects": 31,
+    "valid_subjects": 16,
+    "invalid_subjects": 15,
+    "all93_raw_size_and_official_sha256_verified": true,
+    "all31_labels_valid": true,
+    "valid_subject_counts_in_frozen_partitions": {
+      "train": 10,
+      "validation": 5,
+      "test": 1
+    },
+    "failed_signal_counts": {
+      "motion_nonidentical_reversal": 11,
+      "heart_rate_nonidentical_reversal": 2,
+      "heart_rate_equal_timestamp": 2
+    },
+    "label_range_conflicting_timestamp_groups_all_subjects": 0,
+    "report_sha256_local": "cb5e00d06e015723089877ef37b331442962e7c5a60d29a2a11ed36c22e06cf0",
+    "audit_source_sha256": "7459117542f84f3285d8090dff2fcfdcf59a7c5e32d87c2b30ed215bfa47f6ed",
+    "quality_policy_unchanged": "collapse_identical only; no sorting, deduplication of partial blocks, averaging, exclusion, or model training was performed"
+  },
+  "upstream_readonly_evidence": {
+    "checked_date": "2026-10-26",
+    "repository": "ojwalch/sleep_classifiers",
+    "commit": "ec9704f0290563016adbe48184365ab102daf9ea",
+    "files": {
+      "source/utils.py": "c5784f2a7c1091c404025de43357b2babc3a1fdb",
+      "source/preprocessing/heart_rate/heart_rate_service.py": "794b5281ee91d6c1bcc69902ceaa2b309e1a5576",
+      "source/preprocessing/motion/motion_service.py": "87ec1916507ef374baaeded6e65580aad3356d9c",
+      "source/preprocessing/raw_data_processor.py": "685d03e2d89abae4eed5ca7f2a6f922ef3ac9546"
+    },
+    "implementation_observed": "Both signal load_raw methods call utils.remove_repeats; utils.py112-115 uses np.unique(array,axis=0), then timestamp argsort. This is broader than NightLab legacy identical-full-block policy. Cropping uses timestamp interval masks; valid epoch dictionary bins by timestamp, not input row index. No same-timestamp conflicting-value resolution is specified.",
+    "official_readme": "https://github.com/nsrr/sleepaccel-documentation/blob/d6a09dba76c38fd8c9e0429b095096b54224ee2e/pages/README.md",
+    "official_readme_observed": "Each timestamp is deidentified seconds relative to PSG; no guarantee of original row ordering or policy for conflicting equal timestamps.",
+    "candidate_only": "Main thread approved independent v3 before preparation/model results; implementation is versioned and limited to cohort31."
+  },
+  "v3_preparation_result": {
+    "complete": true,
+    "subjects": 31,
+    "classical_shape": [
+      26773,
+      13
+    ],
+    "deep_values_shape": [
+      26773,
+      5,
+      30
+    ],
+    "scored_rows_by_partition": {
+      "train": 16126,
+      "validation": 4422,
+      "test": 6225
+    },
+    "target_counts": {
+      "W": 2429,
+      "N1": 1821,
+      "N2": 12954,
+      "N3": 3685,
+      "REM": 5884
+    },
+    "deep_nan_values_retained": 817884,
+    "conflicting_timestamp_groups_inside_label_interval": 0,
+    "conflicting_timestamp_groups_outside_label_interval": 2,
+    "legacy_exact_parity": {
+      "1066528": true,
+      "5383425": true,
+      "8258170": true
+    },
+    "classic_corpus": "data/processed/sleepaccel-cohort-31/corpus.json",
+    "classic_corpus_sha256": "9f8b59db871190ac1142c50b811d227d80d9568efc45866dbe1bf99b0550c920",
+    "deep_corpus": "data/processed/sleepaccel-cohort-31/deep-inputs-v3/corpus.json",
+    "deep_corpus_sha256": "af51a76693c38b0e1cd73347fd0c47e0764cfc63d640804cca0aa59be3c03ef7",
+    "checks": [
+      "8 synthetic tests and8 subtests passed",
+      "all31 classical loaded by existing baselines.load_corpus",
+      "all31 deep artifact checksums, fields, shapes, identity and supervised masks verified",
+      "historical strict quality audit report SHA unchanged"
+    ],
+    "scope": "CPU1/worker1 local preparation and parity; no training, GPU use, model scores, production or clinical validation"
+  }
+}

@@ -1,0 +1,9 @@
+# Byte-hashed research inputs must keep their audited line endings on checkout.
+* text=auto eol=lf
+*.py text eol=lf
+*.json text eol=crlf
+frontend/*.json text eol=lf
+*.svg text eol=crlf
+*.lock text eol=crlf
+*.png -text
+*.jpg -text

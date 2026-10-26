@@ -199,3 +199,15 @@ fetch helper已实测合法16MiB响应与截断prefix保留；遇真实NSRR重�
 当前阶段提交前完整415通过、3 Windows真实symlink权限skip、54subtests（17.40秒），依赖检查通过。三项skip分别为需OS权限的真实目录链接创建，模拟解析/ZIP恶意链接等路径测试实际执行。所有新增研究图均查看，摘要与SRC/依赖/数据/权重SHA绑定；公开导出无原概率/间隔/学习均值尺度。归档最近实查333012915字节/PID7816仍活，不能将57.73%当数据验收。算法试点按PHASE2_ACCEPTANCE进入软件阶段；API_UI_PLAN是设计，尚无产品UI截图/功能声明。
 
 实质性提交`cdb87487be76f47d975a5afbaed93c2cdd869f3f`已推送，GitHub API返回main同一完整hash。29个阶段文件通过路径/单文件<5MB/SVG XML/空白/凭据扫描；数据/权重/progress/raw headers全在忽略目录。此阶段源树干净，归档后台继续：最新340613527/576850847，download_complete=false/member_crc_sha_verified=false。后续只做验证追记；整体goal保持进行中。
+
+## 2026-10-26：31人扩展、完整本地软件与交付核验
+
+前一检查点1c1b024d9d68e0f6737b76b102d89de377907182已推送。本阶段原归档owner87301确认exit0，576850847字节；intake93目标成员全部size/CRC/官方SHA通过、84新增/9复用。严格审计旧策略16/31接受，依据作者固定代码和域内零冲突事实制定独立v3，raw/旧源码不变，31人26773epoch、18/6/7，旧3精确兼容。六个RF/CNN与各自同seed复跑真实完成，融合RF/CNN Macro-F1=.31161/.24739，三CNN均低于RF。
+
+实现FastAPI/SQLite受控私有存储、流式WAV校验/上传、单worker CPU模型任务与取消、重启遗留任务恢复、Range/波形/谱图、通用CSV/JSON与跨午夜、标记/版本CSV、确认关联删除、只读真实研究结果。React三页实际构建；无自动数据/权重下载，FastAPI遥测明确关闭。
+
+完整Python492 passed、4 Windows真实symlink权限skip、117subtests；pip check、前端typecheck/lint/build通过。另建CPU venv/隔离前端完整安装，明确无Torch且无模型时Demo/媒体/SQLite可用。隐藏浏览器主线程实际上传32k双声道12.3秒、JSON/ISO跨午夜CSV、RF/增强CNN CPU推理、静音播放/选段停止、CSV下载、真实359窗口任务32后取消，以及取消/确认删除后目录和所有关联表核验；截图均实际捕获并查看。没有真人个人设备或医学验收。
+
+新增Windows脚本、MIT与保留原作者账号的CITATION、中文答辩稿、验收和交付核对。公开文件审查及提交/推送结果在完成后另追记完整hash；不在此预先声称已经提交。
+
+公开检出额外验证：151个摘要相关文件在新换行规则下逐字节一致。无数据/无Torch的新环境完整可用套件405通过/13跳过/117子测试；先发现2个偷用本机收据的测试，已换合成fixture而未放松实际数据验证。另发现新机器真实receipt会因绝对路径/耗时改变摘要，新增独立bind_sleepaccel31_receipt：重新验93真实raw/官方SHA和冻结元信息，仅在新克隆无既有产物时显式更新唯一receipt字段；12项合成测试含真实93微文件intake、绑定、冻结auditor接受、坏数据/原子失败。原本机不执行变更绑定，已训练来源不改。

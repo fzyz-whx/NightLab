@@ -1,116 +1,43 @@
-# 压缩后接续：NightLab
+# NightLab 接续入口
 
-更新：2026-10-25。这是进度索引，完整任务仍以PROJECT_SPEC.md及用户后续更新为准，整体任务未完成。
+更新：2026-10-26。完整目标以 PROJECT_SPEC.md 和用户后续指示为准；软件核心已通过验收，当前在最后提交/推送核验，不把算法里程碑当成最终交付。
 
-## 立即遵守
+## 当前授权与资源
 
-- 用户2026-10-25明确GPU回归且满功率电源，本次窗口允许单GPU轻量CNN训练。根AGENTS.md已追记；CPU线程<=2、准备worker1，不改系统/其他项目。没有跨项目自动队列。窗口结束回到默认等待授权。
-- 用户允许改进原始AI任务书，但需记录证据与调整；仓库已明确要求公开。
-- 只按阶段推进；本地优先、非诊断、数据不进Git、真实测试/提交/推送。子代理沿用用户要求的Sol低/中，只有独立且值得并行的任务才委派；主代理保留研究判断和整合。
+- 用户睡前明确要求自主推进、不再请示。公开仓库 https://github.com/fzyz-whx/NightLab；已有推送授权。新的大数据获取仍不得扩大历史清单，当前不需要新下载。
+- 本次GPU已归还且满功率，允许单进程轻量训练；31人训练已结束。CPU数值线程最多2、准备worker1。没有跨项目队列，不改其他项目/系统电源/全局Python或代理。
+- 子代理按会话指定Sol low/medium，不用Luna。主线程负责最终验收与Git。当前文件先看git status和实际进程。
 
-## 已完成并提交
+## 已完成的新阶段（本阶段Git提交前检查已完成）
 
-- 最新实质性提交`cdb87487be76f47d975a5afbaed93c2cdd869f3f`：噪声增强/等样本量控制实际训练复跑、四模型全条件评价/图表、Phase2试点验收、下载恢复工具与API/UI设计。已推送，GitHub API完整hash相同；当时工作树干净。API/UI仍只有设计，不要据提交名猜已实现。
-- 最近已推送`9439bb21be934b4fe4e456a6ecd18f99b98a3268`：冻结噪声完整比较/图表、31人批准计划、离线ZIP验收代码。GitHub API完整hash相同。后续增强和下载恢复工作尚待当前阶段提交。
-- 最新实质性里程碑`8e30cc10e3c39b41b0e096940b45d16cc49dcaea`：四CNN正式结果/精确复跑、输入消融、CNN连续事件和真实图表。已推送，GitHub API main完整hash相同；检查无NightLab训练/下载进程，工作树干净。后续文档追记见Git。
-- 最新实质性里程碑`c0e431045b9dc3e89417c8986070201abece87db`：真实连续声音事件评价、失败统计及图表。已推送，GitHub API远端main完整hash一致，工作树干净；随后文档核验追记见Git历史。
-- Phase0最小数据审计，见PHASE0_ACCEPTANCE.md。主声音ScienceDB19070 V5两样本事件跨度超过WAV长度，冻结事件训练；转任务书备用PSG-Audio。
-- Phase1传统基线试点，见PHASE1_ACCEPTANCE.md、EXPERIMENTS.md。核心提交31a0dfcfca01ea40dd9599b735a2b73ff52156a6；追记020db1f7ed0f11d1fef620d05893224b2d1a5fdf。两者已推送，远端hash已核验。
-- CPU环境：.venv，CPython3.12 AMD64；requirements-cpu.lock与25个wheel官方PyPI摘要核验，scripts/setup_cpu.ps1实际通过，pip check通过。全局Python不修改。
-- PSG十人各第二小时，20文件7109932234字节；新增6398951410字节经用户明确批准，所有官方MD5匹配。seed42/PCG64受试者6/2/2。6321个明确标签的10秒窗/5秒hop，67特征。
-- SleepAccel三人9文件84815494字节，全部按PhysioNet1.0.0 SHA256匹配；追加两人小样本71259543字节。NSRR官方替代源许可与选中文件身份已核验，未取完整31人ZIP。
-- 1066528心率16617行是5539行完整信号重复三次，官方摘要匹配；显式v2仅折叠逐项相同完整块，默认仍拒绝时间回退。WEARABLE_CLEANING.md有证据。三人2900有效30秒epoch，13特征。
-- 声音RF测试Macro-F1=.595983、balanced accuracy=.678096、AP=.283317、目标窗Precision=.302372；多数类Macro-F1=.452814。
-- 可穿戴融合RF测试Macro-F1=.209617、balanced accuracy=.250946；多数类Macro-F1=.095604。仅HR/仅accel/融合均真实运行，负面结果完整公开。每集合仅1人，不能声称总体效果。
-- 两条主基线固定种子重训指标精确一致，自己生成的保存模型加载后预测与重训模型逐项一致；docs/results/baseline-reproducibility.json含可信本地模型SHA。
-- 原始/特征/权重/runs均忽略，公开docs/results及artifacts/experiments是实际聚合结果。README有复现命令，架构见ARCHITECTURE.md。尚无API/UI/个人导入删除，软件LICENSE尚未确定；CNN结果见下。
+- API/SQLite/private媒体存储、React三页已实现。WAV原始body导入/知情同意、校验、Range播放、波形/局部谱图、真实RF/CNN CPU任务/状态/取消、用户标记/版本CSV、可穿戴CSV/JSON与缺口、确认关联删除、真实实验浏览。
+- 新API明确关闭FastAPI遥测，默认127.0.0.1；只有受控本机请求头允许变更。默认private/app忽略，全部原始/派生/权重/runs不提交。
+- 新环境setup_app.ps1实际在private/app-env-check创建CPU环境，pip check、隔离npm ci/typecheck/lint/build及无Torch/无模型的Demo/导入/媒体/数据库/删除通过。首次离线缓存不算空缓存新机器。
+- Python完整套件504 passed、4 Windows真实symlink权限skip、117 subtests passed，36.83秒；Starlette/httpx弃用警告保留。前端typecheck/lint/build通过。
+- 主线程实际隐藏浏览器已跑WAV文件选择上传（32kHz双声道PCM24，12.3秒）、坏附件拒绝、有效JSON缺口/Unknown/三轴、用户标记、RF和增强CNN完整推理、CSV真实下载、静音播放推进及选段结束暂停。截图/删除/响应式/跨午夜/真实任务取消已验收，见PHASE3_ACCEPTANCE.md。没有真人个人记录或真实设备验证。
 
-## 当前Phase2代码检查点
+## SleepAccel31真实状态
 
-最新完整测试：186 passed、1 Windows真实symlink权限skip、54 subtests passed（5.17秒），pip check通过。四个正式CNN与复跑、事件评价已完成；不要引用smoke分数当正式结果。
+- 已批准ZIP精确576850847字节，下载owner87301已exit0。不要重启旧下载。文件仍名sleep-accel-1.0.0.zip.part，但内容完整；本地SHA f0c1345070823a21e2bcc23a0a2f0cd82b85add5fc7797713dd7ab64a224ff8a。
+- intake实际exit0：93成员size/CRC/官方SHA全通过，84新增/9复用；许可正文匹配官方SHA。receipt本地忽略，SHA 0be9ff8c5f313d3cd2e53f9c3548cbe5f18633e7f9c9b8ebdc794cb271569489。仅取HR/motion/labels；不声称steps/归档extras全验证。
+- strict v2原审计31/31完整、只接受16；11motion乱序、2HR相同重复、2HR域外冲突。作者固定代码支持完整行去重再排序；独立v3保持raw，按完整label域裁剪、域内冲突拒绝，不插值/改时钟。见WEARABLE_CLEANING_V3.md。旧源码和三人结果不改。
+- v3经典/深度31/31complete，26773监督epoch，16126/4422/6225，冻结18/6/7，旧3全train。经典SHA9f8b59db871190ac1142c50b811d227d80d9568efc45866dbe1bf99b0550c920；deep SHAaf51a76693c38b0e1cd73347fd0c47e0764cfc63d640804cca0aa59be3c03ef7。817884 NaN保留，旧三人classical/deep exact parity。
+- 六模型与各自独立seed42复跑完成，保存加载/概率/指标/checkpoint与CNN非耗时history exact。新runner scripts/train/wearable31.py；默认严格校验不训练。结果docs/WEARABLE31_RESULTS.md与docs/results/wearable31-*.json。
+- test Macro-F1：RF HR .23836/accel .27118/fusion .31161；CNN .20877/.21391/.24739；多数类.12849。三CNN低于对应RF，无测试调参。测试七人仍小，没跨seed/外部设备/医学验证。当前无训练残留。
 
-- backend/src/nightlab/audio/events.py：固定5秒bin，取覆盖bin中心的窗口概率均值，阈值>=.5，合并相邻正bin。禁止缺覆盖bin。evaluate_events用一对一IoU>=.5，先最大匹配数量再最大IoU；返回TP/FP/FN、P/R/F1、FP/hour。边界截断参考参与检测，但不进入起止误差均值。38个手算/边界测试。
-- backend/src/nightlab/deep/inputs.py：真实STFT的32x100 log-mel图，不能用旧67维摘要伪造图；可穿戴5个1Hz观测值通道+2个观测mask，缺失保持NaN，标签/重复块沿用显式v2策略；MaskedChannelStandardizer只拟合训练观测，transform时缺失填0并保留mask。12测试通过。没有Torch依赖。
-- 两名子代理已结束，仅留下以上代码和测试；无子代理训练任务。
+## 冻结旧研究证据
 
-## 2026-10-25：CNN环境、输入和短程核验
+- 声音主ScienceDB19070 V5两样本时间冲突，冻结；备用PSG10人各第二小时20文件7.11GB官方MD5匹配，6/2/2。RF窗口Macro .595983/AP .283317，CNN .543759/.247170；事件RF F1 .115607/40.5FP/h，CNN .063694/35FP/h。
+- 噪声4SNR、white/hum、四分支与增强/等量控制完整实跑复跑。增强没有全面改善：未缩放窗口Macro .5664而事件F1 .0970；白噪声绝大多数漏检，滤波后增强仍全漏。见PHASE2_ACCEPTANCE/EXPERIMENTS与聚合JSON。
+- 不修改旧audio/features、wearable/features、deep/inputs、deep_cache、训练基础和噪声协议/源码：缓存和模型绑定源码SHA。新31独立模块，旧3每集合1人的结果只作历史pilot，不与新split直接比提升。
 
-- 项目venv已安装torch2.9.1+cu128；原有本机pip HTTP缓存2862033275字节与官方SHA256 `3a01f0b64c10a82d444d9fd06b3e8c567b1158b76b2764b8f51bfd8f535064b0`完全匹配，CP312 WindowsAMD64标签确认，本地复用无大包下载。8个新小依赖9556742字节与官方PyPI摘要一致。requirements-deep-common.lock、requirements-torch-cu128.lock、docs/DL_WHEELS.json及setup_deep.ps1已真实运行，pip check通过。未修改全局Python或其他项目。
-- 真实CUDA矩阵乘法通过，sm_120、capability12.0、RTX5060 Laptop可用。只有本次可用窗口授权GPU。
-- deep/models.py固定AudioCNN与WearableCNN（GroupNorm，不用BatchNorm/预训练）；deep/training.py训练集归一化/类别权重、val checkpoint、seed42、最多20epoch/patience5、batch64、FP32。协议docs/DL_PROTOCOL.md已在正式训练前固定。
-- scripts/datasets/deep_cache.py已实际准备10人7190张32x100音频图和三人2900个5x30值+2x30掩码epoch；原始/经典缓存/来源代码/时间标签核对，数据在各cohort/deep-inputs-v1下，complete=true。音频全部窗保留，仅监督mask参与训练/窗口评分。
-- scripts/train/cnn.py仅接受完整核验缓存，训练入口再次验证当前raw和经典来源。子代理审查发现原先只验deep NPZ的缺口，主线程补齐并加回归测试。一个Sol-medium代理实现models/deep_cache并只读审查trainer；主线程负责环境、协议、训练实现与最终核验。
-- GPU smoke：audio-cnn-smoke-v1为5batch+val，14.48秒/141020672峰值张量字节；wearable-cnn-smoke-v1为4.08秒/70169600字节。均无test指标，保存/weights_only加载同batch概率完全一致；合成CPU测试还核验了同种子训练一致、缺失mask/消融、训练统计范围。
-- CNN实现检查点`0b8545bc8de9f4d89abd81103e7d4c28c2a387b0`已推送并API核对远端一致（当时163测试）。后续正式结果见下。
+## 下一步
 
-## 2026-10-25：四个CNN正式结果与复跑
+1. 上述UI流程和真实文件/SQLite核验已完成，当前不需要重复运行。
+2. README/架构/隐私/实验/许可引用/中文答辩与验收/真实截图、新CPU环境实际启动均已完成。新绑定工具使实际当地intake可合法更新唯一收据摘要，既有训练目录不能换绑；见PORTABLE_REPRODUCTION.md。
+3. 所有必要检查通过后，审查Git公共文件、大小/凭据/数据忽略，整体阶段提交并推送，GitHub API比对完整hash。再追记实际hash，不凭旧日志声称干净。
+4. 本goal尚未标记complete。Android和时序扩展属于可选；没有真实设备输入时不编造个人实验。
 
-- 原run：audio-cnn-pilot-v1、wearable-cnn-fusion-v1、wearable-cnn-hr-v1、wearable-cnn-accel-v1；每个另有`-repro`。参数/划分未改，验证选点，不按test调参。
-- 音频CNN最佳epoch1/实际6，val/test Macro-F1=.643396/.543759，test balanced=.561332、AP=.247170，弱于冻结RF .595983/.283317。
-- wearable融合最佳8/实际13，test Macro-F1=.248215、balanced=.272078；HR最佳1/实际6、test Macro-F1=.204793；accel最佳2/实际7、test=.206617。测试只有一人；融合N3零检出、N1预测461对参考97，不能声称可靠。
-- 四个模型全部实际重训：state_dict每张量、权重SHA、概率、训练loss/val历史/最终指标完全一致；每次保存/weights_only独立加载概率相同。公开凭据`docs/results/cnn-reproducibility-v1.json`，这是同种子计算复现而非独立种子统计。
-- 首次报告误把缓存version写到dataset_version，修正runner将V3/PhysioNet1.0.0与input_version分开，重新四次运行并证明数值不变；旧本地报告保留，未手改分数。公共四份CNN JSON来自修正后的-repro，去除学习均值/尺度；真实图cnn-pilot-v1已查看。
-- scripts/evaluate/cnn_events.py校验概率/权重摘要、当前来源与全heldout行，权重仅hash不反序列化，复用冻结协议。audio-cnn-events-v1：val TP/FP/FN22/40/82 F1=.265060 FP/h20；test5/70/77 F1=.063694 FP/h35，比RF召回更差。测试5个匹配MAE4.5/2.2秒不能代表漏检。
-- CNN测试FP38无交集、32低IoU，FN40无交集、37低IoU；详细间隔/概率仅本地，公开summary按validation-01等匿名编号。神经训练已结束，无后台训练被留下；以实际进程/handle检查为准。
+当前验收服务：原主线程exec69865/PID11308与新CPU启动exec4827/PID16960均在完成核验后停止；暂无需要保留的验收服务/训练/下载进程。默认8766端口应空闲，接续以实查为准。实际截图与删除、跨午夜、响应式、真实任务取消均完成，详见PHASE3_ACCEPTANCE.md。
 
-## 连续事件评价已完成
-
-- `docs/EVENT_PROTOCOL.md`在计算真实指标前固定5秒网格/概率0.5/一对一IoU0.5。旧模型不重训、不按测试结果调参。
-- `scripts/datasets/dense_audio.py`只补齐固定验证/测试4条录音：共2876个窗口，复用2546、补算330；新窗不补监督标签。原始官方MD5/本地SHA256、旧特征/源码摘要、EDF/RML时钟、时间轴与身份核对；每条重算一个已存窗口，逐项相同。缓存位于原cohort录音下`psg-continuous-classic-v1`。
-- `scripts/evaluate/audio_events.py`只加载与`baseline-reproducibility.json`摘要相符的自建模型；所有文件先验摘要再joblib。旧声音报告没有后来添加的feature_subset字段，以67个完整特征名和数量核对；不改旧报告/模型。
-- 真实`runs/psg-events-pilot-v1`及`-repro`除耗时外所有报告字段完全一致；每个保存匹配独立复核IoU与一对一索引。全窗/bin概率与参考/预测时间轴保持本地忽略。
-- RF验证TP/FP/FN=28/58/76，事件F1=.294737，29FP/hour；测试10/81/72，F1=.115607，40.5FP/hour。多数类两集合均无预测、召回0。验证104参考/2小时、测试82参考/2小时，这四条无截断目标。
-- RF测试10个成功匹配的起/止MAE=2.65/5.05秒，不能用它掩盖72个漏检。FP中37个无交集、44个IoU不足；FN中20个无交集、52个不足。不能按测试分数改阈值。
-- 公共真实摘要/失败统计/复跑凭据在`docs/results/*events*`和`event-reproducibility-v1.json`；PNG/SVG及来源在`artifacts/experiments/psg-events-pilot-v1`，图已查看。不是产品UI截图，也不是Phase2整体完成。
-
-## 环境检查与失败状态
-
-- 实测GPU为NVIDIA RTX5060 Laptop，nvidia-smi驱动617.42、8151MiB；用户随后明确共享/低功耗约束，不能据旧空闲采样启用GPU。
-- 旧系统Python的Torch曾DLL错误，未修全局环境；2026-10-25项目venv独立CUDA安装已成功，不再受该旧失败阻塞。
-- 已查PyTorch官方安装入口及CPU索引。页面选择器文本可能陈旧，不把“最新版本”当事实。实际官方索引可用的CPU轮子：
-  - torch2.14.1+cpu，CPython3.12 WindowsAMD64，123996008字节。
-  - https://download-r2.pytorch.org/whl/cpu/torch-2.14.1%2Bcpu-cp312-cp312-win_amd64.whl
-  - SHA256 c52adc3bd526ff7fc5bdcc58fc4a76e6214d09951b646ffe5256ebd7ba60cef1。
-- 这是旧CPU轮子失败记录：pip --dry-run在约33MB处超时，进程终止、未安装。2026-10-25已有可用2.9.1 CUDA路径，不再重试2.14 CPU包；勿把旧pip临时文件当作活下载。
-- 旧下载已终止；以新进程/具体工具handle为准，不重启旧session。
-
-## 接下来先做什么
-
-1. 按API_UI_PLAN.md先锁依赖和接口，实施FastAPI/SQLite与React三页；当前只是设计，尚无API/UI可用。Node24.22.1/npm11.19.1已实查；项目venv无fastapi/uvicorn/soundfile/httpx，端口8766/5178当时空闲但启动前重验。
-2. 并行监督已批准的31人ZIP，唯一owner87301/PID7816，不能重启旧handle；完整退出且字节到齐后先跑离线CRC/93目标SHA验收，再创建31人manifest与质量审计，不能直接跳模型或声称数据就绪。
-3. 31人拟18/6/7已冻结，旧三人只在新train，验证/测试人未探索。质量门槛通过后再跑新版传统/CNN/消融，旧三人/声音十人试点报告不改，不根据测试表现换受试者。
-4. 个人记录导入/确认删除、完整DB/文件/模型/UI实路径验证、静音实际浏览器截图、许可/引用/中文讲解稿和新环境复现仍需完成。整体goal保留全部软件交付，不缩成CLI。
-
-## 当前抗噪批次开发
-
-- 校准基础提交`ab13cc381ed1e6880c878f232f3c3edf3e66062e`已推送，GitHub API hash一致。之后的feature/evaluator代码尚待本阶段提交。
-- pilot（训练995、white/-5）真实四分支全719窗特征已完成，57.85秒；每个明确监督的67参考向量、全部719张参考图与旧缓存完全一致。公开docs/results/noise-feature-pilot-v1.json。共同gain相同按float.hex精确复用参考矩阵；新joint_features一次FFT输出两个表示，与旧函数人工测试逐项相等。
-- 最新全套415 passed、3 Windows真实symlink权限skip、54 subtests（17.40秒），pip check通过。新临时HTTP502/503/504 bounded retry与403/长Retry-After不绕过的测试已纳入。
-- 特征session61898已确认exit0，16 record-condition全部完成，592.82秒，完整索引data/processed/psg-audio-pilot-10/noise-eval-v1/corpus.json为complete=true；不是仍在跑。输入/校准/来源/环境都校验，所有gain=1，参考67和图像与旧数据逐项相同。
-- 冻结RF/CNN评价noise-frozen-models-v1（session3547 exit0）与-repro（22513 exit0）已完成，约12.43秒；所有字段除耗时完全一致，包括概率/bin/事件/匹配。public docs/results/noise-frozen-models-v1.json、noise-frozen-inference-reproducibility-v1.json和三组PNG/SVG已生成并查看。复跑只对校验缓存推理，不是第二次重建全特征。
-- 未缩放RF/CNN分类与既有报告完整字典exact；事件F1仍.115607/.063694。白噪声四SNR两模型均全背景，F1事件0/FN82/FP0，窗口Macro-F1=.452814，不能以零FP当成功。工频滤波非一致改善；完整曲线/逐匿名人计数都保留。无增强模型结果。
-- 审查补齐RF训练provenance/完整67特征核对、独立未缩放基线、实际指标源码hash；窗口分类argmax与事件>=.5两规则如实记录。没有改测试阈值。
-- 增强数据session3460已确认exit0，六train人3775副本、710.38秒，noise-augmentation-v1/corpus.json complete=true。原始3775+副本7550，仅train。未滤波noisy分支选窗直接用同整段C/N/alpha/g，人工证明与流式noisy逐样本exact，减少无关滤波/FFT；不能改已冻结源码/协议，否则现cache拒绝复用。
-- 两模式已正式训练+实际重训：audio-clean-duplicate-v1[-repro]、audio-noise-augmented-v1[-repro]；smoke仅val。模型源码scripts/train/audio_augmentation.py，原索引/标签/身份/时间与全部train mask精确对应，无val/test副本。权重、概率、损失/验证历史exact；公共两个报告与audio-augmentation-reproducibility-v1.json已导出，学习均值尺度留私有。
-- 原始重复：test Macro-F1=.541873/AP=.248209，事件F1=.130435、45FP/h，选1/实际6epoch、118/708更新；增强：.566368/.258293，事件F1=.096970、37.5FP/h，选8/实际13epoch、944/1534更新。两者max预算相同但早停后实际步数不同，不能纯因果归功噪声。
-- 四模型噪声全32合并条件已评分并复跑，noise-augmentation-comparison-v1和-repro；原有RF/CNN全部32条件exact不变，四模型未缩放分类均match私有训练报告。白噪声增强0/5/10仅TP3/6/1（总82），-5零；滤波白噪声仍全漏，不全面改善。全部JSON/每匿名人/两组PNG-SVG已导出并查看；原概率/时间轴只本地。
-- Phase2试点验收见PHASE2_ACCEPTANCE.md，算法基本流程通过；下一步本地软件API/UI按API_UI_PLAN.md实现，31人扩展独立继续，整体goal未完成。当前尚无API/UI/SQLite/个人导入删除。
-
-## SleepAccel31人已授权与下载状态
-
-- 用户2026-10-25明确批准官方1.0.0 ZIP576850847字节，新增28人84文件；拟18/6/7，旧3人全部在新train，精确ID与93条大小/SHA在data/plans/sleepaccel-expansion-options.json。用户睡前要求自主继续、不再请示，原三人结果继续冻结。
-- 原文件三类全31人2347765245字节，已有84815494；不执行2.26GB逐文件fallback，选已批准ZIP。ZIP尚未完整且没有新原始成员被验收，不能声称31人就绪。
-- PhysioNet原curl handle45356已失效且无对应进程，保留4897875字节。单请求公共DNS核实IP，不改系统代理/DNS；NSRR同名官方ZIP的206 Range明确总576850847，完整4897875字节前缀与原partial SHA一致，才允许切换NSRR续传。计划记录来源链，ETag只作If-Range，不当SHA。
-- 旧handle45356/57313/18289/93481/71843均已终止，勿重启等它们。先长响应停于78MB，16MiB helper经TLS/低速失败推进97MB，再固定TLS1.2/HTTP1.1推进196MB；supervisor71843（旧PID4052）后至255266739，遇官方HTTP502失败，无当前owner。
-- 只有无curl owner/handle终止、bytes完整后，才执行scripts/datasets/sleepaccel_archive --execute。模块默认dry只元数据；执行前写complete=false，预审ZIP路径/映射/size，93成员逐CRC/官方SHA，新84逐文件独占原子发布、现9 SHA复用不改写；只取HR/motion/labels，extras不提取；archive SHA明确local非official。完整receipt在data/raw/sleepaccel/archives/intake-receipt.json。
-- intake代理曾额度受限，用户通知重置后查询ordinaryUsageAllowed为true，恢复完成2文件且跑25 passed/1 symlink skip；主线程复核及完整344测试通过。无真实提取，模型/清洗/cohort31manifest尚未开始。
-- fetch_sleepaccel_archive.py真实运行后主线程补了已观察到的重复非关键HSTS header兼容（关键Range/ETag重复仍拒绝），空TLS35等3次有限retry、TLS1.2/http1.1、每请求pin和noproxy（不改全局）、HTTP502/503/504有界重试并尊重Retry-After；401/403不绕过。actualRange/header+size检查后才append，网络截断合法prefix保留；local增量SHA/progress、锁、磁盘budget分开于93成员验收。
-- **当前唯一网络owner：exec session87301，Python PID7816，命令行含 --nightlab-sleepaccel-archive-supervisor，6次有限helper重试/30秒backoff；启动时fresh DOH=170.223.88.242。先poll此handle或实际PID/标记，不因等待超时另开下载。**起点255266739，最近实查已340613527字节（约59%），此前PID/命令标记确认仍在；仍未完整，fetch-progress.json.download_complete/member_crc_sha_verified分开。只有supervisor退出且字节576850847完整才可intake。
-- 元数据route代理4次限定1MiB probe总2227246字节，无其他下载job；NSRR direct TLS1.2有效body约290KB/s但TTFB19秒且长响应不稳定，现本机proxy总体无优势；未改Clash节点/TUN/DNS/其他项目。raw headers含负载均衡cookie，不抄公开报告。
-
-## 避免重读/重做
-
-- 从此文件、AGENTS.md、git status/log、对应源代码与实际产物继续，不要加载整段旧聊天或其他项目记忆。
-- docs/EXPERIMENTS.md和docs/results保留冻结分数。旧声学/可穿戴基线不要因后续测试分数修改。
-- .venv/Scripts/python.exe -m pytest -q可核验当前完整套件；长任务只能等待已确认存活的具体handle，不能凭partial或旧日志宣布在运行。
-- 已从系统压缩后的交接重新核验当前文件、进程和Git；代理本身没有调用强制compaction接口。这里持续保留精简接续记录。
+最终复查：主环境504通过/4权限skip/117子测试；无数据无Torch的隔离公共检出417通过/13可选依赖、权重或权限skip/117子测试。没有真人文件，不将这一层标记已验证。完整规格交付核对见DELIVERY_CHECKLIST.md，整体goal仍未标完成。

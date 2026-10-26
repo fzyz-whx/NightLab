@@ -143,7 +143,13 @@ class DatasetToolsTests(unittest.TestCase):
             with self.subTest(manifest=path.name):
                 manifest = cli.load_manifest(path, root)
                 self.assertEqual(manifest["id"], path.stem)
-                self.assertFalse(manifest["inventory_complete"])
+                self.assertIsInstance(manifest["inventory_complete"], bool)
+                if manifest["inventory_complete"]:
+                    self.assertEqual(manifest['id'], 'sleepaccel-cohort-31')
+                    self.assertEqual(len(manifest['files']), 93)
+                    self.assertIn('steps', manifest['inventory_scope'])
+                    self.assertEqual({entry['kind'] for entry in manifest['files']},
+                                     {'heart_rate', 'motion', 'labels'})
 
 
 if __name__ == "__main__":

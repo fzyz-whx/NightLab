@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-26",
+  "startup": "scripts/start_app.ps1 -VenvPath private/app-env-check/venv",
+  "fresh_cpu_environment_no_torch": true,
+  "same_origin_production_html": true,
+  "owned_rf_available_and_real_17_windows_completed": true,
+  "cnn_missing_torch_unavailable": true,
+  "demo_confirmed_delete_records_zero": true,
+  "no_download_or_gpu_on_startup": true
+}

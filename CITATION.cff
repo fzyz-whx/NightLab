@@ -1,10 +1,49 @@
 cff-version: 1.2.0
-message: "Please cite this development repository and the original datasets when using NightLab."
-title: NightLab
+message: "Please cite NightLab when using its software, and separately cite the datasets used. See docs/DATASETS.md for licenses and required acknowledgments."
 type: software
+title: "NightLab: local night-audio and wearable research workbench"
 version: 0.1.0.dev0
+date-released: 2026-10-26
 authors:
   - name: fzyz-whx
-repository-code: https://github.com/fzyz-whx/NightLab
-url: https://github.com/fzyz-whx/NightLab
-abstract: "A local research workbench for night audio and wearable sleep time series; development software, not a medical diagnostic product."
+repository-code: "https://github.com/fzyz-whx/NightLab"
+url: "https://github.com/fzyz-whx/NightLab"
+license: MIT
+keywords:
+  - sleep research
+  - audio
+  - wearable time series
+references:
+  - type: data
+    title: "Multimodal sleep respiratory dataset (V5)"
+    doi: 10.57760/sciencedb.19070
+  - type: data
+    title: "PSG-Audio (V3)"
+    doi: 10.57760/sciencedb.00345
+  - type: data
+    title: "SleepAccel (PhysioNet 1.0.0)"
+    url: "https://physionet.org/content/sleep-accel/1.0.0/"
+  - type: article
+    title: "The National Sleep Research Resource: towards a sleep data commons"
+    doi: 10.1093/jamia/ocy064
+    year: 2018
+    authors:
+      - family-names: Zhang
+        given-names: GQ
+      - family-names: Cui
+        given-names: L
+      - family-names: Mueller
+        given-names: R
+  - type: article
+    title: "Sleep stage prediction with raw acceleration and photoplethysmography heart rate data derived from a consumer wearable device"
+    doi: 10.1093/sleep/zsz180
+    year: 2019
+    authors:
+      - family-names: Walch
+        given-names: O
+      - family-names: Huang
+        given-names: Y
+      - family-names: Forger
+        given-names: D
+      - family-names: Goldstein
+        given-names: C

@@ -30,3 +30,7 @@
 
 当前数据已扩展到PSG-Audio十人/十小时和SleepAccel三人；相应固定清单为psg-audio-pilot-10、sleepaccel-pilot-3。前者20文件匹配官方MD5，后者9文件匹配官方SHA256。
 SleepAccel追加一人的心率存在三段完全相同的重复块，严格输入检查最初失败；显式v2策略与证据见WEARABLE_CLEANING.md。原始文件未修改。现有结果和小规模限制见EXPERIMENTS.md，不把全库或最终软件宣布验收。
+
+## 2026-10-26状态索引
+
+SleepAccel31人批准归档现已完整取得并对93目标成员完成官方摘要验收，新v3规范化后31/31通过，六模型与复跑完成；当前范围以WEARABLE_CLEANING_V3.md、WEARABLE31_RESULTS.md和新manifest为准。旧章节保留各阶段审计事实，不据批准/文件名推断成功。

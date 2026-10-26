@@ -1,0 +1,401 @@
+{
+  "models": {
+    "majority": {
+      "validation": {
+        "macro_f1": 0.12602230483271376,
+        "balanced_accuracy": 0.2,
+        "accuracy": 0.4599728629579376,
+        "label_order": [
+          "W",
+          "N1",
+          "N2",
+          "N3",
+          "REM"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            333,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            284,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            2034,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            820,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            951,
+            0,
+            0
+          ]
+        ],
+        "per_class": {
+          "W": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 333
+          },
+          "N1": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 284
+          },
+          "N2": {
+            "precision": 0.4599728629579376,
+            "recall": 1.0,
+            "f1": 0.6301115241635687,
+            "support": 2034
+          },
+          "N3": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 820
+          },
+          "REM": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 951
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero"
+      },
+      "test": {
+        "macro_f1": 0.12849198560680405,
+        "balanced_accuracy": 0.2,
+        "accuracy": 0.47325301204819276,
+        "label_order": [
+          "W",
+          "N1",
+          "N2",
+          "N3",
+          "REM"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            523,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            580,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            2946,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            840,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1336,
+            0,
+            0
+          ]
+        ],
+        "per_class": {
+          "W": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 523
+          },
+          "N1": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 580
+          },
+          "N2": {
+            "precision": 0.47325301204819276,
+            "recall": 1.0,
+            "f1": 0.6424599280340203,
+            "support": 2946
+          },
+          "N3": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 840
+          },
+          "REM": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1336
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero"
+      }
+    },
+    "random_forest": {
+      "validation": {
+        "macro_f1": 0.25923595182187253,
+        "balanced_accuracy": 0.2991771012452564,
+        "accuracy": 0.31637268204432384,
+        "label_order": [
+          "W",
+          "N1",
+          "N2",
+          "N3",
+          "REM"
+        ],
+        "confusion_matrix": [
+          [
+            166,
+            32,
+            56,
+            20,
+            59
+          ],
+          [
+            66,
+            46,
+            75,
+            12,
+            85
+          ],
+          [
+            197,
+            247,
+            748,
+            239,
+            603
+          ],
+          [
+            71,
+            135,
+            172,
+            36,
+            406
+          ],
+          [
+            80,
+            144,
+            263,
+            61,
+            403
+          ]
+        ],
+        "per_class": {
+          "W": {
+            "precision": 0.28620689655172415,
+            "recall": 0.4984984984984985,
+            "f1": 0.36363636363636365,
+            "support": 333
+          },
+          "N1": {
+            "precision": 0.076158940397351,
+            "recall": 0.1619718309859155,
+            "f1": 0.1036036036036036,
+            "support": 284
+          },
+          "N2": {
+            "precision": 0.5692541856925418,
+            "recall": 0.36774827925270404,
+            "f1": 0.44683393070489846,
+            "support": 2034
+          },
+          "N3": {
+            "precision": 0.09782608695652174,
+            "recall": 0.04390243902439024,
+            "f1": 0.06060606060606061,
+            "support": 820
+          },
+          "REM": {
+            "precision": 0.2589974293059126,
+            "recall": 0.4237644584647739,
+            "f1": 0.32149980055843635,
+            "support": 951
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero"
+      },
+      "test": {
+        "macro_f1": 0.27117564814573747,
+        "balanced_accuracy": 0.30269829815416815,
+        "accuracy": 0.3424899598393574,
+        "label_order": [
+          "W",
+          "N1",
+          "N2",
+          "N3",
+          "REM"
+        ],
+        "confusion_matrix": [
+          [
+            219,
+            82,
+            102,
+            7,
+            113
+          ],
+          [
+            105,
+            135,
+            142,
+            27,
+            171
+          ],
+          [
+            284,
+            414,
+            1171,
+            103,
+            974
+          ],
+          [
+            25,
+            161,
+            402,
+            23,
+            229
+          ],
+          [
+            134,
+            171,
+            379,
+            68,
+            584
+          ]
+        ],
+        "per_class": {
+          "W": {
+            "precision": 0.28552803129074317,
+            "recall": 0.4187380497131931,
+            "f1": 0.3395348837209302,
+            "support": 523
+          },
+          "N1": {
+            "precision": 0.14018691588785046,
+            "recall": 0.23275862068965517,
+            "f1": 0.17498379779650033,
+            "support": 580
+          },
+          "N2": {
+            "precision": 0.5332422586520947,
+            "recall": 0.39748811948404617,
+            "f1": 0.455464799688837,
+            "support": 2946
+          },
+          "N3": {
+            "precision": 0.10087719298245613,
+            "recall": 0.02738095238095238,
+            "f1": 0.04307116104868914,
+            "support": 840
+          },
+          "REM": {
+            "precision": 0.28198937711250605,
+            "recall": 0.437125748502994,
+            "f1": 0.34282359847373056,
+            "support": 1336
+          }
+        },
+        "absent_reference_classes": [],
+        "balanced_accuracy_scope": "mean recall over classes present in this reference split",
+        "macro_f1_scope": "fixed declared class list; absent classes contribute zero"
+      }
+    }
+  },
+  "config": {
+    "seed": 42,
+    "trees": 200,
+    "max_depth": 12,
+    "min_samples_leaf": 3
+  },
+  "hyperparameter_policy": "fixed before test evaluation; no search or test-based threshold selection",
+  "split_rows": {
+    "train": 16126,
+    "validation": 4422,
+    "test": 6225
+  },
+  "imputer_fit_scope": "training rows only",
+  "evaluation_unit": "windows/epochs in held-out subjects; not population or clinical validation",
+  "dataset": "sleepaccel-cohort-31",
+  "dataset_version": "PhysioNet 1.0.0",
+  "feature_subset": "acceleration",
+  "subject_count": 31,
+  "feature_count": 7,
+  "feature_names": [
+    "accel_sample_count",
+    "accel_x_std_g",
+    "accel_y_std_g",
+    "accel_z_std_g",
+    "accel_norm_mean_g",
+    "accel_norm_std_g",
+    "accel_norm_median_absolute_deviation_g"
+  ],
+  "feature_nan_count": 7308,
+  "elapsed_seconds": 3.5965193000010913,
+  "environment": {
+    "python": "3.12.10",
+    "nightlab": "0.1.0.dev0",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "experiment_scope": "pilot held-out subjects; no population or clinical validation",
+  "saved_loaded_predictions_exact": true,
+  "checkpoint_sha256": "1c9df5eab6e04ac85f74361fadcf2d2432257794c1a08ca58294085fd10362cd",
+  "verified_corpus_sha256": {
+    "classic": "9f8b59db871190ac1142c50b811d227d80d9568efc45866dbe1bf99b0550c920",
+    "deep": "af51a76693c38b0e1cd73347fd0c47e0764cfc63d640804cca0aa59be3c03ef7"
+  },
+  "runner_source_sha256": "0416b3a16feac1b44edd252552276355a2ac5c9180f6efe98f62befe0de471b4",
+  "subject_counts": {
+    "train": 18,
+    "validation": 6,
+    "test": 7
+  },
+  "same_seed_rerun": {
+    "metrics_exact": true,
+    "checkpoint_bytes_exact": true,
+    "probabilities_exact": true
+  },
+  "scope": "31-person subject-held-out research experiment; epoch-pooled metrics; no clinical or real-device validation"
+}

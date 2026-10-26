@@ -1,0 +1,27 @@
+{
+  "source_sha256": {
+    "scripts/train/wearable31.py": "0416b3a16feac1b44edd252552276355a2ac5c9180f6efe98f62befe0de471b4",
+    "scripts/train/baselines.py": "8ccfda7a75e15a86ac5932488bc0709b59448bb198cbe4bc5cc27f176ba0d64f",
+    "scripts/train/cnn.py": "4ac75b339912c75408058f5c5827f1c2d86279231abd69fa2498c563bcc6cc32",
+    "backend/src/nightlab/deep/inputs.py": "59b07adf3c6c58a7b6c24a53d953594c7d1829a5546194d08fa515b0de1955d5",
+    "backend/src/nightlab/deep/models.py": "f8d1b2868849855c3631cd544bcfb82b50d96b666cc1b8e745ad3cd50d85f4ce",
+    "backend/src/nightlab/deep/training.py": "eca3ce37a8095f789c9f0ff5693260d0a2ea2a83be6b1a470b1b401a9d5d8106",
+    "backend/src/nightlab/experiments/baseline.py": "80459a9c166f1574362e6952be2758b724e78c2242f66f8e37fe898a1b037a49",
+    "scripts/datasets/deep_cache.py": "a127844991c0a1f4c46883e4f6ce3848a32328d2fa642b6644b823c98087393a",
+    "backend/src/nightlab/wearable/features.py": "ae6962da23f3e2fbc343dc5e2f6df87961d21dc1891354f57963634676ca996c"
+  },
+  "result_sha256": {
+    "wearable31-cnn-accel-v3.json": "4b4f51bb908ff3d4094a8f3a023f4bbb981fc0dd3259df817758ba69b3067c28",
+    "wearable31-cnn-fusion-v3.json": "df6c2d9557628b8753abe0aa40400a521f29daa840fb2d0d9fc77b9cd16a0dcf",
+    "wearable31-cnn-hr-v3.json": "9de85fdcc092777b5500e4d67dc896dfa22b195d87560b2b3acfab4a0601964e",
+    "wearable31-rf-accel-v3.json": "8ae3cad2ae15d5622d506b833af326fafeb9ef7328aa96870247d2b58e828e56",
+    "wearable31-rf-fusion-v3.json": "934595a79e2ef8e92ae2d9a68d7dd24490b627898585c217b1b9174313ba4558",
+    "wearable31-rf-hr-v3.json": "053caf620738c14e43cfdb19c6ac18466319807c19ca844195b72d0aaa25dc72"
+  },
+  "all_six_saved_loaded_exact": true,
+  "all_six_same_seed_rerun_exact": true,
+  "source_freeze_note": "Old code inspected and not edited by this experiment; see Git diff in final integration review",
+  "tests": "tests/test_wearable31_training.py:16 passed",
+  "real_training": "6 models plus 6 same-seed independent reruns, exit0; one CUDA process; CPU numeric1",
+  "private_artifacts": "ignored runs/models only; no public fitted mean/scale, per-row predictions or raw time values"
+}

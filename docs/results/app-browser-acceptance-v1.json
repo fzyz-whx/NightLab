@@ -1,0 +1,30 @@
+{
+  "interrupted_http_upload_zero_records_or_staging": true,
+  "browser_import_audio": {
+    "sample_rate": 32000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "seconds": 12.3
+  },
+  "real_cnn_job_windows": 2,
+  "json_missing_unknown_and_axes_retained": true,
+  "user_marker_preserved_after_rf_then_cnn": true,
+  "browser_csv_download_with_model_version": true,
+  "synthetic_only": true,
+  "browser_iso8601_csv_cross_midnight_seconds": [
+    0,
+    2,
+    7
+  ],
+  "delete_cancel_retains_files_and_record": true,
+  "browser_confirm_delete_files_and_all_sql_tables_verified": true,
+  "waveform_seek_muted_audio_clock_and_selection_end_pause_verified": true,
+  "registered31_report_real_macro_f1_displayed": true,
+  "mobile390_no_horizontal_document_overflow": true,
+  "real_browser_cancelled_rf_windows": {
+    "completed_before_stop": 32,
+    "total": 359,
+    "status": "cancelled"
+  },
+  "browser_console_errors_or_warnings_after_final_reload": 0
+}

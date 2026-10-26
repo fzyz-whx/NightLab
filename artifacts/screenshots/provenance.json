@@ -1,0 +1,33 @@
+{
+  "capture": "Actual local NightLab browser screenshots, no raster editing",
+  "audio_and_watch_screens": "synthetic locally generated fixtures only",
+  "experiment_screen": "actual registered aggregate SleepAccel31 reports",
+  "date": "2026-10-26",
+  "files": [
+    {
+      "path": "artifacts/screenshots/delete-confirmation-demo.jpg",
+      "bytes": 46768,
+      "sha256": "c29bd29fe68e918a1fb3a8c9b321f2b5bb52c963874c7b521bbca7fdd1bb538a"
+    },
+    {
+      "path": "artifacts/screenshots/event-review-demo.jpg",
+      "bytes": 137347,
+      "sha256": "c2bc7c7c507590206454086f529b0b5c98dd950f62a1245a13e447598f53a9c6"
+    },
+    {
+      "path": "artifacts/screenshots/experiments-wearable31.jpg",
+      "bytes": 155466,
+      "sha256": "1f50807a9070949fccb21151dfd54d446bf78b814b8dd85864ddcac867741353"
+    },
+    {
+      "path": "artifacts/screenshots/mobile-experiments.jpg",
+      "bytes": 31899,
+      "sha256": "b652d3f1ffe8d9e1917a2c5d8355873bdd9c20f5c471503956afdb7207932a9a"
+    },
+    {
+      "path": "artifacts/screenshots/night-records-demo.jpg",
+      "bytes": 160031,
+      "sha256": "bf2686e6c1efc01f754e92b43851ad7aa0b22b0cde278f5cde2084516b07da5d"
+    }
+  ]
+}
