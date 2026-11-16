@@ -78,6 +78,36 @@ flowchart LR
 
 先看 [数据审计](docs/DATA_AUDIT.md)、[数据许可/正式引用及资助致谢](docs/DATASETS.md)、[获取计划](docs/WEARABLE_EXPANSION_PLAN.md)。数据获取默认 dry-run，其他机器/新清单仍要先审计预算；启动应用不会触发下载。
 
+### 获取公开数据：让首页「公开研究样本」可用（可选）
+
+原始数据**不随 Git 分发**（体积大且需按许可获取），因此新克隆里的「从公开研究样本开始」按钮会显示「尚未准备公开原始数据」。若要在真实数据上演示，按下面步骤准备即可；不想下载也完全不影响启动、合成 Demo 与「实验比较」里的真实结果。
+
+**数据集与官方地址**（均可公开获取，无需医学资质）：
+
+| 数据集 | 用途 | 官方地址 | 许可 | 本任务体积 |
+|---|---|---|---|---|
+| PSG-Audio V3 | 首页「公开样本」两分钟片段 + 声音研究 | [ScienceDB 00345](https://doi.org/10.11922/sciencedb.00345) | CC BY 4.0 | 20 个文件约 **7.11 GB** |
+| SleepAccel | 「实验比较」里的 31 人睡眠阶段实验 | [NSRR](https://sleepdata.org/datasets/sleepaccel) / [PhysioNet](https://physionet.org/content/sleep-accel/1.0.0/) | ODC-By 1.0 | ZIP 约 550 MB |
+
+下载来自国内 ScienceDB 与 PhysioNet，脚本会逐个核对官方 MD5/SHA256，大小不符或校验失败都会拒绝，不会写入错误文件。**所有步骤默认 dry-run（不联网、不写盘）**，确认清单后才用带 `--execute` 的命令真正下载。
+
+```powershell
+# 0) 先看下载计划：列出全部 20 个官方直链、字节数与校验和（不联网）
+.venv\Scripts\python.exe -m scripts.datasets plan --dataset psg-audio-pilot-10
+
+# 1) 真正下载整个 PSG 十人清单（约 7.11 GB，来源 ScienceDB，逐文件校验）
+#    想先看会下载什么，去掉 --execute 即为 dry-run
+.venv\Scripts\python.exe -m scripts.datasets.fetch_manifest --dataset psg-audio-pilot-10 --execute --confirm-large-download --workers 2
+
+# 2) 校验官方校验和与本地文件是否一致
+.venv\Scripts\python.exe -m scripts.datasets verify --dataset psg-audio-pilot-10
+
+# 3) 生成特征/语料等中间表示，供首页公开样本与训练使用
+.venv\Scripts\python.exe -m scripts.datasets prepare --dataset psg-audio-pilot-10 --execute
+```
+
+完成后重启应用，首页「从公开研究样本开始」的两个按钮即可载入验证集固定前 120 秒及 PSG 参考。**预期现象**：若数据未就绪，按钮为灰色并提示「尚未准备公开原始数据」；这属于正常降级，不是故障。可穿戴 31 人数据的获取见 [安装指南](docs/INSTALLATION.md) 与 [可迁移收据绑定](docs/PORTABLE_REPRODUCTION.md)。引用与署名要求见 [数据许可](docs/DATASETS.md)。
+
 ```powershell
 .venv\Scripts\python.exe -m scripts.datasets plan --dataset psg-audio-pilot-10
 .venv\Scripts\python.exe -m scripts.datasets.sleepaccel_archive
