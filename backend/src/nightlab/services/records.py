@@ -44,7 +44,8 @@ class RecordService:
             raise ValueError("文件路径越出受控目录")
         return resolved
 
-    def import_audio(self, staging_path, name, start_time=None, consent=False, is_demo=False, stop_requested=None):
+    def import_audio(self, staging_path, name, start_time=None, consent=False, is_demo=False, stop_requested=None,
+                     provenance=None, reference_events=()):
         stage = self._safe(Path(staging_path), self.staging_dir)
         destination = None
         created_directory = False
@@ -69,7 +70,9 @@ class RecordService:
             os.replace(stage, destination / "audio.wav")
             record = dict(id=record_id, name=str(name), created_at=utc_now(), start_time=start_time,
                           is_demo=bool(is_demo), consent=True, audio=info)
-            self.repo.create_record(record)
+            if provenance is not None:
+                record['provenance'] = provenance
+            self.repo.create_record(record, reference_events)
             return record
         except BaseException:
             if created_directory and destination.exists():

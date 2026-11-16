@@ -16,6 +16,18 @@ export interface NightRecord {
     is_demo: boolean;
     consent: boolean;
     audio: AudioInfo;
+    provenance?: {
+        kind: 'public_dataset';
+        dataset: string;
+        version: string;
+        subject_id: string;
+        split: string;
+        channel: string;
+        duration_seconds: number;
+        dataset_url: string;
+        license: string;
+        reference_count: number;
+    };
 }
 export interface Event {
     id: string;
@@ -23,7 +35,8 @@ export interface Event {
     start_seconds: number;
     end_seconds: number;
     label: string;
-    source: 'user' | 'demo' | 'model';
+    source: 'user' | 'demo' | 'model' | 'reference';
+    reference_clipped?: boolean;
     score: number | null;
     model_id: string | null;
     model_version?: string | null;

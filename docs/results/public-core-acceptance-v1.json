@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-26T10:31:22.122417+00:00",
+  "scope": "public-data core; optional personal/Android DLC not required",
+  "network_downloads": false,
+  "gpu_training": false,
+  "cpu_thread_limit": 2,
+  "fresh_owned_rf": {
+    "run_name": "public-core-audio-rf-v1",
+    "model_sha256": "a20408410200c503928ba3318d2cdada4a4257926e48e39ba4cce90c15865199",
+    "metrics_sha256": "8e33f340f03223d1a4a407ee49a05cc20c777a1c1ae4a5df8a5cf4c838630dd6",
+    "test_macro_f1": 0.5959831667963063,
+    "new_run_registration": true,
+    "arbitrary_pickle_import": false,
+    "cross_machine_retraining_verified": false
+  },
+  "real_public_excerpts": [
+    {
+      "fixed_validation_excerpt_seconds": 120,
+      "sample_rate": 48000,
+      "reference_count": 2,
+      "prediction_count": 2,
+      "csv_rows": 4,
+      "no_wearable_pairing": true,
+      "analyzed_windows": 23
+    },
+    {
+      "fixed_validation_excerpt_seconds": 120,
+      "sample_rate": 48000,
+      "reference_count": 0,
+      "prediction_count": 0,
+      "csv_rows": 0,
+      "no_wearable_pairing": true
+    }
+  ],
+  "registered_experiments": {
+    "builtin": 8,
+    "local": 1,
+    "new_report_values_match_real_metrics": true
+  },
+  "browser": {
+    "actual_in_app_browser": true,
+    "both_public_imports_completed": true,
+    "reference_prediction_distinction_visible": true,
+    "new_model_selected_and_completed": true,
+    "new_experiment_opened": true,
+    "screenshot_kept_private": true,
+    "playback_audibility_tested": false
+  },
+  "deletion": {
+    "workbench_copies_removed": true,
+    "sqlite_counts": {
+      "records": 0,
+      "events": 0,
+      "wearable": 0,
+      "jobs": 0
+    },
+    "raw_sources_hashes_unchanged": true
+  },
+  "checks": {
+    "python_passed": 558,
+    "python_skipped": 7,
+    "python_subtests_passed": 117,
+    "frontend_typecheck": true,
+    "frontend_lint": true,
+    "frontend_build": true,
+    "python_elapsed_seconds": 45.59
+  },
+  "optional_dlc": {
+    "personal_recording_required": false,
+    "phone_connected_or_recorded": false,
+    "android_real_device_verified": false
+  },
+  "limitations": [
+    "Two fixed validation excerpts are qualitative software demonstrations, not a new formal evaluation.",
+    "No paired PSG-Audio and SleepAccel subjects or clocks are assumed.",
+    "No clinical or cross-device reliability claim."
+  ]
+}

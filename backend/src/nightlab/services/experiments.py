@@ -1,6 +1,7 @@
 """Read only registered aggregate research reports and their own PNG figures."""
 import json
 from pathlib import Path
+from . import local_experiments
 
 
 CATALOG = {
@@ -27,6 +28,11 @@ class ExperimentService:
         return resolved
 
     def detail(self,experiment_id):
+        if experiment_id.startswith('local_'):
+            try:
+                return local_experiments.detail(self.root, experiment_id[6:])
+            except (OSError, ValueError, KeyError, TypeError):
+                return local_experiments.unavailable(experiment_id)
         if experiment_id not in CATALOG:
             raise KeyError(experiment_id)
         title,description,category,report_name,figure_dir = CATALOG[experiment_id]
@@ -36,7 +42,7 @@ class ExperimentService:
         figures = [{'name':image.name,'url':f'/api/experiments/{experiment_id}/figures/{image.name}'}
                    for image in sorted(directory.glob('*.png')) if self._owned(image,'artifacts/experiments').is_file()]
         return {'id':experiment_id,'title':title,'description':description,'category':category,
-                'dataset':report.get('dataset','公开数据试点'),'report':report,'figures':figures}
+                'dataset':report.get('dataset','公开数据试点'),'report':report,'figures':figures,'origin':'builtin'}
 
     def list(self):
         items = []
@@ -46,6 +52,15 @@ class ExperimentService:
                 items.append({name:value for name,value in detail.items() if name!='report'})
             except FileNotFoundError:
                 continue
+        try:
+            directory = local_experiments.owned(self.root, 'private', 'local-experiments')
+            paths = sorted(directory.glob('*.json')) if directory.is_dir() else []
+        except (OSError, ValueError):
+            paths = []
+            items.append({key:value for key,value in local_experiments.unavailable('storage').items() if key != 'report'})
+        for path in paths:
+            detail = self.detail('local_' + path.stem)
+            items.append({name:value for name,value in detail.items() if name!='report'})
         return items
 
     def figure(self,experiment_id,name):

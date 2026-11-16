@@ -1,69 +1,42 @@
 # NightLab 接续入口
 
-更新：2026-10-26。完整目标以 PROJECT_SPEC.md 和用户后续指示为准；软件核心已通过验收并提交推送；实际个人设备文件层仍未验收，不把算法里程碑当成最终交付。
+更新：2026-10-26。先检查工作树和实际进程；完整需求在PROJECT_SPEC.md，用户修订在DECISIONS.md。历史过程见PROJECT_LOG.md，不重放旧下载/训练。
 
-## 当前授权与资源
+## 当前目标与完成范围
 
-- 用户睡前明确要求自主推进、不再请示。公开仓库 https://github.com/fzyz-whx/NightLab；已有推送授权。新的大数据获取仍不得扩大历史清单，当前不需要新下载。
-- 本次GPU已归还且满功率，允许单进程轻量训练；31人训练已结束。CPU数值线程最多2、准备worker1。没有跨项目队列，不改其他项目/系统电源/全局Python或代理。
-- 子代理按会话指定Sol low/medium，不用Luna。主线程负责最终验收与Git。当前文件先看git status和实际进程。
+**用户最新明确：只依靠公开数据即可构成完整NightLab；本人手机录音与Android是可选DLC。** 手机未连接、无本人录音、无个人手表与舍友数据都不能再记为主项目阻塞。目标、操作与验收定义见CORE_DELIVERY.md；旧记录中“必须等真人文件才能完成”的解释已撤销。
 
-## 已完成并推送的新阶段
+主项目包含公开数据审计/许可、两条独立研究路线、经典/深度/抗噪与消融、本地工作台、公开样例与真实实验浏览、复现入口、文档/检查/Git交付。弱模型与负面结果保留，完成项目不等于获得可靠个人事件检测器。
 
-- API/SQLite/private媒体存储、React三页已实现。WAV原始body导入/知情同意、校验、Range播放、波形/局部谱图、真实RF/CNN CPU任务/状态/取消、用户标记/版本CSV、可穿戴CSV/JSON与缺口、确认关联删除、真实实验浏览。
-- 新API明确关闭FastAPI遥测，默认127.0.0.1；只有受控本机请求头允许变更。默认private/app忽略，全部原始/派生/权重/runs不提交。
-- 新环境setup_app.ps1实际在private/app-env-check创建CPU环境，pip check、隔离npm ci/typecheck/lint/build及无Torch/无模型的Demo/导入/媒体/数据库/删除通过。首次离线缓存不算空缓存新机器。
-- Python完整套件504 passed、4 Windows真实symlink权限skip、117 subtests passed，36.83秒；Starlette/httpx弃用警告保留。前端typecheck/lint/build通过。
-- 主线程实际隐藏浏览器已跑WAV文件选择上传（32kHz双声道PCM24，12.3秒）、坏附件拒绝、有效JSON缺口/Unknown/三轴、用户标记、RF和增强CNN完整推理、CSV真实下载、静音播放推进及选段结束暂停。截图/删除/响应式/跨午夜/真实任务取消已验收，见PHASE3_ACCEPTANCE.md。没有真人个人记录或真实设备验证。
+## 本轮公开主线完善
 
-## SleepAccel31真实状态
+- 首页新增两位验证集受试者固定前120秒PSG-Audio入口；每次载入实际核验官方raw摘要和既有准备收据。仅读Mic，有界写入工作台WAV副本，无自动下载。
+- PSG RML参考来源reference，与model/user/demo分开；不可作为用户标记删除，重分析保留。无已核验时区则用相对时间，不假配SleepAccel。
+- `python -m scripts.train.app_audio_rf --run-name <new>`默认dry-run，加`--execute`才训练固定已准备十人CPU RF，生成private/app-models收据，新模型可在桌面选择；不接收任意pickle/已有模型导入，拒绝覆盖。
+- `python -m scripts.register_experiment --run-name <new>`默认只检查，加`--execute`将本地经典run的白名单聚合快照登记到private/local-experiments。坏登记不阻断八个内置实验，不显示身份/原始路径/逐窗预测。
+- 已实际训练并登记public-core-audio-rf-v1，权重SHA a20408410200c503928ba3318d2cdada4a4257926e48e39ba4cce90c15865199。实际浏览器载入两样例、新RF完成23窗、查看本地新报告。第二样例2参考/2预测，第一样例0目标参考。CSV与确认删除链通过，四表归零，原始文件SHA不变。
+- 公开收据与边界见PUBLIC_CORE_ACCEPTANCE.md、results/public-core-acceptance-v1.json。原始波形界面证据只留private，不上传。
 
-- 已批准ZIP精确576850847字节，下载owner87301已exit0。不要重启旧下载。文件仍名sleep-accel-1.0.0.zip.part，但内容完整；本地SHA f0c1345070823a21e2bcc23a0a2f0cd82b85add5fc7797713dd7ab64a224ff8a。
-- intake实际exit0：93成员size/CRC/官方SHA全通过，84新增/9复用；许可正文匹配官方SHA。receipt本地忽略，SHA 0be9ff8c5f313d3cd2e53f9c3548cbe5f18633e7f9c9b8ebdc794cb271569489。仅取HR/motion/labels；不声称steps/归档extras全验证。
-- strict v2原审计31/31完整、只接受16；11motion乱序、2HR相同重复、2HR域外冲突。作者固定代码支持完整行去重再排序；独立v3保持raw，按完整label域裁剪、域内冲突拒绝，不插值/改时钟。见WEARABLE_CLEANING_V3.md。旧源码和三人结果不改。
-- v3经典/深度31/31complete，26773监督epoch，16126/4422/6225，冻结18/6/7，旧3全train。经典SHA9f8b59db871190ac1142c50b811d227d80d9568efc45866dbe1bf99b0550c920；deep SHAaf51a76693c38b0e1cd73347fd0c47e0764cfc63d640804cca0aa59be3c03ef7。817884 NaN保留，旧三人classical/deep exact parity。
-- 六模型与各自独立seed42复跑完成，保存加载/概率/指标/checkpoint与CNN非耗时history exact。新runner scripts/train/wearable31.py；默认严格校验不训练。结果docs/WEARABLE31_RESULTS.md与docs/results/wearable31-*.json。
-- test Macro-F1：RF HR .23836/accel .27118/fusion .31161；CNN .20877/.21391/.24739；多数类.12849。三CNN低于对应RF，无测试调参。测试七人仍小，没跨seed/外部设备/医学验证。当前无训练残留。
+## 冻结研究证据
 
-## 冻结旧研究证据
+- 声音原主候选ScienceDB19070 V5两样本时间冲突，冻结；PSG-Audio10人各第二小时20文件7109932234字节匹配官方MD5，6/2/2。RF窗口Macro .595983/AP .283317；CNN .543759/.247170。事件RF F1 .115607/40.5FP/h；CNN .063694/35FP/h，仅两测试小时。
+- white/hum四SNR、四分支、增强/等量控制完整实跑复跑，未全面改善。增强未缩放事件F1 .0970低于控制.1304；白噪声/滤波严重漏检。见EXPERIMENTS与PHASE2_ACCEPTANCE。
+- SleepAccel31官方1.0.0 ZIP576850847字节已完整下载，仍名.zip.part。本地归档SHA f0c1345070823a21e2bcc23a0a2f0cd82b85add5fc7797713dd7ab64a224ff8a不是官方归档摘要。93目标文件size/CRC/官方SHA通过，84新增9复用；原始收据本地保留。
+- v3完整行去重/排序/标签域裁剪，不插值或猜时钟，31人26773监督epoch，18/6/7（旧3全train），旧三人输入精确一致。六模型及各seed42独立复跑，权重/概率/指标和CNN非耗时history一致。RF HR/accel/fusion Macro .23836/.27118/.31161，CNN .20877/.21391/.24739，三个CNN均低于RF。见WEARABLE31_RESULTS。
+- 不改旧audio/features、wearable/features、deep/inputs、deep_cache、基础训练和噪声源码，避免破坏冻结来源SHA。新机器实际intake后按PORTABLE_REPRODUCTION在新克隆绑定唯一收据摘要；禁止复制旧私有收据或给已有模型换绑。
 
-- 声音主ScienceDB19070 V5两样本时间冲突，冻结；备用PSG10人各第二小时20文件7.11GB官方MD5匹配，6/2/2。RF窗口Macro .595983/AP .283317，CNN .543759/.247170；事件RF F1 .115607/40.5FP/h，CNN .063694/35FP/h。
-- 噪声4SNR、white/hum、四分支与增强/等量控制完整实跑复跑。增强没有全面改善：未缩放窗口Macro .5664而事件F1 .0970；白噪声绝大多数漏检，滤波后增强仍全漏。见PHASE2_ACCEPTANCE/EXPERIMENTS与聚合JSON。
-- 不修改旧audio/features、wearable/features、deep/inputs、deep_cache、训练基础和噪声协议/源码：缓存和模型绑定源码SHA。新31独立模块，旧3每集合1人的结果只作历史pilot，不与新split直接比提升。
+## 软件与资源
 
-## 下一步
+React/FastAPI/SQLite已有WAV校验、Range/波形/谱图、CPU单worker任务/取消、标记/版本CSV、可选CSV/JSON时序与缺口、确认关联删除、真实实验。默认private/app，127.0.0.1:8766，无启动数据/权重下载、无遥测。Windows setup_app/start_app实际新CPU环境通过；不是空缓存新电脑验收。
 
-1. 上述UI流程和真实文件/SQLite核验已完成，当前不需要重复运行。
-2. README/架构/隐私/实验/许可引用/中文答辩与验收/真实截图、新CPU环境实际启动均已完成。新绑定工具使实际当地intake可合法更新唯一收据摘要，既有训练目录不能换绑；见PORTABLE_REPRODUCTION.md。
-3. 已完成264公共文件检查、整个阶段提交推送与GitHub API完整hash比对；最新实质性提交55591a177d510de130ed214924c98399b22d2931。文档后续追记提交见git log。
-4. 本goal尚未标记complete。Android和时序扩展属于可选；没有真实设备输入时不编造个人实验。
+本轮没有新下载/GPU，只新增一次小规模CPU RF重训。数值线程<=2/准备worker1；不改系统电源、显卡功耗、其他项目进程、全局Python/代理/DNS。新的>500MB或全量数据仍须清单明确批准。子代理按会话指定Sol low/medium，不用Luna。
 
-当前验收服务：原主线程exec69865/PID11308与新CPU启动exec4827/PID16960均在完成核验后停止；暂无需要保留的验收服务/训练/下载进程。默认8766端口应空闲，接续以实查为准。实际截图与删除、跨午夜、响应式、真实任务取消均完成，详见PHASE3_ACCEPTANCE.md。
+## 可选DLC状态
 
-最终复查：主环境504通过/4权限skip/117子测试；无数据无Torch的隔离公共检出417通过/13可选依赖、权重或权限skip/117子测试。没有真人文件，不将这一层标记已验证。完整规格交付核对见DELIVERY_CHECKLIST.md，整体goal仍未标完成。
+个人仅本人声音，不等手表，不采舍友。Android Kotlin源码与签名debug APK已实现；工具复用USERPROFILE/.zcode/workspace/default/_toolchain，C:/android-sdk为空，不需重下SDK。构建/JVM/合成互通通过，**真实手机麦克风/锁屏/整夜未验收**，不阻塞主项目。
 
-此阶段已推送实质性提交55591a177d510de130ed214924c98399b22d2931，远端main完整hash相同。没有当前训练/下载或验收服务需要等待；主线程不再重跑已通过的套件。剩余真人记录/设备导出未给出，不擅自采集或搜索私人健康文件，用户睡前要求不再发问题。下次goal继续先做完整需求核对；若同一缺材料状态连续三轮且无其他进展，按goal规则才可标blocked，不将可选Android当必需补造。
+本地APK private/android-delivery/NightLabRecorder-0.1.0-debug.apk，927378字节，SHA 9b7df3cc30e46321c6c09ce2f2b8a513f4b4840c0712dd656c43073f0e0f57c6。private/android-signing/debug.keystore用于后续更新，必须保留，不当普通缓存清理、不上传。android/README.md记录权限/试录与限制。
 
-后续完整规格复核修复RecordViewer首次失败重试漏waveform/models，实际局部阻断→重试→1600波形点/两模型→真实17窗RF通过。新增.env.example、REQUIREMENTS_AUDIT.md与错误/恢复真实截图；前端检查再次通过。专属PID29324验收服务/浏览器已停止，无训练或下载。该修复的提交hash见git log，已通过的研究结果不重跑。
+## 结束检查与接续
 
-错误恢复及规格补齐的实质性提交`335fdb45c039babb51499c42ce4d83b95c8a6120`已推送，GitHub API main完整hash相同；当时工作树干净，8766/5178无验收服务监听。此次前端检查和实际浏览器故障恢复通过；后端/模型/data来源未改，完整套件504/417记录仍对应上一阶段。唯一未完成验收仍是缺少本人实际录音/设备导出，不擅自扩大采集或追加可选功能。
-
-## 最新用户范围更新（2026-10-26，覆盖此前等待手表的描述）
-
-个人数据仅本人声音，个人手表目前拿不到，舍友不纳入。不能继续以个人手表数据作为完成门槛。公开PSG十人/SleepAccel31人研究与冻结结果保留，个人声音单独做采集/探索。
-
-用户提出安卓采集软件需求：此前未实现，现在列为下一交付。环境只读核查尚未找到可用JDK/Android SDK/Gradle/adb；本轮未下载安装。采集规格、格式预算和真机验收层次见ANDROID_RECORDER_PLAN.md。写代码无需先连手机，APK安装/真实录音验收阶段再配合，ADB只在用户主动授权调试时使用。
-
-整体goal的原范围仍保留；App当前blocked记录来自旧材料阻塞，不代表新的Android实现已完成或已在后台运行。下一次实施先据当前环境准备源码/构建，保持CPU<=2、无GPU需求、不改全局环境。
-
-## 最新实施结果：Android已构建，等待真机（2026-10-26）
-
-覆盖上方“无Android工程/工具”等旧检查描述：工具实际在USERPROFILE/.zcode/workspace/default/_toolchain，已复用；Android Kotlin源码、debug APK已完成并真实签名核验。个人只本人声音、不等手表、不采舍友，公开研究保持冻结。
-
-APK private/android-delivery/NightLabRecorder-0.1.0-debug.apk，927378B，SHA 9b7df3cc30e46321c6c09ce2f2b8a513f4b4840c0712dd656c43073f0e0f57c6。签名key必须保留private/android-signing/debug.keystore用于更新，不清为普通构建缓存，不上传。构建命令scripts/build_android.ps1，国内镜像优先，严格验证；offline clean32秒通过。24 JVM用例22pass/2OS链接权限skip；lint0error/3非阻断提示。
-
-新模块RecordingService/MainActivity/SessionStore/PcmWavWriter/OperationGate，恢复/启动/导出/删除预约已防竞态；合法.part及已改名但未登记的连续孤立WAV可恢复为interrupted，不伪装连续完整。Android无INTERNET；仅本机保存后由用户导出ZIP。Java构建进程已退出，不留GPU/服务任务。
-
-scripts.verify_android_interop已实际通过Kotlin合成2x12秒包→桌面HTTP/SQLite/2窗自有RF→确认删除，非真实手机音频。详情android/README.md和docs/results/android-build-v1.json。下一步只需手机安装/权限/30–60秒回听与导出，再锁屏20–30分钟，最后本人整夜。不得把JVM/编译/合成通过当真机验收。
-
-Android首版实质性提交`7d5e7ead2703d38a18a9fd28dc08e7a3bacfdb14`已推送，GitHub API main完整hash相同。300公共文件检查未包含APK/密钥/缓存/原始录音，24个Android摘要相关文件在隔离检出逐字节相同。最终安装包927378B、SHA256 9b7df3cc30e46321c6c09ce2f2b8a513f4b4840c0712dd656c43073f0e0f57c6；目前仅待真实手机权限/短录/锁屏验收，不再等待手表数据。构建进程已退出，未运行手机/模拟器。
+本阶段最终测试/提交/远端hash以PROJECT_LOG末条和public-core-acceptance-v1.json为准。接续先实查Git和8766/5178监听；不要重跑已结束的服务或研究下载。主项目按公开主线验收后可完成goal；后续按用户新的具体改进或可选扩展推进，不能用缺个人材料无限延长。

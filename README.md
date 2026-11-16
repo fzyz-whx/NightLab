@@ -4,6 +4,8 @@
 
 研究问题：背景干扰下，滤波或噪声增强能否改善 PSG 参考呼吸事件定位？心率与加速度能否预测未见受试者的公开睡眠阶段？
 
+**交付范围：公开数据主项目可以独立运行、演示与复现；本人手机录音和 Android 采集是可选 DLC。** 不需要个人手表、舍友数据或先接手机。完整目标与运行路径见 [公开数据主项目](docs/CORE_DELIVERY.md)。
+
 当前已实现 React + FastAPI + SQLite 本地应用、声音 RF/CNN、SleepAccel 31 人 RF/CNN 消融，以及完整合成干扰/滤波/增强对照。主声音候选出现时间对齐冲突后冻结，声音路线使用经过校验的 PSG-Audio。负面结果与限制保留。
 
 ![实际工作台截图：本地生成的合成 Demo，非真人录音](artifacts/screenshots/night-records-demo.jpg)
@@ -17,12 +19,13 @@
 .\scripts\start_app.ps1
 ```
 
-浏览器打开 **http://127.0.0.1:8766**，点击“生成合成示例”，或选择有权使用的 WAV 并确认同意。安装过程使用哈希锁定的 CPU/API 依赖与 npm lockfile；默认不安装 Torch、不下载数据集或模型，启动脚本不联网安装。结束时在运行终端按 Ctrl+C。已有端口会拒绝启动，不终止其他项目。
+浏览器打开 **http://127.0.0.1:8766**，可以直接打开「实验比较」查看真实公开研究报告。已准备公开 PSG 数据时，首页可载入验证集固定两分钟样例及 PSG 参考；也可点击“生成合成示例”，或选择有权使用的 WAV。安装过程使用哈希锁定的 CPU/API 依赖与 npm lockfile；默认不安装 Torch、不下载数据集或模型，启动脚本不联网安装。结束时在运行终端按 Ctrl+C。已有端口会拒绝启动，不终止其他项目。
 
 新环境即使没有研究数据和模型，也能生成 Demo、导入/播放音频、浏览波形和谱图、导入可穿戴附件、添加/导出用户标记与确认删除。研究模型权重不进 Git；模型未准备时界面明确显示不可用。已登记聚合实验与图表可直接查看。模型训练与自有权重收据说明见 [安装指南](docs/INSTALLATION.md)，不能导入未知 pickle 冒充可信模型。
 
 ## 工作台
 
+- **公开样本**：从已校验的本地 PSG EDF/RML 载入固定验证片段，PSG 参考与模型预测分别展示；不会下载新数据或把独立 SleepAccel 假配为同一晚。
 - **夜间记录**：WAV/WAVEX/RF64、PCM/float，8–96 kHz、单/双声道、最大 4 GiB/24 小时。上传进度/取消、坏文件拒绝、秒级开始时间、波形与可穿戴时间轴。
 - **事件检查**：本地播放器、选段播放与结束暂停、局部声谱图、用户标记、真实模型任务进度/取消、事件得分及权重版本、CSV 导出。模型标记与用户观察分别标明。
 - **可穿戴附件**：通用 UTF-8 CSV/JSON、模板、相对秒/Unix 秒或毫秒/带时区 ISO。Unknown、空值和采样缺口保留；只有整夜汇总时仅展示汇总。并列显示不等于多模态融合。
@@ -90,11 +93,13 @@ flowchart LR
 .venv\Scripts\python.exe -m scripts.train.baselines --corpus data/processed/sleepaccel-cohort-31/corpus.json --run-name my-wearable-rf
 ```
 
+需要把**新训练的声音 RF** 用于工作台分析时，使用 `python -m scripts.train.app_audio_rf --run-name my-public-audio-rf --execute`；将新经典实验显示在「实验比较」使用 `python -m scripts.register_experiment --run-name my-public-audio-rf --execute`。两入口默认 dry-run，显式执行后分别生成私有模型收据与聚合实验快照，拒绝覆盖历史成果；[完整步骤](docs/CORE_DELIVERY.md)。
+
 经典流程无需 CUDA。可选 CNN 安装见 [安装指南](docs/INSTALLATION.md) 和 [深度协议](docs/DL_PROTOCOL.md)，大 Torch 轮子不得未经授权下载。31 人固定 CUDA 批次为 `python -m scripts.train.wearable31 --execute`，**只在明确 GPU 窗口运行**，会拒绝覆盖已有 run；不带参数只核验。平时 GPU 多项目共享，CPU 线程最多 2、准备 worker1，不改系统电源或其他项目，没有跨项目自动队列。
 
 ## 验收、隐私与交付
 
-本次完整 Python 套件 **504 passed、117 subtests passed、4 Windows 符号链接权限 skip**；前端 typecheck/lint/build 通过。独立 CPU venv 与前端副本安装通过，pip check 通过，无 Torch/模型路径实际导入与删除成功；不是空缓存新电脑实测。隐藏浏览器用合成文件完成真实上传、RF/CNN 推理、静音播放、附件/跨午夜、CSV 与关联删除，见 [软件验收记录](docs/PHASE3_ACCEPTANCE.md)。
+本次完整 Python 套件 **558 passed、117 subtests passed、7 Windows 符号链接权限 skip**；前端 typecheck/lint/build 通过，新增公开样本/新RF/新实验闭环见 [公开主线验收](docs/PUBLIC_CORE_ACCEPTANCE.md)。独立 CPU venv 与前端副本安装通过，pip check 通过，无 Torch/模型路径实际导入与删除成功；不是空缓存新电脑实测。隐藏浏览器用合成文件完成真实上传、RF/CNN 推理、静音播放、附件/跨午夜、CSV 与关联删除，见 [软件验收记录](docs/PHASE3_ACCEPTANCE.md)。
 
 ```powershell
 .venv\Scripts\python.exe -m pytest -q
@@ -112,10 +117,10 @@ npm --prefix frontend run build
 可用的非敏感环境变量示例见 [.env.example](.env.example)；应用读取当前进程环境，不会自动加载该示例文件。
 
 
-## Android 本人声音采集
+## 可选 DLC：Android 本人声音采集
 
 当前个人路线只有本人声音，不等待手表，不纳入舍友。Android首版支持显式开始/停止、前台录音通知、每小时WAV分片、采集时间/设备/哈希JSON、本地ZIP导出和确认删除；没有联网权限。APK最低Android8.0，文件在本机`private/android-delivery/NightLabRecorder-0.1.0-debug.apk`，不随Git发布。
 
 [安装、构建与试录步骤](android/README.md) · [构建/签名/JVM核验](docs/results/android-build-v1.json) · [Kotlin导出到桌面的实际合成验证](docs/results/android-desktop-interop-v1.json)
 
-已完成严格依赖校验和离线clean构建，24个JVM用例22通过/2权限skip；它们不是手机录音测试。没有真实手机/锁屏/整夜验收，也没有用合成PCM冒充本人录音。先短录和回听，再锁屏20–30分钟，之后再采集本人整夜。公开31人可穿戴研究保持独立，个人手表缺失不阻塞声音路线。
+已完成严格依赖校验和离线clean构建，24个JVM用例22通过/2权限skip；它们不是手机录音测试。没有真实手机/锁屏/整夜验收，也没有用合成PCM冒充本人录音。先短录和回听，再锁屏20–30分钟，之后再采集本人整夜。公开31人可穿戴研究保持独立；手机、个人手表与真人文件均不阻塞主项目完成。

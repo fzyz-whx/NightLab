@@ -59,10 +59,12 @@ class Repository:
         with self._connection() as db:
             return self._record(db, record_id)
 
-    def create_record(self, record):
+    def create_record(self, record, events=()):
         valid_id(record["id"])
         with self._connection() as db:
             db.execute("INSERT INTO records VALUES (?,?)", (record["id"], json.dumps(record, allow_nan=False)))
+            for event in events:
+                self._insert_event(db, {**event, 'record_id': record['id']})
         return record
 
     def get_events(self, record_id):
@@ -75,7 +77,7 @@ class Repository:
         event = dict(event)
         event.setdefault("id", str(uuid4()))
         valid_id(event["id"])
-        if event["source"] not in {"model", "user", "demo"}:
+        if event["source"] not in {"model", "user", "demo", "reference"}:
             raise ValueError("未知标记来源")
         if event["source"] != "model":
             event["score"] = event["model_id"] = None
@@ -93,8 +95,8 @@ class Repository:
             row = db.execute("SELECT data FROM events WHERE id=? AND record_id=?", (event_id, record_id)).fetchone()
             if row is None:
                 raise KeyError(event_id)
-            if json.loads(row[0])["source"] == "model":
-                raise ValueError("模型标记请通过重新分析替换")
+            if json.loads(row[0])["source"] in {"model", "reference"}:
+                raise ValueError("模型与公开参考标记不能作为用户标记删除")
             db.execute("DELETE FROM events WHERE id=?", (event_id,))
 
     def set_wearable(self, record_id, wearable):

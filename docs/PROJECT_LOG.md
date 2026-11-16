@@ -239,3 +239,15 @@ offline clean/test/lint/assemble真实通过（32秒）；24 JVM用例22通过/2
 交付打包复核补上APK内MIT/Apache2开源许可全文与查看入口，lint/assemble/签名重新通过；核心WAV/store/gate/采集逻辑未变，JVM记录仍对应上述offline clean。最终APK927378字节、SHA256 9b7df3cc30e46321c6c09ce2f2b8a513f4b4840c0712dd656c43073f0e0f57c6，签名证书保持同一私钥，便于后续本机更新。
 
 Android首版实质性提交`7d5e7ead2703d38a18a9fd28dc08e7a3bacfdb14`已推送，GitHub API main完整hash相同。300公共文件检查未包含APK/密钥/缓存/原始录音，24个Android摘要相关文件在隔离检出逐字节相同。最终安装包927378B、SHA256 9b7df3cc30e46321c6c09ce2f2b8a513f4b4840c0712dd656c43073f0e0f57c6；目前仅待真实手机权限/短录/锁屏验收，不再等待手表数据。构建进程已退出，未运行手机/模拟器。
+
+## 2026-10-26：公开数据独立主项目与可选采集DLC
+
+用户明确要求公开数据集即可构成完整项目，手机录音类似可选DLC。统一PROJECT_SPEC/DECISIONS/README/交付清单与接续入口，取消“必须等本人录音/真机”完成门槛；Android首版和未验设备事实保留。新目标与复现流程在CORE_DELIVERY.md。
+
+新增固定公开PSG验证片段入口，载入前重验官方raw摘要、源码/特征产物收据与EDF/RML时间；WAV副本/来源/裁剪参考仅本地保存。参考独立于模型/用户/demo，模型任务不覆盖参考，不能作为用户标记删除。两数据集不假配同步，原时钟无核验时区则不补造。
+
+补齐新克隆路径：app_audio_rf默认dry-run，execute才从固定已准备PSG十人训练自有RF，绑定本次模型/metrics/源码/依赖；不接收任意pickle。register_experiment仅显式登记经过校验的经典聚合快照，剔除原始身份/路径/逐窗数据，保留指标定义；坏本地登记不阻断内置报告。历史训练源码/划分/指标冻结。
+
+本机实际CPU训练public-core-audio-rf-v1，权重SHA a20408410200c503928ba3318d2cdada4a4257926e48e39ba4cce90c15865199。实际内嵌浏览器载入两位固定120秒验证样例，第二样例2参考/新RF完成23窗得到2候选，第一样例0目标参考；查看本地新报告，8内置+1本地，指标与实际新metrics一致。HTTP CSV为2参考+2预测；确认删除后四表与记录目录归零，原始EDF/RML再哈希不变。截图仅private，公开JSON只有汇总。无下载/GPU/手机/个人采集。
+
+最终主环境558通过、7真实Windows链接权限skip、117子测试通过（45.59秒），Starlette/httpx弃用警告保留；前端typecheck/lint/build通过。干净检出与公共文件检查、提交/推送hash将在实际完成后追记，不预先声称成功。

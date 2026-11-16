@@ -26,6 +26,7 @@ from nightlab.services import media,wearable_import
 from nightlab.services.model_registry import ModelRegistry
 from nightlab.services.jobs import JobManager
 from nightlab.services.experiments import ExperimentService
+from nightlab.services.public_examples import PublicExampleService
 
 
 class StrictBody(BaseModel):
@@ -53,6 +54,7 @@ def create_app(data_dir=None,project_root=None,num_threads=2,registry=None):
     models = registry or ModelRegistry(root,num_threads)
     jobs = JobManager(records,models,num_threads)
     experiments = ExperimentService(root)
+    public_examples = PublicExampleService(root, records)
     imports = set()
 
     @asynccontextmanager
@@ -106,6 +108,13 @@ def create_app(data_dir=None,project_root=None,num_threads=2,registry=None):
 
     @app.get('/api/records')
     def list_records(): return {'records':records.repo.list_records()}
+
+    @app.get('/api/public-examples')
+    def list_public_examples(): return {'examples':public_examples.list()}
+
+    @app.post('/api/public-examples/{example_id}/import',status_code=201)
+    async def import_public_example(example_id:str):
+        return await asyncio.wrap_future(jobs.executor.submit(public_examples.import_example,example_id))
 
     @app.post('/api/records/import',status_code=201)
     async def import_audio(request:Request):

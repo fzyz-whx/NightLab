@@ -81,3 +81,9 @@ PowerShell Parser 检查两个新脚本无语法错误。启动脚本实际面�
 另一台机器的真实归档路径/耗时会改变intake receipt摘要。不要复制本机私有收据：仅在没有扩展缓存或models/runs的新克隆中，先实际验收当地归档，再用上述默认只读绑定检查及显式执行，唯一更新本地manifest的receipt摘要。官方93文件/划分/策略不变；本机既有实验拒绝换绑，详细边界见[PORTABLE_REPRODUCTION.md](PORTABLE_REPRODUCTION.md)。此流程由93个微型合成文件的真实intake→bind→冻结auditor测试覆盖，未冒充第二台机器重训。
 
 非敏感变量模板见仓库根目录`.env.example`。Python服务读取NIGHTLAB_DATA_DIR，Vite开发代理读取NIGHTLAB_API_URL；没有dotenv自动加载，可在PowerShell当前进程显式设置。示例不含凭据，也不改变默认运行配置。
+
+## 公开数据完整主线与可选扩展
+
+NightLab主项目只依靠公开数据。手机录音、Android真机、个人手表与舍友不是前置条件，见[完整主线操作](CORE_DELIVERY.md)。无原始数据/权重的新克隆可直接浏览已提交的八组聚合实验，合成Demo只用于软件展示。准备公开PSG十人后，首页可显式载入验证集固定前120秒及RML参考；载入会核验官方原始摘要与准备收据，不联网下载。
+
+新克隆不必复制原作者的模型摘要：`python -m scripts.train.app_audio_rf --run-name my-public-audio-rf --execute`从固定已准备PSG十人corpus训练新的自有CPU RF并生成私有收据；新模型可用于桌面分析。`python -m scripts.register_experiment --run-name my-public-audio-rf --execute`将本次经典run聚合快照登记到实验页，默认不带execute仅检查。对应SleepAccel经典run也可登记聚合报告；不把两套原始数据假配为同晚记录。既有run/权重/收据拒绝覆盖；训练失败的残留保留供排查，改用新的run名。
