@@ -8,6 +8,14 @@
 
 当前已实现 React + FastAPI + SQLite 本地应用、声音 RF/CNN、SleepAccel 31 人 RF/CNN 消融，以及完整合成干扰/滤波/增强对照。主声音候选出现时间对齐冲突后冻结，声音路线使用经过校验的 PSG-Audio。负面结果与限制保留。
 
+项目实际完成的工作比上面几句概括要多，这里展开说明，便于复核。
+
+声音这部分，主候选查出时间对齐冲突后冻结，相关证据保留在仓库中，声音路线改用逐文件核对过官方摘要的 PSG-Audio，10 人、20 个文件、7.11 GB。在该数据上完成了 6/2/2 划分的 RF 与 CNN、连续事件定位评测，以及白噪声与工频干扰在 −5 到 10 dB 的四档对照和等训练量的增强与滤波控制。增强与滤波没有带来全面改善，事件级定位的漏检和误报仍多，这些结果都如实保留。
+
+可穿戴从 3 人扩展到 31 人，93 个目标文件逐个核对，得到 26,773 个已评分 epoch，完成心率、加速度、融合三种输入与 RF、CNN 两类模型的对照，并按 18/6/7 划分受试者；6 个模型分别做了保存、加载和 seed42 从头复跑。CNN 在本机 GeForce RTX 5060 Laptop GPU 上以 CUDA 训练，20 epochs、batch 64；声音试点用 6,321 个有效 10 秒窗、67 维特征，可穿戴用 30 秒 epoch 与多模态输入。设备、超参与逐 epoch 耗时记在各模型的结果 JSON 中。
+
+工程方面，40 个测试文件、4,741 行，完整套件 558 项通过；独立 CPU 环境重装过一遍，37 篇文档记录开发、审计、协议与验收全过程。原始指标、失败案例和数据许可都随仓库归档，可逐项核对。
+
 ![实际工作台截图：本地生成的合成 Demo，非真人录音](artifacts/screenshots/night-records-demo.jpg)
 
 ## 在 Windows 上运行
@@ -129,7 +137,9 @@ flowchart LR
 
 ## 验收、隐私与交付
 
-本次完整 Python 套件 **558 passed、117 subtests passed、7 Windows 符号链接权限 skip**；前端 typecheck/lint/build 通过，新增公开样本/新RF/新实验闭环见 [公开主线验收](docs/PUBLIC_CORE_ACCEPTANCE.md)。独立 CPU venv 与前端副本安装通过，pip check 通过，无 Torch/模型路径实际导入与删除成功；不是空缓存新电脑实测。隐藏浏览器用合成文件完成真实上传、RF/CNN 推理、静音播放、附件/跨午夜、CSV 与关联删除，见 [软件验收记录](docs/PHASE3_ACCEPTANCE.md)。
+交付前分层核验。Python 套件 **558 passed、117 subtests passed、7 Windows 符号链接权限 skip**，覆盖数据审计、特征、模型、噪声对照、API 和存储；7 个 skip 源于 Windows 创建符号链接需要的系统权限。前端 typecheck、lint、build 均通过。
+
+环境在独立的 CPU venv 与前端副本中重装并 pip check 通过，确认无 Torch、模型路径的实际导入；这不是在空缓存的新电脑上实测，边界见 [安装指南](docs/INSTALLATION.md)。浏览器链路用合成文件走通上传、RF/CNN 推理、静音播放、可穿戴附件、跨午夜对齐、CSV 导出与关联删除，见 [软件验收记录](docs/PHASE3_ACCEPTANCE.md)。新增的公开样本、新 RF 训练和新实验登记闭环记在 [公开主线验收](docs/PUBLIC_CORE_ACCEPTANCE.md)。
 
 ```powershell
 .venv\Scripts\python.exe -m pytest -q
