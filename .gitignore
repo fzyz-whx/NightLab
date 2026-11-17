@@ -20,7 +20,8 @@ __pycache__/
 node_modules/
 dist/
 .pytest_cache/
-private/
+private/*
+!private/android-delivery/
 *.egg-info/
 build/
 
@@ -32,3 +33,9 @@ local.properties
 *.aab
 *.jks
 *.keystore
+
+# 随仓库交付的 Android 采集端 debug APK 及其构建收据（纯应用产物，不含任何个人数据）
+!private/android-delivery/
+private/android-delivery/*
+!private/android-delivery/NightLabRecorder-0.1.0-debug.apk
+!private/android-delivery/build-receipt.json

@@ -4,7 +4,7 @@
 
 研究问题：背景干扰下，滤波或噪声增强能否改善 PSG 参考呼吸事件定位？心率与加速度能否预测未见受试者的公开睡眠阶段？
 
-**交付范围：公开数据主项目可以独立运行、演示与复现；本人手机录音和 Android 采集是可选 DLC。** 不需要个人手表、舍友数据或先接手机。完整目标与运行路径见 [公开数据主项目](docs/CORE_DELIVERY.md)。
+公开数据主项目可独立运行、演示与复现；Android 声音采集端作为仓库附带的移动端组件一并交付。不需要个人手表、舍友数据或先接手机。完整目标与运行路径见 [公开数据主项目](docs/CORE_DELIVERY.md)。
 
 当前已实现 React + FastAPI + SQLite 本地应用、声音 RF/CNN、SleepAccel 31 人 RF/CNN 消融，以及完整合成干扰/滤波/增强对照。主声音候选出现时间对齐冲突后冻结，声音路线使用经过校验的 PSG-Audio。负面结果与限制保留。
 
@@ -147,10 +147,12 @@ npm --prefix frontend run build
 可用的非敏感环境变量示例见 [.env.example](.env.example)；应用读取当前进程环境，不会自动加载该示例文件。
 
 
-## 可选 DLC：Android 本人声音采集
+## Android 本人声音采集端
 
-当前个人路线只有本人声音，不等待手表，不纳入舍友。Android首版支持显式开始/停止、前台录音通知、每小时WAV分片、采集时间/设备/哈希JSON、本地ZIP导出和确认删除；没有联网权限。APK最低Android8.0，文件在本机`private/android-delivery/NightLabRecorder-0.1.0-debug.apk`，不随Git发布。
+个人路线只采集本人声音，不等待手表，不纳入舍友。采集端支持显式开始/停止、前台录音通知、每小时 WAV 分片、采集时间/设备/哈希 JSON、本地 ZIP 导出和确认删除；没有联网权限，最低 Android 8.0。
+
+仓库附带可直接安装的 debug APK：[下载 NightLabRecorder-0.1.0-debug.apk](private/android-delivery/NightLabRecorder-0.1.0-debug.apk)，配套[构建收据](private/android-delivery/build-receipt.json)（SHA256 与字节数可核对，签名已验证）。也可按源码自行构建。
 
 [安装、构建与试录步骤](android/README.md) · [构建/签名/JVM核验](docs/results/android-build-v1.json) · [Kotlin导出到桌面的实际合成验证](docs/results/android-desktop-interop-v1.json)
 
-已完成严格依赖校验和离线clean构建，24个JVM用例22通过/2权限skip；它们不是手机录音测试。没有真实手机/锁屏/整夜验收，也没有用合成PCM冒充本人录音。先短录和回听，再锁屏20–30分钟，之后再采集本人整夜。公开31人可穿戴研究保持独立；手机、个人手表与真人文件均不阻塞主项目完成。
+已完成严格依赖校验和离线 clean 构建，24 个 JVM 用例 22 通过/2 权限 skip；这些不是手机录音测试，真机短录/锁屏仍待实际验证，也没有用合成 PCM 冒充本人录音。建议先短录回听，再锁屏 20–30 分钟，然后采集本人整夜。公开 31 人可穿戴研究保持独立，个人手表与真人文件均不阻塞主项目。
